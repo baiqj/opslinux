@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+{% block content %}
+<div class="content">  
+ <div class="page-header">
+  <h1>{{ article.title}}</h1>
+</div>
+<div class="row">
+  <div class="span10">
+{{ article.content }}
+{% if PDF_PROCESSOR %}
+<span class="label">
+<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+</span>
+{% endif %}
+   <hr>
+   <div class="pagination">
+      <ul>
+	  {% if article.prev_article %}
+        <li class="prev"><a href="{{ SITEURL }}/{{ article.prev_article.url}}">← Previous</a></li>
+		{% else %}
+        <li class="prev"><a href="/">← Previous</a></li>
+		{% endif %}
+        <li><a href="/archives.html">Archive</a></li>
+		{% if article.next_article %}
+        <li class="next"><a href="{{ SITEURL }}/{{ article.next_article.url}}">Next →</a></li>
+		{% else %}
+        <li class="next"><a href="/">Next →</a></li>
+		{% endif %}
+      </ul>
+  </div>
+  
+
+<!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ops"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- Duoshuo Comment END -->
+  </div>
+   
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>{{ article.locale_date }} By <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></span></div>
+	<h4>Latest Articles</h4>
+	<script language="JavaScript" src="http://feed2js.liluohost.com/feed2js.php?src=http%3A%2F%2Fopslinux.com%2Frss.xml&num=10&utf=y"  charset="UTF-8" type="text/javascript"></script>
+	    {% if article.related_posts %}
+	<h4>Related Articles</h4>
+        <ul>
+        {% for related_post in article.related_posts %}
+            <li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}	
+  </div>
+</div>
+</div>
+{% endblock %}

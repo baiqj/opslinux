@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} {{ category }} - {{ SITENAME }} {% endblock %}
+{% block content %}
+ <div class="content"> 
+ <div class="page-header">	
+  <h1>{{ category }}</h1>
+</div>
+<div class="row">
+  <div class="span14">
+<ul class="posts">
+{% for article in (articles_page.object_list if articles_page else articles) %}
+    <li><span>{{ article.locale_date }}</span> &raquo; <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+	 {% endfor %}
+  </ul>
+<div class="pagination">
+      <ul>
+		{% if articles_page.has_previous() %}
+                        {% set num = articles_page.previous_page_number() %}
+						<li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">← Previous</a></li>
+                {% else %}
+                        <li class="prev"><a href="/">← Previous</a></li>
+                {% endif %}
+		
+		 
+		 <li><a href="/archives.html">Archive</a></li>
+		{% if articles_page.has_next() %}
+						<li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next →</a></li>
+                {% else %}
+                        <li class="next"><a href="/">Next →</a></li>
+                {% endif %}
+      </ul>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
