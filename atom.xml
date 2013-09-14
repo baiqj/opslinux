@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维人员</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2013-09-14T00:00:00+08:00</updated><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
-&lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
+&lt;p&gt;test因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;
 &lt;p&gt;vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。&lt;/p&gt;
