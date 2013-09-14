@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+<meta charset="utf-8">
+<title>zabbix监控mongoDB - 老运维人员</title>
+  <meta name="author" content="皓禹">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://www.linuxeden.com/favicon.ico">
+  <link rel="shortcut icon" href="http://www.linuxeden.com/favicon.ico"  type="image/x-icon" />
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link href="http://opslinux.com/theme/css/1.4.0/bootstrap.css" rel="stylesheet">
+<link href="http://opslinux.com/theme/css/style.css" rel="stylesheet" type="text/css" media="all">
+<link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维人员 ATOM Feed" />
+<link href="http://opslinux.com/rss.xml" type="application/atom+xml" rel="alternate" title="老运维人员 RSS Feed" />
+</head>
+  <body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="http://opslinux.com">老运维人员</a>
+<ul class="nav">
+                              <li><a href="/categories.html">Categories</a></li>
+                              <li><a href="/archives.html">Archives</a></li>
+                              <li><a href="/tags.html">Tags</a></li>
+                              <li><a href="/pages/about.html">About</a></li>
+                              <li><a href="/pages/links.html">Links</a></li>              
+                              
+							  <li><a href="/random.html">Random</a></li>
+
+            </ul>
+			<div id="search"><form method="get" action="/search.html"><input type="text" value="" name="q" id="s"></form></div>
+        </div>
+      </div>
+    </div>
+    <div class="container"> 
+	   <div class="content">  
+ <div class="page-header">
+  <h1>zabbix监控mongoDB</h1>
+</div>
+<div class="row">
+  <div class="span10">
+<h1>zabbix监控mongoDB</h1>
+<p>推荐文档：</p>
+<p>官方推荐：http://docs.mongodb.org/manual/administration/monitoring/</p>
+<p>因我使用的是zabbix.所以选择：</p>
+<p>https://code.google.com/p/mikoomi/wiki/03</p>
+<p>插件下载地址：</p>
+<p>http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/</p>
+<p>学习地址：</p>
+<p>https://blog.serverdensity.com/mongodb-monitoring-db-serverstatus/</p>
+<p>http://www.yaukb.com/2012/05/zabbix_mongodb/</p>
+<p><strong>1.在Zabbix Server上安装php MongoDB驱动：</strong></p>
+<p>[root@localhost conf.d]# pecl install mongo<br />
+WARNING: channel “pecl.php.net” has updated its protocols, use “pecl channel-update pecl.php.net” to update
+downloading mongo-1.4.3.tgz …
+Starting to download mongo-1.4.3.tgz (140,481 bytes)
+…………………………done: 140,481 bytes
+84 source files, building
+running: phpize
+Configuring for:
+PHP Api Version:         20100412
+Zend Module Api No:      20100525
+Zend Extension Api No:   220100525</p>
+<p>……</p>
+<p>Build process completed successfully
+Installing ‘/usr/lib64/php/modules/mongo.so’
+install ok: channel://pecl.php.net/mongo-1.4.3
+configuration option “php_ini” is not set to php.ini location
+You should add “extension=mongo.so” to php.ini
+You have new mail in /var/spool/mail/root</p>
+<p>[root@localhost conf.d]# vim /etc/php.ini<br />
+[root@localhost conf.d]# /etc/init.d/httpd reload<br /> 
+[root@localhost conf.d]# php -m |grep mongo<br />
+mongo</p>
+<p><strong>2.下载：</strong></p>
+<p>[root@localhost externalscripts]# pwd<br />
+/etc/zabbix/externalscripts<br />
+[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.php<br />
+[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.sh<br /></p>
+<p><strong>3.导入模板 建立主机：</strong></p>
+<p>将MongoDB_Plugin_template_export.xml导入到zabbix中
+修改"Miscellaneous: Data Collector"监控项的key值，因默认提供的值有错误：
+mikoomi-mongodb-plugin.sh["--", "-h", "{$MONGODB_HOSTNAME}", "-p", "{$MONGODB_PORT}", "-z", "{$MONGODB_ZABBIX_NAME}"]</p>
+<p>在zabbix里建立主机，定义宏：<br />
+{$MONGODB_HOSTNAME} = 10.0.199.30   #即ip地址<br />
+{$MONGODB_PORT} = 27017 #监控mongdb的端口号<br />
+{$MONGODB_ZABBIX_NAME} =MongDB1 #hostname 就是主机名 不要写显示名 这样会接受不到数据 一定是hostname<br />
+然后给主机连接上模板即可。</p>
+<p><strong>4.测试：<br /></strong></p>
+<p>[root@localhost externalscripts]# ./mikoomi-mongodb-plugin.sh -D -h10.0.199.30 -p27017 -z MongDB1
+0
+[root@localhost externalscripts]# less /tmp/mikoomi-mongodb-plugin.php_MongoDB1.log</p>
+<p>mikoomi-mongodb-plugin.php:Successfully connected to mongoDB using connect string root:passworda@MongDB1:27017
+zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required</p>
+<p>zabbix_sender [8413]: Warning: [line 68] ‘Key value’ required</p>
+<p>zabbix_sender [8414]: DEBUG: answer [{</p>
+<div class="highlight"><pre>    <span class="s">&quot;response&quot;</span><span class="o">:</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+
+    <span class="s">&quot;info&quot;</span><span class="o">:</span><span class="s">&quot;Processed 58 Failed 13 Total 71 Seconds spent 0.001618&quot;</span><span class="p">}]</span>
+</pre></div>
+
+
+<p>sent: 71; skipped: 2; total: 73</p>
+<p>/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)</p>
+<p><code>若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名</code></p>
+   <hr>
+   <div class="pagination">
+      <ul>
+	          <li class="prev"><a href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/">← Previous</a></li>
+		        <li><a href="/archives.html">Archive</a></li>
+		        <li class="next"><a href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/">Next →</a></li>
+		      </ul>
+  </div>
+  
+
+<!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ops"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- Duoshuo Comment END -->
+  </div>
+   
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2013-09-09 By <a href="http://opslinux.com/author/hao-yu.html">皓禹</a></span></div>
+	<h4>Latest Articles</h4>
+	<script language="JavaScript" src="http://feed2js.liluohost.com/feed2js.php?src=http%3A%2F%2Fopslinux.com%2Frss.xml&num=10&utf=y"  charset="UTF-8" type="text/javascript"></script>
+	    	
+  </div>
+</div>
+</div>
+<footer>
+<p>&copy; 2013 - 老运维人员 Powered by <a href="http://blog.getpelican.com/">Pelican</a>
+          with help from <a href="http://jekyllbootstrap.com/" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+    </div> <!-- /container -->
+  </body>
+</html>
