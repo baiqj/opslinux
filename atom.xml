@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维人员</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2013-09-14T00:00:00+08:00</updated><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维人员</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2013-10-25T22:01:19+08:00</updated><entry><title></title><link href="http://opslinux.com/post/2013-10-25-/" rel="alternate"></link><updated>2013-10-25T22:01:19+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-/</id><summary type="html">&lt;p&gt;Title: Nginx打造3w高并发网站
+Date: 2013-10-25
+category: nginx,高并发,web&lt;/p&gt;
+&lt;div class="section" id="nginx"&gt;
+&lt;h2&gt;Nginx 优化&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;编译安装过程优化&lt;/h3&gt;
+&lt;p&gt;在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆字节。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百千字节，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如下：
+在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行：:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+# debug
+CFLAGS=”$CFLAGS -g”
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;

@@ -2,7 +2,7 @@
 <html lang="zh_CN">
 <head>
 <meta charset="utf-8">
-<title>老运维人员</title>
+<title> - 老运维人员</title>
   <meta name="author" content="皓禹">
   <meta name="description" content="">
   <meta name="HandheldFriendly" content="True">
@@ -39,47 +39,61 @@
       </div>
     </div>
     <div class="container"> 
-	   <div class="content">
-	<div class="page-header">
-  <h1>老运维人员</h1>
+	   <div class="content">  
+ <div class="page-header">
+  <h1></h1>
 </div>
 <div class="row">
-  <div class="span10"> 
-    <p>本站是老运维人员blog，使用<a href="http://blog.getpelican.com/">Pelican</a>搭建。如有事情，请直接联系<a href="http://weibo.com/zb311">微博</a>，谢谢。</p>
-    <p>本人热爱开源事业，使用ubuntu，开发语言热爱python，编辑器使用vim，有相同爱好的朋友可以跟我交流。</p>
-<h4>最近发布的文章</h4>
-<ul class="posts">
-    <li><span>2013-10-25</span> &raquo; <a href="http://opslinux.com/post/2013-10-25-/"></a></li>
-	     <li><span>2013-09-14</span> &raquo; <a href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/">使用Vagrant打造你的虚拟环境</a></li>
-	     <li><span>2013-09-09</span> &raquo; <a href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/">zabbix监控mongoDB</a></li>
-	     <li><span>2013-07-13</span> &raquo; <a href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/">使用github和pelican搭建本站博客</a></li>
-	     <li><span>2013-07-12</span> &raquo; <a href="http://opslinux.com/post/2013-07-12-about/">about</a></li>
-	     <li><span>2013-07-12</span> &raquo; <a href="http://opslinux.com/post/2013-07-12-helloworld/">helloworld</a></li>
-	   </ul>
-<div class="pagination">
+  <div class="span10">
+<p>Title: Nginx打造3w高并发网站
+Date: 2013-10-25
+category: nginx,高并发,web</p>
+<div class="section" id="nginx">
+<h2>Nginx 优化</h2>
+<div class="section" id="id1">
+<h3>编译安装过程优化</h3>
+<p>在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆字节。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百千字节，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如下：
+在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行：:</p>
+<pre class="literal-block">
+# debug
+CFLAGS=”$CFLAGS -g”
+</pre>
+</div>
+</div>
+
+   <hr>
+   <div class="pagination">
       <ul>
-		                        <li class="prev"><a href="/">← Previous</a></li>
-                		
-		 
-		 <li><a href="./archives.html">Archive</a></li>
-		                        <li class="next"><a href="/">Next →</a></li>
-                      </ul>
-    </div>
+	          <li class="prev"><a href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/">← Previous</a></li>
+		        <li><a href="/archives.html">Archive</a></li>
+		        <li class="next"><a href="/">Next →</a></li>
+		      </ul>
   </div>
+  
+
+<!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"ops"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- Duoshuo Comment END -->
+  </div>
+   
   <div class="span4">
-<!--    <div class="date"><span>By<a href="">Github</a></span></div> -->
-  <h4>Github</h4>
-          <ul>
-            <li><a href="https://github.com/zbing3">Github</a></li>
-        </ul>
-  <h4>微博</h4>
-        <ul>
-            <li><a href="http://weibo.com/zb311">新浪微博</a></li>
-        </ul>
- 
+    <h4>Published</h4>
+    <div class="date"><span>2013-10-25 By <a href="http://opslinux.com/author/hao-yu.html">皓禹</a></span></div>
+	<h4>Latest Articles</h4>
+	<script language="JavaScript" src="http://feed2js.liluohost.com/feed2js.php?src=http%3A%2F%2Fopslinux.com%2Frss.xml&num=10&utf=y"  charset="UTF-8" type="text/javascript"></script>
+	    	
   </div>
-
-
 </div>
 </div>
 <footer>
