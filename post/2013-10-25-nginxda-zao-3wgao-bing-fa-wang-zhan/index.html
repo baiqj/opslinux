@@ -133,9 +133,6 @@ nginx      2396 nobody   11w REG   8,8       0    1599443 /tmp/tcmalloc.2396
 nginx      2397 nobody   13w REG  8,8        0    1599441  /tmp/tcmalloc.2397
 nginx     2398 nobody    15w REG  8,8     0    1599442 /tmp/tcmalloc.2398
 </pre>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/ce/workspace/pelican/blog/content/nginx优化.rst</tt>, line 105)</p>
-Literal block ends without a blank line; unexpected unindent.</div>
 <p>由于在Nginx配置文件中，设置worker_processes的值为4，因此开启了4个Nginx线程，每个线程会有一行记录。每个线程文件后面的数字值就是启动的Nginx的PID值。
 至此，利用TCMalloc优化Nginx的操作完成。</p>
 </div>
