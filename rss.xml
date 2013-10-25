@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Oct 2013 10:20:00 +0800</lastBuildDate><item><title>Nginx打造3w高并发网站</title><link>http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</link><description>&lt;div class="section" id="nginx"&gt;
-&lt;h2&gt;Nginx 优化&lt;/h2&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 11)&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Oct 2013 10:20:00 +0800</lastBuildDate><item><title>Nginx打造3w高并发网站</title><link>http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</link><description>&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 8)&lt;/p&gt;
 &lt;p&gt;Unknown directive type &amp;quot;toctree&amp;quot;.&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 .. toctree::
@@ -10,6 +8,8 @@
 
 &lt;/pre&gt;
 &lt;/div&gt;
+&lt;div class="section" id="nginx"&gt;
+&lt;h2&gt;Nginx 优化&lt;/h2&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h3&gt;编译安装过程优化&lt;/h3&gt;
 &lt;p&gt;在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆字节。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百千字节，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如下：
