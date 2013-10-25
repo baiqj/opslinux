@@ -4,7 +4,6 @@
 &lt;p&gt;Unknown directive type &amp;quot;toctree&amp;quot;.&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 .. toctree::
-   :maxdepth: 2
 
 &lt;/pre&gt;
 &lt;/div&gt;
