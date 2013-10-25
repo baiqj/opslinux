@@ -50,7 +50,7 @@
 <div class="section" id="id1">
 <h3>编译安装过程优化</h3>
 <p>在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆字节。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百千字节，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如下：
-在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行：:</p>
+在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行:</p>
 <pre class="literal-block">
 # debug
 CFLAGS=”$CFLAGS -g”
