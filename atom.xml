@@ -9,6 +9,138 @@
 # debug
 CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
+&lt;div class="section" id="cpucpu"&gt;
+&lt;h4&gt;为特定的CPU指定CPU类型编译优化&lt;/h4&gt;
+&lt;p&gt;在编译Nginx时，默认的GCC编译参数是“-O”，要优化GCC编译，可以使用以下两个参数:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+--with-cc-opt='-O3'
+--with-cpu-opt=CPU  #为特定的 CPU 编译，有效的值包括：pentium, pentiumpro, pentium3, pentium4, athlon, opteron, amd64, sparc32, sparc64, ppc64
+&lt;/pre&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 27)&lt;/p&gt;
+Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;要确定CPU类型，可以通过如下命令:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64;localhost home]#cat /proc/cpuinfo | grep &amp;quot;model name&amp;quot;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="tcmallocnginx"&gt;
+&lt;h4&gt;利用TCMalloc优化Nginx的性能&lt;/h4&gt;
+&lt;p&gt;TCMalloc的全称为Thread-Caching Malloc，是谷歌开发的开源工具“google-perftools”中的一个成员。与标准的glibc库的malloc相比，TCMalloc库在内存分配效率和速度上要高很多，这在很大程度上提高了服务器在高并发情况下的性能，从而降低系统负载。下面简单介绍如何为Nginx添加TCMalloc库支持。
+要安装TCMalloc库，需要安装libunwind（32位操作系统不需要安装）和google-perftools两个软件包，libunwind库为基于64位CPU和操作系统的程序提供了基本函数调用链和函数调用寄存器功能。下面介绍利用TCMalloc优化Nginx的具体操作过程：&lt;/p&gt;
+&lt;div class="section" id="libunwind"&gt;
+&lt;h5&gt;1.安装libunwind库&lt;/h5&gt;
+&lt;p&gt;可以从http://download.savannah.gnu.org/releases/libunwind下载相应的libunwind版本，这里下载的是libunwind-0.99-alpha.tar.gz，安装过程如下&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64;localhost home]#tar zxvf libunwind-0.99-alpha.tar.gz
+[root&amp;#64;localhost home]# cd libunwind-0.99-alpha/
+[root&amp;#64;localhost libunwind-0.99-alpha]#CFLAGS=-fPIC ./configure
+[root&amp;#64;localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC
+[root&amp;#64;localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC install
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="google-perftools"&gt;
+&lt;h5&gt;2.安装google-perftools&lt;/h5&gt;
+&lt;p&gt;可以从http://google-perftools.googlecode.com下载相应的google-perftools版本，这里下载的是google-perftools-1.8.tar.gz，安装过程如下:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64;localhost home]# tar zxvf google-perftools-1.8.tar.gz
+[root&amp;#64;localhost home]# cd google-perftools-1.8/
+[root&amp;#64;localhost google-perftools-1.8]# ./configure
+[root&amp;#64;localhost google-perftools-1.8]# make &amp;amp;&amp;amp; make install
+[root&amp;#64;localhost google-perftools-1.8]# echo &amp;quot;/usr/local/lib&amp;quot; &amp;gt; /etc/ld.so.conf.d/usr_local_lib.conf
+[root&amp;#64;localhost google-perftools-1.8]# ldconfig
+&lt;/pre&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 61)&lt;/p&gt;
+Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;至此，google-perftools安装完成。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h5&gt;3.重新编译Nginx&lt;/h5&gt;
+&lt;p&gt;为了使Nginx支持google-perftools，需要在安装过程中添加“–with-google_perftools_module”选项重新编译Nginx，安装代码如下:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64;localhostnginx-0.7.65]#./configure \
+&amp;gt;--with-google_perftools_module --with-http_stub_status_module  --prefix=/opt/nginx
+[root&amp;#64;localhost nginx-0.7.65]#make
+[root&amp;#64;localhost nginx-0.7.65]#make install
+&lt;/pre&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 72)&lt;/p&gt;
+Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;到这里Nginx安装完成。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h5&gt;4.为google-perftools添加线程目录&lt;/h5&gt;
+&lt;p&gt;创建一个线程目录，这里将文件放在/tmp/tcmalloc下，操作如下:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64;localhost home]#mkdir /tmp/tcmalloc
+[root&amp;#64;localhost home]#chmod 0777 /tmp/tcmalloc
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h5&gt;5.修改Nginx主配置文件&lt;/h5&gt;
+&lt;p&gt;修改nginx.conf文件，在pid这行的下面添加如下代码:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+#pid        logs/nginx.pid;
+google_perftools_profiles /tmp/tcmalloc;
+&lt;/pre&gt;
+&lt;p&gt;接着，重启Nginx，完成google-perftools的加载。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h5&gt;6.验证运行状态&lt;/h5&gt;
+&lt;p&gt;为了验证google-perftools已经正常加载，通过如下命令查看:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64; localhost home]# lsof -n | grep tcmalloc
+nginx      2395 nobody   9w  REG    8,8       0    1599440 /tmp/tcmalloc.2395
+nginx      2396 nobody   11w REG   8,8       0    1599443 /tmp/tcmalloc.2396
+nginx      2397 nobody   13w REG  8,8        0    1599441  /tmp/tcmalloc.2397
+nginx     2398 nobody    15w REG  8,8     0    1599442 /tmp/tcmalloc.2398
+&lt;/pre&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 102)&lt;/p&gt;
+Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
+&lt;p&gt;由于在Nginx配置文件中，设置worker_processes的值为4，因此开启了4个Nginx线程，每个线程会有一行记录。每个线程文件后面的数字值就是启动的Nginx的PID值。
+至此，利用TCMalloc优化Nginx的操作完成。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;Nginx内核参数优化&lt;/h3&gt;
+&lt;p&gt;内核参数的优化，主要是在Linux系统中针对Nginx应用而进行的系统内核参数优化，常见的优化参数值如下。&lt;/p&gt;
+&lt;p&gt;下面给出一个优化实例以供参考:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+net.ipv4.tcp_max_tw_buckets = 6000
+net.ipv4.ip_local_port_range = 1024 65000
+net.ipv4.tcp_tw_recycle = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_syncookies = 1
+net.core.somaxconn = 262144
+net.core.netdev_max_backlog = 262144
+net.ipv4.tcp_max_orphans = 262144
+net.ipv4.tcp_max_syn_backlog = 262144
+net.ipv4.tcp_synack_retries = 1
+net.ipv4.tcp_syn_retries = 1
+net.ipv4.tcp_fin_timeout = 1
+net.ipv4.tcp_keepalive_time = 30
+&lt;/pre&gt;
+&lt;p&gt;将上面的内核参数值加入/etc/sysctl.conf文件中，然后执行如下命令使之生效:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+[root&amp;#64; localhost home]#/sbin/sysctl -p
+&lt;/pre&gt;
+&lt;p&gt;下面是对实例中选项的含义进行介绍：&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_max_tw_buckets参数用来设定timewait的数量，默认是180000，这里设为6000。&lt;/p&gt;
+&lt;p&gt;net.ipv4.ip_local_port_range选项用来设定允许系统打开的端口范围。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_tw_recycle选项用于设置启用timewait快速回收。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_tw_reuse选项用于设置开启重用，允许将TIME-WAIT sockets重新用于新的TCP连接。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_syncookies选项用于设置开启SYN Cookies，当出现SYN等待队列溢出时，启用cookies进行处理。&lt;/p&gt;
+&lt;p&gt;net.core.somaxconn选项默认值是128， 这个参数用于调节系统同时发起的tcp连接数，在高并发的请求中，默认的值可能会导致链接超时或者重传，因此，需要结合并发请求数来调节此值。&lt;/p&gt;
+&lt;p&gt;net.core.netdev_max_backlog选项表示当每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许发送到队列的数据包的最大数目。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_max_orphans选项用于设定系统中最多有多少个TCP套接字不被关联到任何一个用户文件句柄上。如果超过这个数字，孤立连接将立即被复位并打印出警告信息。这个限制只是为了防止简单的DoS攻击。不能过分依靠这个限制甚至人为减小这个值，更多的情况是增加这个值。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_max_syn_backlog选项用于记录那些尚未收到客户端确认信息的连接请求的最大值。对于有128MB内存的系统而言，此参数的默认值是1024，对小内存的系统则是128。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_synack_retries参数的值决定了内核放弃连接之前发送SYN+ACK包的数量。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_syn_retries选项表示在内核放弃建立连接之前发送SYN包的数量。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_fin_timeout选项决定了套接字保持在FIN-WAIT-2状态的时间。默认值是60秒。正确设置这个值非常重要，有时候即使一个负载很小的Web服务器，也会出现因为大量的死套接字而产生内存溢出的风险。&lt;/p&gt;
+&lt;p&gt;net.ipv4.tcp_keepalive_time选项表示当keepalive启用的时候，TCP发送keepalive消息的频度。默认值是2（单位是小时）。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
