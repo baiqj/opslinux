@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Oct 2013 22:01:19 +0800</lastBuildDate><item><title></title><link>http://opslinux.com/post/2013-10-25-/</link><description>&lt;p&gt;Title: Nginx打造3w高并发网站
-Date: 2013-10-25
-category: nginx,高并发,web&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Oct 2013 10:20:00 +0800</lastBuildDate><item><title>Nginx打造3w高并发网站</title><link>http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</link><description>&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
+&lt;p&gt;Title underline too short.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Nginx打造3w高并发网站
+##############
+&lt;/pre&gt;
+&lt;/div&gt;
 &lt;div class="section" id="nginx"&gt;
 &lt;h2&gt;Nginx 优化&lt;/h2&gt;
 &lt;div class="section" id="id1"&gt;
@@ -14,7 +19,7 @@ CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">皓禹</dc:creator><pubDate>Fri, 25 Oct 2013 22:01:19 +0800</pubDate><guid>tag:opslinux.com,2013-10-25:post/2013-10-25-/</guid></item><item><title>使用Vagrant打造你的虚拟环境</title><link>http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</link><description>&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 25 Oct 2013 10:20:00 +0800</pubDate><guid>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</guid><category>nginx</category><category>高并发</category><category>web</category></item><item><title>使用Vagrant打造你的虚拟环境</title><link>http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</link><description>&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;
