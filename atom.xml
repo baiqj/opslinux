@@ -16,9 +16,6 @@ CFLAGS=”$CFLAGS -g”
 --with-cc-opt='-O3'
 --with-cpu-opt=CPU  #为特定的 CPU 编译，有效的值包括：pentium, pentiumpro, pentium3, pentium4, athlon, opteron, amd64, sparc32, sparc64, ppc64
 &lt;/pre&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 27)&lt;/p&gt;
-Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;要确定CPU类型，可以通过如下命令:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [root&amp;#64;localhost home]#cat /proc/cpuinfo | grep &amp;quot;model name&amp;quot;
@@ -50,9 +47,6 @@ Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
 [root&amp;#64;localhost google-perftools-1.8]# echo &amp;quot;/usr/local/lib&amp;quot; &amp;gt; /etc/ld.so.conf.d/usr_local_lib.conf
 [root&amp;#64;localhost google-perftools-1.8]# ldconfig
 &lt;/pre&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 61)&lt;/p&gt;
-Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;至此，google-perftools安装完成。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
@@ -64,9 +58,6 @@ Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
 [root&amp;#64;localhost nginx-0.7.65]#make
 [root&amp;#64;localhost nginx-0.7.65]#make install
 &lt;/pre&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 72)&lt;/p&gt;
-Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;到这里Nginx安装完成。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
@@ -97,7 +88,7 @@ nginx      2397 nobody   13w REG  8,8        0    1599441  /tmp/tcmalloc.2397
 nginx     2398 nobody    15w REG  8,8     0    1599442 /tmp/tcmalloc.2398
 &lt;/pre&gt;
 &lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 102)&lt;/p&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 105)&lt;/p&gt;
 Literal block ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;由于在Nginx配置文件中，设置worker_processes的值为4，因此开启了4个Nginx线程，每个线程会有一行记录。每个线程文件后面的数字值就是启动的Nginx的PID值。
 至此，利用TCMalloc优化Nginx的操作完成。&lt;/p&gt;
