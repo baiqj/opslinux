@@ -391,14 +391,6 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ulimit"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 476)&lt;/p&gt;
-&lt;p&gt;Title underline too short.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-ulimit关于系统连接数的优化
-=========================
-&lt;/pre&gt;
-&lt;/div&gt;
 &lt;p id="ulimit-label"&gt;linux 默认值 open files 和 max user processes 为 1024&lt;/p&gt;
 &lt;p&gt;#ulimit -n&lt;/p&gt;
 &lt;p&gt;1024&lt;/p&gt;
