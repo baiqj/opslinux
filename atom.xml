@@ -32,6 +32,15 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 12)&lt;/p&gt;
+&lt;p&gt;Unknown directive type &amp;quot;toctree&amp;quot;.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. toctree::
+   :maxdepth: 2
+
+&lt;/pre&gt;
+&lt;/div&gt;
 &lt;div class="section" id="nginx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Nginx 优化&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id2"&gt;
