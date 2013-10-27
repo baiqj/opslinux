@@ -241,8 +241,10 @@ fs.file-max = 789972
 
 fs.file-nr = 510 0 789972
 &lt;/pre&gt;
-&lt;p&gt;4. use epoll;
-使用epoll 的I/O 模型&lt;/p&gt;
+&lt;ol class="arabic simple" start="4"&gt;
+&lt;li&gt;use epoll;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用epoll 的I/O 模型&lt;/p&gt;
 &lt;p&gt;(&lt;/p&gt;
 &lt;p&gt;补充说明:&lt;/p&gt;
 &lt;p&gt;与apache相类，nginx针对不同的操作系统，有不同的事件模型&lt;/p&gt;
