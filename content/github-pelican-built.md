@@ -79,4 +79,35 @@ $ git push origin gh-pages
 ```
 这样上传完代码等10分钟左右，即可在浏览器中使用```http://zbing3.github.io/myblog```就能访问到自己的博客
 
+### 定制自己的Makefile文件，让git提交更方便一点
+编辑Makefile `vim Makefile` ，在github下面添加如下格式的文件：
+
+```
+git:
+    $(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+    ghp-import $(OUTPUTDIR)
+    git push origin gh-pages
+    
+```
+
+ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
+接着以后：`make git` 就可以直接提交到git的gh-pages分支的
+### pelican的备份
+因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境
+
+进入blog目录：
+```bash
+$ git branch #查看本地分支，没有master所以要创建 如果有master就跳过创建
+  gh-pages
+$ git branch master #创建master分支
+$ git checkout master #切换到master分支
+$ git add .
+$ git commit -m "first post"
+$ git remote add origin git@github.com:zbing3/opslinux.git #添加过origin就不用添加
+$ git push origin master  #有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce
+
+```
+
+
 ## 未完待续…… ##
+

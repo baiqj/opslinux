@@ -17,7 +17,7 @@ vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。
 **配置box**
 
 
-```
+```bash
 $ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box  #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址
 $ vagrant init debian #初始化debian
 $ vagrant up   #这个是真正的启动
@@ -29,7 +29,7 @@ $ vagrant up   #这个是真正的启动
 
 你会看到终端显示了启动过程，启动完成后，我们就可以用 SSH 登录虚拟机了，剩下的步骤就是在虚拟机里配置你要运行的各种环境和参数了。
 
-```
+```bash
 $ vagrant ssh  # SSH 登录 ssh的后面可以跟你的title来连接不同的vm主机
 ```
 
@@ -37,14 +37,14 @@ $ vagrant ssh  # SSH 登录 ssh的后面可以跟你的title来连接不同的vm
 
 当你配置好开发环境后，退出并关闭虚拟机。在终端里对开发环境进行打包：
 
-```
+```bash
 $ vagrant package
 ```
 打包完成后会在当前目录生成一个 package.box 的文件，将这个文件传给其他用户，其他用户只要添加这个 box 并用其初始化自己的开发目录就能得到一个一模一样的开发环境了。
 
 **常用命令**
 
-```
+```bash
 $ vagrant init  # 初始化
 $ vagrant up  # 启动虚拟机
 $ vagrant halt  # 关闭虚拟机
@@ -55,7 +55,7 @@ $ vagrant destroy  # 销毁当前虚拟机
 ```
 box管理
 
-```
+```bash
 $vagrant box list
 $vagrant box add
 $vagrant box remove
@@ -65,7 +65,7 @@ $vagrant box remove
 
 **Multi-VM 多虚拟机**
 
-```
+```bash
 VAGRANTFILE_API_VERSION = "2"    #定义版本
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  #使用内部2版本
   config.vm.define :debian1 do |debian1|   #定义第一台虚拟机，||里面就类似一个变量设置参数时使用 
@@ -96,11 +96,11 @@ end
 
 Apache 配置添加:
 
-```
+```bash
 EnableSendfile off
 ```
 Nginx 配置添加:
 
-```
+```bash
 sendfile off;
 ```

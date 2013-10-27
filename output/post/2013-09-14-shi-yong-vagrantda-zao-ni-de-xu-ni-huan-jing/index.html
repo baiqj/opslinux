@@ -54,65 +54,65 @@
 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。
 注：先要安装VirtualBox</p>
 <p><strong>配置box</strong></p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">vagrant</span> <span class="n">box</span> <span class="n">add</span> <span class="n">debian</span> <span class="n">http</span><span class="o">:</span><span class="c1">//ergonlogic.com/files/boxes/debian-current.box  #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">init</span> <span class="n">debian</span> <span class="err">#初始化</span><span class="n">debian</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">up</span>   <span class="err">#这个是真正的启动</span>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box  <span class="c">#增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址</span>
+<span class="nv">$ </span>vagrant init debian <span class="c">#初始化debian</span>
+<span class="nv">$ </span>vagrant up   <span class="c">#这个是真正的启动</span>
 </pre></div>
 
 
 <p>注意国内网速访问很慢 这里可以先去 <code>http://www.vagrantbox.es/</code> 下载你需要的镜像 然后把http那行直接换成你本地镜像的路径就ok比较方便和快捷</p>
 <p><strong>连接虚拟主机</strong></p>
 <p>你会看到终端显示了启动过程，启动完成后，我们就可以用 SSH 登录虚拟机了，剩下的步骤就是在虚拟机里配置你要运行的各种环境和参数了。</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">vagrant</span> <span class="n">ssh</span>  <span class="err">#</span> <span class="n">SSH</span> <span class="err">登录</span> <span class="n">ssh</span><span class="err">的后面可以跟你的</span><span class="n">title</span><span class="err">来连接不同的</span><span class="n">vm</span><span class="err">主机</span>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant ssh  <span class="c"># SSH 登录 ssh的后面可以跟你的title来连接不同的vm主机</span>
 </pre></div>
 
 
 <p><strong>打包分发</strong></p>
 <p>当你配置好开发环境后，退出并关闭虚拟机。在终端里对开发环境进行打包：</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">vagrant</span> <span class="n">package</span>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant package
 </pre></div>
 
 
 <p>打包完成后会在当前目录生成一个 package.box 的文件，将这个文件传给其他用户，其他用户只要添加这个 box 并用其初始化自己的开发目录就能得到一个一模一样的开发环境了。</p>
 <p><strong>常用命令</strong></p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">vagrant</span> <span class="n">init</span>  <span class="err">#</span> <span class="err">初始化</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">up</span>  <span class="err">#</span> <span class="err">启动虚拟机</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">halt</span>  <span class="err">#</span> <span class="err">关闭虚拟机</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">reload</span>  <span class="err">#</span> <span class="err">重启虚拟机</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">ssh</span>  <span class="err">#</span> <span class="n">SSH</span> <span class="err">至虚拟机</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">status</span>  <span class="err">#</span> <span class="err">查看虚拟机运行状态</span>
-<span class="err">$</span> <span class="n">vagrant</span> <span class="n">destroy</span>  <span class="err">#</span> <span class="err">销毁当前虚拟机</span>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant init  <span class="c"># 初始化</span>
+<span class="nv">$ </span>vagrant up  <span class="c"># 启动虚拟机</span>
+<span class="nv">$ </span>vagrant halt  <span class="c"># 关闭虚拟机</span>
+<span class="nv">$ </span>vagrant reload  <span class="c"># 重启虚拟机</span>
+<span class="nv">$ </span>vagrant ssh  <span class="c"># SSH 至虚拟机</span>
+<span class="nv">$ </span>vagrant status  <span class="c"># 查看虚拟机运行状态</span>
+<span class="nv">$ </span>vagrant destroy  <span class="c"># 销毁当前虚拟机</span>
 </pre></div>
 
 
 <p>box管理</p>
-<div class="highlight"><pre><span class="err">$</span><span class="n">vagrant</span> <span class="n">box</span> <span class="n">list</span>
-<span class="err">$</span><span class="n">vagrant</span> <span class="n">box</span> <span class="n">add</span>
-<span class="err">$</span><span class="n">vagrant</span> <span class="n">box</span> <span class="n">remove</span>
+<div class="highlight"><pre><span class="nv">$vagrant</span> box list
+<span class="nv">$vagrant</span> box add
+<span class="nv">$vagrant</span> box remove
 </pre></div>
 
 
 <p>更多内容请查阅官方文档 http://docs.vagrantup.com/</p>
 <p><strong>Multi-VM 多虚拟机</strong></p>
-<div class="highlight"><pre><span class="n">VAGRANTFILE_API_VERSION</span> <span class="o">=</span> <span class="s">&quot;2&quot;</span>    <span class="err">#定义版本</span>
-<span class="n">Vagrant</span><span class="p">.</span><span class="n">configure</span><span class="p">(</span><span class="n">VAGRANTFILE_API_VERSION</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>  <span class="err">#使用内部</span><span class="mi">2</span><span class="err">版本</span>
-  <span class="n">config</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">define</span> <span class="o">:</span><span class="n">debian1</span> <span class="k">do</span> <span class="o">|</span><span class="n">debian1</span><span class="o">|</span>   <span class="err">#定义第一台虚拟机，</span><span class="o">||</span><span class="err">里面就类似一个变量设置参数时使用</span> 
-     <span class="n">debian1</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">box</span> <span class="o">=</span> <span class="s">&quot;debian1&quot;</span>             <span class="err">#设置</span><span class="n">box</span><span class="err">名为</span><span class="n">debian1</span>
-     <span class="n">debian1</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s">&quot;debian1&quot;</span>      <span class="err">#设置</span><span class="n">hostname</span><span class="err">为</span><span class="n">debian1</span>
-     <span class="n">debian1</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">network</span> <span class="o">:</span><span class="n">private_network</span><span class="p">,</span> <span class="n">ip</span><span class="o">:</span> <span class="s">&quot;192.168.1.11&quot;</span> <span class="err">#设置网络为内部网络</span> <span class="n">ip</span><span class="err">为</span><span class="mf">192.168.1.11</span>
-  <span class="n">end</span>
-  <span class="n">config</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">define</span> <span class="o">:</span><span class="n">debian2</span> <span class="k">do</span> <span class="o">|</span><span class="n">debian2</span><span class="o">|</span>
-     <span class="n">debian2</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">box</span> <span class="o">=</span> <span class="s">&quot;debian2&quot;</span>
-     <span class="n">debian2</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s">&quot;debian2&quot;</span>
-     <span class="n">debian2</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">network</span> <span class="o">:</span><span class="n">private_network</span><span class="p">,</span> <span class="n">ip</span><span class="o">:</span> <span class="s">&quot;192.168.1.12&quot;</span>
-  <span class="n">end</span>
-  <span class="n">config</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">define</span> <span class="o">:</span><span class="n">debian3</span> <span class="k">do</span> <span class="o">|</span><span class="n">debian3</span><span class="o">|</span>
-     <span class="n">debian3</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">box</span> <span class="o">=</span> <span class="s">&quot;debian3&quot;</span>
-     <span class="n">debian3</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="s">&quot;debian3&quot;</span>
-     <span class="n">debian3</span><span class="p">.</span><span class="n">vm</span><span class="p">.</span><span class="n">network</span> <span class="o">:</span><span class="n">private_network</span><span class="p">,</span> <span class="n">ip</span><span class="o">:</span> <span class="s">&quot;192.168.1.13&quot;</span>
-  <span class="n">end</span>
+<div class="highlight"><pre><span class="nv">VAGRANTFILE_API_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span>    <span class="c">#定义版本</span>
+Vagrant.configure<span class="o">(</span>VAGRANTFILE_API_VERSION<span class="o">)</span> <span class="k">do</span> |config|  <span class="c">#使用内部2版本</span>
+  config.vm.define :debian1 <span class="k">do</span> |debian1|   <span class="c">#定义第一台虚拟机，||里面就类似一个变量设置参数时使用 </span>
+     debian1.vm.box <span class="o">=</span> <span class="s2">&quot;debian1&quot;</span>             <span class="c">#设置box名为debian1</span>
+     debian1.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian1&quot;</span>      <span class="c">#设置hostname为debian1</span>
+     debian1.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.11&quot;</span> <span class="c">#设置网络为内部网络 ip为192.168.1.11</span>
+  end
+  config.vm.define :debian2 <span class="k">do</span> |debian2|
+     debian2.vm.box <span class="o">=</span> <span class="s2">&quot;debian2&quot;</span>
+     debian2.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian2&quot;</span>
+     debian2.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.12&quot;</span>
+  end
+  config.vm.define :debian3 <span class="k">do</span> |debian3|
+     debian3.vm.box <span class="o">=</span> <span class="s2">&quot;debian3&quot;</span>
+     debian3.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian3&quot;</span>
+     debian3.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.13&quot;</span>
+  end
 
-<span class="n">end</span>
+end
 </pre></div>
 
 
@@ -120,19 +120,19 @@
 <p><strong>注意事项</strong></p>
 <p>使用 Apache/Nginx 时会出现诸如图片修改后但页面刷新仍然是旧文件的情况，是由于静态文件缓存造成的。需要对虚拟机里的 Apache/Nginx 配置文件进行修改：</p>
 <p>Apache 配置添加:</p>
-<div class="highlight"><pre><span class="n">EnableSendfile</span> <span class="n">off</span>
+<div class="highlight"><pre>EnableSendfile off
 </pre></div>
 
 
 <p>Nginx 配置添加:</p>
-<div class="highlight"><pre><span class="n">sendfile</span> <span class="n">off</span><span class="p">;</span>
+<div class="highlight"><pre>sendfile off;
 </pre></div>
    <hr>
    <div class="pagination">
       <ul>
 	          <li class="prev"><a href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/">← Previous</a></li>
 		        <li><a href="/archives.html">Archive</a></li>
-		        <li class="next"><a href="/">Next →</a></li>
+		        <li class="next"><a href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/">Next →</a></li>
 		      </ul>
   </div>
   
@@ -169,5 +169,7 @@ var duoshuoQuery = {short_name:"ops"};
         </p>
       </footer>
     </div> <!-- /container -->
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/16460845.js"></script>
+<noscript><a href="http://www.51.la/?16460845" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16460845.asp" style="border:none" /></a></noscript>
   </body>
 </html>

@@ -129,6 +129,31 @@ Tag: 标签1, 标签2
 
 
 <p>这样上传完代码等10分钟左右，即可在浏览器中使用<code>http://zbing3.github.io/myblog</code>就能访问到自己的博客</p>
+<h3>定制自己的Makefile文件，让git提交更方便一点</h3>
+<p>编辑Makefile <code>vim Makefile</code> ，在github下面添加如下格式的文件：</p>
+<div class="highlight"><pre><span class="nl">git:</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">PELICAN</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">INPUTDIR</span><span class="p">)</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span> <span class="o">-</span><span class="n">s</span> <span class="err">$</span><span class="p">(</span><span class="n">CONFFILE</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">PELICANOPTS</span><span class="p">)</span>
+    <span class="n">ghp</span><span class="o">-</span><span class="n">import</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span>
+    <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+
+
+<p>ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
+接着以后：<code>make git</code> 就可以直接提交到git的gh-pages分支的</p>
+<h3>pelican的备份</h3>
+<p>因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境</p>
+<p>进入blog目录：</p>
+<div class="highlight"><pre><span class="nv">$ </span>git branch <span class="c">#查看本地分支，没有master所以要创建 如果有master就跳过创建</span>
+  gh-pages
+<span class="nv">$ </span>git branch master <span class="c">#创建master分支</span>
+<span class="nv">$ </span>git checkout master <span class="c">#切换到master分支</span>
+<span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -m <span class="s2">&quot;first post&quot;</span>
+<span class="nv">$ </span>git remote add origin git@github.com:zbing3/opslinux.git <span class="c">#添加过origin就不用添加</span>
+<span class="nv">$ </span>git push origin master  <span class="c">#有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce</span>
+</pre></div>
+
+
 <h2>未完待续……</h2>
    <hr>
    <div class="pagination">
@@ -172,5 +197,7 @@ var duoshuoQuery = {short_name:"ops"};
         </p>
       </footer>
     </div> <!-- /container -->
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/16460845.js"></script>
+<noscript><a href="http://www.51.la/?16460845" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16460845.asp" style="border:none" /></a></noscript>
   </body>
 </html>
