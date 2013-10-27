@@ -138,7 +138,6 @@ width:expression(this.width > 579 ? "579px" : this.width);
 .rss-items, .span4 ul {
 /*list-style:none;*/
 /*目录添加*/
-list-style: none outside none;
 margin:0px;
 padding: 0;
 border: 0;
