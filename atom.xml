@@ -220,7 +220,8 @@ net.ipv4.ip_local_port_range = 1024 65000
 &lt;li&gt;worker_rlimit_nofile 65535;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;这个指令是指当一个nginx 进程打开的最多文件描述符数目，理论值应该是最多打开文
-件数（ulimit -n）与nginx 进程数相除，但是nginx 分配请求并不是那么均匀，所以最好与ulimit -n 的值保持一致。详见 &lt;a href="#id10"&gt;&lt;span class="problematic" id="id11"&gt;:ref:`ulimit关于系统连接数的优化`&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+件数（ulimit -n）与nginx 进程数相除，但是nginx 分配请求并不是那么均匀，所以最好与ulimit -n 的值保持一致。详见 &lt;a href="#id10"&gt;&lt;span class="problematic" id="id11"&gt;:ref:`ulimit关于系统连接数的优化`&lt;/span&gt;&lt;/a&gt;
+具体查看&lt;a class="reference internal" href="#ulimit"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;/p&gt;
 &lt;div class="system-message" id="id10"&gt;
 &lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/nginx优化.rst&lt;/tt&gt;, line 253); &lt;em&gt;&lt;a href="#id11"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 Unknown interpreted text role &amp;quot;ref&amp;quot;.&lt;/div&gt;
