@@ -32,6 +32,12 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;div class="sidebar"&gt;
+&lt;p class="first sidebar-title"&gt;标题&lt;/p&gt;
+&lt;p class="sidebar-subtitle"&gt;副标题&lt;/p&gt;
+&lt;p class="last"&gt;边栏内容&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;正文内容&lt;/p&gt;
 &lt;div class="section" id="nginx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Nginx 优化&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id2"&gt;
