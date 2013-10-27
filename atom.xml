@@ -2,32 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维人员</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2013-10-25T10:20:00+08:00</updated><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</id><summary type="html">&lt;div class="contents local topic" id="id1"&gt;
 &lt;p class="topic-title first"&gt;目录&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#nginx" id="id10"&gt;Nginx 优化&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id11"&gt;nginx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id12"&gt;编译安装过程优化&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#cpucpu" id="id13"&gt;为特定的CPU指定CPU类型编译优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#tcmallocnginx" id="id14"&gt;利用TCMalloc优化Nginx的性能&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#libunwind" id="id15"&gt;1.安装libunwind库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#google-perftools" id="id16"&gt;2.安装google-perftools&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id17"&gt;3.重新编译Nginx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id18"&gt;4.为google-perftools添加线程目录&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id19"&gt;5.修改Nginx主配置文件&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id20"&gt;6.验证运行状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#nginx" id="id13"&gt;Nginx 优化&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id14"&gt;nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id15"&gt;编译安装过程优化&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cpucpu" id="id16"&gt;为特定的CPU指定CPU类型编译优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#tcmallocnginx" id="id17"&gt;利用TCMalloc优化Nginx的性能&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#libunwind" id="id18"&gt;1.安装libunwind库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#google-perftools" id="id19"&gt;2.安装google-perftools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id20"&gt;3.重新编译Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id21"&gt;4.为google-perftools添加线程目录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id22"&gt;5.修改Nginx主配置文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id23"&gt;6.验证运行状态&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id21"&gt;Nginx内核参数优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id22"&gt;配置文件优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ulimit" id="id23"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id24"&gt;Nginx内核参数优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;配置文件优化&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id10" id="id26"&gt;基本优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id11" id="id27"&gt;简单配置文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#fastcgi" id="id28"&gt;关于FastCGI 的几个指令：&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ulimit" id="id29"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id12" id="id30"&gt;修改方式&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="nginx"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;Nginx 优化&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id13"&gt;Nginx 优化&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;nginx&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;nginx&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发.&lt;/p&gt;
 &lt;p&gt;Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序。&lt;/p&gt;
 &lt;p&gt;nginx做为HTTP服务器，有以下几项基本特性：&lt;/p&gt;
@@ -40,7 +48,7 @@
 &lt;p&gt;Nginx支持热部署。它的启动特别容易, 并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够在不间断服务的情况下，对软件版本进行进行升级。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;编译安装过程优化&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;编译安装过程优化&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;在编译Nginx时，默认以debug模式进行，而在debug模式下会插入很多跟踪和ASSERT之类的信息，编译完成后，一个Nginx要有好几兆字节。在编译前取消Nginx的debug模式，编译完成后Nginx只有几百千字节，因此可以在编译之前，修改相关源码，取消debug模式，具体方法如下：
 在Nginx源码文件被解压后，找到源码目录下的auto/cc/gcc文件，在其中找到如下几行:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -48,7 +56,7 @@
 CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
 &lt;div class="section" id="cpucpu"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;为特定的CPU指定CPU类型编译优化&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;为特定的CPU指定CPU类型编译优化&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;在编译Nginx时，默认的GCC编译参数是“-O”，要优化GCC编译，可以使用以下两个参数:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 --with-cc-opt='-O3'
@@ -60,11 +68,11 @@ CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="tcmallocnginx"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;利用TCMalloc优化Nginx的性能&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;利用TCMalloc优化Nginx的性能&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;TCMalloc的全称为Thread-Caching Malloc，是谷歌开发的开源工具“google-perftools”中的一个成员。与标准的glibc库的malloc相比，TCMalloc库在内存分配效率和速度上要高很多，这在很大程度上提高了服务器在高并发情况下的性能，从而降低系统负载。下面简单介绍如何为Nginx添加TCMalloc库支持。
 要安装TCMalloc库，需要安装libunwind（32位操作系统不需要安装）和google-perftools两个软件包，libunwind库为基于64位CPU和操作系统的程序提供了基本函数调用链和函数调用寄存器功能。下面介绍利用TCMalloc优化Nginx的具体操作过程：&lt;/p&gt;
 &lt;div class="section" id="libunwind"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id15"&gt;1.安装libunwind库&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id18"&gt;1.安装libunwind库&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;可以从http://download.savannah.gnu.org/releases/libunwind下载相应的libunwind版本，这里下载的是libunwind-0.99-alpha.tar.gz，安装过程如下&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [root&amp;#64;localhost home]#tar zxvf libunwind-0.99-alpha.tar.gz
@@ -75,7 +83,7 @@ CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="google-perftools"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id16"&gt;2.安装google-perftools&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id19"&gt;2.安装google-perftools&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;可以从http://google-perftools.googlecode.com下载相应的google-perftools版本，这里下载的是google-perftools-1.8.tar.gz，安装过程如下:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [root&amp;#64;localhost home]# tar zxvf google-perftools-1.8.tar.gz
@@ -88,7 +96,7 @@ CFLAGS=”$CFLAGS -g”
 &lt;p&gt;至此，google-perftools安装完成。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id4"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id17"&gt;3.重新编译Nginx&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id20"&gt;3.重新编译Nginx&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;为了使Nginx支持google-perftools，需要在安装过程中添加“–with-google_perftools_module”选项重新编译Nginx，安装代码如下:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [root&amp;#64;localhostnginx-0.7.65]#./configure \
@@ -99,7 +107,7 @@ CFLAGS=”$CFLAGS -g”
 &lt;p&gt;到这里Nginx安装完成。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id18"&gt;4.为google-perftools添加线程目录&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id21"&gt;4.为google-perftools添加线程目录&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;创建一个线程目录，这里将文件放在/tmp/tcmalloc下，操作如下:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [root&amp;#64;localhost home]#mkdir /tmp/tcmalloc
@@ -107,7 +115,7 @@ CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id19"&gt;5.修改Nginx主配置文件&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id22"&gt;5.修改Nginx主配置文件&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;修改nginx.conf文件，在pid这行的下面添加如下代码:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 #pid        logs/nginx.pid;
@@ -116,7 +124,7 @@ google_perftools_profiles /tmp/tcmalloc;
 &lt;p&gt;接着，重启Nginx，完成google-perftools的加载。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id7"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id20"&gt;6.验证运行状态&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id23"&gt;6.验证运行状态&lt;/a&gt;&lt;/h5&gt;
 &lt;p&gt;为了验证google-perftools已经正常加载，通过如下命令查看:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [root&amp;#64; localhost home]# lsof -n | grep tcmalloc
@@ -131,7 +139,7 @@ nginx     2398 nobody    15w REG  8,8     0    1599442 /tmp/tcmalloc.2398
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Nginx内核参数优化&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;Nginx内核参数优化&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;内核参数的优化，主要是在Linux系统中针对Nginx应用而进行的系统内核参数优化，常见的优化参数值如下。&lt;/p&gt;
 &lt;p&gt;下面给出一个优化实例以供参考:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -205,8 +213,10 @@ net.ipv4.ip_local_port_range = 1024 65000
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id9"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;配置文件优化&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;一、一般来说nginx 配置文件中对优化比较有作用的为以下几项：&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;配置文件优化&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id10"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;基本优化&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;一般来说nginx 配置文件中对优化比较有作用的为以下几项：&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;worker_processes 8;&lt;/li&gt;
 &lt;/ol&gt;
@@ -272,6 +282,9 @@ Epoll: 使用于Linux内核2.6版本及以后的系统。&lt;/p&gt;
 &lt;li&gt;open_file_cache_min_uses 1;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;open_file_cache 指令中的inactive 参数时间内文件的最少使用次数，如果超过这个数字，文件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive 时间内一次没被使用，它将被移除。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id11"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id27"&gt;简单配置文件&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;下面是一个简单的nginx 配置文件:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 user www www;
@@ -352,7 +365,9 @@ access_log /www/log/access.log access;
 }
 }
 &lt;/pre&gt;
-&lt;p&gt;六、关于FastCGI 的几个指令：&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="fastcgi"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id28"&gt;关于FastCGI 的几个指令：&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;fastcgi_cache_path /usr/local/nginx/fastcgi_cache levels=1:2 keys_zone=TEST:10minactive=5m;&lt;/p&gt;
 &lt;p&gt;这个指令为FastCGI 缓存指定一个路径，目录结构等级，关键字区域存储时间和非活动删除时间。&lt;/p&gt;
 &lt;p&gt;fastcgi_connect_timeout 300;&lt;/p&gt;
@@ -386,8 +401,9 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;204800&lt;/p&gt;
 &lt;p&gt;每个进程在重置之前能够执行的最多请求数。&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="section" id="ulimit"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;/h3&gt;
 &lt;p id="ulimit-label"&gt;linux 默认值 open files 和 max user processes 为 1024&lt;/p&gt;
 &lt;p&gt;#ulimit -n&lt;/p&gt;
 &lt;p&gt;1024&lt;/p&gt;
@@ -398,6 +414,8 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;新装的linux 默认只有1024 ，当作负载较大的服务器时，很容易遇到error: too many open files 。因此，需要将其改大。&lt;/p&gt;
 &lt;p&gt;解决方法：&lt;/p&gt;
 &lt;p&gt;使用 ulimit –n 65535 可即时修改，但重启后就无效了。（注ulimit -SHn 65535 等效 ulimit -n 65535 ，-S 指soft ，-H 指hard)&lt;/p&gt;
+&lt;div class="section" id="id12"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id30"&gt;修改方式&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;有如下三种修改方式：&lt;/p&gt;
 &lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;在/etc/rc.local 中增加一行 ulimit -SHn 65535&lt;/p&gt;
@@ -420,6 +438,7 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;65535&lt;/p&gt;
 &lt;p&gt;备注：ulimit 命令本身就有分软硬设置，加-H 就是硬，加-S 就是软默认显示的是软限制&lt;/p&gt;
 &lt;p&gt;soft 限制指的是当前系统生效的设置值。 hard 限制值可以被普通用户降低。但是不能增加。 soft 限制不能设置的比 hard 限制更高。 只有 root 用户才能够增加 hard 限制值。&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
