@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 01 Nov 2013 12:51:00 +0800</lastBuildDate><item><title>python中的urlencode与urldecode</title><link>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/python中的urlencode与urldecode.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
-&lt;p&gt;Title underline too short.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-python中的urlencode与urldecode
-#######################
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div class="contents local topic" id="contents"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 01 Nov 2013 12:51:00 +0800</lastBuildDate><item><title>python中的urlencode与urldecode</title><link>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</link><description>&lt;div class="contents local topic" id="contents"&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#urlencode" id="id2"&gt;一、urlencode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#urldecode" id="id3"&gt;二、urldecode&lt;/a&gt;&lt;/li&gt;
