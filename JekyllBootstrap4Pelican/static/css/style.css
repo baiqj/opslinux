@@ -136,7 +136,8 @@ width:expression(this.width > 579 ? "579px" : this.width);
 
 /*rss-items*/
 .rss-items, .span4 ul {
-list-style:none;
+/*list-style:none;*/
+/*目录添加*/
 margin:0px;
 padding: 0;
 border: 0;
@@ -148,3 +149,6 @@ border: 0;
 font-size: 100%;
 vertical-align: baseline;
 	}
+.span4 ul, ol {
+    margin: 0 0 10px 13px;
+}

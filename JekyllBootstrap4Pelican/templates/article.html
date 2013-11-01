@@ -14,6 +14,7 @@
 </span>
 {% endif %}
    <hr>
+<!-- 翻页 -->
    <div class="pagination">
       <ul>
 	  {% if article.prev_article %}
@@ -47,7 +48,10 @@ var duoshuoQuery = {short_name:"ops"};
 <!-- Duoshuo Comment END -->
   </div>
    
+
   <div class="span4">
+    <h4>目录</h4>
+    <div id="adhide" class="contents local topic"></div>
     <h4>Published</h4>
     <div class="date"><span>{{ article.locale_date }} By <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></span></div>
 	<h4>Latest Articles</h4>
@@ -63,4 +67,5 @@ var duoshuoQuery = {short_name:"ops"};
   </div>
 </div>
 </div>
+
 {% endblock %}
