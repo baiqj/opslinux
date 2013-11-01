@@ -41,7 +41,7 @@ a=test&amp;amp;amp;name=%C4%A7%CA%DE
 &lt;/div&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;三、讨论&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。&lt;/p&gt;
+&lt;p&gt;在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。&lt;/p&gt;
 &lt;p&gt;可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。&lt;/p&gt;
 &lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 01 Nov 2013 12:51:00 +0800</pubDate><guid>tag:opslinux.com,2013-11-01:post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</guid><category>python</category></item><item><title>Nginx打造3w高并发网站</title><link>http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</link><description>&lt;div class="contents local topic" id="contents"&gt;

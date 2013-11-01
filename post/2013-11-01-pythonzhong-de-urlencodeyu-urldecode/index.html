@@ -88,7 +88,7 @@ a=test&amp;amp;name=%C4%A7%CA%DE
 </div>
 <div class="section" id="id1">
 <h2><a class="toc-backref" href="#id4">三、讨论</a></h2>
-<p>在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。</p>
+<p>在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。</p>
 <p>可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。</p>
 </div>
 
