@@ -45,7 +45,8 @@ a=test&amp;amp;amp;name=%C4%A7%CA%DE
 &lt;p&gt;在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。&lt;/p&gt;
 &lt;p&gt;可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</id><summary type="html">&lt;div class="contents local topic" id="contents"&gt;
+</summary><category term="python"></category></entry><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#nginx" id="id12"&gt;Nginx 优化&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id1" id="id13"&gt;nginx介绍&lt;/a&gt;&lt;/li&gt;
