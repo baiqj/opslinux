@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta name="author" content="皓禹" />
-        <meta name="copyright" content="皓禹" />
+                <meta name="author" content="创e" />
+        <meta name="copyright" content="创e" />
         
-                <meta name="keywords" content="vagrant, 虚拟机, " />
-        <title>使用Vagrant打造你的虚拟环境  · 老运维人员
+                <meta name="keywords" content="header, http, " />
+        <title>HTTP Header 详解  · 老运维人员
 </title>
                 <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -55,101 +55,21 @@
                     <article>
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1><a href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/"> 使用Vagrant打造你的虚拟环境  </a></h1>
+    <h1><a href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/"> HTTP Header 详解  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
             <div class="span8 offset2 article-content">
             
-            <h1>使用Vagrant打造你的虚拟环境</h1>
-<p>因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用</p>
-<p>vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。</p>
-<p>总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。</p>
-<p>vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。</p>
-<p>vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。
-然后按照官方说的，执行这三部，然后一个虚拟机就起来了。
-注：先要安装VirtualBox</p>
-<p><strong>配置box</strong></p>
-<div class="highlight"><pre><span class="nv">$ </span>vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box  <span class="c">#增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址</span>
-<span class="nv">$ </span>vagrant init debian <span class="c">#初始化debian</span>
-<span class="nv">$ </span>vagrant up   <span class="c">#这个是真正的启动</span>
-</pre></div>
+            <p>HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general  header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。</p>
 
-
-<p>注意国内网速访问很慢 这里可以先去 <code>http://www.vagrantbox.es/</code> 下载你需要的镜像 然后把http那行直接换成你本地镜像的路径就ok比较方便和快捷</p>
-<p><strong>连接虚拟主机</strong></p>
-<p>你会看到终端显示了启动过程，启动完成后，我们就可以用 SSH 登录虚拟机了，剩下的步骤就是在虚拟机里配置你要运行的各种环境和参数了。</p>
-<div class="highlight"><pre><span class="nv">$ </span>vagrant ssh  <span class="c"># SSH 登录 ssh的后面可以跟你的title来连接不同的vm主机</span>
-</pre></div>
-
-
-<p><strong>打包分发</strong></p>
-<p>当你配置好开发环境后，退出并关闭虚拟机。在终端里对开发环境进行打包：</p>
-<div class="highlight"><pre><span class="nv">$ </span>vagrant package
-</pre></div>
-
-
-<p>打包完成后会在当前目录生成一个 package.box 的文件，将这个文件传给其他用户，其他用户只要添加这个 box 并用其初始化自己的开发目录就能得到一个一模一样的开发环境了。</p>
-<p><strong>常用命令</strong></p>
-<div class="highlight"><pre><span class="nv">$ </span>vagrant init  <span class="c"># 初始化</span>
-<span class="nv">$ </span>vagrant up  <span class="c"># 启动虚拟机</span>
-<span class="nv">$ </span>vagrant halt  <span class="c"># 关闭虚拟机</span>
-<span class="nv">$ </span>vagrant reload  <span class="c"># 重启虚拟机</span>
-<span class="nv">$ </span>vagrant ssh  <span class="c"># SSH 至虚拟机</span>
-<span class="nv">$ </span>vagrant status  <span class="c"># 查看虚拟机运行状态</span>
-<span class="nv">$ </span>vagrant destroy  <span class="c"># 销毁当前虚拟机</span>
-</pre></div>
-
-
-<p>box管理</p>
-<div class="highlight"><pre><span class="nv">$vagrant</span> box list
-<span class="nv">$vagrant</span> box add
-<span class="nv">$vagrant</span> box remove
-</pre></div>
-
-
-<p>更多内容请查阅官方文档 http://docs.vagrantup.com/</p>
-<p><strong>Multi-VM 多虚拟机</strong></p>
-<div class="highlight"><pre><span class="nv">VAGRANTFILE_API_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span>    <span class="c">#定义版本</span>
-Vagrant.configure<span class="o">(</span>VAGRANTFILE_API_VERSION<span class="o">)</span> <span class="k">do</span> |config|  <span class="c">#使用内部2版本</span>
-  config.vm.define :debian1 <span class="k">do</span> |debian1|   <span class="c">#定义第一台虚拟机，||里面就类似一个变量设置参数时使用 </span>
-     debian1.vm.box <span class="o">=</span> <span class="s2">&quot;debian1&quot;</span>             <span class="c">#设置box名为debian1</span>
-     debian1.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian1&quot;</span>      <span class="c">#设置hostname为debian1</span>
-     debian1.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.11&quot;</span> <span class="c">#设置网络为内部网络 ip为192.168.1.11</span>
-  end
-  config.vm.define :debian2 <span class="k">do</span> |debian2|
-     debian2.vm.box <span class="o">=</span> <span class="s2">&quot;debian2&quot;</span>
-     debian2.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian2&quot;</span>
-     debian2.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.12&quot;</span>
-  end
-  config.vm.define :debian3 <span class="k">do</span> |debian3|
-     debian3.vm.box <span class="o">=</span> <span class="s2">&quot;debian3&quot;</span>
-     debian3.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian3&quot;</span>
-     debian3.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.13&quot;</span>
-  end
-
-end
-</pre></div>
-
-
-<p>注意语法格式就好，配置前关闭虚拟机，配置完后打开虚拟机。</p>
-<p><strong>注意事项</strong></p>
-<p>使用 Apache/Nginx 时会出现诸如图片修改后但页面刷新仍然是旧文件的情况，是由于静态文件缓存造成的。需要对虚拟机里的 Apache/Nginx 配置文件进行修改：</p>
-<p>Apache 配置添加:</p>
-<div class="highlight"><pre>EnableSendfile off
-</pre></div>
-
-
-<p>Nginx 配置添加:</p>
-<div class="highlight"><pre>sendfile off;
-</pre></div>
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                                href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/#disqus_thread">
+                                href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/#disqus_thread">
                 Comments
             </a>
         </div>
@@ -159,8 +79,8 @@ end
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'codenut';
-            var disqus_identifier = 'http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/';
-        var disqus_url = 'http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/';
+            var disqus_identifier = 'http://opslinux.com/post/2014-01-24-http-header-xiang-jie/';
+        var disqus_url = 'http://opslinux.com/post/2014-01-24-http-header-xiang-jie/';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -177,26 +97,24 @@ end
 </section>
             <aside>
             <hr/>
-                                                                                                                                                                                                <nav>
+                                                                                                <nav>
             <ul class="articles_timeline">
                                                                      
-                <li class="previous_article">« <a href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" title="Previous: zabbix监控mongoDB">zabbix监控mongoDB</a></li>
-                                                                                     
-                <li class="next_article"><a href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" title="Next: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a> »</li>
-                            </ul>
+                <li class="previous_article">« <a href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" title="Previous: python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
+                                            </ul>
             </nav>
-                                                                                                                                    </aside>
+                                                                                                                                                                                                            </aside>
         </div>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
              
             <h4>Published</h4>
-                        <time pubdate="pubdate" datetime="2013-09-14T00:00:00">Sep 14, 2013</time>
+                        <time pubdate="pubdate" datetime="2014-01-24T15:33:00">Jan 24, 2014</time>
                                                 <h4>Category</h4>
-            <a class="category-link" href="/categories.html#虚拟机-ref">虚拟机</a> 
+            <a class="category-link" href="/categories.html#http-ref">http</a> 
                                     <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article"> 
-                                <li><a href="/tags.html#vagrant-ref">vagrant
+                                <li><a href="/tags.html#header-ref">header
                                         <span>1</span>
                     </a></li>
                             </ul>
