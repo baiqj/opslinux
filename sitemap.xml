@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/index.html</loc>
-<lastmod>2014-01-24T19:46:59-00:00</lastmod>
+<lastmod>2014-01-24T19:49:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/archives.html</loc>
-<lastmod>2014-01-24T19:46:59-00:00</lastmod>
+<lastmod>2014-01-24T19:49:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/tags.html</loc>
-<lastmod>2014-01-24T19:46:59-00:00</lastmod>
+<lastmod>2014-01-24T19:49:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/categories.html</loc>
-<lastmod>2014-01-24T19:46:59-00:00</lastmod>
+<lastmod>2014-01-24T19:49:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -53,13 +53,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-12-13-excel-variable-width-column-chart/</loc>
-<lastmod>2013-12-13T22:40:00-00:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.7</priority>
-</url>
-
-<url>
 <loc>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</loc>
 <lastmod>2013-11-01T12:51:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -68,7 +61,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</loc>
-<lastmod>2013-10-25T10:20:00-00:00</lastmod>
+<lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -137,13 +130,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/category/you-yong-zhi-shi.html</loc>
-<lastmod>2013-12-13T22:40:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>http://opslinux.com/category/jian-kong.html</loc>
 <lastmod>2013-09-09T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -166,14 +152,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/category/gao-xing-neng.html</loc>
-<lastmod>2013-10-25T10:20:00-00:00</lastmod>
+<lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/tag/web.html</loc>
-<lastmod>2013-10-25T10:20:00-00:00</lastmod>
+<lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -201,7 +187,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/tag/gao-bing-fa.html</loc>
-<lastmod>2013-10-25T10:20:00-00:00</lastmod>
+<lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -209,13 +195,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://opslinux.com/tag/vagrant.html</loc>
 <lastmod>2013-09-14T00:00:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>http://opslinux.com/tag/excel.html</loc>
-<lastmod>2013-12-13T22:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -229,7 +208,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/tag/nginx.html</loc>
-<lastmod>2013-10-25T10:20:00-00:00</lastmod>
+<lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -249,15 +228,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/author/calf.html</loc>
-<lastmod>2013-12-13T22:40:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>http://opslinux.com/author/chuang-e.html</loc>
-<lastmod>2014-01-24T15:33:00-00:00</lastmod>
+<lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
