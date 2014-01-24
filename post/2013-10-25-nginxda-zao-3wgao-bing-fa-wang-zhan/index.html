@@ -1,37 +1,79 @@
 <!DOCTYPE html>
-<html lang="zhs">
-<head>
-                <title>老运维人员</title>
-        <meta charset="utf-8" />
-                                <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维人员 Atom Feed" />
-                        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维人员 RSS Feed" />
-                                                </head>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="author" content="创e" />
+        <meta name="copyright" content="创e" />
+                
+                                                
+<meta name="keywords" content="nginx, 高并发, web, 高性能, " />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://opslinux.com">老运维人员 <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-                                      <li><a href="http://opslinux.com/pages/about.html">about</a></li>
-                      <li><a href="http://opslinux.com/pages/links.html">links</a></li>
-                          </ul></nav><!-- /#menu -->
-        <section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="bookmark"
-         title="Permalink to Nginx打造3w高并发网站">Nginx打造3w高并发网站</a></h2>
-  
-  </header>
-  <footer class="post-info">
-    <abbr class="published" title="2013-10-25T10:20:00">
-      2013-10-25
-    </abbr>
-        <address class="vcard author">
-      By <a class="url fn" href="http://opslinux.com/author/chuang-e.html">创e</a>
-    </address>
-      </footer><!-- /.post-info -->
-  <div class="entry-content">
-    <div class="contents local topic" id="contents">
+<meta property="og:title" content="Nginx打造3w高并发网站 "/>
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" />
+<meta property="og:description" content="Nginx 优化 nginx介绍 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 Nginx 优化 nginx介绍 Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能 ..." />
+<meta property="og:site_name" content="老运维人员" />
+<meta property="og:article:author" content="创e" />
+<meta property="og:article:published_time" content="2013-10-25T10:20:00" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx打造3w高并发网站 ">
+<meta name="twitter:description" content="Nginx 优化 nginx介绍 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 Nginx 优化 nginx介绍 Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能 ...">
+    
+        <title>Nginx打造3w高并发网站  · 老运维人员
+</title>
+                <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+                <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/custom.css" media="screen">
+                                                <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维人员 - Atom Feed" />
+        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维人员 - RSS Feed" />
+                        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://opslinux.com/"><span class=site-name>老运维人员</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://opslinux.com">Home</a></li>
+                                                                                    <li ><a href="http://opslinux.com/pages/about.html">about</a></li>
+                                                        <li ><a href="http://opslinux.com/pages/links.html">links</a></li>
+                                                                                    <li ><a href="http://opslinux.com/categories.html">Categories</a></li>
+                            <li ><a href="http://opslinux.com/tags.html">Tags</a></li>
+                            <li ><a href="http://opslinux.com/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://opslinux.com/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+                    <article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/"> Nginx打造3w高并发网站  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+            <div class="span8 offset2 article-content">
+            
+                        
+            <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#nginx" id="id12">Nginx 优化</a><ul>
 <li><a class="reference internal" href="#id1" id="id13">nginx介绍</a></li>
@@ -475,13 +517,136 @@ fastcgi_cache_valid any 1m;</p>
 </div>
 </div>
 
-  </div><!-- /.entry-content -->
+                            
+                            <section>
+        <div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                                href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                                        <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'codenut';
+            var disqus_identifier = 'http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/';
+        var disqus_url = 'http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
-</body>
+    
+            <hr/>
+                                    <aside>
+            <nav>
+            <ul class="articles-timeline">
+                                                                                            <li class="previous-article">« <a href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" title="Previous: 使用Vagrant打造你的虚拟环境">使用Vagrant打造你的虚拟环境</a></li>
+                                                                                                            <li class="next-article"><a href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" title="Next: python中的urlencode与urldecode">python中的urlencode与urldecode</a> »</li>
+                            </ul>
+            </nav>
+            </aside>
+                    </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+                        <h4>Published</h4>
+                        <time pubdate="pubdate" datetime="2013-10-25T10:20:00">Oct 25, 2013</time>
+                                                            <h4>Category</h4>
+            <a class="category-link" href="http://opslinux.com/categories.html#gao-xing-neng-ref">高性能</a>
+                                    <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                                <li><a href="http://opslinux.com/tags.html#nginx-ref">nginx
+                                        <span>1</span>
+                    </a></li>
+                                <li><a href="http://opslinux.com/tags.html#web-ref">web
+                                        <span>1</span>
+                    </a></li>
+                                <li><a href="http://opslinux.com/tags.html#gao-bing-fa-ref">高并发
+                                        <span>1</span>
+                    </a></li>
+                            </ul>
+                        <h4>Contact</h4>
+                                                                                                                                                                            <a href="https://github.com/zbing3" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+                                                                                                                                                                            <a href="http://weibo.com/zb311" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+                    </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+        <footer>
+<div id="footer">
+    <ul class="footer-content">
+                                        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>                    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+        
+                            <script type="text/javascript">
+var disqus_shortname = 'codenut';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+    
+                        </body>
 </html>
