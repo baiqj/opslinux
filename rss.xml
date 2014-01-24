@@ -78,6 +78,10 @@ a=test&amp;amp;amp;name=%C4%A7%CA%DE
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/web_serivce/nginx优化.rst&lt;/tt&gt;, line 12)&lt;/p&gt;
+Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;div class="section" id="nginx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Nginx 优化&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id1"&gt;

@@ -13,13 +13,13 @@
 <meta property="og:title" content="Nginx打造3w高并发网站 "/>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" />
-<meta property="og:description" content="Contents Nginx 优化 nginx介绍 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 Nginx 优化 nginx介绍 Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 ..." />
+<meta property="og:description" content="Contents Nginx 优化 nginx介绍 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 System Message: WARNING/2 (/Users/ce/workspace/pelican/blog/content/web_serivce/nginx优化.rst, line 12) Explicit markup ends without a blank line; unexpected ..." />
 <meta property="og:site_name" content="老运维人员" />
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2013-10-25T10:20:00" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx打造3w高并发网站 ">
-<meta name="twitter:description" content="Contents Nginx 优化 nginx介绍 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 Nginx 优化 nginx介绍 Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 ...">
+<meta name="twitter:description" content="Contents Nginx 优化 nginx介绍 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 System Message: WARNING/2 (/Users/ce/workspace/pelican/blog/content/web_serivce/nginx优化.rst, line 12) Explicit markup ends without a blank line; unexpected ...">
     
         <title>Nginx打造3w高并发网站  · 老运维人员
 </title>
@@ -106,6 +106,10 @@
 </li>
 </ul>
 </div>
+<!-- more -->
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/ce/workspace/pelican/blog/content/web_serivce/nginx优化.rst</tt>, line 12)</p>
+Explicit markup ends without a blank line; unexpected unindent.</div>
 <div class="section" id="nginx">
 <h2><a class="toc-backref" href="#id12">Nginx 优化</a></h2>
 <div class="section" id="id1">
