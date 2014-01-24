@@ -489,7 +489,7 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
+</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;
@@ -570,7 +570,7 @@ end
 
 &lt;p&gt;Nginx 配置添加:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sendfile off;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</id><summary type="html">&lt;h1&gt;zabbix监控mongoDB&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</id><summary type="html">&lt;h1&gt;zabbix监控mongoDB&lt;/h1&gt;
 &lt;p&gt;推荐文档：&lt;/p&gt;
 &lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
 &lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
@@ -633,7 +633,7 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
 
 &lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
 &lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-07-13:post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</id><summary type="html">&lt;h2&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</id><summary type="html">&lt;h2&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
 &lt;h3&gt;安装virtualenv虚拟环境&lt;/h3&gt;
 &lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
@@ -742,4 +742,4 @@ Tag: 标签1, 标签2
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>about</title><link href="http://opslinux.com/post/2013-07-12-about/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-about/</id><summary type="html">&lt;p&gt;一个老运维人员正在转python开发中……&lt;/p&gt;</summary></entry><entry><title>helloworld</title><link href="http://opslinux.com/post/2013-07-12-helloworld/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>皓禹</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-helloworld/</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
+&lt;h2&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>about</title><link href="http://opslinux.com/post/2013-07-12-about/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-about/</id><summary type="html">&lt;p&gt;一个老运维人员正在转python开发中……&lt;/p&gt;</summary></entry><entry><title>helloworld</title><link href="http://opslinux.com/post/2013-07-12-helloworld/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-helloworld/</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
