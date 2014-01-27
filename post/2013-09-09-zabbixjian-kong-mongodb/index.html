@@ -128,10 +128,12 @@ mikoomi-mongodb-plugin.sh["--", "-h", "{$MONGODB_HOSTNAME}", "-p", "{$MONGODB_PO
 zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required</p>
 <p>zabbix_sender [8413]: Warning: [line 68] ‘Key value’ required</p>
 <p>zabbix_sender [8414]: DEBUG: answer [{</p>
-<pre><code>    "response":"success",
+<div class="highlight"><pre>    <span class="s">&quot;response&quot;</span><span class="o">:</span><span class="s">&quot;success&quot;</span><span class="p">,</span>
 
-    "info":"Processed 58 Failed 13 Total 71 Seconds spent 0.001618"}]
-</code></pre>
+    <span class="s">&quot;info&quot;</span><span class="o">:</span><span class="s">&quot;Processed 58 Failed 13 Total 71 Seconds spent 0.001618&quot;</span><span class="p">}]</span>
+</pre></div>
+
+
 <p>sent: 71; skipped: 2; total: 73</p>
 <p>/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)</p>
 <p><code>若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名</code></p>
