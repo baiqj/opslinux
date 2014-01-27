@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维人员</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 24 Jan 2014 15:33:00 +0800</lastBuildDate><item><title>HTTP Header 详解</title><link>http://opslinux.com/post/2014-01-24-http-header-xiang-jie/</link><description>&lt;p&gt;HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general  header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。
 test!&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 24 Jan 2014 15:33:00 +0800</pubDate><guid>tag:opslinux.com,2014-01-24:post/2014-01-24-http-header-xiang-jie/</guid><category>HTTP</category></item><item><title>python中的urlencode与urldecode</title><link>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</link><description>&lt;div class="contents local topic" id="contents"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 24 Jan 2014 15:33:00 +0800</pubDate><guid>tag:opslinux.com,2014-01-24:post/2014-01-24-http-header-xiang-jie/</guid><category>HTTP</category></item><item><title>python中的urlencode与urldecode</title><link>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</link><description>&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#urlencode" id="id3"&gt;一、urlencode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#urldecode" id="id4"&gt;二、urldecode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id5"&gt;三、讨论&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;!-- 1  Head 1
+  1.1  Head 2
+2  Head 3
+3  head 4 --&gt;
 &lt;p&gt;转载： &lt;a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html"&gt;地址&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。&lt;/p&gt;
@@ -710,7 +715,7 @@ Tag: 标签1, 标签2
 
 &lt;p&gt;这样上传完代码等10分钟左右，即可在浏览器中使用&lt;code&gt;http://zbing3.github.io/myblog&lt;/code&gt;就能访问到自己的博客&lt;/p&gt;
 &lt;h3&gt;定制自己的Makefile文件，让git提交更方便一点&lt;/h3&gt;
-&lt;p&gt;编辑Makefile &lt;code&gt;vim Makefile&lt;/code&gt; ，在github下面添加如下格式的文件：&lt;/p&gt;
+&lt;p&gt;使用此方法就不用在output目录中初始git了。编辑Makefile &lt;code&gt;vim Makefile&lt;/code&gt; ，在github下面添加如下格式的文件：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;git:&lt;/span&gt;
     &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;INPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CONFFILE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICANOPTS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
