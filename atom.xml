@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维人员</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-01-24T15:33:00+08:00</updated><entry><title>HTTP Header 详解</title><link href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/" rel="alternate"></link><updated>2014-01-24T15:33:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-01-24:post/2014-01-24-http-header-xiang-jie/</id><summary type="html">&lt;p&gt;HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general  header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。
 test!&lt;/p&gt;
-</summary><category term="HTTP"></category></entry><entry><title>在Excel中制作不等宽柱状图</title><link href="http://opslinux.com/post/2013-12-13-excel-variable-width-column-chart/" rel="alternate"></link><updated>2013-12-13T14:35:00+08:00</updated><author><name>Calf</name></author><id>tag:opslinux.com,2013-12-13:post/2013-12-13-excel-variable-width-column-chart/</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
-&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id1" id="id9"&gt;数据和目标效果&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id10"&gt;基础数据和第一次扩展&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id11"&gt;面积图数据扩展&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id12"&gt;作图&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id13"&gt;添加数据标签&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#highcharts" id="id14"&gt;Highcharts版本&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+</summary><category term="HTTP"></category></entry><entry><title>在Excel中制作不等宽柱状图</title><link href="http://opslinux.com/post/2013-12-13-excel-variable-width-column-chart/" rel="alternate"></link><updated>2013-12-13T14:35:00+08:00</updated><author><name>Calf</name></author><id>tag:opslinux.com,2013-12-13:post/2013-12-13-excel-variable-width-column-chart/</id><summary type="html">
 &lt;p&gt;柱状图大家应该都很熟悉，在Excel中可以很容易创建一个柱状图，每个柱子的高度表达了某个对象的数值大小。但有的时候，需要在柱状图中同时表达两个维度的数据，除了高度之外，希望柱子的宽度也能表达该对象的另外一个数值大小，以便直观地比较这两个维度。我曾经就需要做一个这样的图，不过在Excel中并没有直接提供相关的功能，需要一些小技巧。&lt;/p&gt;
 &lt;p&gt;今天就来介绍一下我是怎么制作不等宽柱状图（Variable Width Column Chart）的。也有人称其为Marimekko
 Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt;
@@ -22,9 +12,9 @@ Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt
 &lt;p&gt;假设我们有这样一组数据，一共五个对象，每个对象都有两个数值属性（x和y）。我们希望用柱子的宽度表示x的大小（这里只考虑x是非负数的情况），高度表示y的大小。&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
-&lt;col width="43%" /&gt;
-&lt;col width="29%" /&gt;
-&lt;col width="29%" /&gt;
+&lt;col width="43%"&gt;&lt;/col&gt;
+&lt;col width="29%"&gt;&lt;/col&gt;
+&lt;col width="29%"&gt;&lt;/col&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head"&gt;Item&lt;/th&gt;
@@ -57,7 +47,7 @@ Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt
 &lt;/table&gt;
 &lt;p&gt;最后做成的图是这样的：&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="variable_width_column_chart" src="{filename}/images/2013/12/variable_width_column_chart.png" /&gt;
+&lt;img alt="variable_width_column_chart" src="{filename}/images/2013/12/variable_width_column_chart.png"/&gt;
 &lt;p class="caption"&gt;在Excel中根据上述数据制作的不等宽柱状图&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;那么应该怎么产生这样的效果呢？内置的柱状图并没有办法调节每个柱子的宽度，所以看起来不应该是从这个角度去做。&lt;/p&gt;
@@ -71,7 +61,7 @@ Chart，我没有仔细去考证，二者好像也并不完全一样。&lt;/p&gt
 Format as Table，然后随便选择一个样式，将这片区域转换成Excel表。给这个表起个名字，比如叫作TableData，在Ribbon中点击（TABLE
 TOOLS）DESIGN，在Table Name的文本框中输入TableData。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="create_data_table" src="{filename}/images/2013/12/create_data_table.png" /&gt;
+&lt;img alt="create_data_table" src="{filename}/images/2013/12/create_data_table.png"/&gt;
 &lt;p class="caption"&gt;选择原始数据单元格范围，转换成Excel表&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;接下来对这个数据表格做一些简单的扩充——增加几个有用的列。&lt;/p&gt;
@@ -87,7 +77,7 @@ TOOLS）DESIGN，在Table Name的文本框中输入TableData。&lt;/p&gt;
 &lt;p&gt;为了方便以后引用，我们给存放这个数值的单元格起个名字。比如我现在把它放在B8这个单元格里，选中这个单元格，点击Ribbon的FORMULAS -&amp;gt;
 Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="define_gap_name" src="{filename}/images/2013/12/define_gap_name.png" /&gt;
+&lt;img alt="define_gap_name" src="{filename}/images/2013/12/define_gap_name.png"/&gt;
 &lt;p class="caption"&gt;给间隔数据所在的单元格定义名字&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;有了这个柱子之间的间隔，就很容易写出Right和Left的计算公式了。假设第一个柱子的左边界的（横轴）坐标为0，那任何一个柱子的左边界的坐标就等于它左边所有柱子的宽度之和加上若干（=左边的柱子个数）个间隔。而这个柱子的右边界的坐标等于其左边界坐标加上它自身的宽度。实际写公式的时候，为了方便，我先计算右边界的坐标，然后减去宽度得到左边界坐标。&lt;/p&gt;
@@ -106,7 +96,7 @@ Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;p&gt;假设我们把这个数据表叫作TableArea，放在从A10开始的单元格范围内。&lt;/p&gt;
 &lt;p&gt;第一列叫作Index，是一列递增的索引值，用于识别所在行的柱子序号和顶点编号。因为每一行原始数据在这里要对应4行新数据，所以这里需要4 * 5 = 20行，对应的编号分别为0，1，2，……，19。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="create_area_table" src="{filename}/images/2013/12/create_area_table.png" /&gt;
+&lt;img alt="create_area_table" src="{filename}/images/2013/12/create_area_table.png"/&gt;
 &lt;p class="caption"&gt;新加的Excel表——TableArea&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;接下来添加一些辅助列，主要是为了简化后续的计算公式。一个一个地介绍。&lt;/p&gt;
@@ -141,7 +131,7 @@ Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;对于其他几列，只要把公式中的“[A]”改为对应的列名即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="data_ready" src="{filename}/images/2013/12/data_ready.png" /&gt;
+&lt;img alt="data_ready" src="{filename}/images/2013/12/data_ready.png"/&gt;
 &lt;p class="caption"&gt;准备完毕的两个Excel表&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -151,35 +141,35 @@ Define Name来为其指定一个名字，比如叫作“Gap”。&lt;/p&gt;
 &lt;p&gt;在TableArea中选择所有的纵坐标列（A列到E列，包括列头和每一行数据），然后点击Ribbon的Insert -&amp;gt;
 Insert Area Chart -&amp;gt; Area，插入一张新的面积图。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="create_area_chart" src="{filename}/images/2013/12/create_area_chart.png" /&gt;
+&lt;img alt="create_area_chart" src="{filename}/images/2013/12/create_area_chart.png"/&gt;
 &lt;p class="caption"&gt;创建面积图&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;在面积图上点击鼠标右键，选择Select Data，在Horizontal (Category) Axis
 Labels中可以看到默认的横坐标数据是从1开始的递增整数，需要修改为真实的坐标值。点击Edit，选择TableArea的X列所有数据，保存即可。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="change_horizontal_axis_label" src="{filename}/images/2013/12/change_horizontal_axis_label.png" /&gt;
+&lt;img alt="change_horizontal_axis_label" src="{filename}/images/2013/12/change_horizontal_axis_label.png"/&gt;
 &lt;p class="caption"&gt;修改横坐标值&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;这时候图中的每个柱子都是梯形的，而且宽度跟X列的数据值也没有对应关系，接下来要把等宽的梯形改成不等宽的矩形。这也是制作不等宽柱状图中最重要的一步。用鼠标右键点击横坐标轴，选择Format
 Axis，将AXIS OPTIONS -&amp;gt; Axis Type由默认的Automatically select based on data改成Date Axis。&lt;/p&gt;
 &lt;p&gt;对于Date Axis，我们需要让横坐标数据最小粒度在一天以上，如果都是小于1的数，显示上会有些问题。所以在数据准备的时候，我把X数据进行适当的缩放得到Width，用Width来生成横坐标数据。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="use_date_axis" src="{filename}/images/2013/12/use_date_axis.png" /&gt;
+&lt;img alt="use_date_axis" src="{filename}/images/2013/12/use_date_axis.png"/&gt;
 &lt;p class="caption"&gt;改成Date Axis&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="trapezoid_vs_rectangle" src="{filename}/images/2013/12/trapezoid_vs_rectangle.png" /&gt;
+&lt;img alt="trapezoid_vs_rectangle" src="{filename}/images/2013/12/trapezoid_vs_rectangle.png"/&gt;
 &lt;p class="caption"&gt;应用Date Axis之前（等宽梯形）和之后（不等宽矩形）的图形对比&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;然后把横轴的刻度和标签隐藏起来，即把TICK MARKS -&amp;gt; Major type从默认的Outside改为None，把LABELS -&amp;gt; Label
 Position从默认的Next to Axis改为None。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="hide_axis_mark_and_label" src="{filename}/images/2013/12/hide_axis_mark_and_label.png" /&gt;
+&lt;img alt="hide_axis_mark_and_label" src="{filename}/images/2013/12/hide_axis_mark_and_label.png"/&gt;
 &lt;p class="caption"&gt;隐藏横轴的刻度和标签&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;修改一下图的标题之后，不等宽柱状图的主体结构就完成了。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="chart_demo" src="{filename}/images/2013/12/chart_demo.png" /&gt;
+&lt;img alt="chart_demo" src="{filename}/images/2013/12/chart_demo.png"/&gt;
 &lt;p class="caption"&gt;不等宽柱状图的主体结构&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -193,20 +183,20 @@ Position从默认的Next to Axis改为None。&lt;/p&gt;
 &lt;p&gt;用鼠标右键点击图表，选择Select Data，然后点击Legend Entries (Series) -&amp;gt; Add增加新的一组数据。在弹出的Edit
 Series框中，把Series name设置为Label，把Series values设置为TableData中Y列整列数据。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="add_label_series" src="{filename}/images/2013/12/add_label_series.png" /&gt;
+&lt;img alt="add_label_series" src="{filename}/images/2013/12/add_label_series.png"/&gt;
 &lt;p class="caption"&gt;添加一个Series用于展示标签&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;这时候图表会变的比较难看，没有关系。右键点击新加入的Series，选择Change Series Chart
 Type，在Combo -&amp;gt; Custom Combination -&amp;gt; Choose the chart type and axis for your data
 series中找到新加的Label这个Series，把它的Chart Type从Area改成散点图（X Y (Scatter) -&amp;gt; Scatter）。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="change_series_chart_type" src="{filename}/images/2013/12/change_series_chart_type.png" /&gt;
+&lt;img alt="change_series_chart_type" src="{filename}/images/2013/12/change_series_chart_type.png"/&gt;
 &lt;p class="caption"&gt;将新增加的Serise改为散点图&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;再次进入Select Data，编辑Label这个Series的数据，这时候就可以编辑它的横轴数据了，把Series
 X values设置为TableData中Mid列整列数据。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="set_label_series_x_data" src="{filename}/images/2013/12/set_label_series_x_data.png" /&gt;
+&lt;img alt="set_label_series_x_data" src="{filename}/images/2013/12/set_label_series_x_data.png"/&gt;
 &lt;p class="caption"&gt;设置新增加的Series的横轴坐标&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;修改之后，这些数据点就刚好落在每一个柱子的上边界中点位置了。右键点击这个Series，选择Add
@@ -214,7 +204,7 @@ Data Labels -&amp;gt; Add Data Labels；再右键点击出现的标签，选择F
 OPTIONS -&amp;gt; Label Contains -&amp;gt; Value From Cells复选框，弹出Data Label
 Range对话框，将数据范围设置为TableData的X列整列数据。然后将Label Position改为Above。&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="set_label_options" src="{filename}/images/2013/12/set_label_options.png" /&gt;
+&lt;img alt="set_label_options" src="{filename}/images/2013/12/set_label_options.png"/&gt;
 &lt;p class="caption"&gt;修改数据标签的显示属性&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;最后隐藏一些不必要的东西即可。比如可以将Label Series的Marker设置为None，把Legend区域内Label字样直接删除。&lt;/p&gt;
@@ -229,7 +219,7 @@ Range对话框，将数据范围设置为TableData的X列整列数据。然后�
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Highcharts版本&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.gocalf.com/"&gt;GoCalf博客&lt;/a&gt;使用&lt;a class="reference external" href="http://www.highcharts.com/"&gt;Highcharts&lt;/a&gt;渲染动态图表。Highchart也并不直接支持不等宽柱状图，但是可以用完全相同的方法来进行模拟。具体的过程不再赘述，效果参见下图，源代码可以通过本页面的HTML源码获得，或者查看&lt;a class="reference external" href="http://jsfiddle.net/calfzhou/TUt2U/"&gt;我共享的jsfiddle&lt;/a&gt;：&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://jsfiddle.net/calfzhou/TUt2U/"&gt;http://jsfiddle.net/calfzhou/TUt2U/&lt;/a&gt;&lt;/p&gt;
-&lt;div id="variable-width-column-chart" class="highcharts" style="height: 400px; width: 640px"&gt;&lt;/div&gt;
+&lt;div class="highcharts" id="variable-width-column-chart" style="height: 400px; width: 640px"&gt;&lt;/div&gt;
 &lt;script type="text/javascript"&gt;
 $(function () {
     var rawData = [
@@ -298,14 +288,7 @@ $(function () {
     });
 });
 &lt;/script&gt;&lt;/div&gt;
-</summary><category term="Excel"></category></entry><entry><title>python中的urlencode与urldecode</title><link href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" rel="alternate"></link><updated>2013-11-01T12:51:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-11-01:post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
-&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#urlencode" id="id3"&gt;一、urlencode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#urldecode" id="id4"&gt;二、urldecode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id5"&gt;三、讨论&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+</summary><category term="Excel"></category></entry><entry><title>python中的urlencode与urldecode</title><link href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" rel="alternate"></link><updated>2013-11-01T12:51:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-11-01:post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</id><summary type="html">
 &lt;p&gt;转载： &lt;a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html"&gt;地址&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。&lt;/p&gt;
@@ -344,35 +327,7 @@ a=test&amp;amp;amp;name=%C4%A7%CA%DE
 &lt;p&gt;在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。&lt;/p&gt;
 &lt;p&gt;可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
-&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id1" id="id10"&gt;编译安装过程优化&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#cpucpu" id="id11"&gt;为特定的CPU指定CPU类型编译优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#tcmallocnginx" id="id12"&gt;利用TCMalloc优化Nginx的性能&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#libunwind" id="id13"&gt;1.安装libunwind库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#google-perftools" id="id14"&gt;2.安装google-perftools&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#nginx" id="id15"&gt;3.重新编译Nginx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id16"&gt;4.为google-perftools添加线程目录&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id17"&gt;5.修改Nginx主配置文件&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id18"&gt;6.验证运行状态&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id19"&gt;Nginx内核参数优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id20"&gt;配置文件优化&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id7" id="id21"&gt;基本优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id8" id="id22"&gt;简单配置文件&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#fastcgi" id="id23"&gt;关于FastCGI 的几个指令：&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ulimit" id="id24"&gt;ulimit关于系统连接数的优化&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id9" id="id25"&gt;修改方式&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+</summary><category term="python"></category></entry><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</id><summary type="html">
 &lt;p&gt;Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发.&lt;/p&gt;
 &lt;p&gt;Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序。&lt;/p&gt;
 &lt;p&gt;nginx做为HTTP服务器，有以下几项基本特性：&lt;/p&gt;
@@ -401,7 +356,7 @@ CFLAGS=”$CFLAGS -g”
 &lt;/pre&gt;
 &lt;p&gt;要确定CPU类型，可以通过如下命令:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64;localhost home]#cat /proc/cpuinfo | grep &amp;quot;model name&amp;quot;
+[root@localhost home]#cat /proc/cpuinfo | grep "model name"
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="tcmallocnginx"&gt;
@@ -412,23 +367,23 @@ CFLAGS=”$CFLAGS -g”
 &lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;1.安装libunwind库&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;可以从http://download.savannah.gnu.org/releases/libunwind下载相应的libunwind版本，这里下载的是libunwind-0.99-alpha.tar.gz，安装过程如下&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64;localhost home]#tar zxvf libunwind-0.99-alpha.tar.gz
-[root&amp;#64;localhost home]# cd libunwind-0.99-alpha/
-[root&amp;#64;localhost libunwind-0.99-alpha]#CFLAGS=-fPIC ./configure
-[root&amp;#64;localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC
-[root&amp;#64;localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC install
+[root@localhost home]#tar zxvf libunwind-0.99-alpha.tar.gz
+[root@localhost home]# cd libunwind-0.99-alpha/
+[root@localhost libunwind-0.99-alpha]#CFLAGS=-fPIC ./configure
+[root@localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC
+[root@localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC install
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="google-perftools"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;2.安装google-perftools&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;可以从http://google-perftools.googlecode.com下载相应的google-perftools版本，这里下载的是google-perftools-1.8.tar.gz，安装过程如下:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64;localhost home]# tar zxvf google-perftools-1.8.tar.gz
-[root&amp;#64;localhost home]# cd google-perftools-1.8/
-[root&amp;#64;localhost google-perftools-1.8]# ./configure
-[root&amp;#64;localhost google-perftools-1.8]# make &amp;amp;&amp;amp; make install
-[root&amp;#64;localhost google-perftools-1.8]# echo &amp;quot;/usr/local/lib&amp;quot; &amp;gt; /etc/ld.so.conf.d/usr_local_lib.conf
-[root&amp;#64;localhost google-perftools-1.8]# ldconfig
+[root@localhost home]# tar zxvf google-perftools-1.8.tar.gz
+[root@localhost home]# cd google-perftools-1.8/
+[root@localhost google-perftools-1.8]# ./configure
+[root@localhost google-perftools-1.8]# make &amp;amp;&amp;amp; make install
+[root@localhost google-perftools-1.8]# echo "/usr/local/lib" &amp;gt; /etc/ld.so.conf.d/usr_local_lib.conf
+[root@localhost google-perftools-1.8]# ldconfig
 &lt;/pre&gt;
 &lt;p&gt;至此，google-perftools安装完成。&lt;/p&gt;
 &lt;/div&gt;
@@ -436,10 +391,10 @@ CFLAGS=”$CFLAGS -g”
 &lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;3.重新编译Nginx&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;为了使Nginx支持google-perftools，需要在安装过程中添加“–with-google_perftools_module”选项重新编译Nginx，安装代码如下:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64;localhostnginx-0.7.65]#./configure \
+[root@localhostnginx-0.7.65]#./configure \
 &amp;gt;--with-google_perftools_module --with-http_stub_status_module  --prefix=/opt/nginx
-[root&amp;#64;localhost nginx-0.7.65]#make
-[root&amp;#64;localhost nginx-0.7.65]#make install
+[root@localhost nginx-0.7.65]#make
+[root@localhost nginx-0.7.65]#make install
 &lt;/pre&gt;
 &lt;p&gt;到这里Nginx安装完成。&lt;/p&gt;
 &lt;/div&gt;
@@ -447,8 +402,8 @@ CFLAGS=”$CFLAGS -g”
 &lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;4.为google-perftools添加线程目录&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;创建一个线程目录，这里将文件放在/tmp/tcmalloc下，操作如下:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64;localhost home]#mkdir /tmp/tcmalloc
-[root&amp;#64;localhost home]#chmod 0777 /tmp/tcmalloc
+[root@localhost home]#mkdir /tmp/tcmalloc
+[root@localhost home]#chmod 0777 /tmp/tcmalloc
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id3"&gt;
@@ -464,7 +419,7 @@ google_perftools_profiles /tmp/tcmalloc;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;6.验证运行状态&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;为了验证google-perftools已经正常加载，通过如下命令查看:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64; localhost home]# lsof -n | grep tcmalloc
+[root@ localhost home]# lsof -n | grep tcmalloc
 nginx      2395 nobody   9w  REG    8,8       0    1599440 /tmp/tcmalloc.2395
 nginx      2396 nobody   11w REG   8,8       0    1599443 /tmp/tcmalloc.2396
 nginx      2397 nobody   13w REG  8,8        0    1599441  /tmp/tcmalloc.2397
@@ -496,7 +451,7 @@ net.ipv4.tcp_keepalive_time = 30
 &lt;/pre&gt;
 &lt;p&gt;将上面的内核参数值加入/etc/sysctl.conf文件中，然后执行如下命令使之生效:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64; localhost home]#/sbin/sysctl -p
+[root@ localhost home]#/sbin/sysctl -p
 &lt;/pre&gt;
 &lt;p&gt;下面是对实例中选项的含义进行介绍：&lt;/p&gt;
 &lt;p&gt;net.ipv4.tcp_max_tw_buckets参数用来设定timewait的数量，默认是180000，这里设为6000。&lt;/p&gt;
@@ -572,7 +527,7 @@ net.ipv4.ip_local_port_range = 1024 65000
 &lt;p&gt;这是因为nginx调度时分配请求到进程并不是那么的均衡，所以假如填写10240，总并发量达到3-4万时就有进程可能超过10240了，这时会返回502错误。&lt;/p&gt;
 &lt;p&gt;查看linux系统文件描述符的方法:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-[root&amp;#64;web001 ~]# sysctl -a | grep fs.file
+[root@web001 ~]# sysctl -a | grep fs.file
 
 fs.file-max = 789972
 
@@ -606,7 +561,7 @@ Epoll: 使用于Linux内核2.6版本及以后的系统。&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;客户端请求头部的缓冲区大小，这个可以根据你的系统分页大小来设置，一般一个请求头的大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。&lt;/p&gt;
 &lt;p&gt;分页大小可以用命令getconf PAGESIZE 取得。&lt;/p&gt;
-&lt;p&gt;[&lt;a class="reference external" href="mailto:root&amp;#64;web001"&gt;root&amp;#64;web001&lt;/a&gt; ~]# getconf PAGESIZE&lt;/p&gt;
+&lt;p&gt;[&lt;a class="reference external" href="mailto:root@web001"&gt;root@web001&lt;/a&gt; ~]# getconf PAGESIZE&lt;/p&gt;
 &lt;p&gt;4096&lt;/p&gt;
 &lt;p&gt;但也有client_header_buffer_size超过4k的情况，但是client_header_buffer_size该值必须设置为“系统分页大小”的整倍数。&lt;/p&gt;
 &lt;ol class="arabic simple" start="8"&gt;

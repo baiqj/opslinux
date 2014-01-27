@@ -13,13 +13,13 @@
 <meta property="og:title" content="Nginx打造3w高并发网站 "/>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" />
-<meta property="og:description" content="Contents 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序 ..." />
+<meta property="og:description" content="Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序。 nginx做为HTTP服务器，有以下几项基本特性： 处理静态文件，索引文件以及自动索引；打开文件描述符缓冲． 无缓存的反向代理加速，简单的负载均衡和容错． FastCGI，简单的负载均衡和容错． 模块化的结构。包括gzipping, byte ranges, chunked responses,以及 SSI-filter等filter。如果由FastCGI或其它代理服务器处理单页中存在的多个SSI，则这项处理可以并行运行，而不需要相互等待。 Nginx专为性能优化而开发，性能是其最重要的考量,实现上非常注重效率。它支持内核Poll模型 ..." />
 <meta property="og:site_name" content="老运维人员" />
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2013-10-25T10:20:00" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx打造3w高并发网站 ">
-<meta name="twitter:description" content="Contents 编译安装过程优化 为特定的CPU指定CPU类型编译优化 利用TCMalloc优化Nginx的性能 1.安装libunwind库 2.安装google-perftools 3.重新编译Nginx 4.为google-perftools添加线程目录 5.修改Nginx主配置文件 6.验证运行状态 Nginx内核参数优化 配置文件优化 基本优化 简单配置文件 关于FastCGI 的几个指令： ulimit关于系统连接数的优化 修改方式 Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序 ...">
+<meta name="twitter:description" content="Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发. Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序。 nginx做为HTTP服务器，有以下几项基本特性： 处理静态文件，索引文件以及自动索引；打开文件描述符缓冲． 无缓存的反向代理加速，简单的负载均衡和容错． FastCGI，简单的负载均衡和容错． 模块化的结构。包括gzipping, byte ranges, chunked responses,以及 SSI-filter等filter。如果由FastCGI或其它代理服务器处理单页中存在的多个SSI，则这项处理可以并行运行，而不需要相互等待。 Nginx专为性能优化而开发，性能是其最重要的考量,实现上非常注重效率。它支持内核Poll模型 ...">
     
         <title>Nginx打造3w高并发网站  · 老运维人员
 </title>
@@ -70,10 +70,10 @@
 </div>
 
 <div class="row-fluid">
-            <div class="span8 offset2 article-content">
-            
-                        
-            <div class="contents topic" id="contents">
+        <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#id1" id="id10">编译安装过程优化</a><ul>
@@ -102,6 +102,12 @@
 </li>
 </ul>
 </div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+       
+                        
+            
 <p>Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发.</p>
 <p>Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序。</p>
 <p>nginx做为HTTP服务器，有以下几项基本特性：</p>
@@ -130,7 +136,7 @@ CFLAGS=”$CFLAGS -g”
 </pre>
 <p>要确定CPU类型，可以通过如下命令:</p>
 <pre class="literal-block">
-[root&#64;localhost home]#cat /proc/cpuinfo | grep &quot;model name&quot;
+[root@localhost home]#cat /proc/cpuinfo | grep "model name"
 </pre>
 </div>
 <div class="section" id="tcmallocnginx">
@@ -141,23 +147,23 @@ CFLAGS=”$CFLAGS -g”
 <h4><a class="toc-backref" href="#id13">1.安装libunwind库</a></h4>
 <p>可以从http://download.savannah.gnu.org/releases/libunwind下载相应的libunwind版本，这里下载的是libunwind-0.99-alpha.tar.gz，安装过程如下</p>
 <pre class="literal-block">
-[root&#64;localhost home]#tar zxvf libunwind-0.99-alpha.tar.gz
-[root&#64;localhost home]# cd libunwind-0.99-alpha/
-[root&#64;localhost libunwind-0.99-alpha]#CFLAGS=-fPIC ./configure
-[root&#64;localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC
-[root&#64;localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC install
+[root@localhost home]#tar zxvf libunwind-0.99-alpha.tar.gz
+[root@localhost home]# cd libunwind-0.99-alpha/
+[root@localhost libunwind-0.99-alpha]#CFLAGS=-fPIC ./configure
+[root@localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC
+[root@localhost libunwind-0.99-alpha]#make CFLAGS=-fPIC install
 </pre>
 </div>
 <div class="section" id="google-perftools">
 <h4><a class="toc-backref" href="#id14">2.安装google-perftools</a></h4>
 <p>可以从http://google-perftools.googlecode.com下载相应的google-perftools版本，这里下载的是google-perftools-1.8.tar.gz，安装过程如下:</p>
 <pre class="literal-block">
-[root&#64;localhost home]# tar zxvf google-perftools-1.8.tar.gz
-[root&#64;localhost home]# cd google-perftools-1.8/
-[root&#64;localhost google-perftools-1.8]# ./configure
-[root&#64;localhost google-perftools-1.8]# make &amp;&amp; make install
-[root&#64;localhost google-perftools-1.8]# echo &quot;/usr/local/lib&quot; &gt; /etc/ld.so.conf.d/usr_local_lib.conf
-[root&#64;localhost google-perftools-1.8]# ldconfig
+[root@localhost home]# tar zxvf google-perftools-1.8.tar.gz
+[root@localhost home]# cd google-perftools-1.8/
+[root@localhost google-perftools-1.8]# ./configure
+[root@localhost google-perftools-1.8]# make &amp;&amp; make install
+[root@localhost google-perftools-1.8]# echo "/usr/local/lib" &gt; /etc/ld.so.conf.d/usr_local_lib.conf
+[root@localhost google-perftools-1.8]# ldconfig
 </pre>
 <p>至此，google-perftools安装完成。</p>
 </div>
@@ -165,10 +171,10 @@ CFLAGS=”$CFLAGS -g”
 <h4><a class="toc-backref" href="#id15">3.重新编译Nginx</a></h4>
 <p>为了使Nginx支持google-perftools，需要在安装过程中添加“–with-google_perftools_module”选项重新编译Nginx，安装代码如下:</p>
 <pre class="literal-block">
-[root&#64;localhostnginx-0.7.65]#./configure \
+[root@localhostnginx-0.7.65]#./configure \
 &gt;--with-google_perftools_module --with-http_stub_status_module  --prefix=/opt/nginx
-[root&#64;localhost nginx-0.7.65]#make
-[root&#64;localhost nginx-0.7.65]#make install
+[root@localhost nginx-0.7.65]#make
+[root@localhost nginx-0.7.65]#make install
 </pre>
 <p>到这里Nginx安装完成。</p>
 </div>
@@ -176,8 +182,8 @@ CFLAGS=”$CFLAGS -g”
 <h4><a class="toc-backref" href="#id16">4.为google-perftools添加线程目录</a></h4>
 <p>创建一个线程目录，这里将文件放在/tmp/tcmalloc下，操作如下:</p>
 <pre class="literal-block">
-[root&#64;localhost home]#mkdir /tmp/tcmalloc
-[root&#64;localhost home]#chmod 0777 /tmp/tcmalloc
+[root@localhost home]#mkdir /tmp/tcmalloc
+[root@localhost home]#chmod 0777 /tmp/tcmalloc
 </pre>
 </div>
 <div class="section" id="id3">
@@ -193,7 +199,7 @@ google_perftools_profiles /tmp/tcmalloc;
 <h4><a class="toc-backref" href="#id18">6.验证运行状态</a></h4>
 <p>为了验证google-perftools已经正常加载，通过如下命令查看:</p>
 <pre class="literal-block">
-[root&#64; localhost home]# lsof -n | grep tcmalloc
+[root@ localhost home]# lsof -n | grep tcmalloc
 nginx      2395 nobody   9w  REG    8,8       0    1599440 /tmp/tcmalloc.2395
 nginx      2396 nobody   11w REG   8,8       0    1599443 /tmp/tcmalloc.2396
 nginx      2397 nobody   13w REG  8,8        0    1599441  /tmp/tcmalloc.2397
@@ -225,7 +231,7 @@ net.ipv4.tcp_keepalive_time = 30
 </pre>
 <p>将上面的内核参数值加入/etc/sysctl.conf文件中，然后执行如下命令使之生效:</p>
 <pre class="literal-block">
-[root&#64; localhost home]#/sbin/sysctl -p
+[root@ localhost home]#/sbin/sysctl -p
 </pre>
 <p>下面是对实例中选项的含义进行介绍：</p>
 <p>net.ipv4.tcp_max_tw_buckets参数用来设定timewait的数量，默认是180000，这里设为6000。</p>
@@ -301,7 +307,7 @@ net.ipv4.ip_local_port_range = 1024 65000
 <p>这是因为nginx调度时分配请求到进程并不是那么的均衡，所以假如填写10240，总并发量达到3-4万时就有进程可能超过10240了，这时会返回502错误。</p>
 <p>查看linux系统文件描述符的方法:</p>
 <pre class="literal-block">
-[root&#64;web001 ~]# sysctl -a | grep fs.file
+[root@web001 ~]# sysctl -a | grep fs.file
 
 fs.file-max = 789972
 
@@ -335,7 +341,7 @@ Epoll: 使用于Linux内核2.6版本及以后的系统。</p>
 </ol>
 <p>客户端请求头部的缓冲区大小，这个可以根据你的系统分页大小来设置，一般一个请求头的大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。</p>
 <p>分页大小可以用命令getconf PAGESIZE 取得。</p>
-<p>[<a class="reference external" href="mailto:root&#64;web001">root&#64;web001</a> ~]# getconf PAGESIZE</p>
+<p>[<a class="reference external" href="mailto:root@web001">root@web001</a> ~]# getconf PAGESIZE</p>
 <p>4096</p>
 <p>但也有client_header_buffer_size超过4k的情况，但是client_header_buffer_size该值必须设置为“系统分页大小”的整倍数。</p>
 <ol class="arabic simple" start="8">

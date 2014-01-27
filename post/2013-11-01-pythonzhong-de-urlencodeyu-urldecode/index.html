@@ -13,13 +13,13 @@
 <meta property="og:title" content="python中的urlencode与urldecode "/>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" />
-<meta property="og:description" content="Contents 一、urlencode 二、urldecode 三、讨论 转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a ..." />
+<meta property="og:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ..." />
 <meta property="og:site_name" content="老运维人员" />
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2013-11-01T12:51:00" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的urlencode与urldecode ">
-<meta name="twitter:description" content="Contents 一、urlencode 二、urldecode 三、讨论 转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a ...">
+<meta name="twitter:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...">
     
         <title>python中的urlencode与urldecode  · 老运维人员
 </title>
@@ -70,10 +70,10 @@
 </div>
 
 <div class="row-fluid">
-            <div class="span8 offset2 article-content">
-            
-                        
-            <div class="contents topic" id="contents">
+        <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#urlencode" id="id3">一、urlencode</a></li>
@@ -81,6 +81,12 @@
 <li><a class="reference internal" href="#id2" id="id5">三、讨论</a></li>
 </ul>
 </div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+       
+                        
+            
 <p>转载： <a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html">地址</a>.</p>
 <p>概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。</p>
