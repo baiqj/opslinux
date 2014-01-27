@@ -779,7 +779,7 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;soft 限制指的是当前系统生效的设置值。 hard 限制值可以被普通用户降低。但是不能增加。 soft 限制不能设置的比 hard 限制更高。 只有 root 用户才能够增加 hard 限制值。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
+</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1 id="vagrant"&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;
@@ -788,79 +788,66 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。
 注：先要安装VirtualBox&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;配置box&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box  &lt;span class="c"&gt;#增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant init debian &lt;span class="c"&gt;#初始化debian&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant up   &lt;span class="c"&gt;#这个是真正的启动&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;注意国内网速访问很慢 这里可以先去 &lt;code&gt;http://www.vagrantbox.es/&lt;/code&gt; 下载你需要的镜像 然后把http那行直接换成你本地镜像的路径就ok比较方便和快捷&lt;/p&gt;
+&lt;p&gt;```bash
+$ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box  #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址
+$ vagrant init debian #初始化debian
+$ vagrant up   #这个是真正的启动&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;``
+注意国内网速访问很慢 这里可以先去&lt;/code&gt;http://www.vagrantbox.es/` 下载你需要的镜像 然后把http那行直接换成你本地镜像的路径就ok比较方便和快捷&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;连接虚拟主机&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;你会看到终端显示了启动过程，启动完成后，我们就可以用 SSH 登录虚拟机了，剩下的步骤就是在虚拟机里配置你要运行的各种环境和参数了。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant ssh  &lt;span class="c"&gt;# SSH 登录 ssh的后面可以跟你的title来连接不同的vm主机&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;p&gt;&lt;code&gt;bash
+$ vagrant ssh  # SSH 登录 ssh的后面可以跟你的title来连接不同的vm主机&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;打包分发&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;当你配置好开发环境后，退出并关闭虚拟机。在终端里对开发环境进行打包：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant package
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;打包完成后会在当前目录生成一个 package.box 的文件，将这个文件传给其他用户，其他用户只要添加这个 box 并用其初始化自己的开发目录就能得到一个一模一样的开发环境了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash
+$ vagrant package&lt;/code&gt;
+打包完成后会在当前目录生成一个 package.box 的文件，将这个文件传给其他用户，其他用户只要添加这个 box 并用其初始化自己的开发目录就能得到一个一模一样的开发环境了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;常用命令&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant init  &lt;span class="c"&gt;# 初始化&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant up  &lt;span class="c"&gt;# 启动虚拟机&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant halt  &lt;span class="c"&gt;# 关闭虚拟机&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant reload  &lt;span class="c"&gt;# 重启虚拟机&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant ssh  &lt;span class="c"&gt;# SSH 至虚拟机&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant status  &lt;span class="c"&gt;# 查看虚拟机运行状态&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vagrant destroy  &lt;span class="c"&gt;# 销毁当前虚拟机&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;box管理&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$vagrant&lt;/span&gt; box list
-&lt;span class="nv"&gt;$vagrant&lt;/span&gt; box add
-&lt;span class="nv"&gt;$vagrant&lt;/span&gt; box remove
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;更多内容请查阅官方文档 http://docs.vagrantup.com/&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash
+$ vagrant init  # 初始化
+$ vagrant up  # 启动虚拟机
+$ vagrant halt  # 关闭虚拟机
+$ vagrant reload  # 重启虚拟机
+$ vagrant ssh  # SSH 至虚拟机
+$ vagrant status  # 查看虚拟机运行状态
+$ vagrant destroy  # 销毁当前虚拟机&lt;/code&gt;
+box管理&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash
+$vagrant box list
+$vagrant box add
+$vagrant box remove&lt;/code&gt;
+更多内容请查阅官方文档 http://docs.vagrantup.com/&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Multi-VM 多虚拟机&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;    &lt;span class="c"&gt;#定义版本&lt;/span&gt;
-Vagrant.configure&lt;span class="o"&gt;(&lt;/span&gt;VAGRANTFILE_API_VERSION&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; |config|  &lt;span class="c"&gt;#使用内部2版本&lt;/span&gt;
-  config.vm.define :debian1 &lt;span class="k"&gt;do&lt;/span&gt; |debian1|   &lt;span class="c"&gt;#定义第一台虚拟机，||里面就类似一个变量设置参数时使用 &lt;/span&gt;
-     debian1.vm.box &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;debian1&amp;quot;&lt;/span&gt;             &lt;span class="c"&gt;#设置box名为debian1&lt;/span&gt;
-     debian1.vm.host_name &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;debian1&amp;quot;&lt;/span&gt;      &lt;span class="c"&gt;#设置hostname为debian1&lt;/span&gt;
-     debian1.vm.network :private_network, ip: &lt;span class="s2"&gt;&amp;quot;192.168.1.11&amp;quot;&lt;/span&gt; &lt;span class="c"&gt;#设置网络为内部网络 ip为192.168.1.11&lt;/span&gt;
+&lt;p&gt;```bash
+VAGRANTFILE_API_VERSION = "2"    #定义版本
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  #使用内部2版本
+  config.vm.define :debian1 do |debian1|   #定义第一台虚拟机，||里面就类似一个变量设置参数时使用 
+     debian1.vm.box = "debian1"             #设置box名为debian1
+     debian1.vm.host_name = "debian1"      #设置hostname为debian1
+     debian1.vm.network :private_network, ip: "192.168.1.11" #设置网络为内部网络 ip为192.168.1.11
   end
-  config.vm.define :debian2 &lt;span class="k"&gt;do&lt;/span&gt; |debian2|
-     debian2.vm.box &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;debian2&amp;quot;&lt;/span&gt;
-     debian2.vm.host_name &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;debian2&amp;quot;&lt;/span&gt;
-     debian2.vm.network :private_network, ip: &lt;span class="s2"&gt;&amp;quot;192.168.1.12&amp;quot;&lt;/span&gt;
+  config.vm.define :debian2 do |debian2|
+     debian2.vm.box = "debian2"
+     debian2.vm.host_name = "debian2"
+     debian2.vm.network :private_network, ip: "192.168.1.12"
   end
-  config.vm.define :debian3 &lt;span class="k"&gt;do&lt;/span&gt; |debian3|
-     debian3.vm.box &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;debian3&amp;quot;&lt;/span&gt;
-     debian3.vm.host_name &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;debian3&amp;quot;&lt;/span&gt;
-     debian3.vm.network :private_network, ip: &lt;span class="s2"&gt;&amp;quot;192.168.1.13&amp;quot;&lt;/span&gt;
-  end
-
-end
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;注意语法格式就好，配置前关闭虚拟机，配置完后打开虚拟机。&lt;/p&gt;
+  config.vm.define :debian3 do |debian3|
+     debian3.vm.box = "debian3"
+     debian3.vm.host_name = "debian3"
+     debian3.vm.network :private_network, ip: "192.168.1.13"
+  end&lt;/p&gt;
+&lt;p&gt;end
+```
+注意语法格式就好，配置前关闭虚拟机，配置完后打开虚拟机。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意事项&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;使用 Apache/Nginx 时会出现诸如图片修改后但页面刷新仍然是旧文件的情况，是由于静态文件缓存造成的。需要对虚拟机里的 Apache/Nginx 配置文件进行修改：&lt;/p&gt;
 &lt;p&gt;Apache 配置添加:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;EnableSendfile off
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Nginx 配置添加:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sendfile off;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</id><summary type="html">&lt;h1&gt;zabbix监控mongoDB&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;bash
+EnableSendfile off&lt;/code&gt;
+Nginx 配置添加:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bash
+sendfile off;&lt;/code&gt;&lt;/p&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
 &lt;p&gt;推荐文档：&lt;/p&gt;
 &lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
 &lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
@@ -915,121 +902,97 @@ mikoomi-mongodb-plugin.sh["--", "-h", "{$MONGODB_HOSTNAME}", "-p", "{$MONGODB_PO
 zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
 &lt;p&gt;zabbix_sender [8413]: Warning: [line 68] ‘Key value’ required&lt;/p&gt;
 &lt;p&gt;zabbix_sender [8414]: DEBUG: answer [{&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="s"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;success&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;pre&gt;&lt;code&gt;    "response":"success",
 
-    &lt;span class="s"&gt;&amp;quot;info&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Processed 58 Failed 13 Total 71 Seconds spent 0.001618&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+    "info":"Processed 58 Failed 13 Total 71 Seconds spent 0.001618"}]
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
 &lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</id><summary type="html">&lt;h2&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
-&lt;h3&gt;安装virtualenv虚拟环境&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
+&lt;h3 id="virtualenv"&gt;安装virtualenv虚拟环境&lt;/h3&gt;
 &lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;使用virtualenv&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv pelican   &lt;span class="c"&gt;#创建虚拟环境&lt;/span&gt;
-&lt;span class="nb"&gt;cd &lt;/span&gt;pelican
-&lt;span class="nb"&gt;source &lt;/span&gt;bin/activate   &lt;span class="c"&gt;#激活虚拟环境&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;安装pelican和markdown&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;easy_install virtualenv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="virtualenv_1"&gt;使用virtualenv&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;bash
+virtualenv pelican   #创建虚拟环境
+cd pelican
+source bin/activate   #激活虚拟环境&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="pelicanmarkdown"&gt;安装pelican和markdown&lt;/h3&gt;
 &lt;p&gt;pelican 就是生成静态博客的程序&lt;br /&gt;
 markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看&lt;a href="http://wowubuntu.com/markdown/"&gt;帮助&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;Markdown&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;建立blog目录&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;开始创建&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;.
-|-- content &lt;span class="c"&gt;#所有文章放于此目录&lt;/span&gt;
-|-- develop_server.sh  &lt;span class="c"&gt;#用于开启测试服务器&lt;/span&gt;
-|-- Makefile   &lt;span class="c"&gt;#方便管理博客的Makefile&lt;/span&gt;
-|-- output &lt;span class="c"&gt;#静态生成文件&lt;/span&gt;
-|-- pelicanconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-|-- publishconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;写一篇文章&lt;/h3&gt;
-&lt;p&gt;在&lt;code&gt;content&lt;/code&gt;目录新建一个&lt;code&gt;test.md&lt;/code&gt;文件, 填入一下内容:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Title: 文章标题
+&lt;pre&gt;&lt;code&gt;$ pip install pelican
+$ pip install Markdown
+$ pip install ghp-import
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="blog"&gt;建立blog目录&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ mkdir myblog
+$ cd myblog
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="_1"&gt;开始创建&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ pelican-quickstart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。
+&lt;code&gt;bash
+.
+|-- content #所有文章放于此目录
+|-- develop_server.sh  #用于开启测试服务器
+|-- Makefile   #方便管理博客的Makefile
+|-- output #静态生成文件
+|-- pelicanconf.py #配置文件
+|-- publishconf.py #配置文件&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="_2"&gt;写一篇文章&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;content&lt;/code&gt;目录新建一个&lt;code&gt;test.md&lt;/code&gt;文件, 填入一下内容:
+&lt;code&gt;bash
+Title: 文章标题
 Date: 2013-04-18
 Category: 文章类别
 Tag: 标签1, 标签2    
-这里是内容
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后执行:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+这里是内容&lt;/code&gt;  &lt;br /&gt;
+然后执行:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;make html
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;用以生成html&lt;/p&gt;
 &lt;p&gt;然后执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;pre&gt;&lt;code&gt;./develop_server.sh start
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;开启一个测试服务器, 这会在本地 8000 端口建立一个测试web服务器, 可以使用浏览器打开:&lt;code&gt;http://localhost:8000&lt;/code&gt;来访问这个测试服务器, 然后就可以欣赏到你的博客了&lt;/p&gt;
-&lt;h3&gt;Github上的准备&lt;/h3&gt;
+&lt;h3 id="github"&gt;Github上的准备&lt;/h3&gt;
 &lt;p&gt;在Github上创建一个新项目，把这个项目clone到myblog文件夹下。然后按照Github的规定建立一个没有父节点的分支gh-pages。&lt;br /&gt;
 注：在是用分支创建github的blog的时候，要先确保自己的github上有例如：zbing3.github.io命名的项目并且在&lt;code&gt;settings&lt;/code&gt;中开启Github Pages
 如图：
 &lt;img alt="Alt Github Pages" src="/static/upload/20130713144403.jpg" /&gt;
 点击&lt;code&gt;Automatic Page Generator&lt;/code&gt;开启Github Pages服务&lt;/p&gt;
-&lt;p&gt;进入output目录中：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git init
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout --orphan gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin gh-pages
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;这样上传完代码等10分钟左右，即可在浏览器中使用&lt;code&gt;http://zbing3.github.io/myblog&lt;/code&gt;就能访问到自己的博客&lt;/p&gt;
-&lt;h3&gt;定制自己的Makefile文件，让git提交更方便一点&lt;/h3&gt;
+&lt;p&gt;进入output目录中：
+&lt;code&gt;bash
+$ git init
+$ git checkout --orphan gh-pages
+$ git add .
+$ git commit -m "first post"
+$ git remote add origin git@github.com:zbing3/opslinux.git
+$ git push origin gh-pages&lt;/code&gt;
+这样上传完代码等10分钟左右，即可在浏览器中使用&lt;code&gt;http://zbing3.github.io/myblog&lt;/code&gt;就能访问到自己的博客&lt;/p&gt;
+&lt;h3 id="makefilegit"&gt;定制自己的Makefile文件，让git提交更方便一点&lt;/h3&gt;
 &lt;p&gt;使用此方法就不用在output目录中初始git了。编辑Makefile &lt;code&gt;vim Makefile&lt;/code&gt; ，在github下面添加如下格式的文件：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;git:&lt;/span&gt;
-    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;INPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CONFFILE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICANOPTS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;gh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;p&gt;```
+git:
+    $(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+    ghp-import $(OUTPUTDIR)
+    git push origin gh-pages&lt;/p&gt;
+&lt;p&gt;```&lt;/p&gt;
 &lt;p&gt;ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
 接着以后：&lt;code&gt;make git&lt;/code&gt; 就可以直接提交到git的gh-pages分支的&lt;/p&gt;
-&lt;h3&gt;pelican的备份&lt;/h3&gt;
+&lt;h3 id="pelican"&gt;pelican的备份&lt;/h3&gt;
 &lt;p&gt;因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境&lt;/p&gt;
-&lt;p&gt;进入blog目录：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch &lt;span class="c"&gt;#查看本地分支，没有master所以要创建 如果有master就跳过创建&lt;/span&gt;
+&lt;p&gt;进入blog目录：
+```bash
+$ git branch #查看本地分支，没有master所以要创建 如果有master就跳过创建
   gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git branch master &lt;span class="c"&gt;#创建master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master &lt;span class="c"&gt;#切换到master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git &lt;span class="c"&gt;#添加过origin就不用添加&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin master  &lt;span class="c"&gt;#有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>about</title><link href="http://opslinux.com/post/2013-07-12-about/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-about/</id><summary type="html">&lt;p&gt;一个老运维人员正在转python开发中……&lt;/p&gt;</summary></entry><entry><title>helloworld</title><link href="http://opslinux.com/post/2013-07-12-helloworld/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-helloworld/</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
+$ git branch master #创建master分支
+$ git checkout master #切换到master分支
+$ git add .
+$ git commit -m "first post"
+$ git remote add origin git@github.com:zbing3/opslinux.git #添加过origin就不用添加
+$ git push origin master  #有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce&lt;/p&gt;
+&lt;p&gt;```&lt;/p&gt;
+&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>about</title><link href="http://opslinux.com/post/2013-07-12-about/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-about/</id><summary type="html">&lt;p&gt;一个老运维人员正在转python开发中……&lt;/p&gt;</summary></entry><entry><title>helloworld</title><link href="http://opslinux.com/post/2013-07-12-helloworld/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-helloworld/</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
