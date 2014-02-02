@@ -6,15 +6,15 @@
 &lt;p&gt;Malformed table.
 No bottom table border found or no blank line after table bottom.&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-===================================== =========== =========
-Header                                解释         示例
-===================================== =========== =========
+========= =============================== ===============================
+Header    解释                             示例
+========= =============================== ===============================
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="system-message"&gt;
 &lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/HTTP Header详解.rst&lt;/tt&gt;, line 16)&lt;/p&gt;
 Blank line required after table.&lt;/div&gt;
-&lt;p&gt;Accept指定客户端能够接收的内容类型Accept: text/plain, text/html&lt;/p&gt;
+&lt;p&gt;Accept    指定客户端能够接收的内容类型        Accept: text/plain, text/html&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 24 Jan 2014 15:33:00 +0800</pubDate><guid>tag:opslinux.com,2014-01-24:post/2014-01-24-http-header-xiang-jie/</guid><category>HTTP</category></item><item><title>python中的urlencode与urldecode</title><link>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</link><description>
 &lt;p&gt;转载： &lt;a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html"&gt;地址&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
