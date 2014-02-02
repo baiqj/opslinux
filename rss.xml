@@ -76,7 +76,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;If-Match&lt;/td&gt;
 &lt;td&gt;只有请求内容与实体相匹配才有效&lt;/td&gt;
-&lt;td&gt;If-Match: “737060cd8c284d8af7ad3082f209582d”&lt;/td&gt;
+&lt;td&gt;If-Match:“737060cd8c284d8af7ad3082f209582d”&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;If-Modified-Since&lt;/td&gt;
 &lt;td&gt;如果请求的部分在指定时间之后被修改则请求成功，未被修改则返回304代码&lt;/td&gt;
@@ -84,11 +84,11 @@
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;If-None-Match&lt;/td&gt;
 &lt;td&gt;如果内容未改变返回304代码，参数为服务器先前发送的Etag，与服务器回应的Etag比较判断是否改变&lt;/td&gt;
-&lt;td&gt;If-None-Match: “737060cd8c284d8af7ad3082f209582d”&lt;/td&gt;
+&lt;td&gt;If-None-Match:“737060cd8c284d8af7ad3082f209582d”&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;If-Range&lt;/td&gt;
 &lt;td&gt;如果实体未改变，服务器发送客户端丢失的部分，否则发送整个实体。参数也为Etag&lt;/td&gt;
-&lt;td&gt;If-Range: “737060cd8c284d8af7ad3082f209582d”&lt;/td&gt;
+&lt;td&gt;If-Range:“737060cd8c284d8af7ad3082f209582d”&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;If-Unmodified-Since&lt;/td&gt;
 &lt;td&gt;只在实体在指定时间之后未被修改才请求成功&lt;/td&gt;
