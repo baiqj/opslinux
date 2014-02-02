@@ -13,13 +13,13 @@
 <meta property="og:title" content="HTTP Header 详解 "/>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/" />
-<meta property="og:description" content="HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。 Requests部分 Header 解释 示例 Accept 指定客户端能够接收的内容类型 Accept: text/plain, text/html" />
+<meta property="og:description" content="HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。 Requests部分 System Message: ERROR/3 (/Users/ce/workspace/pelican/blog/content/HTTP Header详解.rst, line 18) Malformed table. Text in ..." />
 <meta property="og:site_name" content="老运维人员" />
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2014-01-24T15:33:00" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP Header 详解 ">
-<meta name="twitter:description" content="HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。 Requests部分 Header 解释 示例 Accept 指定客户端能够接收的内容类型 Accept: text/plain, text/html">
+<meta name="twitter:description" content="HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。 Requests部分 System Message: ERROR/3 (/Users/ce/workspace/pelican/blog/content/HTTP Header详解.rst, line 18) Malformed table. Text in ...">
     
         <title>HTTP Header 详解  · 老运维人员
 </title>
@@ -75,25 +75,22 @@
                         
             <p>HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general  header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。</p>
 <p>Requests部分</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="42%" />
-<col width="45%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Header</th>
-<th class="head">解释</th>
-<th class="head">示例</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>Accept</td>
-<td>指定客户端能够接收的内容类型</td>
-<td>Accept: text/plain, text/html</td>
-</tr>
-</tbody>
-</table>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/ce/workspace/pelican/blog/content/HTTP Header详解.rst</tt>, line 18)</p>
+<p>Malformed table.
+Text in column margin in table line 6.</p>
+<pre class="literal-block">
+================ ================================================ ==================================
+ Header           解释                                              示例
+================ ================================================ ==================================
+Accept            指定客户端能够接收的内容类型                         Accept: text/plain, text/html
+Accept-Charset    浏览器可以接受的字符编码集                           Accept-Charset: iso-8859-5
+Accept-Encoding   指定浏览器可以支持的web服务器返回内容压缩编码类型       Accept-Encoding: compress, gzip
+Accept-Language   浏览器可接受的语言                                  Accept-Language: en,zh
+Accept-Ranges     可以请求网页实体的一个或者多个子范围字段               Accept-Ranges: bytes
+================ ================================================ ==================================
+</pre>
+</div>
 
                             
                             <section>
