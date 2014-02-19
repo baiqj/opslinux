@@ -14,14 +14,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" />
 <meta property="og:description" content="使用Vagrant打造你的虚拟环境 因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用 vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。 总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。 vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。 vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。 注：先要安装VirtualBox 配置box $ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址 $ vagrant init debian #初始化debian $ vagrant ..." />
-<meta property="og:site_name" content="老运维人员" />
+<meta property="og:site_name" content="老运维" />
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2013-09-14T00:00:00" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Vagrant打造你的虚拟环境 ">
 <meta name="twitter:description" content="使用Vagrant打造你的虚拟环境 因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用 vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。 总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。 vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。 vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。 注：先要安装VirtualBox 配置box $ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址 $ vagrant init debian #初始化debian $ vagrant ...">
     
-        <title>使用Vagrant打造你的虚拟环境  · 老运维人员
+        <title>使用Vagrant打造你的虚拟环境  · 老运维
 </title>
                 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -29,8 +29,8 @@
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/elegant.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/custom.css" media="screen">
-                                                <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维人员 - Atom Feed" />
-        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维人员 - RSS Feed" />
+                                                <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维 - Atom Feed" />
+        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维 - RSS Feed" />
                         <script src="http://code.jquery.com/jquery.min.js"></script>
     </head>
     <body class="tex2jax_ignore">
@@ -43,7 +43,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://opslinux.com/"><span class=site-name>老运维人员</span></a>
+                    <a class="brand" href="http://opslinux.com/"><span class=site-name>老运维</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://opslinux.com">Home</a></li>

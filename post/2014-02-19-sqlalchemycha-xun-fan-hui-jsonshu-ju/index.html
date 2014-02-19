@@ -14,14 +14,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" />
 <meta property="og:description" content="最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器sqlalchemy 返回json数据 使用tornado做apps的服务端，很多时候需要返回json数据，但是sqlalchemy默认没提供这种方法，所以经过今天查询网上的资料自己实现了一个方法。 为了在tornado中增加json支持，需要在model（默认tornado是没有model的，使用sqlalchemy，大家一般会写个models.py文件来做model）里面增加__json__方法： #coding=utf-8 import json from sqlalchemy import create_engine, DDL, event from sqlalchemy.orm import sessionmaker from sqlalchemy import Column, Integer, String, Date, Boolean, Unicode from sqlalchemy.ext.declarative import ..." />
-<meta property="og:site_name" content="老运维人员" />
+<meta property="og:site_name" content="老运维" />
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2014-02-19T11:17:00" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sqlalchemy查询返回json数据 ">
 <meta name="twitter:description" content="最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器sqlalchemy 返回json数据 使用tornado做apps的服务端，很多时候需要返回json数据，但是sqlalchemy默认没提供这种方法，所以经过今天查询网上的资料自己实现了一个方法。 为了在tornado中增加json支持，需要在model（默认tornado是没有model的，使用sqlalchemy，大家一般会写个models.py文件来做model）里面增加__json__方法： #coding=utf-8 import json from sqlalchemy import create_engine, DDL, event from sqlalchemy.orm import sessionmaker from sqlalchemy import Column, Integer, String, Date, Boolean, Unicode from sqlalchemy.ext.declarative import ...">
     
-        <title>sqlalchemy查询返回json数据  · 老运维人员
+        <title>sqlalchemy查询返回json数据  · 老运维
 </title>
                 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -29,8 +29,8 @@
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/elegant.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/custom.css" media="screen">
-                                                <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维人员 - Atom Feed" />
-        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维人员 - RSS Feed" />
+                                                <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维 - Atom Feed" />
+        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维 - RSS Feed" />
                         <script src="http://code.jquery.com/jquery.min.js"></script>
     </head>
     <body class="tex2jax_ignore">
@@ -43,7 +43,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://opslinux.com/"><span class=site-name>老运维人员</span></a>
+                    <a class="brand" href="http://opslinux.com/"><span class=site-name>老运维</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://opslinux.com">Home</a></li>
@@ -83,7 +83,10 @@
     </div>
     <div class="span8 article-content">
        
-                        
+                        <p id="list-of-translations">
+This post is also available in:
+        <a href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/">zhs</a>    </p>
+
             
 <p>最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器<a class="reference external" href="http://www.sqlalchemy.org/">sqlalchemy</a></p>
 <div class="section" id="json">
@@ -173,6 +176,7 @@ var duoshuoQuery = {short_name:"ops"};
             <section>
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
+            <li><a href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
             <li><a href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
 </ul>
 <hr />
@@ -181,7 +185,8 @@ var duoshuoQuery = {short_name:"ops"};
             <nav>
             <ul class="articles-timeline">
                                                                                             <li class="previous-article">« <a href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/" title="Previous: HTTP Header 详解">HTTP Header 详解</a></li>
-                                            </ul>
+                                                                                                            <li class="next-article"><a href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" title="Next: sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a> »</li>
+                            </ul>
             </nav>
             </aside>
                     </div>
@@ -197,10 +202,10 @@ var duoshuoQuery = {short_name:"ops"};
                                     <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                                 <li><a href="http://opslinux.com/tags.html#python-ref">python
-                                        <span>2</span>
+                                        <span>3</span>
                     </a></li>
                                 <li><a href="http://opslinux.com/tags.html#sqlalchemy-ref">sqlalchemy
-                                        <span>1</span>
+                                        <span>2</span>
                     </a></li>
                             </ul>
                         <h4>Contact</h4>
