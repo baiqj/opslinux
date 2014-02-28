@@ -112,23 +112,12 @@
 <span class="n">Base</span><span class="o">.</span><span class="n">__json__</span> <span class="o">=</span> <span class="n">sqlalchemy_json</span>
 </pre></div>
 <p>这样搞定以后在你的程序想要调用model的时候如下使用就会输出json数据：</p>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/ce/workspace/pelican/blog/content/sqlalchemy/sqlalchemy查询返回json数据.rst</tt>, line 46)</p>
-<p>Error in "code-block" directive:
-invalid option value: (option: "linenos"; value: 'table')
-no argument is allowed; "table" supplied.</p>
-<pre class="literal-block">
-.. code-block:: python
-    :linenos: table
-
-    class users(BaseHandler):
-    def get(self):
-        user_id = self.get_argument("user_id")#获取user_id
-        user_info = self.session.query(models.User).filter_by(id=user_id).first()#查询user信息
-        self.write(json.dumps({"status":0,"msg":"返回成功","user_info":models.User.__json__(user)},ensure_ascii=False,indent=4))#返回自定义数据，models.User.__json__(user)就是使用在Base创建的__json__方法来返回json数据，ensure_ascii=False是不使用ascii为了显示中文，indent=4是缩进，格式化输出json比较美观
-
-</pre>
-</div>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">users</span><span class="p">(</span><span class="n">BaseHandler</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">"user_id"</span><span class="p">)</span><span class="c">#获取user_id</span>
+    <span class="n">user_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="c">#查询user信息</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s">"msg"</span><span class="p">:</span><span class="s">"返回成功"</span><span class="p">,</span><span class="s">"user_info"</span><span class="p">:</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">__json__</span><span class="p">(</span><span class="n">user</span><span class="p">)},</span><span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span><span class="c">#返回自定义数据，models.User.__json__(user)就是使用在Base创建的__json__方法来返回json数据，ensure_ascii=False是不使用ascii为了显示中文，indent=4是缩进，格式化输出json比较美观</span>
+</pre></div>
 </div>
 
                             
