@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-02-19T11:17:00+08:00</updated><entry><title>sqlalchemy查询返回json数据</title><link href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" rel="alternate"></link><updated>2014-02-19T11:17:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-02-19:post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-02-28T22:37:33+08:00</updated><entry><title>老运维人员</title><link href="http://opslinux.com/post/2014-02-28-lao-yun-wei-ren-yuan/" rel="alternate"></link><updated>2014-02-28T22:37:33+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-02-28:post/2014-02-28-lao-yun-wei-ren-yuan/</id><summary type="html">
+&lt;style&gt;
+#search-box {
+    position: relative;
+    width: 50%;
+    margin: 0;
+    padding: 1em;
+}
+
+#search-form {
+    height: 40px;
+    border: 1px solid #999;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#search-text {
+    font-size: 14px;
+    color: #ddd;
+    border-width: 0;
+    background: transparent;
+}
+
+#search-box input[type="text"] {
+    width: 90%;
+    padding: 11px 0 12px 1em;
+    color: #333;
+    outline: none;
+}
+&lt;/style&gt;
+&lt;div id="search-box"&gt;
+  &lt;form action="http://opslinux.com/search.html" id="search-form" method="get" target="_top"&gt;
+    &lt;input id="search-text" name="q" placeholder="type here" type="text" /&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;div id="cse" style="width: 100%;"&gt;Loading&lt;/div&gt;
+&lt;script src="http://www.google.com/jsapi" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt; 
+  google.load('search', '1', {language : 'zh-CN', style : google.loader.themes.V2_DEFAULT});
+  google.setOnLoadCallback(function() {
+    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+      '002600117155409350411:dfwrftf03cy', customSearchOptions);
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    var options = new google.search.DrawOptions();
+    options.enableSearchResultsOnly(); 
+    customSearchControl.draw('cse', options);
+    function parseParamsFromUrl() {
+      var params = {};
+      var parts = window.location.search.substr(1).split('\x26');
+      for (var i = 0; i &lt; parts.length; i++) {
+        var keyValuePair = parts[i].split('=');
+        var key = decodeURIComponent(keyValuePair[0]);
+        params[key] = keyValuePair[1] ?
+            decodeURIComponent(keyValuePair[1].replace(/\+/g, ' ')) :
+            keyValuePair[1];
+      }
+      return params;
+    }
+
+    var urlParams = parseParamsFromUrl();
+    var queryParamName = "q";
+    if (urlParams[queryParamName]) {
+      customSearchControl.execute(urlParams[queryParamName]);
+    }
+  }, true);
+&lt;/script&gt;
+</summary></entry><entry><title>sqlalchemy查询返回json数据</title><link href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" rel="alternate"></link><updated>2014-02-19T11:17:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-02-19:post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/</id><summary type="html">
 &lt;p&gt;最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器&lt;a class="reference external" href="http://www.sqlalchemy.org/"&gt;sqlalchemy&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="json"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;返回json数据&lt;/a&gt;&lt;/h2&gt;
