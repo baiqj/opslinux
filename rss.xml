@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维</title><link>http://opslinux.com/</link><description></description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 19 Feb 2014 11:17:00 +0800</lastBuildDate><item><title>sqlalchemy查询返回json数据</title><link>http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/</link><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 19 Feb 2014 11:17:00 +0800</lastBuildDate><item><title>sqlalchemy查询返回json数据</title><link>http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/</link><description>
 &lt;p&gt;最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器&lt;a class="reference external" href="http://www.sqlalchemy.org/"&gt;sqlalchemy&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="json"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;返回json数据&lt;/a&gt;&lt;/h2&gt;
