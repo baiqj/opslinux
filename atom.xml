@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-03-16T22:13:35+08:00</updated><entry><title>python实现分析Nginx日志web平台</title><link href="http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/" rel="alternate"></link><updated>2014-03-16T22:13:35+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-16:post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/</id><summary type="html">&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/sqlalchemy/python实现分析Nginx日志web平台.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
-&lt;p&gt;Title underline too short.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-python实现分析Nginx日志web平台
-############################
-&lt;/pre&gt;
-&lt;/div&gt;
-
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-03-16T22:13:35+08:00</updated><entry><title>python实现分析Nginx日志web平台</title><link href="http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/" rel="alternate"></link><updated>2014-03-16T22:13:35+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-16:post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/</id><summary type="html">
 &lt;p&gt;其实项目写完好久了，一直没时间总结，正好最近离职，也不是特别忙把一些自己认为使用的项目分享一下给大家，希望能帮助到大家，即使帮助不到，我还可以偷偷回来看下，以便温习&lt;/p&gt;
 &lt;div class="section" id="nginx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Nginx日志&lt;/a&gt;&lt;/h2&gt;
