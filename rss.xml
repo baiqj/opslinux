@@ -23,8 +23,10 @@
 &lt;p&gt;(env)ce@mac:~&amp;gt; python
 Python 2.7.5 (default, Aug 25 2013, 00:04:04)
 [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
-&amp;gt;&amp;gt;&amp;gt;&lt;/p&gt;
+Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/pre&gt;
 &lt;pre class="doctest-block"&gt;
 &amp;gt;&amp;gt;&amp;gt; from mplayer import Player, CmdPrefix
 &lt;/pre&gt;
