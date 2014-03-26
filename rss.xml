@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 26 Mar 2014 16:39:05 +0800</lastBuildDate><item><title>python实现控制mplayer</title><link>http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/</link><description>
 &lt;p&gt;今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了mplayer.py&lt;a class="reference external" href="https://code.google.com/p/python-mplayer/"&gt;mplayer.py&lt;/a&gt;这个神器，来马上试用一下。&lt;/p&gt;
 &lt;div class="section" id="mplayer"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装：&lt;/p&gt;
 &lt;p&gt;brew install mplayer&lt;/p&gt;
 &lt;p&gt;没想到还真提示有包，安装ing。&lt;/p&gt;
@@ -11,11 +11,14 @@
 &lt;p&gt;应该不会发生什么太大问题&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="mplayer-py"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;mplayer.py&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;mplayer.py&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id1"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;安装&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;安装&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;pip install mplayer.py&lt;/p&gt;
 &lt;p&gt;还是非常的方便&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;测试&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;进入python命令行，我们来测试：&lt;/p&gt;
 &lt;p&gt;(env)ce@mac:~&amp;gt; python
 Python 2.7.5 (default, Aug 25 2013, 00:04:04)
@@ -45,6 +48,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 &lt;/pre&gt;
 &lt;p&gt;very well！&lt;/p&gt;
 &lt;p&gt;看来我们的需求是可以搞定了！&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;需要的方法&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;下面罗列下需要使用的方法：&lt;/p&gt;
 &lt;p&gt;player.pause()   #暂停&lt;/p&gt;
 &lt;p&gt;player.filename  #显示文件名&lt;/p&gt;
