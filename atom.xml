@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-03-26T16:39:05+08:00</updated><entry><title>python实现控制mplayer</title><link href="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/" rel="alternate"></link><updated>2014-03-26T16:39:05+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-26:post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/</id><summary type="html">
-&lt;p&gt;今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了mplayer.py&lt;a class="reference external" href="https://code.google.com/p/python-mplayer/"&gt;mplayer.py&lt;/a&gt;这个神器，来马上试用一下。&lt;/p&gt;
+&lt;p&gt;今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了&lt;a class="reference external" href="https://code.google.com/p/python-mplayer/"&gt;mplayer.py&lt;/a&gt;这个神器，来马上试用一下。&lt;/p&gt;
 &lt;div class="section" id="mplayer"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装：&lt;/p&gt;
