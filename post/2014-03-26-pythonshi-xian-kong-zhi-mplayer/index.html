@@ -8,20 +8,20 @@
         <meta name="copyright" content="创e" />
 
 
-<meta name="keywords" content="python, python, " />
+<meta name="keywords" content="mplayer, python, python, " />
 
-<meta property="og:title" content="python中的urlencode与urldecode "/>
+<meta property="og:title" content="python实现控制mplayer "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" />
-<meta property="og:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ..." />
+<meta property="og:url" content="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/" />
+<meta property="og:description" content="今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了mplayer.pymplayer.py这个神器，来马上试用一下。 Mplayer安装 我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装： brew install mplayer 没想到还真提示有包，安装ing。 当然，Ubuntu也不能少： apt-get install mplayer 应该不会发生什么太大问题 mplayer.py 安装 pip install mplayer.py 还是非常的方便 进入python命令行，我们来测试： (env)ce ..." />
 <meta property="og:site_name" content="老运维" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2013-11-01T12:51:00" />
+<meta property="og:article:published_time" content="2014-03-26T16:39:05" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的urlencode与urldecode ">
-<meta name="twitter:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...">
+<meta name="twitter:title" content="python实现控制mplayer ">
+<meta name="twitter:description" content="今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了mplayer.pymplayer.py这个神器，来马上试用一下。 Mplayer安装 我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装： brew install mplayer 没想到还真提示有包，安装ing。 当然，Ubuntu也不能少： apt-get install mplayer 应该不会发生什么太大问题 mplayer.py 安装 pip install mplayer.py 还是非常的方便 进入python命令行，我们来测试： (env)ce ...">
 
-        <title>python中的urlencode与urldecode  · 老运维
+        <title>python实现控制mplayer  · 老运维
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -65,7 +65,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/"> python中的urlencode与urldecode  </a></h1>
+    <h1><a href="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/"> python实现控制mplayer  </a></h1>
     </header>
 </div>
 
@@ -76,9 +76,11 @@
         <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#urlencode" id="id3">一、urlencode</a></li>
-<li><a class="reference internal" href="#urldecode" id="id4">二、urldecode</a></li>
-<li><a class="reference internal" href="#id2" id="id5">三、讨论</a></li>
+<li><a class="reference internal" href="#mplayer" id="id3">Mplayer安装</a></li>
+<li><a class="reference internal" href="#mplayer-py" id="id4">mplayer.py</a><ul>
+<li><a class="reference internal" href="#id1" id="id5">安装</a></li>
+</ul>
+</li>
 </ul>
 </div>
         </nav>
@@ -87,43 +89,64 @@
 
             
             
-<p>转载： <a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html">地址</a>.</p>
-<p>概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
-当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。</p>
-<div class="section" id="urlencode">
-<h2><a class="toc-backref" href="#id3">一、urlencode</a></h2>
-<p>urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&amp;b=2这样的字符串，比如:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import urlencode
-&gt;&gt;&gt; data = {
-...     'a': 'test',
-...     'name': '魔兽'
-... }
-&gt;&gt;&gt; print urlencode(data)
-a=test&amp;amp;name=%C4%A7%CA%DE
-</pre>
-<p>如果只想对一个字符串进行urlencode转换，怎么办？urllib提供另外一个函数：quote()</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import quote
-&gt;&gt;&gt; quote('魔兽')
-'%C4%A7%CA%DE'
-</pre>
+<p>今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了mplayer.py<a class="reference external" href="https://code.google.com/p/python-mplayer/">mplayer.py</a>这个神器，来马上试用一下。</p>
+<div class="section" id="mplayer">
+<h2><a class="toc-backref" href="#id3">Mplayer安装</a></h2>
+<p>我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装：</p>
+<p>brew install mplayer</p>
+<p>没想到还真提示有包，安装ing。</p>
+<p>当然，Ubuntu也不能少：</p>
+<p>apt-get install mplayer</p>
+<p>应该不会发生什么太大问题</p>
 </div>
-<div class="section" id="urldecode">
-<h2><a class="toc-backref" href="#id4">二、urldecode</a></h2>
-<p>当urlencode之后的字符串传递过来之后，接受完毕就要解码了——urldecode。urllib提供了unquote()这个函数，可没有urldecode()！:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import unquote
-&gt;&gt;&gt; unquote('%C4%A7%CA%DE')
-'\xc4\xa7\xca\xde'
-&gt;&gt;&gt; print unquote('%C4%A7%CA%DE')
-魔兽
+<div class="section" id="mplayer-py">
+<h2><a class="toc-backref" href="#id4">mplayer.py</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id5">安装</a></h3>
+<p>pip install mplayer.py</p>
+<p>还是非常的方便</p>
+<p>进入python命令行，我们来测试：</p>
+<p>(env)ce@mac:~&gt; python
+Python 2.7.5 (default, Aug 25 2013, 00:04:04)
+[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; from mplayer import Player, CmdPrefix
 </pre>
+<p>根据文档，先引入需要的函数</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; Player.cmd_prefix = CmdPrefix.PAUSING_KEEP
+</pre>
+<p>设置默认前缀为所有player的实例</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; player = Player()
+</pre>
+<p>建立实例</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; player.loadfile('/path/to/file.mkv')
+</pre>
+<p>引入文件，引入后文件就被打开了</p>
+<p>这时候我们可以dir player来看看他都有什么方法让我们使用</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; dir(player)
+['__class__', '__del__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_args', '_base_args', '_gen_method_func', '_gen_propdoc', '_generate_methods', '_generate_properties', '_proc', '_process_args', '_propget', '_propset', '_run_command', '_stderr', '_stdout', 'af_add', 'af_clr', 'af_cmdline', 'af_del', 'af_switch', 'alt_src_step', 'angle', 'args', 'aspect', 'ass_use_margins', 'audio_bitrate', 'audio_codec', 'audio_delay', 'audio_format', 'balance', 'border', 'brightness', 'capturing', 'change_rectangle', 'channels', 'chapter', 'chapters', 'cmd_prefix', 'contrast', 'deinterlace', 'demuxer', 'dvdnav', 'edl_loadfile', 'edl_mark', 'exec_path', 'exit', 'file_filter', 'filename', 'forced_subs_only', 'fps', 'frame_drop', 'frame_step', 'framedropping', 'fullscreen', 'gamma', 'gui', 'height', 'help', 'hide', 'hue', 'introspect', 'is_alive', 'key_down_event', 'length', 'loadfile', 'loadlist', 'loop', 'menu', 'metadata', 'mute', 'ontop', 'osd', 'osd_show_progression', 'osd_show_property_text', 'osd_show_text', 'osdlevel', 'overlay_add', 'overlay_remove', 'panscan', 'path', 'pause', 'paused', 'percent_pos', 'pt_step', 'pt_up_step', 'quit', 'rootwin', 'run', 'samplerate', 'saturation', 'screenshot', 'seek', 'seek_chapter', 'set_menu', 'set_mouse_pos', 'spawn', 'speed', 'speed_incr', 'speed_mult', 'speed_set', 'stderr', 'stdout', 'stop', 'stream_end', 'stream_length', 'stream_pos', 'stream_start', 'stream_time_pos', 'sub', 'sub_alignment', 'sub_delay', 'sub_demux', 'sub_file', 'sub_forced_only', 'sub_load', 'sub_log', 'sub_pos', 'sub_remove', 'sub_scale', 'sub_select', 'sub_source', 'sub_step', 'sub_visibility', 'sub_vob', 'switch_angle', 'switch_audio', 'switch_program', 'switch_ratio', 'switch_title', 'switch_video', 'switch_vsync', 'teletext_add_dec', 'teletext_format', 'teletext_go_link', 'teletext_half_page', 'teletext_mode', 'teletext_page', 'teletext_subpage', 'time_pos', 'titles', 'tv_brightness', 'tv_contrast', 'tv_hue', 'tv_last_channel', 'tv_saturation', 'tv_set_brightness', 'tv_set_channel', 'tv_set_contrast', 'tv_set_freq', 'tv_set_hue', 'tv_set_norm', 'tv_set_saturation', 'tv_start_scan', 'tv_step_chanlist', 'tv_step_channel', 'tv_step_freq', 'tv_step_norm', 'use_master', 'version', 'video_bitrate', 'video_codec', 'video_format', 'vo_border', 'vo_fullscreen', 'vo_ontop', 'vo_rootwin', 'vobsub_lang', 'volume', 'vsync', 'width']
+</pre>
+<p>very well！</p>
+<p>看来我们的需求是可以搞定了！</p>
+<p>下面罗列下需要使用的方法：</p>
+<p>player.pause()   #暂停</p>
+<p>player.filename  #显示文件名</p>
+<p>player.time_pos += 5  #快进5s</p>
+<p>player.time_pos -= 5  #快退5s</p>
+<p>player.stream_length #查看视频长度</p>
+<p>player.stream_pos   #查看视频现在的位置， 根据上面可以做出进度条</p>
+<p>player.volume  #显示音量</p>
+<p>player.volume(+30.0)  #升高音量</p>
+<p>player.volume(-30.0)  #降低音量</p>
+<p>player.quit()  #关闭视频</p>
+<p>好ok，有了以上功能大家是不是就已经可以控制Mplayer拉？现在就只差web界面了。</p>
 </div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">三、讨论</a></h2>
-<p>在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。</p>
-<p>可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。</p>
 </div>
 
             
@@ -132,7 +155,7 @@ a=test&amp;amp;name=%C4%A7%CA%DE
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/#disqus_thread">
+                href="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/#disqus_thread">
                 Comments
             </a>
         </div>
@@ -142,8 +165,8 @@ a=test&amp;amp;name=%C4%A7%CA%DE
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/';
-    var disqus_url = 'http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/';
+        var disqus_identifier = 'http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/';
+    var disqus_url = 'http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -180,7 +203,7 @@ var duoshuoQuery = {short_name:"ops"};
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
 <li><a href="http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
-<li><a href="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/" title="python实现控制mplayer">python实现控制mplayer</a></li>
+<li><a href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
 <li><a href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
 </ul>
 <hr />
@@ -188,8 +211,7 @@ var duoshuoQuery = {short_name:"ops"};
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" title="Previous: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a></li>
-                <li class="next-article"><a href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/" title="Next: HTTP Header 详解">HTTP Header 详解</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/" title="Previous: python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
             </ul>
             </nav>
             </aside>
@@ -197,11 +219,17 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2013-11-01T12:51:00">Nov 1, 2013</time>
+            <time pubdate="pubdate" datetime="2014-03-26T16:39:05">Mar 26, 2014</time>
+<h4>Last Updated</h4>
+<div class="last-updated">2014-03-26 16:39:11</div>
+
             <h4>Category</h4>
             <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
+                <li><a href="http://opslinux.com/tags.html#mplayer-ref">mplayer
+                    <span>1</span>
+</a></li>
                 <li><a href="http://opslinux.com/tags.html#python-ref">python
                     <span>4</span>
 </a></li>
