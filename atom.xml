@@ -4,8 +4,9 @@
 &lt;div class="section" id="mplayer"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装：&lt;/p&gt;
-&lt;p&gt;brew install mplayer&lt;/p&gt;
-&lt;p&gt;没想到还真提示有包，安装ing。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;brew install mplayer
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;没想到还真提示有包，安装ing。&lt;/p&gt;
 &lt;p&gt;当然，Ubuntu也不能少：&lt;/p&gt;
 &lt;p&gt;apt-get install mplayer&lt;/p&gt;
 &lt;p&gt;应该不会发生什么太大问题&lt;/p&gt;
@@ -14,8 +15,9 @@
 &lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;mplayer.py&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;安装&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;pip install mplayer.py&lt;/p&gt;
-&lt;p&gt;还是非常的方便&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install mplayer.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;还是非常的方便&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;测试&lt;/a&gt;&lt;/h3&gt;
