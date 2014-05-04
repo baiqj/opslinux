@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/index.html</loc>
-<lastmod>2014-05-04T15:45:29-00:00</lastmod>
+<lastmod>2014-05-04T16:08:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/archives.html</loc>
-<lastmod>2014-05-04T15:45:29-00:00</lastmod>
+<lastmod>2014-05-04T16:08:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/tags.html</loc>
-<lastmod>2014-05-04T15:45:29-00:00</lastmod>
+<lastmod>2014-05-04T16:08:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/categories.html</loc>
-<lastmod>2014-05-04T15:45:29-00:00</lastmod>
+<lastmod>2014-05-04T16:08:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -43,6 +43,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2013-07-12T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://opslinux.com/python_md5-.html</loc>
+<lastmod>2014-05-04T16:05:23-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -131,7 +138,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/</loc>
-<lastmod>2014-05-04T15:37:43-00:00</lastmod>
+<lastmod>2014-05-04T16:05:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>

@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-04T15:37:43+08:00</updated><entry><title>tornado session装饰器</title><link href="http://opslinux.com/tornado-session-.html" rel="alternate"></link><updated>2014-05-04T15:37:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-04:tornado-session-.html</id><summary type="html">&lt;p&gt;tornado属于轻量级，异步，高并发的代名词了，虽然开发网站的速度比较慢，但是大多数同学开发后端服务，还都是喜欢使用tornado，今天给大家分享一下，tornado中自己做session时，写装饰器的代码：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-04T16:05:23+08:00</updated><entry><title>python计算文件md5</title><link href="http://opslinux.com/python_md5-.html" rel="alternate"></link><updated>2014-05-04T16:05:23+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-04:python_md5-.html</id><summary type="html">&lt;p&gt;Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;hashlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;md5_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;a_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    &lt;span class="c"&gt;#使用二进制格式读取文件内容&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;a_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__init__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;md5_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/home/ce/1.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="md5"></category><category term="python"></category></entry><entry><title>tornado session装饰器</title><link href="http://opslinux.com/tornado-session-.html" rel="alternate"></link><updated>2014-05-04T15:37:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-04:tornado-session-.html</id><summary type="html">&lt;p&gt;tornado属于轻量级，异步，高并发的代名词了，虽然开发网站的速度比较慢，但是大多数同学开发后端服务，还都是喜欢使用tornado，今天给大家分享一下，tornado中自己做session时，写装饰器的代码：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
