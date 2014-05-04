@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-04T15:37:43+08:00</updated><entry><title></title><link href="http://opslinux.com/-.html" rel="alternate"></link><updated>2014-05-04T15:37:43+08:00</updated><author><name>/Users/ce/workspace/pelican/blog/content/python/tornado/tornado_session装饰器.rst:8: (WARNING/2) Cannot extract empty bibliographic field "author".</name></author><id>tag:opslinux.com,2014-05-04:-.html</id><summary type="html">&lt;p&gt;tornado属于轻量级，异步，高并发的代名词了，虽然开发网站的速度比较慢，但是大多数同学开发后端服务，还都是喜欢使用tornado，今天给大家分享一下，tornado中自己做session时，写装饰器的代码：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-04T15:37:43+08:00</updated><entry><title>tornado session装饰器</title><link href="http://opslinux.com/tornado-session-.html" rel="alternate"></link><updated>2014-05-04T15:37:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-04:tornado-session-.html</id><summary type="html">&lt;p&gt;tornado属于轻量级，异步，高并发的代名词了，虽然开发网站的速度比较慢，但是大多数同学开发后端服务，还都是喜欢使用tornado，今天给大家分享一下，tornado中自己做session时，写装饰器的代码：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -40,7 +40,7 @@
             &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;HTTPError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;403&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_wrapper&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term=""></category></entry><entry><title>Django自定义用户系统</title><link href="http://opslinux.com/post/2014-04-20-django/" rel="alternate"></link><updated>2014-04-20T19:11:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-04-20:post/2014-04-20-django/</id><summary type="html">
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="装饰器 session tornado"></category></entry><entry><title>Django自定义用户系统</title><link href="http://opslinux.com/post/2014-04-20-django/" rel="alternate"></link><updated>2014-04-20T19:11:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-04-20:post/2014-04-20-django/</id><summary type="html">
 &lt;p&gt;最近换了新公司，公司新项目要用Django，因为现在的领导对Django比较熟悉，对于我这种运维出身，对性能有着要求的人不能用tornado这种牛逼框架，心里是无限的悲伤啊。没办法日子还得过啊，所以进入可繁忙的开发期，这一用不要紧，还用出了感情，发现Django还多内置的app搭建网站速度还真快，接下来就给大家介绍一下他的用户系统
 Django版本：1.6.2&lt;/p&gt;
 &lt;div class="section" id="django"&gt;
