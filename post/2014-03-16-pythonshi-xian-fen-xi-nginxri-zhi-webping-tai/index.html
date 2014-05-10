@@ -195,7 +195,12 @@
 85
 86
 87
-88</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#coding=utf-8</span>
+88
+89
+90
+91
+92
+93</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#coding=utf-8</span>
 <span class="kn">import</span> <span class="nn">linecache</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="o">,</span><span class="nn">datetime</span>
@@ -209,8 +214,6 @@
 <span class="k">def</span> <span class="nf">readfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">'*.log'</span><span class="p">)</span>
-    <span class="c"># for f in files:</span>
-    <span class="c">#     filename.append(os.path.basename(f))</span>
     <span class="k">return</span> <span class="n">files</span>
 
 <span class="k">def</span> <span class="nf">readtime</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
@@ -283,10 +286,18 @@
         <span class="k">print</span> <span class="s">"mv </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> "</span><span class="o">%</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">bak_dir</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">"mv </span><span class="si">%s</span><span class="s"> </span><span class="si">%s</span><span class="s"> "</span><span class="o">%</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">bak_dir</span><span class="p">))</span>
     <span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">lf</span> <span class="o">=</span> <span class="n">readfile</span><span class="p">(</span><span class="n">files_dir</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">lf</span>
+    <span class="n">read_time</span> <span class="o">=</span> <span class="n">readtime</span><span class="p">(</span><span class="n">files_dir</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">read_time</span>
+    <span class="n">handle_log</span><span class="p">(</span><span class="n">lf</span><span class="p">)</span>
 </pre></div>
-</td></tr></table><p>未完待续……</p>
-<p>我们书接上回，对上面的代码进行一下梳理：</p>
-<p>w变量存了一个测试的Nginx日志条目</p>
+</td></tr></table><p>我们书接上回，对上面的代码进行一下梳理：</p>
+<p>w变量存了一个测试的Nginx日志条目,readfile()函数是读取日志文件，然后返回文件的路径，readtime()函数是获取日期，handle_log()函数是分析日志的函数，对于每个日志段，用正则精心匹配筛选出来，然后就是入库。这里面试写入到了MongDB中。</p>
+<p>好了，日志都放到NOSQL当中了，接下来就是分析的问题，这个就是仁者见仁智者见智的事了，每个公司的需求不一样，有用redis分析的，有用zeromq分析，这就看大家的喜好了，分析完最后还是推荐大家用highcharts出图比较好看，这里推荐使用highcharts的文章：</p>
+<p><a class="reference external" href="http://opslinux.com/python_and_highcharts-.html">highcharts使用</a></p>
 </div>
 
             
