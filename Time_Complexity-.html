@@ -10,7 +10,7 @@
 
 <meta name="keywords" content="算法, Arithmetic, Time Complexity, 算法, " />
 
-<meta property="og:title" content="推到大O阶方法 "/>
+<meta property="og:title" content="算法的时间复杂度 "/>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://opslinux.com/Time_Complexity-.html" />
 <meta property="og:description" content="" />
@@ -18,10 +18,10 @@
 <meta property="og:article:author" content="创e" />
 <meta property="og:article:published_time" content="2014-05-12T20:09:36" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推到大O阶方法 ">
+<meta name="twitter:title" content="算法的时间复杂度 ">
 <meta name="twitter:description" content="">
 
-        <title>推到大O阶方法  · 老运维创e
+        <title>算法的时间复杂度  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -65,7 +65,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/Time_Complexity-.html"> 推到大O阶方法  </a></h1>
+    <h1><a href="http://opslinux.com/Time_Complexity-.html"> 算法的时间复杂度  </a></h1>
     </header>
 </div>
 
@@ -73,7 +73,10 @@
         <div class="span8 offset2 article-content">
 
             
-            <div class="section" id="o">
+            <div class="section" id="id2">
+<h2>算法实际那复杂度定义</h2>
+</div>
+<div class="section" id="o">
 <h2>推导大O阶</h2>
 <ul class="simple">
 <li>1.用常数1取代运行时间中的所有加法常数。</li>
@@ -82,7 +85,7 @@
 <li>得到的结果就是大O阶</li>
 </ul>
 </div>
-<div class="section" id="id2">
+<div class="section" id="id3">
 <h2>常数阶</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -91,6 +94,15 @@
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>    <span class="cm">/* 执行一次 */</span>
 </pre></div>
 </td></tr></table><p>这个算法运行次数函数是f(n)=3.根据我们推到大O阶的方法，第一步就是把常数项3改为1。在保留最高阶项时发现，它根本没有最高阶项，所以这个算法的时间复杂度为O(1)。</p>
+</div>
+<div class="section" id="id4">
+<h2>线性阶</h2>
+</div>
+<div class="section" id="id5">
+<h2>对数阶</h2>
+</div>
+<div class="section" id="id6">
+<h2>平方阶</h2>
 </div>
 
             

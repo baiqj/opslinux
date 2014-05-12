@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-12T20:09:36+08:00</updated><entry><title>推到大O阶方法</title><link href="http://opslinux.com/Time_Complexity-.html" rel="alternate"></link><updated>2014-05-12T20:09:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-12:Time_Complexity-.html</id><summary type="html">&lt;div class="section" id="o"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-12T20:09:36+08:00</updated><entry><title>算法的时间复杂度</title><link href="http://opslinux.com/Time_Complexity-.html" rel="alternate"></link><updated>2014-05-12T20:09:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-12:Time_Complexity-.html</id><summary type="html">&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;算法实际那复杂度定义&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="o"&gt;
 &lt;h2&gt;推导大O阶&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;1.用常数1取代运行时间中的所有加法常数。&lt;/li&gt;
@@ -8,7 +11,7 @@
 &lt;li&gt;得到的结果就是大O阶&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
+&lt;div class="section" id="id3"&gt;
 &lt;h2&gt;常数阶&lt;/h2&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -17,6 +20,15 @@
 &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个算法运行次数函数是f(n)=3.根据我们推到大O阶的方法，第一步就是把常数项3改为1。在保留最高阶项时发现，它根本没有最高阶项，所以这个算法的时间复杂度为O(1)。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;线性阶&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;对数阶&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;平方阶&lt;/h2&gt;
 &lt;/div&gt;
 </summary><category term="算法"></category><category term="Arithmetic"></category><category term="Time Complexity"></category></entry><entry><title>Django ajax post</title><link href="http://opslinux.com/Django_ajax_post-.html" rel="alternate"></link><updated>2014-05-07T20:35:03+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-07:Django_ajax_post-.html</id><summary type="html">&lt;p&gt;在web项目中，ajax运用非常频繁，今天就给大家展示下Django ajax Post的使用方法&lt;/p&gt;
 &lt;div class="section" id="templates"&gt;
