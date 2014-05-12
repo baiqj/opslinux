@@ -242,7 +242,7 @@
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这里的数据只是个例子，更直观的展示出效果，真正项目中可能需要你在数据库中取出数据，自己折腾成list，我们看下效果：&lt;/p&gt;
 &lt;img alt="出图" class="align-center" src="http://opslinux.qiniudn.com/639887B8-0262-4186-9D9E-68481F846620.png" style="width: 671px; height: 563px;"/&gt;
 &lt;/div&gt;
-</summary><category term=""></category></entry><entry><title>python计算文件md5</title><link href="http://opslinux.com/python_md5-.html" rel="alternate"></link><updated>2014-05-04T16:05:23+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-04:python_md5-.html</id><summary type="html">&lt;p&gt;Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:&lt;/p&gt;
+</summary><category term="highcharts"></category></entry><entry><title>python计算文件md5</title><link href="http://opslinux.com/python_md5-.html" rel="alternate"></link><updated>2014-05-04T16:05:23+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-04:python_md5-.html</id><summary type="html">&lt;p&gt;Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
