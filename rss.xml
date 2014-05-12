@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术    &lt;a href="http://www.51.la/?16996417" target="_blank"&gt;&lt;img alt="&amp;#x6211;&amp;#x8981;&amp;#x5566;&amp;#x514D;&amp;#x8D39;&amp;#x7EDF;&amp;#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /&gt;&lt;/a&gt;</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 07 May 2014 20:35:03 +0800</lastBuildDate><item><title>Django ajax post</title><link>http://opslinux.com/Django_ajax_post-.html</link><description>&lt;p&gt;在web项目中，ajax运用非常频繁，今天就给大家展示下Django ajax Post的使用方法&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术    &lt;a href="http://www.51.la/?16996417" target="_blank"&gt;&lt;img alt="&amp;#x6211;&amp;#x8981;&amp;#x5566;&amp;#x514D;&amp;#x8D39;&amp;#x7EDF;&amp;#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /&gt;&lt;/a&gt;</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 12 May 2014 20:09:36 +0800</lastBuildDate><item><title>推到大O阶方法</title><link>http://opslinux.com/Time_Complexity-.html</link><description>&lt;div class="section" id="o"&gt;
+&lt;h2&gt;推导大O阶&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1.用常数1取代运行时间中的所有加法常数。&lt;/li&gt;
+&lt;li&gt;2.在修改后得运行次数函数中，只保留最高阶项 。&lt;/li&gt;
+&lt;li&gt;3.如果最高阶项存在且不是1，则去除与这个项相乘的常数。&lt;/li&gt;
+&lt;li&gt;得到的结果就是大O阶&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;常数阶&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;      &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个算法运行次数函数是f(n)=3.根据我们推到大O阶的方法，第一步就是把常数项3改为1。在保留最高阶项时发现，它根本没有最高阶项，所以这个算法的时间复杂度为O(1)。&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Mon, 12 May 2014 20:09:36 +0800</pubDate><guid>tag:opslinux.com,2014-05-12:Time_Complexity-.html</guid><category>算法</category><category>Arithmetic</category><category>Time Complexity</category></item><item><title>Django ajax post</title><link>http://opslinux.com/Django_ajax_post-.html</link><description>&lt;p&gt;在web项目中，ajax运用非常频繁，今天就给大家展示下Django ajax Post的使用方法&lt;/p&gt;
 &lt;div class="section" id="templates"&gt;
 &lt;h2&gt;templates 模板&lt;/h2&gt;
 &lt;p&gt;index.html&lt;/p&gt;
