@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-13T10:47:19+08:00</updated><entry><title>Django实现发送邮件重置用户密码</title><link href="http://opslinux.com/django_password_reset-.html" rel="alternate"></link><updated>2014-05-13T10:47:19+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-13:django_password_reset-.html</id><summary type="html">
-&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/python/Django/Django实现发送邮件用户密码重置.rst&lt;/tt&gt;, line 13)&lt;/p&gt;
-Explicit markup ends without a blank line; unexpected unindent.&lt;/div&gt;
 &lt;p&gt;Django，是个不错的框架，非常全，内置了用户系统，咱们稍微修改就可以实现发送重置密码邮件。&lt;/p&gt;
 &lt;div class="section" id="url-py"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;URL.py&lt;/a&gt;&lt;/h2&gt;
