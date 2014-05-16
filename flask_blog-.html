@@ -4,24 +4,24 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="创e" />
-        <meta name="copyright" content="创e" />
+        <meta name="author" content="/Users/ce/workspace/pelican/blog/content/python/flask开发blog（一）.rst:8: (WARNING/2) Cannot extract empty bibliographic field "author"." />
+        <meta name="copyright" content="/Users/ce/workspace/pelican/blog/content/python/flask开发blog（一）.rst:8: (WARNING/2) Cannot extract empty bibliographic field "author"." />
 
 
-<meta name="keywords" content="python, python, " />
+<meta name="keywords" content=", , " />
 
-<meta property="og:title" content="python中的urlencode与urldecode "/>
+<meta property="og:title" content="flask开发blog（一） "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" />
-<meta property="og:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ..." />
+<meta property="og:url" content="http://opslinux.com/flask_blog-.html" />
+<meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
-<meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2013-11-01T12:51:00" />
+<meta property="og:article:author" content="/Users/ce/workspace/pelican/blog/content/python/flask开发blog（一）.rst:8: (WARNING/2) Cannot extract empty bibliographic field "author"." />
+<meta property="og:article:published_time" content="2014-05-16T09:20:36" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的urlencode与urldecode ">
-<meta name="twitter:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...">
+<meta name="twitter:title" content="flask开发blog（一） ">
+<meta name="twitter:description" content="">
 
-        <title>python中的urlencode与urldecode  · 老运维创e
+        <title>flask开发blog（一）  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -65,65 +65,21 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/"> python中的urlencode与urldecode  </a></h1>
+    <h1><a href="http://opslinux.com/flask_blog-.html"> flask开发blog（一）  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
-    <div class="span2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#urlencode" id="id3">一、urlencode</a></li>
-<li><a class="reference internal" href="#urldecode" id="id4">二、urldecode</a></li>
-<li><a class="reference internal" href="#id2" id="id5">三、讨论</a></li>
-</ul>
-</div>
-        </nav>
-    </div>
-    <div class="span8 article-content">
+        <div class="span8 offset2 article-content">
 
             
-            
-<p>转载： <a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html">地址</a>.</p>
-<p>概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
-当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。</p>
-<div class="section" id="urlencode">
-<h2><a class="toc-backref" href="#id3">一、urlencode</a></h2>
-<p>urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&amp;b=2这样的字符串，比如:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import urlencode
-&gt;&gt;&gt; data = {
-...     'a': 'test',
-...     'name': '魔兽'
-... }
-&gt;&gt;&gt; print urlencode(data)
-a=test&amp;amp;name=%C4%A7%CA%DE
-</pre>
-<p>如果只想对一个字符串进行urlencode转换，怎么办？urllib提供另外一个函数：quote()</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import quote
-&gt;&gt;&gt; quote('魔兽')
-'%C4%A7%CA%DE'
-</pre>
+            <div class="section" id="virtualenv">
+<h2>安装virtualenv</h2>
 </div>
-<div class="section" id="urldecode">
-<h2><a class="toc-backref" href="#id4">二、urldecode</a></h2>
-<p>当urlencode之后的字符串传递过来之后，接受完毕就要解码了——urldecode。urllib提供了unquote()这个函数，可没有urldecode()！:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import unquote
-&gt;&gt;&gt; unquote('%C4%A7%CA%DE')
-'\xc4\xa7\xca\xde'
-&gt;&gt;&gt; print unquote('%C4%A7%CA%DE')
-魔兽
-</pre>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">三、讨论</a></h2>
-<p>在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。</p>
-<p>可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。</p>
+<div class="section" id="flask">
+<h2>安装flask</h2>
+<p>pip install flask</p>
+<p>sudo pip install virtualenv</p>
 </div>
 
             
@@ -132,7 +88,7 @@ a=test&amp;amp;name=%C4%A7%CA%DE
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/#disqus_thread">
+                href="http://opslinux.com/flask_blog-.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -142,8 +98,8 @@ a=test&amp;amp;name=%C4%A7%CA%DE
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/';
-    var disqus_url = 'http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/';
+        var disqus_identifier = 'http://opslinux.com/flask_blog-.html';
+    var disqus_url = 'http://opslinux.com/flask_blog-.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -176,22 +132,10 @@ var duoshuoQuery = {short_name:"ops"};
 <!-- Duoshuo Comment END -->
 
             <hr/>
-<section>
-    <h2>Related Posts</h2>
-<ul class="related-posts-list">
-<li><a href="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
-<li><a href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
-<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
-<li><a href="http://opslinux.com/post/2014-04-20-django/" title="Django自定义用户系统">Django自定义用户系统</a></li>
-<li><a href="http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
-</ul>
-<hr />
-</section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" title="Previous: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a></li>
-                <li class="next-article"><a href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/" title="Next: HTTP Header 详解">HTTP Header 详解</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/pythonmechanize-.html" title="Previous: python使用mechanize实现登陆">python使用mechanize实现登陆</a></li>
             </ul>
             </nav>
             </aside>
@@ -199,15 +143,7 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2013-11-01T12:51:00">Nov 1, 2013</time>
-            <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
-            <h4>Tags</h4>
-            <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#python-ref">python
-                    <span>6</span>
-</a></li>
-            </ul>
+            <time pubdate="pubdate" datetime="2014-05-16T09:20:36">May 16, 2014</time>
 <h4>Contact</h4>
     <a href="https://github.com/zbing3" title="My Github Profile" class="sidebar-social-links" target="_blank">
     <i class="fa fa-github sidebar-social-links"></i></a>
