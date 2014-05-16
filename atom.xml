@@ -8,12 +8,12 @@
 &lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term=""></category></entry><entry><title>python使用mechanize实现登陆</title><link href="http://opslinux.com/pythonmechanize-.html" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-14:pythonmechanize-.html</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
-&lt;p&gt;1 http,https协议等。
-2 简单的HTML表单填写。
-3 浏览器历史记录和重载。
-4 Referer的HTTP头的正确添加（可选）。
-5 自动遵守robots.txt的。
-6 自动处理HTTP-EQUIV和刷新。&lt;/p&gt;
+&lt;p&gt;-1 http,https协议等。
+-2 简单的HTML表单填写。
+-3 浏览器历史记录和重载。
+-4 Referer的HTTP头的正确添加（可选）。
+-5 自动遵守robots.txt的。
+-6 自动处理HTTP-EQUIV和刷新。&lt;/p&gt;
 &lt;p&gt;所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等&lt;/p&gt;
 &lt;p&gt;确保已经安装：pip install mechanize&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
