@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/index.html</loc>
-<lastmod>2014-05-18T19:20:33-00:00</lastmod>
+<lastmod>2014-05-18T19:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/archives.html</loc>
-<lastmod>2014-05-18T19:20:33-00:00</lastmod>
+<lastmod>2014-05-18T19:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/tags.html</loc>
-<lastmod>2014-05-18T19:20:33-00:00</lastmod>
+<lastmod>2014-05-18T19:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/categories.html</loc>
-<lastmod>2014-05-18T19:20:33-00:00</lastmod>
+<lastmod>2014-05-18T19:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -53,28 +53,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-05-18-Git matching and simple/</loc>
+<loc>http://opslinux.com/Git matching and simple.html</loc>
 <lastmod>2014-05-18T17:31:26-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-05-18-install_ipython/</loc>
+<loc>http://opslinux.com/install_ipython.html</loc>
 <lastmod>2014-05-18T10:11:24-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-05-16-flask_blog/</loc>
+<loc>http://opslinux.com/flask_blog.html</loc>
 <lastmod>2014-05-16T09:20:36-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-05-14-pythonmechanize/</loc>
+<loc>http://opslinux.com/pythonmechanize.html</loc>
 <lastmod>2014-05-14T10:53:47-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
@@ -88,7 +88,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-05-12-Time_Complexity/</loc>
+<loc>http://opslinux.com/Time_Complexity.html</loc>
 <lastmod>2014-05-12T20:09:36-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
@@ -102,7 +102,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-05-06-python_and_highcharts/</loc>
+<loc>http://opslinux.com/python_and_highcharts.html</loc>
 <lastmod>2014-05-06T19:44:34-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
@@ -123,77 +123,77 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-04-20-django/</loc>
+<loc>http://opslinux.com/django.html</loc>
 <lastmod>2014-04-20T19:11:43-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/</loc>
+<loc>http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html</loc>
 <lastmod>2014-03-26T16:39:11-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/</loc>
+<loc>http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html</loc>
 <lastmod>2014-05-10T22:50:27-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/</loc>
+<loc>http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html</loc>
 <lastmod>2014-02-19T11:17:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2014-01-24-http-header-xiang-jie/</loc>
+<loc>http://opslinux.com/http-header-xiang-jie.html</loc>
 <lastmod>2014-01-24T15:33:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</loc>
+<loc>http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html</loc>
 <lastmod>2013-11-01T12:51:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</loc>
+<loc>http://opslinux.com/nginxda-zao-3wgao-bing-fa-wang-zhan.html</loc>
 <lastmod>2014-01-24T17:24:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</loc>
+<loc>http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</loc>
 <lastmod>2013-09-14T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/</loc>
+<loc>http://opslinux.com/zabbixjian-kong-mongodb.html</loc>
 <lastmod>2013-09-09T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</loc>
+<loc>http://opslinux.com/shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html</loc>
 <lastmod>2013-07-13T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://opslinux.com/post/2013-07-12-helloworld/</loc>
+<loc>http://opslinux.com/helloworld.html</loc>
 <lastmod>2013-07-12T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>

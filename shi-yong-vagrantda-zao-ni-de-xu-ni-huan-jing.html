@@ -29,22 +29,23 @@
     </script>
 
 
-        <meta name="description" content="" />
+        <meta name="description" content="使用Vagrant打造你的虚拟环境 因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用 vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。 总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。 vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。 vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。 注：先要安装VirtualBox 配置box $ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址 $ vagrant init debian #初始化debian $ vagrant ...
+" />
 
-<meta name="keywords" content="django ajax post, Django, " />
+<meta name="keywords" content="vagrant, 虚拟机, " />
 
-<meta property="og:title" content="Django ajax post "/>
+<meta property="og:title" content="使用Vagrant打造你的虚拟环境 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/Django_ajax_post-.html" />
-<meta property="og:description" content="" />
+<meta property="og:url" content="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html" />
+<meta property="og:description" content="使用Vagrant打造你的虚拟环境 因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用 vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。 总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。 vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。 vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。 注：先要安装VirtualBox 配置box $ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址 $ vagrant init debian #初始化debian $ vagrant ..." />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-05-07T20:35:03" />
+<meta property="og:article:published_time" content="2013-09-14T00:00:00" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Django ajax post ">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="使用Vagrant打造你的虚拟环境 ">
+<meta name="twitter:description" content="使用Vagrant打造你的虚拟环境 因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用 vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。 总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。 vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。 vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。 然后按照官方说的，执行这三部，然后一个虚拟机就起来了。 注：先要安装VirtualBox 配置box $ vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box #增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址 $ vagrant init debian #初始化debian $ vagrant ...">
 
-        <title>Django ajax post  · 老运维创e
+        <title>使用Vagrant打造你的虚拟环境  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -88,7 +89,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/Django_ajax_post-.html"> Django ajax post  </a></h1>
+    <h1><a href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html"> 使用Vagrant打造你的虚拟环境  </a></h1>
     </header>
 </div>
 
@@ -96,144 +97,95 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>在web项目中，ajax运用非常频繁，今天就给大家展示下Django ajax Post的使用方法</p>
-<div class="section" id="templates">
-<h2>templates 模板</h2>
-<p>index.html</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;header&gt;&lt;/header&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-
-<span class="nt">&lt;p&gt;</span>name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;nickname&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
-<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;name_submit&quot;</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;name_value&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-
-<span class="nt">&lt;/body&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/static/js/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-
-
-<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.name_submit&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="kd">var</span> <span class="nx">nickname</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[name=&#39;nickname&#39;]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-      <span class="nx">url</span><span class="o">:</span><span class="s2">&quot;/nickname&quot;</span><span class="p">,</span>
-      <span class="nx">type</span><span class="o">:</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
-      <span class="nx">data</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;nickname&quot;</span><span class="o">:</span><span class="nx">nickname</span><span class="p">},</span>
-      <span class="nx">dataType</span><span class="o">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span>
-      <span class="nx">success</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.name_value&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-       <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.name_value&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;名字为:&quot;</span><span class="o">+</span><span class="nx">data</span><span class="p">)</span>
-      <span class="p">}</span>
-
-    <span class="p">});</span> <span class="c1">// Ajax End</span>
-  <span class="p">});</span>
-
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;/html&gt;</span>
+            <h1 id="vagrant">使用Vagrant打造你的虚拟环境</h1>
+<p>因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用</p>
+<p>vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。</p>
+<p>总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。</p>
+<p>vagrant的官方网站：http://www.vagrantup.com/ 现在又改版了，挺漂亮的。</p>
+<p>vagrant的一些镜像：http://www.vagrantbox.es/ 各种linux都有。
+然后按照官方说的，执行这三部，然后一个虚拟机就起来了。
+注：先要安装VirtualBox</p>
+<p><strong>配置box</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant box add debian http://ergonlogic.com/files/boxes/debian-current.box  <span class="c">#增加一个box,debian就是box的title 后面跟vagrant上的virtualbox镜像地址</span>
+<span class="nv">$ </span>vagrant init debian <span class="c">#初始化debian</span>
+<span class="nv">$ </span>vagrant up   <span class="c">#这个是真正的启动</span>
 </pre></div>
-</td></tr></table><p>显示如下：</p>
-<img alt="html" src="http://opslinux.qiniudn.com/9045993C-0EE1-4C5F-8B71-91452D31720A.png" />
-<p>当点击提交按钮时，就执行ajax，把获取的nickname传递到/nickname url中。</p>
-</div>
-<div class="section" id="url">
-<h2>url</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
 
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">views</span> <span class="kn">import</span> <span class="n">index</span><span class="p">,</span><span class="n">nickname</span>
-<span class="n">admin</span><span class="o">.</span><span class="n">autodiscover</span><span class="p">()</span>
 
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-    <span class="c"># Examples:</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^nickname$&#39;</span><span class="p">,</span> <span class="n">nickname</span><span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">)),</span>
-
-<span class="p">)</span>
+<p>注意国内网速访问很慢 这里可以先去 <code>http://www.vagrantbox.es/</code> 下载你需要的镜像 然后把http那行直接换成你本地镜像的路径就ok比较方便和快捷</p>
+<p><strong>连接虚拟主机</strong></p>
+<p>你会看到终端显示了启动过程，启动完成后，我们就可以用 SSH 登录虚拟机了，剩下的步骤就是在虚拟机里配置你要运行的各种环境和参数了。</p>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant ssh  <span class="c"># SSH 登录 ssh的后面可以跟你的title来连接不同的vm主机</span>
 </pre></div>
-</td></tr></table><p>从这里可以看到/nickname URL是views文件中的nickname函数</p>
-</div>
-<div class="section" id="views">
-<h2>views</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#coding=utf-8</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">render_to_response</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span><span class="p">,</span> <span class="n">HttpResponse</span>
-<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">Template</span><span class="p">,</span><span class="n">Context</span>
 
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span><span class="s">&quot;index.html&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">nickname</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>   <span class="c">#当request为POST的时候</span>
-        <span class="n">nickname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;nickname&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>  <span class="c">#获取ajax POST的nickname值</span>
-        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">nickname</span><span class="p">)</span>  <span class="c">#为了方便显示，直接在浏览器显示nickname</span>
+
+<p><strong>打包分发</strong></p>
+<p>当你配置好开发环境后，退出并关闭虚拟机。在终端里对开发环境进行打包：</p>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant package
 </pre></div>
-</td></tr></table><p>nickname函数 当时POST的时候，获取nickname值，然后为了方便显示就直接使用return HttpResponse(nickname) 直接展示出来nickname值</p>
-</div>
 
+
+<p>打包完成后会在当前目录生成一个 package.box 的文件，将这个文件传给其他用户，其他用户只要添加这个 box 并用其初始化自己的开发目录就能得到一个一模一样的开发环境了。</p>
+<p><strong>常用命令</strong></p>
+<div class="highlight"><pre><span class="nv">$ </span>vagrant init  <span class="c"># 初始化</span>
+<span class="nv">$ </span>vagrant up  <span class="c"># 启动虚拟机</span>
+<span class="nv">$ </span>vagrant halt  <span class="c"># 关闭虚拟机</span>
+<span class="nv">$ </span>vagrant reload  <span class="c"># 重启虚拟机</span>
+<span class="nv">$ </span>vagrant ssh  <span class="c"># SSH 至虚拟机</span>
+<span class="nv">$ </span>vagrant status  <span class="c"># 查看虚拟机运行状态</span>
+<span class="nv">$ </span>vagrant destroy  <span class="c"># 销毁当前虚拟机</span>
+</pre></div>
+
+
+<p>box管理</p>
+<div class="highlight"><pre><span class="nv">$vagrant</span> box list
+<span class="nv">$vagrant</span> box add
+<span class="nv">$vagrant</span> box remove
+</pre></div>
+
+
+<p>更多内容请查阅官方文档 http://docs.vagrantup.com/</p>
+<p><strong>Multi-VM 多虚拟机</strong></p>
+<div class="highlight"><pre><span class="nv">VAGRANTFILE_API_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span>    <span class="c">#定义版本</span>
+Vagrant.configure<span class="o">(</span>VAGRANTFILE_API_VERSION<span class="o">)</span> <span class="k">do</span> |config|  <span class="c">#使用内部2版本</span>
+  config.vm.define :debian1 <span class="k">do</span> |debian1|   <span class="c">#定义第一台虚拟机，||里面就类似一个变量设置参数时使用 </span>
+     debian1.vm.box <span class="o">=</span> <span class="s2">&quot;debian1&quot;</span>             <span class="c">#设置box名为debian1</span>
+     debian1.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian1&quot;</span>      <span class="c">#设置hostname为debian1</span>
+     debian1.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.11&quot;</span> <span class="c">#设置网络为内部网络 ip为192.168.1.11</span>
+  end
+  config.vm.define :debian2 <span class="k">do</span> |debian2|
+     debian2.vm.box <span class="o">=</span> <span class="s2">&quot;debian2&quot;</span>
+     debian2.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian2&quot;</span>
+     debian2.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.12&quot;</span>
+  end
+  config.vm.define :debian3 <span class="k">do</span> |debian3|
+     debian3.vm.box <span class="o">=</span> <span class="s2">&quot;debian3&quot;</span>
+     debian3.vm.host_name <span class="o">=</span> <span class="s2">&quot;debian3&quot;</span>
+     debian3.vm.network :private_network, ip: <span class="s2">&quot;192.168.1.13&quot;</span>
+  end
+
+end
+</pre></div>
+
+
+<p>注意语法格式就好，配置前关闭虚拟机，配置完后打开虚拟机。</p>
+<p><strong>注意事项</strong></p>
+<p>使用 Apache/Nginx 时会出现诸如图片修改后但页面刷新仍然是旧文件的情况，是由于静态文件缓存造成的。需要对虚拟机里的 Apache/Nginx 配置文件进行修改：</p>
+<p>Apache 配置添加:</p>
+<div class="highlight"><pre>EnableSendfile off
+</pre></div>
+
+
+<p>Nginx 配置添加:</p>
+<div class="highlight"><pre>sendfile off;
+</pre></div>
             
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/Django_ajax_post-.html#disqus_thread">
+                href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -243,8 +195,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/Django_ajax_post-.html';
-    var disqus_url = 'http://opslinux.com/Django_ajax_post-.html';
+        var disqus_identifier = 'http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html';
+    var disqus_url = 'http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -280,8 +232,8 @@ var duoshuoQuery = {short_name:"ops"};
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/python_and_highcharts.html" title="Previous: python和highcharts制作图表">python和highcharts制作图表</a></li>
-                <li class="next-article"><a href="http://opslinux.com/Time_Complexity.html" title="Next: 算法的时间复杂度">算法的时间复杂度</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/zabbixjian-kong-mongodb.html" title="Previous: zabbix监控mongoDB">zabbix监控mongoDB</a></li>
+                <li class="next-article"><a href="http://opslinux.com/nginxda-zao-3wgao-bing-fa-wang-zhan.html" title="Next: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -289,12 +241,12 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-07T20:35:03">May 7, 2014</time>
+            <time pubdate="pubdate" datetime="2013-09-14T00:00:00">Sep 14, 2013</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#django-ref">Django</a>
+            <a class="category-link" href="http://opslinux.com/categories.html#xu-ni-ji-ref">虚拟机</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#django-ajax-post-ref">django ajax post
+                <li><a href="http://opslinux.com/tags.html#vagrant-ref">vagrant
                     <span>1</span>
 </a></li>
             </ul>

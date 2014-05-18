@@ -31,20 +31,20 @@
 
         <meta name="description" content="" />
 
-<meta name="keywords" content="django ajax post, Django, " />
+<meta name="keywords" content="mechanize, python, " />
 
-<meta property="og:title" content="Django ajax post "/>
+<meta property="og:title" content="python使用mechanize实现登陆 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/Django_ajax_post-.html" />
+<meta property="og:url" content="http://opslinux.com/pythonmechanize.html" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-05-07T20:35:03" />
+<meta property="og:article:published_time" content="2014-05-14T10:53:47" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Django ajax post ">
+<meta name="twitter:title" content="python使用mechanize实现登陆 ">
 <meta name="twitter:description" content="">
 
-        <title>Django ajax post  · 老运维创e
+        <title>python使用mechanize实现登陆  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -88,7 +88,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/Django_ajax_post-.html"> Django ajax post  </a></h1>
+    <h1><a href="http://opslinux.com/pythonmechanize.html"> python使用mechanize实现登陆  </a></h1>
     </header>
 </div>
 
@@ -96,10 +96,17 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>在web项目中，ajax运用非常频繁，今天就给大家展示下Django ajax Post的使用方法</p>
-<div class="section" id="templates">
-<h2>templates 模板</h2>
-<p>index.html</p>
+            <p>mechanize是非常合适的模拟浏览器的模块，它的特点主要有：</p>
+<ul class="simple">
+<li>1 http,https协议等。</li>
+<li>2 简单的HTML表单填写。</li>
+<li>3 浏览器历史记录和重载。</li>
+<li>4 Referer的HTTP头的正确添加（可选）。</li>
+<li>5 自动遵守robots.txt的。</li>
+<li>6 自动处理HTTP-EQUIV和刷新。</li>
+</ul>
+<p>所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等</p>
+<p>确保已经安装：pip install mechanize</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -131,109 +138,55 @@
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;header&gt;&lt;/header&gt;</span>
-<span class="nt">&lt;body&gt;</span>
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<span class="kn">import</span> <span class="nn">mechanize</span>  <span class="c">#引入mechanize 需要pip安装</span>
+<span class="kn">import</span> <span class="nn">cookielib</span>  <span class="c">#引入cookielib 来做cookie</span>
 
-<span class="nt">&lt;p&gt;</span>name: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;nickname&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
-<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">&quot;name_submit&quot;</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;name_value&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://127.0.0.1:8080/login&#39;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s">&#39;zhangbin&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">&#39;zhangbin&#39;</span>
 
-<span class="nt">&lt;/body&gt;</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+     <span class="n">br</span> <span class="o">=</span> <span class="n">mechanize</span><span class="o">.</span><span class="n">Browser</span><span class="p">()</span>
 
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/static/js/jquery.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+     <span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">LWPCookieJar</span><span class="p">()</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_cookiejar</span><span class="p">(</span><span class="n">cj</span><span class="p">)</span> <span class="c">#关联cookies</span>
+
+     <span class="c">#设置一些参数，因为是模拟客户端请求，所以要支持客户端的一些常用功能</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_equiv</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_gzip</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_redirect</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_referer</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_robots</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_refresh</span><span class="p">(</span><span class="n">mechanize</span><span class="o">.</span><span class="n">_http</span><span class="o">.</span><span class="n">HTTPRefreshProcessor</span><span class="p">(),</span> <span class="n">max_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+     <span class="n">br</span><span class="o">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;User-agent&#39;</span><span class="p">,</span> <span class="s">&#39;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.11) Gecko/20100701 Firefox/3.5.11&#39;</span><span class="p">)]</span>  <span class="c">#模拟浏览器头</span>
+     <span class="c"># br.set_debug_http(True)   #debug</span>
+     <span class="c"># br.set_debug_responses(True) #debug</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c">#打开连接</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">select_form</span><span class="p">(</span><span class="n">nr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c">#选择第一个form</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span> <span class="c">#写入用户名</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span> <span class="c">#写入密码</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>  <span class="c">#提交</span>
+     <span class="k">print</span> <span class="n">br</span><span class="o">.</span><span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c">#打印登录后内容</span>
 
 
-<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.name_submit&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="kd">var</span> <span class="nx">nickname</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;input[name=&#39;nickname&#39;]&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
-    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-      <span class="nx">url</span><span class="o">:</span><span class="s2">&quot;/nickname&quot;</span><span class="p">,</span>
-      <span class="nx">type</span><span class="o">:</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
-      <span class="nx">data</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;nickname&quot;</span><span class="o">:</span><span class="nx">nickname</span><span class="p">},</span>
-      <span class="nx">dataType</span><span class="o">:</span><span class="s2">&quot;json&quot;</span><span class="p">,</span>
-      <span class="nx">success</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.name_value&quot;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-       <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.name_value&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;名字为:&quot;</span><span class="o">+</span><span class="nx">data</span><span class="p">)</span>
-      <span class="p">}</span>
-
-    <span class="p">});</span> <span class="c1">// Ajax End</span>
-  <span class="p">});</span>
-
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;/html&gt;</span>
+<span class="k">if</span>  <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">login</span><span class="p">()</span>
 </pre></div>
-</td></tr></table><p>显示如下：</p>
-<img alt="html" src="http://opslinux.qiniudn.com/9045993C-0EE1-4C5F-8B71-91452D31720A.png" />
-<p>当点击提交按钮时，就执行ajax，把获取的nickname传递到/nickname url中。</p>
-</div>
-<div class="section" id="url">
-<h2>url</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
-
-<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">views</span> <span class="kn">import</span> <span class="n">index</span><span class="p">,</span><span class="n">nickname</span>
-<span class="n">admin</span><span class="o">.</span><span class="n">autodiscover</span><span class="p">()</span>
-
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-    <span class="c"># Examples:</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^$&#39;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^nickname$&#39;</span><span class="p">,</span> <span class="n">nickname</span><span class="p">),</span>
-    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^admin/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">)),</span>
-
-<span class="p">)</span>
-</pre></div>
-</td></tr></table><p>从这里可以看到/nickname URL是views文件中的nickname函数</p>
-</div>
-<div class="section" id="views">
-<h2>views</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#coding=utf-8</span>
-<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">render_to_response</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span><span class="p">,</span> <span class="n">HttpResponse</span>
-<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">Template</span><span class="p">,</span><span class="n">Context</span>
-
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span><span class="s">&quot;index.html&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">nickname</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>   <span class="c">#当request为POST的时候</span>
-        <span class="n">nickname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;nickname&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>  <span class="c">#获取ajax POST的nickname值</span>
-        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">nickname</span><span class="p">)</span>  <span class="c">#为了方便显示，直接在浏览器显示nickname</span>
-</pre></div>
-</td></tr></table><p>nickname函数 当时POST的时候，获取nickname值，然后为了方便显示就直接使用return HttpResponse(nickname) 直接展示出来nickname值</p>
-</div>
-
+</td></tr></table>
             
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/Django_ajax_post-.html#disqus_thread">
+                href="http://opslinux.com/pythonmechanize.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -243,8 +196,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/Django_ajax_post-.html';
-    var disqus_url = 'http://opslinux.com/Django_ajax_post-.html';
+        var disqus_identifier = 'http://opslinux.com/pythonmechanize.html';
+    var disqus_url = 'http://opslinux.com/pythonmechanize.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -280,8 +233,8 @@ var duoshuoQuery = {short_name:"ops"};
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/python_and_highcharts.html" title="Previous: python和highcharts制作图表">python和highcharts制作图表</a></li>
-                <li class="next-article"><a href="http://opslinux.com/Time_Complexity.html" title="Next: 算法的时间复杂度">算法的时间复杂度</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/django_password_reset-.html" title="Previous: Django实现发送邮件重置用户密码">Django实现发送邮件重置用户密码</a></li>
+                <li class="next-article"><a href="http://opslinux.com/flask_blog.html" title="Next: flask开发blog（一）">flask开发blog（一）</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -289,12 +242,12 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-07T20:35:03">May 7, 2014</time>
+            <time pubdate="pubdate" datetime="2014-05-14T10:53:47">May 14, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#django-ref">Django</a>
+            <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#django-ajax-post-ref">django ajax post
+                <li><a href="http://opslinux.com/tags.html#mechanize-ref">mechanize
                     <span>1</span>
 </a></li>
             </ul>
