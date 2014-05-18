@@ -6,7 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="创e" />
         <meta name="copyright" content="创e" />
+    
+    <script type= "text/javascript">
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = 'https:' == document.location.protocol ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js' : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'; 
+        s[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" + 
+            "    config: ['MMLorHTML.js']," + 
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS','output/NativeMML']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," + 
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax .mo, .MathJax .mi': {color: 'black ! important'}} " +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(s);
+    </script>
 
+
+        <meta name="description" content="使用github和pelican搭建本站博客 安装virtualenv虚拟环境 安装虚拟环境是为了防止污染，linux本身的python环境 easy_install virtualenv 使用virtualenv virtualenv pelican #创建虚拟环境 cd pelican source bin/activate #激活虚拟环境 安装pelican和markdown pelican 就是生成静态博客的程序 markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看帮助 $ pip install pelican $ pip install Markdown $ pip install ghp-import 建立blog目录 $ mkdir myblog $ cd myblog 开始创建 $ pelican-quickstart 基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。 . |-- content #所有文章放于此目录 |-- develop_server.sh #用于开启测试服务器 |-- Makefile ...
+" />
 
 <meta name="keywords" content="pelican, github, pelican, " />
 
@@ -29,7 +53,7 @@
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/elegant.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/custom.css" media="screen">
-        <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维创e - Full Atom Feed" />
+        <link href="http://opslinux.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="老运维创e - Full Atom Feed" />
         <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维创e - RSS Feed" />
         <script src="http://code.jquery.com/jquery.min.js"></script>
     </head>
@@ -185,6 +209,7 @@ Tag: 标签1, 标签2
 <h2 id="_3">未完待续……</h2>
             
             <section>
+<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
@@ -258,10 +283,16 @@ var duoshuoQuery = {short_name:"ops"};
 </a></li>
             </ul>
 <h4>Contact</h4>
-    <a href="https://github.com/zbing3" title="My Github Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-github sidebar-social-links"></i></a>
-    <a href="http://weibo.com/zb311" title="My weibo Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-icon sidebar-social-links"></i></a>
+    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-icon sidebar-social-links"></i></a>
+    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-icon sidebar-social-links"></i></a>
+    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-icon sidebar-social-links"></i></a>
+    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-icon sidebar-social-links"></i></a>
         </div>
         </section>
 </div>
@@ -276,7 +307,8 @@ var duoshuoQuery = {short_name:"ops"};
 <footer>
 <div id="footer">
     <ul class="footer-content">
-        <li class="elegant-subtitle"><span class="site-name">老运维创e</span> - 分享技术    <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
+        <li class="elegant-subtitle"><span class="site-name">老运维创e</span> - 分享技术</li>
+        <li class="elegant-license">Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> SeisMan</span></a>. All Rights Reserved.  <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
     </ul>
 </div>
