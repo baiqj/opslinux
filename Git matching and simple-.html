@@ -31,20 +31,20 @@
 
         <meta name="description" content="" />
 
-<meta name="keywords" content="flask, blog, flask, " />
+<meta name="keywords" content="git, git, " />
 
-<meta property="og:title" content="flask开发blog（一） "/>
+<meta property="og:title" content="Git push 中的 Matching和Simple "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/post/2014-05-16-flask_blog/" />
+<meta property="og:url" content="http://opslinux.com/Git matching and simple-.html" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-05-16T09:20:36" />
+<meta property="og:article:published_time" content="2014-05-18T17:31:26" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flask开发blog（一） ">
+<meta name="twitter:title" content="Git push 中的 Matching和Simple ">
 <meta name="twitter:description" content="">
 
-        <title>flask开发blog（一）  · 老运维创e
+        <title>Git push 中的 Matching和Simple  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -88,7 +88,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/post/2014-05-16-flask_blog/"> flask开发blog（一）  </a></h1>
+    <h1><a href="http://opslinux.com/Git matching and simple-.html"> Git push 中的 Matching和Simple  </a></h1>
     </header>
 </div>
 
@@ -96,14 +96,48 @@
         <div class="span8 offset2 article-content">
 
             
-            <div class="section" id="virtualenv">
-<h2>安装virtualenv</h2>
+            <p>如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre>warning: push.default is unset; its implicit value is changing in
+
+Git 2.0 from &#39;matching&#39; to &#39;simple&#39;. To squelch this message
+
+and maintain the current behavior after the default changes, use:
+
+
+  git config --global push.default matching
+
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+</pre></div>
+</td></tr></table><div class="section" id="matching">
+<h2>Matching</h2>
+<p>‘matching’ 参数是 Git 1.x 的默认行为，其意是如果你执行 git push 但没有指定分支，它将 push 所有你本地的分支到远程仓库中对应匹配的分支。</p>
 </div>
-<div class="section" id="flask">
-<h2>安装flask</h2>
-<p>pip install flask</p>
-<p>sudo pip install virtualenv</p>
-</div>
+<div class="section" id="simple">
+<h2>Simple</h2>
+<p>而 Git 2.x 默认的是 simple，意味着执行 git push 没有指定分支时，只有当前分支会被 push 到你使用 git pull 获取的代码。</p>
+<p>修改默认设置</p>
+<p>从上述消息提示中的解释，我们可以修改全局配置，使之不会每次 push 的时候都进行提示。对于 matching 输入如下命令即可：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>git config --global push.default matching
+</pre></div>
+</td></tr></table><p>而对于 simple ，请输入：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>git config --global push.default simple
+</pre></div>
+</td></tr></table></div>
 
             
             <section>
@@ -111,7 +145,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/post/2014-05-16-flask_blog/#disqus_thread">
+                href="http://opslinux.com/Git matching and simple-.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -121,8 +155,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/post/2014-05-16-flask_blog/';
-    var disqus_url = 'http://opslinux.com/post/2014-05-16-flask_blog/';
+        var disqus_identifier = 'http://opslinux.com/Git matching and simple-.html';
+    var disqus_url = 'http://opslinux.com/Git matching and simple-.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -155,11 +189,18 @@ var duoshuoQuery = {short_name:"ops"};
 <!-- Duoshuo Comment END -->
 
             <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://opslinux.com/Git-matching_simple.html" title="Git push 中的 Matching和Simple">Git push 中的 Matching和Simple</a></li>
+</ul>
+<hr />
+</section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/pythonmechanize-.html" title="Previous: python使用mechanize实现登陆">python使用mechanize实现登陆</a></li>
-                <li class="next-article"><a href="http://opslinux.com/post/2014-05-18-install_ipython/" title="Next: 安装ipython">安装ipython</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/post/2014-05-18-install_ipython/" title="Previous: 安装ipython">安装ipython</a></li>
+                <li class="next-article"><a href="http://opslinux.com/Git-matching_simple.html" title="Next: Git push 中的 Matching和Simple">Git push 中的 Matching和Simple</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -167,16 +208,13 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-16T09:20:36">May 16, 2014</time>
+            <time pubdate="pubdate" datetime="2014-05-18T17:31:26">May 18, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#flask-ref">flask</a>
+            <a class="category-link" href="http://opslinux.com/categories.html#git-ref">git</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#blog-ref">blog
-                    <span>1</span>
-</a></li>
-                <li><a href="http://opslinux.com/tags.html#flask-ref">flask
-                    <span>1</span>
+                <li><a href="http://opslinux.com/tags.html#git-ref">git
+                    <span>2</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

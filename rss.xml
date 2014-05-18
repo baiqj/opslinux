@@ -41,14 +41,56 @@ To squelch this message and adopt the new behavior now, use:
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sun, 18 May 2014 17:31:26 +0800</pubDate><guid>tag:opslinux.com,2014-05-18:Git-matching_simple.html</guid><category>git</category></item><item><title>安装ipython</title><link>http://opslinux.com/install_ipython-.html</link><description>&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sun, 18 May 2014 17:31:26 +0800</pubDate><guid>tag:opslinux.com,2014-05-18:Git-matching_simple.html</guid><category>git</category></item><item><title>Git push 中的 Matching和Simple</title><link>http://opslinux.com/Git%20matching%20and%20simple-.html</link><description>&lt;p&gt;如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;warning: push.default is unset; its implicit value is changing in
+
+Git 2.0 from &amp;#39;matching&amp;#39; to &amp;#39;simple&amp;#39;. To squelch this message
+
+and maintain the current behavior after the default changes, use:
+
+
+  git config --global push.default matching
+
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;div class="section" id="matching"&gt;
+&lt;h2&gt;Matching&lt;/h2&gt;
+&lt;p&gt;‘matching’ 参数是 Git 1.x 的默认行为，其意是如果你执行 git push 但没有指定分支，它将 push 所有你本地的分支到远程仓库中对应匹配的分支。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="simple"&gt;
+&lt;h2&gt;Simple&lt;/h2&gt;
+&lt;p&gt;而 Git 2.x 默认的是 simple，意味着执行 git push 没有指定分支时，只有当前分支会被 push 到你使用 git pull 获取的代码。&lt;/p&gt;
+&lt;p&gt;修改默认设置&lt;/p&gt;
+&lt;p&gt;从上述消息提示中的解释，我们可以修改全局配置，使之不会每次 push 的时候都进行提示。对于 matching 输入如下命令即可：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default matching
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;而对于 simple ，请输入：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default simple
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sun, 18 May 2014 17:31:26 +0800</pubDate><guid>tag:opslinux.com,2014-05-18:Git matching and simple-.html</guid><category>git</category></item><item><title>安装ipython</title><link>http://opslinux.com/post/2014-05-18-install_ipython/</link><description>&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
 &lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
 &lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装完成，输入ipython进入：&lt;/p&gt;
 &lt;img alt="ipython test" src="http://opslinux.qiniudn.com/026DF930-C3C9-4C67-B3E7-9A986AC0D033.png" /&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sun, 18 May 2014 10:11:24 +0800</pubDate><guid>tag:opslinux.com,2014-05-18:install_ipython-.html</guid><category>ipython</category><category>python</category></item><item><title>flask开发blog（一）</title><link>http://opslinux.com/post/2014-05-16-flask_blog/</link><description>&lt;div class="section" id="virtualenv"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sun, 18 May 2014 10:11:24 +0800</pubDate><guid>tag:opslinux.com,2014-05-18:post/2014-05-18-install_ipython/</guid><category>ipython</category><category>python</category></item><item><title>flask开发blog（一）</title><link>http://opslinux.com/post/2014-05-16-flask_blog/</link><description>&lt;div class="section" id="virtualenv"&gt;
 &lt;h2&gt;安装virtualenv&lt;/h2&gt;
 &lt;/div&gt;
 &lt;div class="section" id="flask"&gt;
@@ -404,7 +446,7 @@ password_reset_form.html&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;nickname函数 当时POST的时候，获取nickname值，然后为了方便显示就直接使用return HttpResponse(nickname) 直接展示出来nickname值&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Wed, 07 May 2014 20:35:03 +0800</pubDate><guid>tag:opslinux.com,2014-05-07:Django_ajax_post-.html</guid><category>django ajax post</category></item><item><title>python和highcharts制作图表</title><link>http://opslinux.com/python_and_highcharts-.html</link><description>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Wed, 07 May 2014 20:35:03 +0800</pubDate><guid>tag:opslinux.com,2014-05-07:Django_ajax_post-.html</guid><category>django ajax post</category></item><item><title>python和highcharts制作图表</title><link>http://opslinux.com/post/2014-05-06-python_and_highcharts/</link><description>
 &lt;p&gt;有时候我们需要制作一些图表，单独使用python可以制作出但是不是特别好看，今天我们就用Django和highcharts神器来做出好看的图标，如想要详细了解highcharts请关注如下网站：&lt;a class="reference external" href="http://www.highcharts.com/"&gt;highcharts官网&lt;/a&gt; &lt;a class="reference external" href="http://www.hcharts.cn/index.php"&gt;highcharts中文网&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;前端准备:&lt;/a&gt;&lt;/h2&gt;
@@ -498,7 +540,7 @@ password_reset_form.html&lt;/p&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这里的数据只是个例子，更直观的展示出效果，真正项目中可能需要你在数据库中取出数据，自己折腾成list，我们看下效果：&lt;/p&gt;
 &lt;img alt="出图" class="align-center" src="http://opslinux.qiniudn.com/639887B8-0262-4186-9D9E-68481F846620.png" style="width: 671px; height: 563px;"/&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Tue, 06 May 2014 19:44:34 +0800</pubDate><guid>tag:opslinux.com,2014-05-06:python_and_highcharts-.html</guid><category>highcharts</category></item><item><title>python计算文件md5</title><link>http://opslinux.com/python_md5-.html</link><description>&lt;p&gt;Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Tue, 06 May 2014 19:44:34 +0800</pubDate><guid>tag:opslinux.com,2014-05-06:post/2014-05-06-python_and_highcharts/</guid><category>highcharts</category></item><item><title>python计算文件md5</title><link>http://opslinux.com/python_md5-.html</link><description>&lt;p&gt;Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -2108,113 +2150,4 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
 
 &lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
 &lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Mon, 09 Sep 2013 00:00:00 +0800</pubDate><guid>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</guid><category>zabbix</category></item><item><title>使用github和pelican搭建本站博客</title><link>http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</link><description>&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
-&lt;h3 id="virtualenv"&gt;安装virtualenv虚拟环境&lt;/h3&gt;
-&lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="virtualenv_1"&gt;使用virtualenv&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv pelican   &lt;span class="c"&gt;#创建虚拟环境&lt;/span&gt;
-&lt;span class="nb"&gt;cd &lt;/span&gt;pelican
-&lt;span class="nb"&gt;source &lt;/span&gt;bin/activate   &lt;span class="c"&gt;#激活虚拟环境&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="pelicanmarkdown"&gt;安装pelican和markdown&lt;/h3&gt;
-&lt;p&gt;pelican 就是生成静态博客的程序&lt;br /&gt;
-markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看&lt;a href="http://wowubuntu.com/markdown/"&gt;帮助&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;Markdown&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="blog"&gt;建立blog目录&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="_1"&gt;开始创建&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;.
-|-- content &lt;span class="c"&gt;#所有文章放于此目录&lt;/span&gt;
-|-- develop_server.sh  &lt;span class="c"&gt;#用于开启测试服务器&lt;/span&gt;
-|-- Makefile   &lt;span class="c"&gt;#方便管理博客的Makefile&lt;/span&gt;
-|-- output &lt;span class="c"&gt;#静态生成文件&lt;/span&gt;
-|-- pelicanconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-|-- publishconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="_2"&gt;写一篇文章&lt;/h3&gt;
-&lt;p&gt;在&lt;code&gt;content&lt;/code&gt;目录新建一个&lt;code&gt;test.md&lt;/code&gt;文件, 填入一下内容:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Title: 文章标题
-Date: 2013-04-18
-Category: 文章类别
-Tag: 标签1, 标签2    
-这里是内容
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后执行:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;用以生成html&lt;/p&gt;
-&lt;p&gt;然后执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;开启一个测试服务器, 这会在本地 8000 端口建立一个测试web服务器, 可以使用浏览器打开:&lt;code&gt;http://localhost:8000&lt;/code&gt;来访问这个测试服务器, 然后就可以欣赏到你的博客了&lt;/p&gt;
-&lt;h3 id="github"&gt;Github上的准备&lt;/h3&gt;
-&lt;p&gt;在Github上创建一个新项目，把这个项目clone到myblog文件夹下。然后按照Github的规定建立一个没有父节点的分支gh-pages。&lt;br /&gt;
-注：在是用分支创建github的blog的时候，要先确保自己的github上有例如：zbing3.github.io命名的项目并且在&lt;code&gt;settings&lt;/code&gt;中开启Github Pages
-如图：
-&lt;img alt="Alt Github Pages" src="/static/upload/20130713144403.jpg" /&gt;
-点击&lt;code&gt;Automatic Page Generator&lt;/code&gt;开启Github Pages服务&lt;/p&gt;
-&lt;p&gt;进入output目录中：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git init
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout --orphan gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin gh-pages
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;这样上传完代码等10分钟左右，即可在浏览器中使用&lt;code&gt;http://zbing3.github.io/myblog&lt;/code&gt;就能访问到自己的博客&lt;/p&gt;
-&lt;h3 id="makefilegit"&gt;定制自己的Makefile文件，让git提交更方便一点&lt;/h3&gt;
-&lt;p&gt;使用此方法就不用在output目录中初始git了。编辑Makefile &lt;code&gt;vim Makefile&lt;/code&gt; ，在github下面添加如下格式的文件：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;git:&lt;/span&gt;
-    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;INPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CONFFILE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICANOPTS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;gh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
-接着以后：&lt;code&gt;make git&lt;/code&gt; 就可以直接提交到git的gh-pages分支的&lt;/p&gt;
-&lt;h3 id="pelican"&gt;pelican的备份&lt;/h3&gt;
-&lt;p&gt;因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境&lt;/p&gt;
-&lt;p&gt;进入blog目录：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch &lt;span class="c"&gt;#查看本地分支，没有master所以要创建 如果有master就跳过创建&lt;/span&gt;
-  gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git branch master &lt;span class="c"&gt;#创建master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master &lt;span class="c"&gt;#切换到master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git &lt;span class="c"&gt;#添加过origin就不用添加&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin master  &lt;span class="c"&gt;#有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sat, 13 Jul 2013 00:00:00 +0800</pubDate><guid>tag:opslinux.com,2013-07-13:post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</guid><category>pelican</category><category>github</category></item></channel></rss>
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Mon, 09 Sep 2013 00:00:00 +0800</pubDate><guid>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</guid><category>zabbix</category></item></channel></rss>
