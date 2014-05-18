@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/index.html</loc>
-<lastmod>2014-05-18T17:24:30-00:00</lastmod>
+<lastmod>2014-05-18T17:35:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/archives.html</loc>
-<lastmod>2014-05-18T17:24:30-00:00</lastmod>
+<lastmod>2014-05-18T17:35:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/tags.html</loc>
-<lastmod>2014-05-18T17:24:30-00:00</lastmod>
+<lastmod>2014-05-18T17:35:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/categories.html</loc>
-<lastmod>2014-05-18T17:24:30-00:00</lastmod>
+<lastmod>2014-05-18T17:35:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -43,6 +43,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2013-07-12T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>http://opslinux.com/Git-matching_simple.html</loc>
+<lastmod>2014-05-18T17:31:26-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -207,6 +214,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://opslinux.com/category/git/</loc>
+<lastmod>2014-05-18T17:31:26-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://opslinux.com/category/http/</loc>
 <lastmod>2014-01-24T15:33:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -314,6 +328,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://opslinux.com/tag/suan-fa/</loc>
 <lastmod>2014-05-12T20:09:36-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://opslinux.com/tag/git/</loc>
+<lastmod>2014-05-18T17:31:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -474,7 +495,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/author/chuang-e/</loc>
-<lastmod>2014-05-18T10:11:24-00:00</lastmod>
+<lastmod>2014-05-18T17:31:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
