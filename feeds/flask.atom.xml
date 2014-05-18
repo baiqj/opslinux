@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="se/" rel="alternate"></link><link href="http://opslinux.com/feeds/flask.atom.xml" rel="self"></link><id>se/</id><updated>2014-05-16T09:20:36+08:00</updated><entry><title>flask开发blog（一）</title><link href="se/flask_blog.html" rel="alternate"></link><updated>2014-05-16T09:20:36+08:00</updated><author><name>创e</name></author><id>tag:se,2014-05-16:flask_blog.html</id><summary type="html">&lt;div class="section" id="virtualenv"&gt;
+&lt;h2&gt;安装virtualenv&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="flask"&gt;
+&lt;h2&gt;安装flask&lt;/h2&gt;
+&lt;p&gt;pip install flask&lt;/p&gt;
+&lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="flask"></category><category term="blog"></category></entry></feed>
