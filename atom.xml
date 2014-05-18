@@ -520,7 +520,7 @@ password_reset_form.html&lt;/p&gt;
             &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;HTTPError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;403&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_wrapper&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="装饰器"></category><category term="session"></category><category term="tornado"></category></entry><entry><title>Django自定义用户系统</title><link href="http://opslinux.com/post/2014-04-20-django/" rel="alternate"></link><updated>2014-04-20T19:11:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-04-20:post/2014-04-20-django/</id><summary type="html">
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="装饰器"></category><category term="session"></category><category term="tornado"></category></entry><entry><title>Django自定义用户系统</title><link href="http://opslinux.com/django.html" rel="alternate"></link><updated>2014-04-20T19:11:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-04-20:django.html</id><summary type="html">
 &lt;p&gt;最近换了新公司，公司新项目要用Django，因为现在的领导对Django比较熟悉，对于我这种运维出身，对性能有着要求的人不能用tornado这种牛逼框架，心里是无限的悲伤啊。没办法日子还得过啊，所以进入可繁忙的开发期，这一用不要紧，还用出了感情，发现Django还多内置的app搭建网站速度还真快，接下来就给大家介绍一下他的用户系统
 Django版本：1.6.2&lt;/p&gt;
 &lt;div class="section" id="django"&gt;
@@ -977,7 +977,7 @@ Django版本：1.6.2&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="django"></category><category term="python"></category></entry><entry><title>python实现控制Mplayer</title><link href="http://opslinux.com/post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/" rel="alternate"></link><updated>2014-03-26T16:39:05+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-26:post/2014-03-26-pythonshi-xian-kong-zhi-mplayer/</id><summary type="html">
+</summary><category term="django"></category><category term="python"></category></entry><entry><title>python实现控制Mplayer</title><link href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" rel="alternate"></link><updated>2014-03-26T16:39:05+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-26:pythonshi-xian-kong-zhi-mplayer.html</id><summary type="html">
 &lt;p&gt;今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了&lt;a class="reference external" href="https://code.google.com/p/python-mplayer/"&gt;mplayer.py&lt;/a&gt;这个神器，来马上试用一下。&lt;/p&gt;
 &lt;div class="section" id="mplayer"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
@@ -1047,7 +1047,7 @@ Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
 &lt;p&gt;好ok，有了以上功能大家是不是就已经可以控制Mplayer拉？现在就只差web界面了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="mplayer"></category><category term="python"></category></entry><entry><title>python实现分析Nginx日志web平台</title><link href="http://opslinux.com/post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/" rel="alternate"></link><updated>2014-03-16T22:13:35+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-16:post/2014-03-16-pythonshi-xian-fen-xi-nginxri-zhi-webping-tai/</id><summary type="html">
+</summary><category term="mplayer"></category><category term="python"></category></entry><entry><title>python实现分析Nginx日志web平台</title><link href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" rel="alternate"></link><updated>2014-03-16T22:13:35+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-16:pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html</id><summary type="html">
 &lt;p&gt;其实项目写完好久了，一直没时间总结，正好最近离职，也不是特别忙把一些自己认为使用的项目分享一下给大家，希望能帮助到大家，即使帮助不到，我还可以偷偷回来看下，以便温习&lt;/p&gt;
 &lt;div class="section" id="nginx"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Nginx日志&lt;/a&gt;&lt;/h2&gt;
@@ -1261,7 +1261,7 @@ Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
 &lt;p&gt;好了，日志都放到NOSQL当中了，接下来就是分析的问题，这个就是仁者见仁智者见智的事了，每个公司的需求不一样，有用redis分析的，有用zeromq分析，这就看大家的喜好了，分析完最后还是推荐大家用highcharts出图比较好看，这里推荐使用highcharts的文章：&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/python_and_highcharts-.html"&gt;highcharts使用&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category><category term="nginx日志分析"></category></entry><entry><title>sqlalchemy查询返回json数据</title><link href="http://opslinux.com/post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/" rel="alternate"></link><updated>2014-02-19T11:17:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-02-19:post/2014-02-19-sqlalchemycha-xun-fan-hui-jsonshu-ju/</id><summary type="html">
+</summary><category term="python"></category><category term="nginx日志分析"></category></entry><entry><title>sqlalchemy查询返回json数据</title><link href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" rel="alternate"></link><updated>2014-02-19T11:17:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-02-19:sqlalchemycha-xun-fan-hui-jsonshu-ju.html</id><summary type="html">
 &lt;p&gt;最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器&lt;a class="reference external" href="http://www.sqlalchemy.org/"&gt;sqlalchemy&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="json"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;返回json数据&lt;/a&gt;&lt;/h2&gt;
@@ -1319,7 +1319,7 @@ Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
     &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;"status"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;"msg"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;"返回成功"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;"user_info"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__json__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;)},&lt;/span&gt;&lt;span class="n"&gt;ensure_ascii&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;indent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="c"&gt;#返回自定义数据，models.User.__json__(user)就是使用在Base创建的__json__方法来返回json数据，ensure_ascii=False是不使用ascii为了显示中文，indent=4是缩进，格式化输出json比较美观&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-</summary><category term="sqlalchemy"></category><category term="python"></category></entry><entry><title>HTTP Header 详解</title><link href="http://opslinux.com/post/2014-01-24-http-header-xiang-jie/" rel="alternate"></link><updated>2014-01-24T15:33:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-01-24:post/2014-01-24-http-header-xiang-jie/</id><summary type="html">&lt;p&gt;HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general  header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。&lt;/p&gt;
+</summary><category term="sqlalchemy"></category><category term="python"></category></entry><entry><title>HTTP Header 详解</title><link href="http://opslinux.com/http-header-xiang-jie.html" rel="alternate"></link><updated>2014-01-24T15:33:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-01-24:http-header-xiang-jie.html</id><summary type="html">&lt;p&gt;HTTP（HyperTextTransferProtocol）即超文本传输协议，目前网页传输的的通用协议。HTTP协议采用了请求/响应模型，浏览器或其他客户端发出请求，服务器给与响应。就整个网络资源传输而言，包括message-header和message-body两部分。首先传递message- header，即http header消息 。http header 消息通常被分为4个部分：general  header, request header, response header, entity header。但是这种分法就理解而言，感觉界限不太明确。根据维基百科对http header内容的组织形式，大体分为Request和Response两部分。&lt;/p&gt;
 &lt;p&gt;Requests部分&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
@@ -1476,7 +1476,7 @@ Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</summary><category term="HTTP"></category></entry><entry><title>python中的urlencode与urldecode</title><link href="http://opslinux.com/post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/" rel="alternate"></link><updated>2013-11-01T12:51:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-11-01:post/2013-11-01-pythonzhong-de-urlencodeyu-urldecode/</id><summary type="html">
+</summary><category term="HTTP"></category></entry><entry><title>python中的urlencode与urldecode</title><link href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" rel="alternate"></link><updated>2013-11-01T12:51:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-11-01:pythonzhong-de-urlencodeyu-urldecode.html</id><summary type="html">
 &lt;p&gt;转载： &lt;a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html"&gt;地址&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。&lt;/p&gt;
@@ -1515,7 +1515,7 @@ a=test&amp;amp;amp;name=%C4%A7%CA%DE
 &lt;p&gt;在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。&lt;/p&gt;
 &lt;p&gt;可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="python"></category></entry><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:post/2013-10-25-nginxda-zao-3wgao-bing-fa-wang-zhan/</id><summary type="html">
+</summary><category term="python"></category></entry><entry><title>Nginx打造3w高并发网站</title><link href="http://opslinux.com/nginxda-zao-3wgao-bing-fa-wang-zhan.html" rel="alternate"></link><updated>2013-10-25T10:20:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-10-25:nginxda-zao-3wgao-bing-fa-wang-zhan.html</id><summary type="html">
 &lt;p&gt;Nginx是俄罗斯人编写的十分轻量级的HTTP服务器,Nginx，它的发音为“engine X”，是一个高性能的HTTP和反向代理服务器，同时也是一个IMAP/POP3/SMTP 代理服务器．Nginx是由俄罗斯人 Igor Sysoev为俄罗斯访问量第二的 Rambler.ru站点开发.&lt;/p&gt;
 &lt;p&gt;Nginx以事件驱动的方式编写，所以有非常好的性能，同时也是一个非常高效的反向代理、负载平衡。其拥有匹配 Lighttpd的性能，同时还没有Lighttpd的内存泄漏问题，而且Lighttpd的mod_proxy也有一些问题并且很久没有更新。但是Nginx并不支持cgi方式运行，原因是可以减少因此带来的一些程序上的漏洞。所以必须使用FastCGI方式来执行PHP程序。&lt;/p&gt;
 &lt;p&gt;nginx做为HTTP服务器，有以下几项基本特性：&lt;/p&gt;
@@ -1922,7 +1922,7 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;soft 限制指的是当前系统生效的设置值。 hard 限制值可以被普通用户降低。但是不能增加。 soft 限制不能设置的比 hard 限制更高。 只有 root 用户才能够增加 hard 限制值。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:post/2013-09-14-shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing/</id><summary type="html">&lt;h1 id="vagrant"&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
+</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</id><summary type="html">&lt;h1 id="vagrant"&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;
@@ -2003,7 +2003,7 @@ end
 
 &lt;p&gt;Nginx 配置添加:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sendfile off;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:post/2013-09-09-zabbixjian-kong-mongodb/</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/zabbixjian-kong-mongodb.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:zabbixjian-kong-mongodb.html</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
 &lt;p&gt;推荐文档：&lt;/p&gt;
 &lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
 &lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
@@ -2066,7 +2066,7 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
 
 &lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
 &lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
 &lt;h3 id="virtualenv"&gt;安装virtualenv虚拟环境&lt;/h3&gt;
 &lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
@@ -2175,4 +2175,4 @@ Tag: 标签1, 标签2
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>helloworld</title><link href="http://opslinux.com/post/2013-07-12-helloworld/" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:post/2013-07-12-helloworld/</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
+&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>helloworld</title><link href="http://opslinux.com/helloworld.html" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:helloworld.html</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
