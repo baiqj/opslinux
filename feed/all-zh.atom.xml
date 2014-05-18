@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-18T17:31:26+08:00</updated><entry><title>Git push 中的 Matching和Simple</title><link href="http://opslinux.com/Git-matching-simple.html" rel="alternate"></link><updated>2014-05-18T17:31:26+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:Git-matching-simple.html</id><summary type="html">&lt;p&gt;如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-18T10:11:24+08:00</updated><entry><title>安装ipython</title><link href="http://opslinux.com/install_ipython.html" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:install_ipython.html</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+&lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
+&lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装完成，输入ipython进入：&lt;/p&gt;
+&lt;img alt="ipython test" src="http://opslinux.qiniudn.com/026DF930-C3C9-4C67-B3E7-9A986AC0D033.png" /&gt;
+</summary><category term="ipython"></category><category term="python"></category></entry><entry><title>Git push 中的 Matching和Simple</title><link href="http://opslinux.com/Git-matching-simple.html" rel="alternate"></link><updated>2014-05-17T17:31:26+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-17:Git-matching-simple.html</id><summary type="html">&lt;p&gt;如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -41,14 +48,7 @@ To squelch this message and adopt the new behavior now, use:
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-</summary><category term="git"></category></entry><entry><title>安装ipython</title><link href="http://opslinux.com/install_ipython.html" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:install_ipython.html</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
-&lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
-&lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装完成，输入ipython进入：&lt;/p&gt;
-&lt;img alt="ipython test" src="http://opslinux.qiniudn.com/026DF930-C3C9-4C67-B3E7-9A986AC0D033.png" /&gt;
-</summary><category term="ipython"></category><category term="python"></category></entry><entry><title>flask开发blog（一）</title><link href="http://opslinux.com/flask_blog.html" rel="alternate"></link><updated>2014-05-16T09:20:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-16:flask_blog.html</id><summary type="html">&lt;div class="section" id="virtualenv"&gt;
+</summary><category term="git"></category></entry><entry><title>flask开发blog（一）</title><link href="http://opslinux.com/flask_blog.html" rel="alternate"></link><updated>2014-05-16T09:20:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-16:flask_blog.html</id><summary type="html">&lt;div class="section" id="virtualenv"&gt;
 &lt;h2&gt;安装virtualenv&lt;/h2&gt;
 &lt;/div&gt;
 &lt;div class="section" id="flask"&gt;
