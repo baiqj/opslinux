@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 May 2014 10:11:24 +0800</lastBuildDate><item><title>安装ipython</title><link>http://opslinux.com/install_ipython-.html</link><description>&lt;img alt="ipython" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 May 2014 10:11:24 +0800</lastBuildDate><item><title>安装ipython</title><link>http://opslinux.com/install_ipython-.html</link><description>&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
 &lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
 &lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
