@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="se/" rel="alternate"></link><link href="http://opslinux.com/feeds/python.atom.xml" rel="self"></link><id>se/</id><updated>2014-05-18T10:11:24+08:00</updated><entry><title>安装ipython</title><link href="se/install_ipython-.html" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:se,2014-05-18:install_ipython-.html</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+&lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
+&lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装完成，输入ipython进入：&lt;/p&gt;
+&lt;img alt="ipython test" src="http://opslinux.qiniudn.com/026DF930-C3C9-4C67-B3E7-9A986AC0D033.png" /&gt;
+</summary><category term="ipython"></category><category term="python"></category></entry><entry><title>python使用mechanize实现登陆</title><link href="se/pythonmechanize-.html" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:se,2014-05-14:pythonmechanize-.html</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
+&lt;p&gt;-1 http,https协议等。
+-2 简单的HTML表单填写。
+-3 浏览器历史记录和重载。
+-4 Referer的HTTP头的正确添加（可选）。
+-5 自动遵守robots.txt的。
+-6 自动处理HTTP-EQUIV和刷新。&lt;/p&gt;
+&lt;p&gt;所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等&lt;/p&gt;
+&lt;p&gt;确保已经安装：pip install mechanize&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;mechanize&lt;/span&gt;  &lt;span class="c"&gt;#引入mechanize 需要pip安装&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cookielib&lt;/span&gt;  &lt;span class="c"&gt;#引入cookielib 来做cookie&lt;/span&gt;
+
+&lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://127.0.0.1:8080/login&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhangbin&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhangbin&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;login&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mechanize&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Browser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+     &lt;span class="n"&gt;cj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cookielib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LWPCookieJar&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_cookiejar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#关联cookies&lt;/span&gt;
+
+     &lt;span class="c"&gt;#设置一些参数，因为是模拟客户端请求，所以要支持客户端的一些常用功能&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_equiv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_gzip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_redirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_referer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_robots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_refresh&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mechanize&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_http&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HTTPRefreshProcessor&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;max_time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addheaders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;User-agent&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.11) Gecko/20100701 Firefox/3.5.11&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;  &lt;span class="c"&gt;#模拟浏览器头&lt;/span&gt;
+     &lt;span class="c"&gt;# br.set_debug_http(True)   #debug&lt;/span&gt;
+     &lt;span class="c"&gt;# br.set_debug_responses(True) #debug&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#打开连接&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;select_form&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#选择第一个form&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="c"&gt;#写入用户名&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="c"&gt;#写入密码&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;submit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c"&gt;#提交&lt;/span&gt;
+     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c"&gt;#打印登录后内容&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt;  &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="mechanize"></category></entry><entry><title>python和highcharts制作图表</title><link href="se/python_and_highcharts-.html" rel="alternate"></link><updated>2014-05-06T19:44:34+08:00</updated><author><name>创e</name></author><id>tag:se,2014-05-06:python_and_highcharts-.html</id><summary type="html">
+&lt;p&gt;有时候我们需要制作一些图表，单独使用python可以制作出但是不是特别好看，今天我们就用Django和highcharts神器来做出好看的图标，如想要详细了解highcharts请关注如下网站：&lt;a class="reference external" href="http://www.highcharts.com/"&gt;highcharts官网&lt;/a&gt; &lt;a class="reference external" href="http://www.hcharts.cn/index.php"&gt;highcharts中文网&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;前端准备:&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"container"&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;"height: 300px"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;script &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text/javascript"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'#container'&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;highcharts&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="nx"&gt;chart&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;type&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'column'&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'ip统计'&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;xAxis&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;categories&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="nx"&gt;ip_time&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;  &lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="c1"&gt;//ip_time数据为：[20140501, 20140502, 20140503, 20140504, 20140505]&lt;/span&gt;
+        &lt;span class="nx"&gt;yAxis&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;min&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="nx"&gt;text&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'ip数量 (ip)'&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;plotOptions&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;column&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="nx"&gt;pointPadding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="nx"&gt;borderWidth&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;series&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;
+            &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;'ip'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="nx"&gt;ip_conut&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;  &lt;span class="c1"&gt;//ip_conut数据为：[853, 821, 829, 1048, 1014]&lt;/span&gt;
+
+        &lt;span class="p"&gt;}]&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="views"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;后端views实现：&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;ip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;'GET'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;ip_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;20140501&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20140502&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20140503&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20140504&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20140505&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;ip_conut&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;853&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;821&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;829&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1048&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1014&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;render_to_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"app_detail.html"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;RequestContext&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;'ip_time'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ip_time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;'ip_conut'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ip_conut&lt;/span&gt;&lt;span class="p"&gt;}))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这里的数据只是个例子，更直观的展示出效果，真正项目中可能需要你在数据库中取出数据，自己折腾成list，我们看下效果：&lt;/p&gt;
+&lt;img alt="出图" class="align-center" src="http://opslinux.qiniudn.com/639887B8-0262-4186-9D9E-68481F846620.png" style="width: 671px; height: 563px;"/&gt;
+&lt;/div&gt;
+</summary><category term="highcharts"></category></entry><entry><title>python计算文件md5</title><link href="se/python_md5-.html" rel="alternate"></link><updated>2014-05-04T16:05:23+08:00</updated><author><name>创e</name></author><id>tag:se,2014-05-04:python_md5-.html</id><summary type="html">&lt;p&gt;Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;hashlib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;md5_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;a_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    &lt;span class="c"&gt;#使用二进制格式读取文件内容&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="n"&gt;a_file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hexdigest&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__init__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;md5_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/home/ce/1.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="md5"></category><category term="python"></category></entry><entry><title>python实现控制Mplayer</title><link href="se/pythonshi-xian-kong-zhi-mplayer.html" rel="alternate"></link><updated>2014-03-26T16:39:05+08:00</updated><author><name>创e</name></author><id>tag:se,2014-03-26:pythonshi-xian-kong-zhi-mplayer.html</id><summary type="html">
+&lt;p&gt;今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了&lt;a class="reference external" href="https://code.google.com/p/python-mplayer/"&gt;mplayer.py&lt;/a&gt;这个神器，来马上试用一下。&lt;/p&gt;
+&lt;div class="section" id="mplayer"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;brew install mplayer
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;没想到还真提示有包，安装ing。&lt;/p&gt;
+&lt;p&gt;当然，Ubuntu也不能少：&lt;/p&gt;
+&lt;p&gt;apt-get install mplayer&lt;/p&gt;
+&lt;p&gt;应该不会发生什么太大问题&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="mplayer-py"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;mplayer.py&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;安装&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install mplayer.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;还是非常的方便&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;测试&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;进入python命令行，我们来测试：&lt;/p&gt;
+&lt;p&gt;(env)ce@mac:~&amp;gt; python
+Python 2.7.5 (default, Aug 25 2013, 00:04:04)
+[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/pre&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; from mplayer import Player, CmdPrefix
+&lt;/pre&gt;
+&lt;p&gt;根据文档，先引入需要的函数&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; Player.cmd_prefix = CmdPrefix.PAUSING_KEEP
+&lt;/pre&gt;
+&lt;p&gt;设置默认前缀为所有player的实例&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; player = Player()
+&lt;/pre&gt;
+&lt;p&gt;建立实例&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; player.loadfile('/path/to/file.mkv')
+&lt;/pre&gt;
+&lt;p&gt;引入文件，引入后文件就被打开了&lt;/p&gt;
+&lt;p&gt;这时候我们可以dir player来看看他都有什么方法让我们使用&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; dir(player)
+['__class__', '__del__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_args', '_base_args', '_gen_method_func', '_gen_propdoc', '_generate_methods', '_generate_properties', '_proc', '_process_args', '_propget', '_propset', '_run_command', '_stderr', '_stdout', 'af_add', 'af_clr', 'af_cmdline', 'af_del', 'af_switch', 'alt_src_step', 'angle', 'args', 'aspect', 'ass_use_margins', 'audio_bitrate', 'audio_codec', 'audio_delay', 'audio_format', 'balance', 'border', 'brightness', 'capturing', 'change_rectangle', 'channels', 'chapter', 'chapters', 'cmd_prefix', 'contrast', 'deinterlace', 'demuxer', 'dvdnav', 'edl_loadfile', 'edl_mark', 'exec_path', 'exit', 'file_filter', 'filename', 'forced_subs_only', 'fps', 'frame_drop', 'frame_step', 'framedropping', 'fullscreen', 'gamma', 'gui', 'height', 'help', 'hide', 'hue', 'introspect', 'is_alive', 'key_down_event', 'length', 'loadfile', 'loadlist', 'loop', 'menu', 'metadata', 'mute', 'ontop', 'osd', 'osd_show_progression', 'osd_show_property_text', 'osd_show_text', 'osdlevel', 'overlay_add', 'overlay_remove', 'panscan', 'path', 'pause', 'paused', 'percent_pos', 'pt_step', 'pt_up_step', 'quit', 'rootwin', 'run', 'samplerate', 'saturation', 'screenshot', 'seek', 'seek_chapter', 'set_menu', 'set_mouse_pos', 'spawn', 'speed', 'speed_incr', 'speed_mult', 'speed_set', 'stderr', 'stdout', 'stop', 'stream_end', 'stream_length', 'stream_pos', 'stream_start', 'stream_time_pos', 'sub', 'sub_alignment', 'sub_delay', 'sub_demux', 'sub_file', 'sub_forced_only', 'sub_load', 'sub_log', 'sub_pos', 'sub_remove', 'sub_scale', 'sub_select', 'sub_source', 'sub_step', 'sub_visibility', 'sub_vob', 'switch_angle', 'switch_audio', 'switch_program', 'switch_ratio', 'switch_title', 'switch_video', 'switch_vsync', 'teletext_add_dec', 'teletext_format', 'teletext_go_link', 'teletext_half_page', 'teletext_mode', 'teletext_page', 'teletext_subpage', 'time_pos', 'titles', 'tv_brightness', 'tv_contrast', 'tv_hue', 'tv_last_channel', 'tv_saturation', 'tv_set_brightness', 'tv_set_channel', 'tv_set_contrast', 'tv_set_freq', 'tv_set_hue', 'tv_set_norm', 'tv_set_saturation', 'tv_start_scan', 'tv_step_chanlist', 'tv_step_channel', 'tv_step_freq', 'tv_step_norm', 'use_master', 'version', 'video_bitrate', 'video_codec', 'video_format', 'vo_border', 'vo_fullscreen', 'vo_ontop', 'vo_rootwin', 'vobsub_lang', 'volume', 'vsync', 'width']
+&lt;/pre&gt;
+&lt;p&gt;very well！&lt;/p&gt;
+&lt;p&gt;看来我们的需求是可以搞定了！&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;需要的方法&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;下面罗列下需要使用的方法：&lt;/p&gt;
+&lt;p&gt;player.pause()   #暂停&lt;/p&gt;
+&lt;p&gt;player.filename  #显示文件名&lt;/p&gt;
+&lt;p&gt;player.time_pos += 5  #快进5s&lt;/p&gt;
+&lt;p&gt;player.time_pos -= 5  #快退5s&lt;/p&gt;
+&lt;p&gt;player.stream_length #查看视频长度&lt;/p&gt;
+&lt;p&gt;player.stream_pos   #查看视频现在的位置， 根据上面可以做出进度条&lt;/p&gt;
+&lt;p&gt;player.volume  #显示音量&lt;/p&gt;
+&lt;p&gt;player.volume(+30.0)  #升高音量&lt;/p&gt;
+&lt;p&gt;player.volume(-30.0)  #降低音量&lt;/p&gt;
+&lt;p&gt;player.quit()  #关闭视频&lt;/p&gt;
+&lt;p&gt;好ok，有了以上功能大家是不是就已经可以控制Mplayer拉？现在就只差web界面了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="mplayer"></category><category term="python"></category></entry><entry><title>python实现分析Nginx日志web平台</title><link href="se/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" rel="alternate"></link><updated>2014-03-16T22:13:35+08:00</updated><author><name>创e</name></author><id>tag:se,2014-03-16:pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html</id><summary type="html">
+&lt;p&gt;其实项目写完好久了，一直没时间总结，正好最近离职，也不是特别忙把一些自己认为使用的项目分享一下给大家，希望能帮助到大家，即使帮助不到，我还可以偷偷回来看下，以便温习&lt;/p&gt;
+&lt;div class="section" id="nginx"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Nginx日志&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;按日期切割log&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;access&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;access_&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="s"&gt;"yesterday"&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;"%Y%m%&lt;/span&gt;
+&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="s"&gt;").log&lt;/span&gt;
+&lt;span class="n"&gt;kill&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;USR1&lt;/span&gt; &lt;span class="sb"&gt;`cat /etc/nginx/logs/nginx.pid`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;首先要明确自己的Nginx的日志格式，找到配置文件如下：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;log_format&lt;/span&gt;  &lt;span class="n"&gt;main&lt;/span&gt;  &lt;span class="s"&gt;'$remote_addr - $remote_user [$time_local] "$request" '&lt;/span&gt;
+                  &lt;span class="s"&gt;'$status $body_bytes_sent "$http_referer" '&lt;/span&gt;
+                  &lt;span class="s"&gt;'"$http_user_agent" "$http_x_forwarded_for" "$request_time" "$upstream_response_time"'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;以上是我Nginx日志的格式&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Nginx日志分析处理&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;啥也别说了 直接上代码：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#coding=utf-8&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;linecache&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="nn"&gt;datetime&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;glob&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;conn&lt;/span&gt;
+&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'''112.224.65.85 - - [20/Aug/2013:00:01:02 +0800] "POST /api/topic/comments HTTP/1.1" 200 3804 "-" "Corax/0.7.0 CFNetwork/609.1.4 Darwin/13.0.0" "-" "1.173" "0.005"'''&lt;/span&gt;
+&lt;span class="n"&gt;files_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"/home/corax/ops/data/"&lt;/span&gt;
+&lt;span class="n"&gt;bak_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"/home/corax/ops/data/backup"&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;readfile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'*.log'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;readtime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;read_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;glob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;'*.log'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;read_time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'_'&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'.'&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="n"&gt;read_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;read_time&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;read_time&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;timestamp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;time_file&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mktime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strptime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;time_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'%Y%b&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt; %H:%M:%S'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;datestamp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;date_name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strptime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;date_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'%Y%b&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;handle_log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log_file&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;ip&amp;gt;[\d.]*"&lt;/span&gt;
+    &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;date&amp;gt;\d+"&lt;/span&gt;
+    &lt;span class="n"&gt;month&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;month&amp;gt;\w+"&lt;/span&gt;
+    &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;year&amp;gt;\d+"&lt;/span&gt;
+    &lt;span class="n"&gt;log_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;time&amp;gt;\S+"&lt;/span&gt;
+    &lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;method&amp;gt;\S+"&lt;/span&gt;
+    &lt;span class="n"&gt;request&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;request&amp;gt;\S+"&lt;/span&gt;
+    &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;status&amp;gt;\d+"&lt;/span&gt;
+    &lt;span class="n"&gt;bodyBytesSent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"?P&amp;lt;bodyBytesSent&amp;gt;\d+"&lt;/span&gt;
+    &lt;span class="n"&gt;refer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;r"""?P&amp;lt;refer&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;             [^\"]*&lt;/span&gt;
+&lt;span class="s"&gt;             """&lt;/span&gt;
+    &lt;span class="n"&gt;userAgent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r"""?P&amp;lt;userAgent&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;                \S*&lt;/span&gt;
+&lt;span class="s"&gt;               """&lt;/span&gt;
+    &lt;span class="n"&gt;forwardr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r"""?P&amp;lt;forwardr&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;                [^\"]*&lt;/span&gt;
+&lt;span class="s"&gt;               """&lt;/span&gt;
+    &lt;span class="n"&gt;request_time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r"""?P&amp;lt;request_time&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;                [^\"]*&lt;/span&gt;
+&lt;span class="s"&gt;               """&lt;/span&gt;
+    &lt;span class="n"&gt;response_time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;r"""?P&amp;lt;response_time&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;                [^\"]*&lt;/span&gt;
+&lt;span class="s"&gt;               """&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r"(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)\ -\ -\ \[(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)/(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)/(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)\:(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)\ [\S]+\]\ &lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)?[\s]?(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)?.*?&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;\ (&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)\ (&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)\ &lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;\ &lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;).*?&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;\ &lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;\ &lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;\ &lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;)&lt;/span&gt;&lt;span class="se"&gt;\"&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;month&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;log_time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bodyBytesSent&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;refer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;userAgent&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;forwardr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;request_time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response_time&lt;/span&gt; &lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;VERBOSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;log_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;log_file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'r'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;file_all&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;file_all&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;time_all&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s%s%s&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            &lt;span class="n"&gt;time_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;timestamp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;time_all&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"%Y%m&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;datestamp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="si"&gt;%s%s%s&lt;/span&gt;&lt;span class="s"&gt;'&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])))&lt;/span&gt;
+            &lt;span class="n"&gt;hour&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;":"&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="c"&gt;# print date,hour&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s"&gt;"-"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;req_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;req_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="s"&gt;"-"&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;res_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;res_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="bp"&gt;None&lt;/span&gt;
+            &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;'ip'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;time_format&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'method'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'request'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'status'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'bodyBytesSent'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'refer'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'userAgent'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'forwardr'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="s"&gt;'request_time'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;req_time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'response_time'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;res_time&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;'date'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="s"&gt;'hour'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hour&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+
+            &lt;span class="n"&gt;conn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;insert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;"mv &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; "&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;bak_dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"mv &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; "&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;bak_dir&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;'__main__'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;lf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;readfile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;files_dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;lf&lt;/span&gt;
+    &lt;span class="n"&gt;read_time&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;readtime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;files_dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;read_time&lt;/span&gt;
+    &lt;span class="n"&gt;handle_log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;我们书接上回，对上面的代码进行一下梳理：&lt;/p&gt;
+&lt;p&gt;w变量存了一个测试的Nginx日志条目,readfile()函数是读取日志文件，然后返回文件的路径，readtime()函数是获取日期，handle_log()函数是分析日志的函数，对于每个日志段，用正则精心匹配筛选出来，然后就是入库。这里面试写入到了MongDB中。&lt;/p&gt;
+&lt;p&gt;好了，日志都放到NOSQL当中了，接下来就是分析的问题，这个就是仁者见仁智者见智的事了，每个公司的需求不一样，有用redis分析的，有用zeromq分析，这就看大家的喜好了，分析完最后还是推荐大家用highcharts出图比较好看，这里推荐使用highcharts的文章：&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/python_and_highcharts-.html"&gt;highcharts使用&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category><category term="nginx日志分析"></category></entry><entry><title>python中的urlencode与urldecode</title><link href="se/pythonzhong-de-urlencodeyu-urldecode.html" rel="alternate"></link><updated>2013-11-01T12:51:00+08:00</updated><author><name>创e</name></author><id>tag:se,2013-11-01:pythonzhong-de-urlencodeyu-urldecode.html</id><summary type="html">
+&lt;p&gt;转载： &lt;a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html"&gt;地址&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
+当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。&lt;/p&gt;
+&lt;div class="section" id="urlencode"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;一、urlencode&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&amp;amp;b=2这样的字符串，比如:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; from urllib import urlencode
+&amp;gt;&amp;gt;&amp;gt; data = {
+...     'a': 'test',
+...     'name': '魔兽'
+... }
+&amp;gt;&amp;gt;&amp;gt; print urlencode(data)
+a=test&amp;amp;amp;name=%C4%A7%CA%DE
+&lt;/pre&gt;
+&lt;p&gt;如果只想对一个字符串进行urlencode转换，怎么办？urllib提供另外一个函数：quote()&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; from urllib import quote
+&amp;gt;&amp;gt;&amp;gt; quote('魔兽')
+'%C4%A7%CA%DE'
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="urldecode"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;二、urldecode&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;当urlencode之后的字符串传递过来之后，接受完毕就要解码了——urldecode。urllib提供了unquote()这个函数，可没有urldecode()！:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; from urllib import unquote
+&amp;gt;&amp;gt;&amp;gt; unquote('%C4%A7%CA%DE')
+'\xc4\xa7\xca\xde'
+&amp;gt;&amp;gt;&amp;gt; print unquote('%C4%A7%CA%DE')
+魔兽
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;三、讨论&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。&lt;/p&gt;
+&lt;p&gt;可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="python"></category></entry></feed>

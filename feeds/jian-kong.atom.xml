@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="se/" rel="alternate"></link><link href="http://opslinux.com/feeds/jian-kong.atom.xml" rel="self"></link><id>se/</id><updated>2013-09-09T00:00:00+08:00</updated><entry><title>zabbix监控mongoDB</title><link href="se/zabbixjian-kong-mongodb.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:se,2013-09-09:zabbixjian-kong-mongodb.html</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
+&lt;p&gt;推荐文档：&lt;/p&gt;
+&lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
+&lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
+&lt;p&gt;https://code.google.com/p/mikoomi/wiki/03&lt;/p&gt;
+&lt;p&gt;插件下载地址：&lt;/p&gt;
+&lt;p&gt;http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/&lt;/p&gt;
+&lt;p&gt;学习地址：&lt;/p&gt;
+&lt;p&gt;https://blog.serverdensity.com/mongodb-monitoring-db-serverstatus/&lt;/p&gt;
+&lt;p&gt;http://www.yaukb.com/2012/05/zabbix_mongodb/&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.在Zabbix Server上安装php MongoDB驱动：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[root@localhost conf.d]# pecl install mongo&lt;br /&gt;
+WARNING: channel “pecl.php.net” has updated its protocols, use “pecl channel-update pecl.php.net” to update
+downloading mongo-1.4.3.tgz …
+Starting to download mongo-1.4.3.tgz (140,481 bytes)
+…………………………done: 140,481 bytes
+84 source files, building
+running: phpize
+Configuring for:
+PHP Api Version:         20100412
+Zend Module Api No:      20100525
+Zend Extension Api No:   220100525&lt;/p&gt;
+&lt;p&gt;……&lt;/p&gt;
+&lt;p&gt;Build process completed successfully
+Installing ‘/usr/lib64/php/modules/mongo.so’
+install ok: channel://pecl.php.net/mongo-1.4.3
+configuration option “php_ini” is not set to php.ini location
+You should add “extension=mongo.so” to php.ini
+You have new mail in /var/spool/mail/root&lt;/p&gt;
+&lt;p&gt;[root@localhost conf.d]# vim /etc/php.ini&lt;br /&gt;
+[root@localhost conf.d]# /etc/init.d/httpd reload&lt;br /&gt; 
+[root@localhost conf.d]# php -m |grep mongo&lt;br /&gt;
+mongo&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.下载：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[root@localhost externalscripts]# pwd&lt;br /&gt;
+/etc/zabbix/externalscripts&lt;br /&gt;
+[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.php&lt;br /&gt;
+[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.sh&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.导入模板 建立主机：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;将MongoDB_Plugin_template_export.xml导入到zabbix中
+修改"Miscellaneous: Data Collector"监控项的key值，因默认提供的值有错误：
+mikoomi-mongodb-plugin.sh["--", "-h", "{$MONGODB_HOSTNAME}", "-p", "{$MONGODB_PORT}", "-z", "{$MONGODB_ZABBIX_NAME}"]&lt;/p&gt;
+&lt;p&gt;在zabbix里建立主机，定义宏：&lt;br /&gt;
+{$MONGODB_HOSTNAME} = 10.0.199.30   #即ip地址&lt;br /&gt;
+{$MONGODB_PORT} = 27017 #监控mongdb的端口号&lt;br /&gt;
+{$MONGODB_ZABBIX_NAME} =MongDB1 #hostname 就是主机名 不要写显示名 这样会接受不到数据 一定是hostname&lt;br /&gt;
+然后给主机连接上模板即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.测试：&lt;br /&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[root@localhost externalscripts]# ./mikoomi-mongodb-plugin.sh -D -h10.0.199.30 -p27017 -z MongDB1
+0
+[root@localhost externalscripts]# less /tmp/mikoomi-mongodb-plugin.php_MongoDB1.log&lt;/p&gt;
+&lt;p&gt;mikoomi-mongodb-plugin.php:Successfully connected to mongoDB using connect string root:passworda@MongDB1:27017
+zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
+&lt;p&gt;zabbix_sender [8413]: Warning: [line 68] ‘Key value’ required&lt;/p&gt;
+&lt;p&gt;zabbix_sender [8414]: DEBUG: answer [{&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="s"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;success&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+    &lt;span class="s"&gt;&amp;quot;info&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Processed 58 Failed 13 Total 71 Seconds spent 0.001618&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
+&lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry></feed>
