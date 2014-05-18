@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://opslinux.com/index.html</loc>
-<lastmod>2014-05-18T19:35:50-00:00</lastmod>
+<lastmod>2014-05-18T19:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/archives.html</loc>
-<lastmod>2014-05-18T19:35:50-00:00</lastmod>
+<lastmod>2014-05-18T19:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/tags.html</loc>
-<lastmod>2014-05-18T19:35:50-00:00</lastmod>
+<lastmod>2014-05-18T19:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://opslinux.com/categories.html</loc>
-<lastmod>2014-05-18T19:35:50-00:00</lastmod>
+<lastmod>2014-05-18T19:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -165,6 +165,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://opslinux.com/python-pyenv.html</loc>
+<lastmod>2013-10-04T00:27:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
 <loc>http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</loc>
 <lastmod>2013-09-14T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -195,6 +202,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://opslinux.com/</loc>
 <lastmod>2014-05-18T10:11:24-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://opslinux.com/</loc>
+<lastmod>2013-10-04T00:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

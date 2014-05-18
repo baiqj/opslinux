@@ -4,8 +4,8 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="创e" />
-        <meta name="copyright" content="创e" />
+        <meta name="author" content="SeisMan" />
+        <meta name="copyright" content="SeisMan" />
     
     <script type= "text/javascript">
         var s = document.createElement('script');
@@ -29,23 +29,23 @@
     </script>
 
 
-        <meta name="description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...
+        <meta name="description" content="使用pyenv管理多个Python版本。
 " />
 
-<meta name="keywords" content="python, python, " />
+<meta name="keywords" content="安装, Python, " />
 
-<meta property="og:title" content="python中的urlencode与urldecode "/>
+<meta property="og:title" content="Python多版本共存之pyenv "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" />
-<meta property="og:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ..." />
+<meta property="og:url" content="http://opslinux.com/python-pyenv.html" />
+<meta property="og:description" content="使用pyenv管理多个Python版本。" />
 <meta property="og:site_name" content="老运维创e" />
-<meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2013-11-01T12:51:00" />
+<meta property="og:article:author" content="SeisMan" />
+<meta property="og:article:published_time" content="2013-10-04T00:27:00" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的urlencode与urldecode ">
-<meta name="twitter:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...">
+<meta name="twitter:title" content="Python多版本共存之pyenv ">
+<meta name="twitter:description" content="使用pyenv管理多个Python版本。">
 
-        <title>python中的urlencode与urldecode  · 老运维创e
+        <title>Python多版本共存之pyenv  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -89,7 +89,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html"> python中的urlencode与urldecode  </a></h1>
+    <h1><a href="http://opslinux.com/python-pyenv.html"> Python多版本共存之pyenv  </a></h1>
     </header>
 </div>
 
@@ -100,9 +100,17 @@
         <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#urlencode" id="id3">一、urlencode</a></li>
-<li><a class="reference internal" href="#urldecode" id="id4">二、urldecode</a></li>
-<li><a class="reference internal" href="#id2" id="id5">三、讨论</a></li>
+<li><a class="reference internal" href="#pyenv" id="id9">安装pyenv</a></li>
+<li><a class="reference internal" href="#python" id="id10">安装Python</a><ul>
+<li><a class="reference internal" href="#id1" id="id11">查看可安装的版本</a></li>
+<li><a class="reference internal" href="#id2" id="id12">安装指定版本</a></li>
+<li><a class="reference internal" href="#id3" id="id13">更新数据库</a></li>
+<li><a class="reference internal" href="#id4" id="id14">查看当前已安装的python版本</a></li>
+<li><a class="reference internal" href="#id5" id="id15">设置全局的python版本</a></li>
+<li><a class="reference internal" href="#id6" id="id16">确认python版本</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id17">使用python</a></li>
 </ul>
 </div>
         </nav>
@@ -111,43 +119,92 @@
 
             
             
-<p>转载： <a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html">地址</a>.</p>
-<p>概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
-当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。</p>
-<div class="section" id="urlencode">
-<h2><a class="toc-backref" href="#id3">一、urlencode</a></h2>
-<p>urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&amp;b=2这样的字符串，比如:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import urlencode
-&gt;&gt;&gt; data = {
-...     'a': 'test',
-...     'name': '魔兽'
-... }
-&gt;&gt;&gt; print urlencode(data)
-a=test&amp;amp;name=%C4%A7%CA%DE
-</pre>
-<p>如果只想对一个字符串进行urlencode转换，怎么办？urllib提供另外一个函数：quote()</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import quote
-&gt;&gt;&gt; quote('魔兽')
-'%C4%A7%CA%DE'
-</pre>
-</div>
-<div class="section" id="urldecode">
-<h2><a class="toc-backref" href="#id4">二、urldecode</a></h2>
-<p>当urlencode之后的字符串传递过来之后，接受完毕就要解码了——urldecode。urllib提供了unquote()这个函数，可没有urldecode()！:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import unquote
-&gt;&gt;&gt; unquote('%C4%A7%CA%DE')
-'\xc4\xa7\xca\xde'
-&gt;&gt;&gt; print unquote('%C4%A7%CA%DE')
-魔兽
-</pre>
-</div>
+<p>需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。</p>
+<p><a class="reference external" href="https://github.com/yyuu/pyenv">pyenv</a>可以很好的实现Python的多版本共存。</p>
+<div class="section" id="pyenv">
+<h2><a class="toc-backref" href="#id9">安装pyenv</a></h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'export PYENV_ROOT="$HOME/.pyenv"'</span> &gt;&gt; ~/.bashrc
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'export PATH="$PYENV_ROOT/bin:$PATH"'</span> &gt;&gt; ~/.bashrc
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'eval "$(pyenv init -)"'</span> &gt;&gt; ~/.bashrc
+<span class="nv">$ </span><span class="nb">exec</span> <span class="nv">$SHELL</span> -l
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="python">
+<h2><a class="toc-backref" href="#id10">安装Python</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id11">查看可安装的版本</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>pyenv install --list
+</pre></div>
+</td></tr></table></div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">三、讨论</a></h2>
-<p>在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。</p>
-<p>可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。</p>
+<h3><a class="toc-backref" href="#id12">安装指定版本</a></h3>
+<p>使用如下命令即可安装python 3.3.2.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>pyenv install 3.3.2
+</pre></div>
+</td></tr></table><p>该命令会从github上下载python的源代码，并解压到/tmp目录下，然后在/tmp中执行编译工作。编译过程依赖一些其他的库文件，若库文件不能满足，则编译错误，需要重新下载、编译。。。(为什么每次都要重新下呢？)</p>
+<p>已知的一些需要预先安装的库包括：</p>
+<ul class="simple">
+<li>readline readline-devel readline-static</li>
+<li>openssl openssl-devel openssl-static</li>
+<li>sqlite-devel</li>
+<li>bzip2-devel bzip2-libs</li>
+</ul>
+<p>在所有python依赖库都安装好的情况下，python的安装很顺利。</p>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id13">更新数据库</a></h3>
+<p>安装完成之后需要对数据库进行更新：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>pyenv rehash
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id14">查看当前已安装的python版本</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>pyenv versions
+* system <span class="o">(</span><span class="nb">set </span>by /export/home/seisman/.pyenv/version<span class="o">)</span>
+3.3.2
+</pre></div>
+</td></tr></table><p>其中的星号表示使用的是系统自带的python。</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id15">设置全局的python版本</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>pyenv global 3.3.2
+<span class="nv">$ </span>pyenv versions
+system
+* 3.3.2 <span class="o">(</span><span class="nb">set </span>by /export/home/seisman/.pyenv/version<span class="o">)</span>
+</pre></div>
+</td></tr></table><p>当前全局的python版本已经变成了3.3.2。也可以使用<tt class="docutils literal">pyenv local</tt>或<tt class="docutils literal">pyenv shell</tt>临时改变python版本。</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id16">确认python版本</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>python
+Python 3.3.2 <span class="o">(</span>default, Sep 30 2013, 20:11:44<span class="o">)</span>
+<span class="o">[</span>GCC 4.4.7 20120313 <span class="o">(</span>Red Hat 4.4.7-3<span class="o">)]</span> on linux
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for </span>more information.
+&gt;&gt;&gt;
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id17">使用python</a></h2>
+<ul class="simple">
+<li>输入<tt class="docutils literal">python</tt>即可使用新版本的python；</li>
+<li>系统命令会以/usr/bin/python的方式直接调用老版本的python；</li>
+<li>使用pip安装第三方模块时会安装到~/.pyenv/versions/3.3.2下，不会和系统模块发生冲突。</li>
+</ul>
 </div>
 
             
@@ -156,7 +213,7 @@ a=test&amp;amp;name=%C4%A7%CA%DE
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html#disqus_thread">
+                href="http://opslinux.com/python-pyenv.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -166,8 +223,8 @@ a=test&amp;amp;name=%C4%A7%CA%DE
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html';
-    var disqus_url = 'http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html';
+        var disqus_identifier = 'http://opslinux.com/python-pyenv.html';
+    var disqus_url = 'http://opslinux.com/python-pyenv.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -200,23 +257,11 @@ var duoshuoQuery = {short_name:"ops"};
 <!-- Duoshuo Comment END -->
 
             <hr/>
-<section>
-    <h2>Related Posts</h2>
-<ul class="related-posts-list">
-<li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
-<li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
-<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
-<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
-</ul>
-<hr />
-</section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/nginxda-zao-3wgao-bing-fa-wang-zhan.html" title="Previous: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a></li>
-                <li class="next-article"><a href="http://opslinux.com/http-header-xiang-jie.html" title="Next: HTTP Header 详解">HTTP Header 详解</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html" title="Previous: 使用Vagrant打造你的虚拟环境">使用Vagrant打造你的虚拟环境</a></li>
+                <li class="next-article"><a href="http://opslinux.com/nginxda-zao-3wgao-bing-fa-wang-zhan.html" title="Next: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -224,13 +269,13 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2013-11-01T12:51:00">Nov 1, 2013</time>
+            <time pubdate="pubdate" datetime="2013-10-04T00:27:00">Oct 4, 2013</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
+            <a class="category-link" href="http://opslinux.com/categories.html#python-ref">Python</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#python-ref">python
-                    <span>7</span>
+                <li><a href="http://opslinux.com/tags.html#an-zhuang-ref">安装
+                    <span>1</span>
 </a></li>
             </ul>
 <h4>Contact</h4>

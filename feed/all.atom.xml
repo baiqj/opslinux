@@ -1966,7 +1966,95 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;soft 限制指的是当前系统生效的设置值。 hard 限制值可以被普通用户降低。但是不能增加。 soft 限制不能设置的比 hard 限制更高。 只有 root 用户才能够增加 hard 限制值。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</id><summary type="html">&lt;h1 id="vagrant"&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
+</summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>Python多版本共存之pyenv</title><link href="http://opslinux.com/python-pyenv.html" rel="alternate"></link><updated>2013-10-04T00:27:00+08:00</updated><author><name>SeisMan</name></author><id>tag:opslinux.com,2013-10-04:python-pyenv.html</id><summary type="html">
+&lt;p&gt;需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/yyuu/pyenv"&gt;pyenv&lt;/a&gt;可以很好的实现Python的多版本共存。&lt;/p&gt;
+&lt;div class="section" id="pyenv"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;安装pyenv&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'export PYENV_ROOT="$HOME/.pyenv"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'export PATH="$PYENV_ROOT/bin:$PATH"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'eval "$(pyenv init -)"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;exec&lt;/span&gt; &lt;span class="nv"&gt;$SHELL&lt;/span&gt; -l
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="python"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;安装Python&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;查看可安装的版本&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv install --list
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;安装指定版本&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;使用如下命令即可安装python 3.3.2.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv install 3.3.2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;该命令会从github上下载python的源代码，并解压到/tmp目录下，然后在/tmp中执行编译工作。编译过程依赖一些其他的库文件，若库文件不能满足，则编译错误，需要重新下载、编译。。。(为什么每次都要重新下呢？)&lt;/p&gt;
+&lt;p&gt;已知的一些需要预先安装的库包括：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;readline readline-devel readline-static&lt;/li&gt;
+&lt;li&gt;openssl openssl-devel openssl-static&lt;/li&gt;
+&lt;li&gt;sqlite-devel&lt;/li&gt;
+&lt;li&gt;bzip2-devel bzip2-libs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在所有python依赖库都安装好的情况下，python的安装很顺利。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;更新数据库&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;安装完成之后需要对数据库进行更新：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv rehash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;查看当前已安装的python版本&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv versions
+* system &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set &lt;/span&gt;by /export/home/seisman/.pyenv/version&lt;span class="o"&gt;)&lt;/span&gt;
+3.3.2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;其中的星号表示使用的是系统自带的python。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;设置全局的python版本&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv global 3.3.2
+&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv versions
+system
+* 3.3.2 &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set &lt;/span&gt;by /export/home/seisman/.pyenv/version&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;当前全局的python版本已经变成了3.3.2。也可以使用&lt;tt class="docutils literal"&gt;pyenv local&lt;/tt&gt;或&lt;tt class="docutils literal"&gt;pyenv shell&lt;/tt&gt;临时改变python版本。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;确认python版本&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python
+Python 3.3.2 &lt;span class="o"&gt;(&lt;/span&gt;default, Sep 30 2013, 20:11:44&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;GCC 4.4.7 20120313 &lt;span class="o"&gt;(&lt;/span&gt;Red Hat 4.4.7-3&lt;span class="o"&gt;)]&lt;/span&gt; on linux
+Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyright"&lt;/span&gt;, &lt;span class="s2"&gt;"credits"&lt;/span&gt; or &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for &lt;/span&gt;more information.
+&amp;gt;&amp;gt;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;使用python&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;输入&lt;tt class="docutils literal"&gt;python&lt;/tt&gt;即可使用新版本的python；&lt;/li&gt;
+&lt;li&gt;系统命令会以/usr/bin/python的方式直接调用老版本的python；&lt;/li&gt;
+&lt;li&gt;使用pip安装第三方模块时会安装到~/.pyenv/versions/3.3.2下，不会和系统模块发生冲突。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</summary><category term="安装"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</id><summary type="html">&lt;h1 id="vagrant"&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
 &lt;p&gt;总结一下自己使用vagrant的一点笔记，以免以后忘记还得再去翻官方文档。&lt;/p&gt;
@@ -2110,113 +2198,4 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
 
 &lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
 &lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
-&lt;h3 id="virtualenv"&gt;安装virtualenv虚拟环境&lt;/h3&gt;
-&lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="virtualenv_1"&gt;使用virtualenv&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv pelican   &lt;span class="c"&gt;#创建虚拟环境&lt;/span&gt;
-&lt;span class="nb"&gt;cd &lt;/span&gt;pelican
-&lt;span class="nb"&gt;source &lt;/span&gt;bin/activate   &lt;span class="c"&gt;#激活虚拟环境&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="pelicanmarkdown"&gt;安装pelican和markdown&lt;/h3&gt;
-&lt;p&gt;pelican 就是生成静态博客的程序&lt;br /&gt;
-markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看&lt;a href="http://wowubuntu.com/markdown/"&gt;帮助&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;Markdown&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="blog"&gt;建立blog目录&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="_1"&gt;开始创建&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;.
-|-- content &lt;span class="c"&gt;#所有文章放于此目录&lt;/span&gt;
-|-- develop_server.sh  &lt;span class="c"&gt;#用于开启测试服务器&lt;/span&gt;
-|-- Makefile   &lt;span class="c"&gt;#方便管理博客的Makefile&lt;/span&gt;
-|-- output &lt;span class="c"&gt;#静态生成文件&lt;/span&gt;
-|-- pelicanconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-|-- publishconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="_2"&gt;写一篇文章&lt;/h3&gt;
-&lt;p&gt;在&lt;code&gt;content&lt;/code&gt;目录新建一个&lt;code&gt;test.md&lt;/code&gt;文件, 填入一下内容:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Title: 文章标题
-Date: 2013-04-18
-Category: 文章类别
-Tag: 标签1, 标签2    
-这里是内容
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后执行:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;用以生成html&lt;/p&gt;
-&lt;p&gt;然后执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;开启一个测试服务器, 这会在本地 8000 端口建立一个测试web服务器, 可以使用浏览器打开:&lt;code&gt;http://localhost:8000&lt;/code&gt;来访问这个测试服务器, 然后就可以欣赏到你的博客了&lt;/p&gt;
-&lt;h3 id="github"&gt;Github上的准备&lt;/h3&gt;
-&lt;p&gt;在Github上创建一个新项目，把这个项目clone到myblog文件夹下。然后按照Github的规定建立一个没有父节点的分支gh-pages。&lt;br /&gt;
-注：在是用分支创建github的blog的时候，要先确保自己的github上有例如：zbing3.github.io命名的项目并且在&lt;code&gt;settings&lt;/code&gt;中开启Github Pages
-如图：
-&lt;img alt="Alt Github Pages" src="/static/upload/20130713144403.jpg" /&gt;
-点击&lt;code&gt;Automatic Page Generator&lt;/code&gt;开启Github Pages服务&lt;/p&gt;
-&lt;p&gt;进入output目录中：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git init
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout --orphan gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin gh-pages
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;这样上传完代码等10分钟左右，即可在浏览器中使用&lt;code&gt;http://zbing3.github.io/myblog&lt;/code&gt;就能访问到自己的博客&lt;/p&gt;
-&lt;h3 id="makefilegit"&gt;定制自己的Makefile文件，让git提交更方便一点&lt;/h3&gt;
-&lt;p&gt;使用此方法就不用在output目录中初始git了。编辑Makefile &lt;code&gt;vim Makefile&lt;/code&gt; ，在github下面添加如下格式的文件：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;git:&lt;/span&gt;
-    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;INPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CONFFILE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICANOPTS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;gh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
-接着以后：&lt;code&gt;make git&lt;/code&gt; 就可以直接提交到git的gh-pages分支的&lt;/p&gt;
-&lt;h3 id="pelican"&gt;pelican的备份&lt;/h3&gt;
-&lt;p&gt;因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境&lt;/p&gt;
-&lt;p&gt;进入blog目录：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch &lt;span class="c"&gt;#查看本地分支，没有master所以要创建 如果有master就跳过创建&lt;/span&gt;
-  gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git branch master &lt;span class="c"&gt;#创建master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master &lt;span class="c"&gt;#切换到master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git &lt;span class="c"&gt;#添加过origin就不用添加&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin master  &lt;span class="c"&gt;#有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry></feed>
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry></feed>
