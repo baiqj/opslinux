@@ -41,7 +41,7 @@ To squelch this message and adopt the new behavior now, use:
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-</summary><category term="git"></category></entry><entry><title>Git push 中的 Matching和Simple</title><link href="http://opslinux.com/Git%20matching%20and%20simple-.html" rel="alternate"></link><updated>2014-05-18T17:31:26+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:Git matching and simple-.html</id><summary type="html">&lt;p&gt;如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：&lt;/p&gt;
+</summary><category term="git"></category></entry><entry><title>Git push 中的 Matching和Simple</title><link href="http://opslinux.com/post/2014-05-18-Git%20matching%20and%20simple/" rel="alternate"></link><updated>2014-05-18T17:31:26+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:post/2014-05-18-Git matching and simple/</id><summary type="html">&lt;p&gt;如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -98,13 +98,15 @@ To squelch this message and adopt the new behavior now, use:
 &lt;p&gt;pip install flask&lt;/p&gt;
 &lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="flask"></category><category term="blog"></category></entry><entry><title>python使用mechanize实现登陆</title><link href="http://opslinux.com/pythonmechanize-.html" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-14:pythonmechanize-.html</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
-&lt;p&gt;-1 http,https协议等。
--2 简单的HTML表单填写。
--3 浏览器历史记录和重载。
--4 Referer的HTTP头的正确添加（可选）。
--5 自动遵守robots.txt的。
--6 自动处理HTTP-EQUIV和刷新。&lt;/p&gt;
+</summary><category term="flask"></category><category term="blog"></category></entry><entry><title>python使用mechanize实现登陆</title><link href="http://opslinux.com/post/2014-05-14-pythonmechanize/" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-14:post/2014-05-14-pythonmechanize/</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1 http,https协议等。&lt;/li&gt;
+&lt;li&gt;2 简单的HTML表单填写。&lt;/li&gt;
+&lt;li&gt;3 浏览器历史记录和重载。&lt;/li&gt;
+&lt;li&gt;4 Referer的HTTP头的正确添加（可选）。&lt;/li&gt;
+&lt;li&gt;5 自动遵守robots.txt的。&lt;/li&gt;
+&lt;li&gt;6 自动处理HTTP-EQUIV和刷新。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等&lt;/p&gt;
 &lt;p&gt;确保已经安装：pip install mechanize&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
@@ -285,7 +287,7 @@ password_reset_form.html&lt;/p&gt;
 &lt;img alt="忘记密码" src="http://opslinux.qiniudn.com/2AF4146D-5E78-4DEE-8429-01AEFA212D8A.png"/&gt;
 &lt;p&gt;想修改邮件内容可以修改templates/registration/password_reset_email.html文件。&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="django"></category><category term="密码重置"></category><category term="邮件重置密码"></category></entry><entry><title>算法的时间复杂度</title><link href="http://opslinux.com/Time_Complexity-.html" rel="alternate"></link><updated>2014-05-12T20:09:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-12:Time_Complexity-.html</id><summary type="html">&lt;div class="section" id="id2"&gt;
+</summary><category term="django"></category><category term="密码重置"></category><category term="邮件重置密码"></category></entry><entry><title>算法的时间复杂度</title><link href="http://opslinux.com/post/2014-05-12-Time_Complexity/" rel="alternate"></link><updated>2014-05-12T20:09:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-12:post/2014-05-12-Time_Complexity/</id><summary type="html">&lt;div class="section" id="id2"&gt;
 &lt;h2&gt;算法实际那复杂度定义&lt;/h2&gt;
 &lt;/div&gt;
 &lt;div class="section" id="o"&gt;

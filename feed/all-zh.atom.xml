@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-18T10:11:24+08:00</updated><entry><title>安装ipython</title><link href="http://opslinux.com/post/2014-05-18-install_ipython/" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:post/2014-05-18-install_ipython/</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-18T17:31:26+08:00</updated><entry><title>Git push 中的 Matching和Simple</title><link href="http://opslinux.com/post/2014-05-18-Git%20matching%20and%20simple/" rel="alternate"></link><updated>2014-05-18T17:31:26+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:post/2014-05-18-Git matching and simple/</id><summary type="html">&lt;p&gt;如果你最近更新了 Git，你可能会在执行 git push 时看到如下消息：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;warning: push.default is unset; its implicit value is changing in
+
+Git 2.0 from &amp;#39;matching&amp;#39; to &amp;#39;simple&amp;#39;. To squelch this message
+
+and maintain the current behavior after the default changes, use:
+
+
+  git config --global push.default matching
+
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;div class="section" id="matching"&gt;
+&lt;h2&gt;Matching&lt;/h2&gt;
+&lt;p&gt;‘matching’ 参数是 Git 1.x 的默认行为，其意是如果你执行 git push 但没有指定分支，它将 push 所有你本地的分支到远程仓库中对应匹配的分支。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="simple"&gt;
+&lt;h2&gt;Simple&lt;/h2&gt;
+&lt;p&gt;而 Git 2.x 默认的是 simple，意味着执行 git push 没有指定分支时，只有当前分支会被 push 到你使用 git pull 获取的代码。&lt;/p&gt;
+&lt;p&gt;修改默认设置&lt;/p&gt;
+&lt;p&gt;从上述消息提示中的解释，我们可以修改全局配置，使之不会每次 push 的时候都进行提示。对于 matching 输入如下命令即可：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default matching
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;而对于 simple ，请输入：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default simple
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+</summary><category term="git"></category></entry><entry><title>安装ipython</title><link href="http://opslinux.com/post/2014-05-18-install_ipython/" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:post/2014-05-18-install_ipython/</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
 &lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
 &lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
@@ -14,7 +56,121 @@
 &lt;p&gt;pip install flask&lt;/p&gt;
 &lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="flask"></category><category term="blog"></category></entry><entry><title>python和highcharts制作图表</title><link href="http://opslinux.com/post/2014-05-06-python_and_highcharts/" rel="alternate"></link><updated>2014-05-06T19:44:34+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-06:post/2014-05-06-python_and_highcharts/</id><summary type="html">
+</summary><category term="flask"></category><category term="blog"></category></entry><entry><title>python使用mechanize实现登陆</title><link href="http://opslinux.com/post/2014-05-14-pythonmechanize/" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-14:post/2014-05-14-pythonmechanize/</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1 http,https协议等。&lt;/li&gt;
+&lt;li&gt;2 简单的HTML表单填写。&lt;/li&gt;
+&lt;li&gt;3 浏览器历史记录和重载。&lt;/li&gt;
+&lt;li&gt;4 Referer的HTTP头的正确添加（可选）。&lt;/li&gt;
+&lt;li&gt;5 自动遵守robots.txt的。&lt;/li&gt;
+&lt;li&gt;6 自动处理HTTP-EQUIV和刷新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等&lt;/p&gt;
+&lt;p&gt;确保已经安装：pip install mechanize&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;mechanize&lt;/span&gt;  &lt;span class="c"&gt;#引入mechanize 需要pip安装&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;cookielib&lt;/span&gt;  &lt;span class="c"&gt;#引入cookielib 来做cookie&lt;/span&gt;
+
+&lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://127.0.0.1:8080/login&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhangbin&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhangbin&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;login&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mechanize&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Browser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+     &lt;span class="n"&gt;cj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cookielib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LWPCookieJar&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_cookiejar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cj&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#关联cookies&lt;/span&gt;
+
+     &lt;span class="c"&gt;#设置一些参数，因为是模拟客户端请求，所以要支持客户端的一些常用功能&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_equiv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_gzip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_redirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_referer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_robots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_handle_refresh&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mechanize&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_http&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HTTPRefreshProcessor&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="n"&gt;max_time&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addheaders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;User-agent&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.11) Gecko/20100701 Firefox/3.5.11&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;  &lt;span class="c"&gt;#模拟浏览器头&lt;/span&gt;
+     &lt;span class="c"&gt;# br.set_debug_http(True)   #debug&lt;/span&gt;
+     &lt;span class="c"&gt;# br.set_debug_responses(True) #debug&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#打开连接&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;select_form&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;#选择第一个form&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="c"&gt;#写入用户名&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;form&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="c"&gt;#写入密码&lt;/span&gt;
+     &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;submit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c"&gt;#提交&lt;/span&gt;
+     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;br&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c"&gt;#打印登录后内容&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt;  &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="mechanize"></category></entry><entry><title>算法的时间复杂度</title><link href="http://opslinux.com/post/2014-05-12-Time_Complexity/" rel="alternate"></link><updated>2014-05-12T20:09:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-12:post/2014-05-12-Time_Complexity/</id><summary type="html">&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;算法实际那复杂度定义&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="o"&gt;
+&lt;h2&gt;推导大O阶&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1.用常数1取代运行时间中的所有加法常数。&lt;/li&gt;
+&lt;li&gt;2.在修改后得运行次数函数中，只保留最高阶项 。&lt;/li&gt;
+&lt;li&gt;3.如果最高阶项存在且不是1，则去除与这个项相乘的常数。&lt;/li&gt;
+&lt;li&gt;得到的结果就是大O阶&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;常数阶&lt;/h2&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;      &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个算法运行次数函数是f(n)=3.根据我们推到大O阶的方法，第一步就是把常数项3改为1。在保留最高阶项时发现，它根本没有最高阶项，所以这个算法的时间复杂度为O(1)。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h2&gt;线性阶&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h2&gt;对数阶&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h2&gt;平方阶&lt;/h2&gt;
+&lt;/div&gt;
+</summary><category term="算法"></category><category term="Arithmetic"></category><category term="Time Complexity"></category></entry><entry><title>python和highcharts制作图表</title><link href="http://opslinux.com/post/2014-05-06-python_and_highcharts/" rel="alternate"></link><updated>2014-05-06T19:44:34+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-06:post/2014-05-06-python_and_highcharts/</id><summary type="html">
 &lt;p&gt;有时候我们需要制作一些图表，单独使用python可以制作出但是不是特别好看，今天我们就用Django和highcharts神器来做出好看的图标，如想要详细了解highcharts请关注如下网站：&lt;a class="reference external" href="http://www.highcharts.com/"&gt;highcharts官网&lt;/a&gt; &lt;a class="reference external" href="http://www.hcharts.cn/index.php"&gt;highcharts中文网&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;前端准备:&lt;/a&gt;&lt;/h2&gt;

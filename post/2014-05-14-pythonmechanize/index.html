@@ -31,20 +31,20 @@
 
         <meta name="description" content="" />
 
-<meta name="keywords" content="django, 密码重置, 邮件重置密码, Django, " />
+<meta name="keywords" content="mechanize, python, " />
 
-<meta property="og:title" content="Django实现发送邮件重置用户密码 "/>
+<meta property="og:title" content="python使用mechanize实现登陆 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/django_password_reset-.html" />
+<meta property="og:url" content="http://opslinux.com/post/2014-05-14-pythonmechanize/" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-05-13T10:47:19" />
+<meta property="og:article:published_time" content="2014-05-14T10:53:47" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Django实现发送邮件重置用户密码 ">
+<meta name="twitter:title" content="python使用mechanize实现登陆 ">
 <meta name="twitter:description" content="">
 
-        <title>Django实现发送邮件重置用户密码  · 老运维创e
+        <title>python使用mechanize实现登陆  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -88,31 +88,25 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/django_password_reset-.html"> Django实现发送邮件重置用户密码  </a></h1>
+    <h1><a href="http://opslinux.com/post/2014-05-14-pythonmechanize/"> python使用mechanize实现登陆  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
-    <div class="span2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#url-py" id="id2">url.py</a></li>
-<li><a class="reference internal" href="#templates" id="id3">templates设置</a></li>
-<li><a class="reference internal" href="#id1" id="id4">测试</a></li>
-</ul>
-</div>
-        </nav>
-    </div>
-    <div class="span8 article-content">
+        <div class="span8 offset2 article-content">
 
             
-            
-<p>Django，是个不错的框架，非常全，内置了用户系统，咱们稍微修改就可以实现发送重置密码邮件。</p>
-<div class="section" id="url-py">
-<h2><a class="toc-backref" href="#id2">url.py</a></h2>
+            <p>mechanize是非常合适的模拟浏览器的模块，它的特点主要有：</p>
+<ul class="simple">
+<li>1 http,https协议等。</li>
+<li>2 简单的HTML表单填写。</li>
+<li>3 浏览器历史记录和重载。</li>
+<li>4 Referer的HTTP头的正确添加（可选）。</li>
+<li>5 自动遵守robots.txt的。</li>
+<li>6 自动处理HTTP-EQUIV和刷新。</li>
+</ul>
+<p>所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等</p>
+<p>确保已经安装：pip install mechanize</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -141,88 +135,58 @@
 26
 27
 28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">views</span> <span class="k">as</span> <span class="n">auth_views</span>
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+<span class="kn">import</span> <span class="nn">mechanize</span>  <span class="c">#引入mechanize 需要pip安装</span>
+<span class="kn">import</span> <span class="nn">cookielib</span>  <span class="c">#引入cookielib 来做cookie</span>
 
-<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">''</span><span class="p">,</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://127.0.0.1:8080/login&#39;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s">&#39;zhangbin&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">&#39;zhangbin&#39;</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+     <span class="n">br</span> <span class="o">=</span> <span class="n">mechanize</span><span class="o">.</span><span class="n">Browser</span><span class="p">()</span>
+
+     <span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">LWPCookieJar</span><span class="p">()</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_cookiejar</span><span class="p">(</span><span class="n">cj</span><span class="p">)</span> <span class="c">#关联cookies</span>
+
+     <span class="c">#设置一些参数，因为是模拟客户端请求，所以要支持客户端的一些常用功能</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_equiv</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_gzip</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_redirect</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_referer</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_robots</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+     <span class="n">br</span><span class="o">.</span><span class="n">set_handle_refresh</span><span class="p">(</span><span class="n">mechanize</span><span class="o">.</span><span class="n">_http</span><span class="o">.</span><span class="n">HTTPRefreshProcessor</span><span class="p">(),</span> <span class="n">max_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+     <span class="n">br</span><span class="o">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;User-agent&#39;</span><span class="p">,</span> <span class="s">&#39;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.11) Gecko/20100701 Firefox/3.5.11&#39;</span><span class="p">)]</span>  <span class="c">#模拟浏览器头</span>
+     <span class="c"># br.set_debug_http(True)   #debug</span>
+     <span class="c"># br.set_debug_responses(True) #debug</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c">#打开连接</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">select_form</span><span class="p">(</span><span class="n">nr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c">#选择第一个form</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;email&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span> <span class="c">#写入用户名</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span> <span class="c">#写入密码</span>
+     <span class="n">br</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>  <span class="c">#提交</span>
+     <span class="k">print</span> <span class="n">br</span><span class="o">.</span><span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c">#打印登录后内容</span>
 
 
-
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^forgot-password/$'</span><span class="p">,</span>
-   <span class="n">views</span><span class="o">.</span><span class="n">forgot_password</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"forgot-password"</span><span class="p">),</span>
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^password/change/$'</span><span class="p">,</span>
-       <span class="n">auth_views</span><span class="o">.</span><span class="n">password_change</span><span class="p">,</span>
-       <span class="n">name</span><span class="o">=</span><span class="s">'password_change'</span><span class="p">),</span>
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^password/change/done/$'</span><span class="p">,</span>
-       <span class="n">auth_views</span><span class="o">.</span><span class="n">password_change_done</span><span class="p">,</span>
-       <span class="n">name</span><span class="o">=</span><span class="s">'password_change_done'</span><span class="p">),</span>
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^resetpassword/$'</span><span class="p">,</span>
-       <span class="n">auth_views</span><span class="o">.</span><span class="n">password_reset</span><span class="p">,</span>
-       <span class="n">name</span><span class="o">=</span><span class="s">'password_reset'</span><span class="p">),</span>
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^resetpassword/passwordsent/$'</span><span class="p">,</span>
-       <span class="n">auth_views</span><span class="o">.</span><span class="n">password_reset_done</span><span class="p">,</span>
-       <span class="n">name</span><span class="o">=</span><span class="s">'password_reset_done'</span><span class="p">),</span>
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^reset/done/$'</span><span class="p">,</span>
-       <span class="n">auth_views</span><span class="o">.</span><span class="n">password_reset_complete</span><span class="p">,</span>
-       <span class="n">name</span><span class="o">=</span><span class="s">'password_reset_complete'</span><span class="p">),</span>
-
-   <span class="n">url</span><span class="p">(</span><span class="s">r'^reset/(?P&lt;uidb64&gt;[0-9A-Za-z_\-]+)/(?P&lt;token&gt;.+)/$'</span><span class="p">,</span>
-       <span class="n">auth_views</span><span class="o">.</span><span class="n">password_reset_confirm</span><span class="p">,</span>
-       <span class="n">name</span><span class="o">=</span><span class="s">'password_reset_confirm'</span><span class="p">),</span>
-
-   <span class="p">)</span>
+<span class="k">if</span>  <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">login</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
-<div class="section" id="templates">
-<h2><a class="toc-backref" href="#id3">templates设置</a></h2>
-<p>在 django/contrib/auth/templates/registration 中copy如下文件到自己的templates目录下的registration中：</p>
-<p>password_reset_subject.txt</p>
-<p>在 django/contrib/admin/templates/registration 中copy如下文件到自己的templates目录下的registration中：</p>
-<p>logged_out.html
-password_change_done.html
-password_change_form.html
-password_reset_complete.html  #修改密码完成的文件
-password_reset_confirm.html
-password_reset_done.html
-password_reset_email.html   #发email的文件
-password_reset_form.html</p>
-<p>可根据自己的需求进行定义我在这里面，就把logged_out.html文件删除了，加入了自己写的login.html，然后将所有文件中的{% extends "admin/base_site.html" %} 改为{% extends "base.html" %}</p>
-<p>这样做完还是不能用的，因为需要base.html文件:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>{% block title %}{% endblock title %}<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    {% block content %}{% endblock content %}
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</pre></div>
-</td></tr></table></div>
-<div class="section" id="id1">
-<h2><a class="toc-backref" href="#id4">测试</a></h2>
-<p>点击忘记密码：</p>
-<img alt="忘记密码" src="http://opslinux.qiniudn.com/5C9DDB80-95C6-46D6-A888-B749472B9191.png"/>
-<p>输入自己的邮箱地址。</p>
-<p>不一会就会收到邮件：</p>
-<img alt="忘记密码" src="http://opslinux.qiniudn.com/AF523C9F-946E-49E0-8F43-AA25CD1FF5B6.png"/>
-<p>内容为：</p>
-<img alt="忘记密码" src="http://opslinux.qiniudn.com/2AF4146D-5E78-4DEE-8429-01AEFA212D8A.png"/>
-<p>想修改邮件内容可以修改templates/registration/password_reset_email.html文件。</p>
-</div>
-
+</td></tr></table>
             
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/django_password_reset-.html#disqus_thread">
+                href="http://opslinux.com/post/2014-05-14-pythonmechanize/#disqus_thread">
                 Comments
             </a>
         </div>
@@ -232,8 +196,8 @@ password_reset_form.html</p>
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/django_password_reset-.html';
-    var disqus_url = 'http://opslinux.com/django_password_reset-.html';
+        var disqus_identifier = 'http://opslinux.com/post/2014-05-14-pythonmechanize/';
+    var disqus_url = 'http://opslinux.com/post/2014-05-14-pythonmechanize/';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -266,18 +230,11 @@ var duoshuoQuery = {short_name:"ops"};
 <!-- Duoshuo Comment END -->
 
             <hr/>
-<section>
-    <h2>Related Posts</h2>
-<ul class="related-posts-list">
-<li><a href="http://opslinux.com/post/2014-04-20-django/" title="Django自定义用户系统">Django自定义用户系统</a></li>
-</ul>
-<hr />
-</section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/post/2014-05-12-Time_Complexity/" title="Previous: 算法的时间复杂度">算法的时间复杂度</a></li>
-                <li class="next-article"><a href="http://opslinux.com/post/2014-05-14-pythonmechanize/" title="Next: python使用mechanize实现登陆">python使用mechanize实现登陆</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/django_password_reset-.html" title="Previous: Django实现发送邮件重置用户密码">Django实现发送邮件重置用户密码</a></li>
+                <li class="next-article"><a href="http://opslinux.com/post/2014-05-16-flask_blog/" title="Next: flask开发blog（一）">flask开发blog（一）</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -285,18 +242,12 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-13T10:47:19">May 13, 2014</time>
+            <time pubdate="pubdate" datetime="2014-05-14T10:53:47">May 14, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#django-ref">Django</a>
+            <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#django-ref">django
-                    <span>2</span>
-</a></li>
-                <li><a href="http://opslinux.com/tags.html#mi-ma-zhong-zhi-ref">密码重置
-                    <span>1</span>
-</a></li>
-                <li><a href="http://opslinux.com/tags.html#you-jian-zhong-zhi-mi-ma-ref">邮件重置密码
+                <li><a href="http://opslinux.com/tags.html#mechanize-ref">mechanize
                     <span>1</span>
 </a></li>
             </ul>
