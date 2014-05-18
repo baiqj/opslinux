@@ -1,6 +1,7 @@
 Title: 使用Vagrant打造你的虚拟环境
 Date: 2013-09-14
-category: 虚拟机,vagrant
+category: 虚拟机
+Tags: vagrant
 # 使用Vagrant打造你的虚拟环境
 因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用
 

@@ -1,66 +1,93 @@
 <!DOCTYPE html>
-<html lang="zh_CN">
-<head>
-<meta charset="utf-8">
-<title>使用github和pelican搭建本站博客 - 老运维人员</title>
-  <meta name="author" content="皓禹">
-  <meta name="description" content="">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="http://www.linuxeden.com/favicon.ico">
-  <link rel="shortcut icon" href="http://www.linuxeden.com/favicon.ico"  type="image/x-icon" />
-<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-<!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<link href="http://opslinux.com/theme/css/1.4.0/bootstrap.css" rel="stylesheet">
-<link href="http://opslinux.com/theme/css/style.css" rel="stylesheet" type="text/css" media="all">
-<link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维人员 ATOM Feed" />
-<link href="http://opslinux.com/rss.xml" type="application/atom+xml" rel="alternate" title="老运维人员 RSS Feed" />
-</head>
-  <body>
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand" href="http://opslinux.com">老运维人员</a>
-<ul class="nav">
-                              <li><a href="/categories.html">Categories</a></li>
-                              <li><a href="/archives.html">Archives</a></li>
-                              <li><a href="/tags.html">Tags</a></li>
-                              <li><a href="/pages/about.html">About</a></li>
-                              <li><a href="/pages/links.html">Links</a></li>              
-                              
-							  <li><a href="/random.html">Random</a></li>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="创e" />
+        <meta name="copyright" content="创e" />
 
-            </ul>
-			<div id="search"><form method="get" action="/search.html"><input type="text" value="" name="q" id="s"></form></div>
+
+<meta name="keywords" content="pelican, github, pelican, " />
+
+<meta property="og:title" content="使用github和pelican搭建本站博客 "/>
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/" />
+<meta property="og:description" content="使用github和pelican搭建本站博客 安装virtualenv虚拟环境 安装虚拟环境是为了防止污染，linux本身的python环境 easy_install virtualenv 使用virtualenv virtualenv pelican #创建虚拟环境 cd pelican source bin/activate #激活虚拟环境 安装pelican和markdown pelican 就是生成静态博客的程序 markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看帮助 $ pip install pelican $ pip install Markdown $ pip install ghp-import 建立blog目录 $ mkdir myblog $ cd myblog 开始创建 $ pelican-quickstart 基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。 . |-- content #所有文章放于此目录 |-- develop_server.sh #用于开启测试服务器 |-- Makefile ..." />
+<meta property="og:site_name" content="老运维创e" />
+<meta property="og:article:author" content="创e" />
+<meta property="og:article:published_time" content="2013-07-13T00:00:00" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用github和pelican搭建本站博客 ">
+<meta name="twitter:description" content="使用github和pelican搭建本站博客 安装virtualenv虚拟环境 安装虚拟环境是为了防止污染，linux本身的python环境 easy_install virtualenv 使用virtualenv virtualenv pelican #创建虚拟环境 cd pelican source bin/activate #激活虚拟环境 安装pelican和markdown pelican 就是生成静态博客的程序 markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看帮助 $ pip install pelican $ pip install Markdown $ pip install ghp-import 建立blog目录 $ mkdir myblog $ cd myblog 开始创建 $ pelican-quickstart 基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。 . |-- content #所有文章放于此目录 |-- develop_server.sh #用于开启测试服务器 |-- Makefile ...">
+
+        <title>使用github和pelican搭建本站博客  · 老运维创e
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://opslinux.com/theme/css/custom.css" media="screen">
+        <link href="http://opslinux.com/atom.xml" type="application/atom+xml" rel="alternate" title="老运维创e - Full Atom Feed" />
+        <link href="http://opslinux.com/rss.xml" type="application/rss+xml" rel="alternate" title="老运维创e - RSS Feed" />
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://opslinux.com/"><span class=site-name>老运维创e</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://opslinux.com">Home</a></li>
+                            <li ><a href="http://opslinux.com/pages/about.html">about</a></li>
+                            <li ><a href="http://opslinux.com/pages/links.html">links</a></li>
+                            <li ><a href="http://opslinux.com/categories.html">Categories</a></li>
+                            <li ><a href="http://opslinux.com/tags.html">Tags</a></li>
+                            <li ><a href="http://opslinux.com/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://opslinux.com/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="container"> 
-	   <div class="content">  
- <div class="page-header">
-  <h1>使用github和pelican搭建本站博客</h1>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/"> 使用github和pelican搭建本站博客  </a></h1>
+    </header>
 </div>
-<div class="row">
-  <div class="span10">
-<h4>目录</h4>
-<h2>使用github和pelican搭建本站博客</h2>
-<h3>安装virtualenv虚拟环境</h3>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <h2 id="githubpelican">使用github和pelican搭建本站博客</h2>
+<h3 id="virtualenv">安装virtualenv虚拟环境</h3>
 <p>安装虚拟环境是为了防止污染，linux本身的python环境</p>
 <div class="highlight"><pre><span class="n">easy_install</span> <span class="n">virtualenv</span>
 </pre></div>
 
 
-<h3>使用virtualenv</h3>
+<h3 id="virtualenv_1">使用virtualenv</h3>
 <div class="highlight"><pre>virtualenv pelican   <span class="c">#创建虚拟环境</span>
 <span class="nb">cd </span>pelican
 <span class="nb">source </span>bin/activate   <span class="c">#激活虚拟环境</span>
 </pre></div>
 
 
-<h3>安装pelican和markdown</h3>
+<h3 id="pelicanmarkdown">安装pelican和markdown</h3>
 <p>pelican 就是生成静态博客的程序<br />
 markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看<a href="http://wowubuntu.com/markdown/">帮助</a></p>
 <div class="highlight"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
@@ -69,13 +96,13 @@ markdow 是写博客使用的轻量级标记语言,不会使用的同学可以�
 </pre></div>
 
 
-<h3>建立blog目录</h3>
+<h3 id="blog">建立blog目录</h3>
 <div class="highlight"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="n">myblog</span>
 <span class="err">$</span> <span class="n">cd</span> <span class="n">myblog</span>
 </pre></div>
 
 
-<h3>开始创建</h3>
+<h3 id="_1">开始创建</h3>
 <div class="highlight"><pre><span class="err">$</span> <span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
 </pre></div>
 
@@ -91,7 +118,7 @@ markdow 是写博客使用的轻量级标记语言,不会使用的同学可以�
 </pre></div>
 
 
-<h3>写一篇文章</h3>
+<h3 id="_2">写一篇文章</h3>
 <p>在<code>content</code>目录新建一个<code>test.md</code>文件, 填入一下内容:</p>
 <div class="highlight"><pre>Title: 文章标题
 Date: 2013-04-18
@@ -113,7 +140,7 @@ Tag: 标签1, 标签2
 
 
 <p>开启一个测试服务器, 这会在本地 8000 端口建立一个测试web服务器, 可以使用浏览器打开:<code>http://localhost:8000</code>来访问这个测试服务器, 然后就可以欣赏到你的博客了</p>
-<h3>Github上的准备</h3>
+<h3 id="github">Github上的准备</h3>
 <p>在Github上创建一个新项目，把这个项目clone到myblog文件夹下。然后按照Github的规定建立一个没有父节点的分支gh-pages。<br />
 注：在是用分支创建github的blog的时候，要先确保自己的github上有例如：zbing3.github.io命名的项目并且在<code>settings</code>中开启Github Pages
 如图：
@@ -130,8 +157,8 @@ Tag: 标签1, 标签2
 
 
 <p>这样上传完代码等10分钟左右，即可在浏览器中使用<code>http://zbing3.github.io/myblog</code>就能访问到自己的博客</p>
-<h3>定制自己的Makefile文件，让git提交更方便一点</h3>
-<p>编辑Makefile <code>vim Makefile</code> ，在github下面添加如下格式的文件：</p>
+<h3 id="makefilegit">定制自己的Makefile文件，让git提交更方便一点</h3>
+<p>使用此方法就不用在output目录中初始git了。编辑Makefile <code>vim Makefile</code> ，在github下面添加如下格式的文件：</p>
 <div class="highlight"><pre><span class="nl">git:</span>
     <span class="err">$</span><span class="p">(</span><span class="n">PELICAN</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">INPUTDIR</span><span class="p">)</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span> <span class="o">-</span><span class="n">s</span> <span class="err">$</span><span class="p">(</span><span class="n">CONFFILE</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">PELICANOPTS</span><span class="p">)</span>
     <span class="n">ghp</span><span class="o">-</span><span class="n">import</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span>
@@ -141,7 +168,7 @@ Tag: 标签1, 标签2
 
 <p>ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
 接着以后：<code>make git</code> 就可以直接提交到git的gh-pages分支的</p>
-<h3>pelican的备份</h3>
+<h3 id="pelican">pelican的备份</h3>
 <p>因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境</p>
 <p>进入blog目录：</p>
 <div class="highlight"><pre><span class="nv">$ </span>git branch <span class="c">#查看本地分支，没有master所以要创建 如果有master就跳过创建</span>
@@ -155,18 +182,41 @@ Tag: 标签1, 标签2
 </pre></div>
 
 
-<h2>未完待续……</h2>
-   <hr>
-<!-- 翻页 -->
-   <div class="pagination">
-      <ul>
-	          <li class="prev"><a href="http://opslinux.com/post/2013-07-12-about/">← Previous</a></li>
-		        <li><a href="/archives.html">Archive</a></li>
-		        <li class="next"><a href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/">Next →</a></li>
-		      </ul>
-  </div>
-  
+<h2 id="_3">未完待续……</h2>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'opslinux';
+        var disqus_identifier = 'http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/';
+    var disqus_url = 'http://opslinux.com/post/2013-07-13-shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke/';
 
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 <!-- Duoshuo Comment BEGIN -->
   <div class="ds-thread"></div>
 <script type="text/javascript">
@@ -181,27 +231,101 @@ var duoshuoQuery = {short_name:"ops"};
   })();
   </script>
 <!-- Duoshuo Comment END -->
-  </div>
-   
 
-  <div class="span4">
-    <h4>Published</h4>
-    <div class="date"><span>2013-07-13 By <a href="http://opslinux.com/author/hao-yu.html">皓禹</a></span></div>
-	<h4>Latest Articles</h4>
-	<script language="JavaScript" src="http://feed2js.liluohost.com/feed2js.php?src=http%3A%2F%2Fopslinux.com%2Frss.xml&num=10&utf=y"  charset="UTF-8" type="text/javascript"></script>
-	    	
-  </div>
+            <hr/>
+            <aside>
+            <nav>
+            <ul class="articles-timeline">
+                <li class="previous-article">« <a href="http://opslinux.com/post/2013-07-12-helloworld/" title="Previous: helloworld">helloworld</a></li>
+                <li class="next-article"><a href="http://opslinux.com/post/2013-09-09-zabbixjian-kong-mongodb/" title="Next: zabbix监控mongoDB">zabbix监控mongoDB</a> »</li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2013-07-13T00:00:00">Jul 13, 2013</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://opslinux.com/categories.html#pelican-ref">pelican</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://opslinux.com/tags.html#github-ref">github
+                    <span>1</span>
+</a></li>
+                <li><a href="http://opslinux.com/tags.html#pelican-ref">pelican
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="https://github.com/zbing3" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://weibo.com/zb311" title="My weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+        </div>
+        </section>
 </div>
 </div>
-
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
 <footer>
-<p>&copy; 2013 - 老运维人员 Powered by <a href="http://blog.getpelican.com/">Pelican</a>
-          with help from <a href="http://jekyllbootstrap.com/" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
-      </footer>
-    </div> <!-- /container -->
-<script language="javascript" type="text/javascript" src="http://js.users.51.la/16460845.js"></script>
-<noscript><a href="http://www.51.la/?16460845" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16460845.asp" style="border:none" /></a></noscript>
-  </body>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-subtitle"><span class="site-name">老运维创e</span> - 分享技术    <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'opslinux';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
 </html>
