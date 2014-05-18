@@ -6,15 +6,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装完成，输入ipython进入：&lt;/p&gt;
 &lt;img alt="ipython test" src="http://opslinux.qiniudn.com/026DF930-C3C9-4C67-B3E7-9A986AC0D033.png" /&gt;
-</summary><category term="ipython"></category><category term="python"></category></entry><entry><title>flask开发blog（一）</title><link href="http://opslinux.com/flask_blog-.html" rel="alternate"></link><updated>2014-05-16T09:20:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-16:flask_blog-.html</id><summary type="html">&lt;div class="section" id="virtualenv"&gt;
-&lt;h2&gt;安装virtualenv&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div class="section" id="flask"&gt;
-&lt;h2&gt;安装flask&lt;/h2&gt;
-&lt;p&gt;pip install flask&lt;/p&gt;
-&lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
-&lt;/div&gt;
-</summary><category term="flask"></category><category term="blog"></category></entry><entry><title>python使用mechanize实现登陆</title><link href="http://opslinux.com/pythonmechanize-.html" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-14:pythonmechanize-.html</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
+</summary><category term="ipython"></category><category term="python"></category></entry><entry><title>python使用mechanize实现登陆</title><link href="http://opslinux.com/pythonmechanize-.html" rel="alternate"></link><updated>2014-05-14T10:53:47+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-14:pythonmechanize-.html</id><summary type="html">&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
 &lt;p&gt;-1 http,https协议等。
 -2 简单的HTML表单填写。
 -3 浏览器历史记录和重载。
