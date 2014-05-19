@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 18 May 2014 10:11:24 +0800</lastBuildDate><item><title>安装ipython</title><link>http://opslinux.com/install_ipython.html</link><description>&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 19 May 2014 15:14:51 +0800</lastBuildDate><item><title>Django启动shell脚本</title><link>http://opslinux.com/djangoqi-dong-shelljiao-ben.html</link><description>&lt;p&gt;Title: Django启动shell脚本
+Slug: Django_shell
+Date: 2014-05-19 15:11:45
+Tags: Django,python
+Category: Django
+Author: 创e
+Summary:&lt;/p&gt;
+&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;#!/bin/bash
+case $1 in
+    dev)
+        . ~/py2/bin/activate       #使用 virtualenv
+        python manage.py runserver store.dev.service.cmos.net:8080
+        ;;
+    test)
+        . ~/py2/bin/activate
+        python manage.py runserver store.test.service.cmos.net:8080
+        ;;
+    *)
+      echo &amp;quot;Usage: $0 [dev|test]&amp;quot;
+      exit 1
+      ;;
+esac
+exit 0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Mon, 19 May 2014 15:14:51 +0800</pubDate><guid>tag:opslinux.com,2014-05-19:djangoqi-dong-shelljiao-ben.html</guid></item><item><title>安装ipython</title><link>http://opslinux.com/install_ipython.html</link><description>&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
 &lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
 &lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
@@ -48,13 +88,14 @@ To squelch this message and adopt the new behavior now, use:
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git config --global push.default simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sat, 17 May 2014 17:31:26 +0800</pubDate><guid>tag:opslinux.com,2014-05-17:Git-matching-simple.html</guid><category>git</category></item><item><title>flask开发blog（一）</title><link>http://opslinux.com/flask_blog.html</link><description>&lt;div class="section" id="virtualenv"&gt;
-&lt;h2&gt;安装virtualenv&lt;/h2&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sat, 17 May 2014 17:31:26 +0800</pubDate><guid>tag:opslinux.com,2014-05-17:Git-matching-simple.html</guid><category>git</category></item><item><title>flask开发实践（一）</title><link>http://opslinux.com/flask_blog.html</link><description>&lt;div class="section" id="virtualenv"&gt;
+&lt;h2&gt;使用virtualenv&lt;/h2&gt;
+&lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
+&lt;p&gt;建议大家都使用python2.7以上版本&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="flask"&gt;
+&lt;div class="section" id="id1"&gt;
 &lt;h2&gt;安装flask&lt;/h2&gt;
 &lt;p&gt;pip install flask&lt;/p&gt;
-&lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
 &lt;/div&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 16 May 2014 09:20:36 +0800</pubDate><guid>tag:opslinux.com,2014-05-16:flask_blog.html</guid><category>flask</category><category>blog</category></item><item><title>python使用mechanize实现登陆</title><link>http://opslinux.com/pythonmechanize.html</link><description>&lt;p&gt;mechanize是非常合适的模拟浏览器的模块，它的特点主要有：&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -2135,67 +2176,4 @@ end
 
 &lt;p&gt;Nginx 配置添加:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sendfile off;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sat, 14 Sep 2013 00:00:00 +0800</pubDate><guid>tag:opslinux.com,2013-09-14:shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</guid><category>vagrant</category></item><item><title>zabbix监控mongoDB</title><link>http://opslinux.com/zabbixjian-kong-mongodb.html</link><description>&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
-&lt;p&gt;推荐文档：&lt;/p&gt;
-&lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
-&lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
-&lt;p&gt;https://code.google.com/p/mikoomi/wiki/03&lt;/p&gt;
-&lt;p&gt;插件下载地址：&lt;/p&gt;
-&lt;p&gt;http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/&lt;/p&gt;
-&lt;p&gt;学习地址：&lt;/p&gt;
-&lt;p&gt;https://blog.serverdensity.com/mongodb-monitoring-db-serverstatus/&lt;/p&gt;
-&lt;p&gt;http://www.yaukb.com/2012/05/zabbix_mongodb/&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.在Zabbix Server上安装php MongoDB驱动：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;[root@localhost conf.d]# pecl install mongo&lt;br /&gt;
-WARNING: channel “pecl.php.net” has updated its protocols, use “pecl channel-update pecl.php.net” to update
-downloading mongo-1.4.3.tgz …
-Starting to download mongo-1.4.3.tgz (140,481 bytes)
-…………………………done: 140,481 bytes
-84 source files, building
-running: phpize
-Configuring for:
-PHP Api Version:         20100412
-Zend Module Api No:      20100525
-Zend Extension Api No:   220100525&lt;/p&gt;
-&lt;p&gt;……&lt;/p&gt;
-&lt;p&gt;Build process completed successfully
-Installing ‘/usr/lib64/php/modules/mongo.so’
-install ok: channel://pecl.php.net/mongo-1.4.3
-configuration option “php_ini” is not set to php.ini location
-You should add “extension=mongo.so” to php.ini
-You have new mail in /var/spool/mail/root&lt;/p&gt;
-&lt;p&gt;[root@localhost conf.d]# vim /etc/php.ini&lt;br /&gt;
-[root@localhost conf.d]# /etc/init.d/httpd reload&lt;br /&gt; 
-[root@localhost conf.d]# php -m |grep mongo&lt;br /&gt;
-mongo&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2.下载：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;[root@localhost externalscripts]# pwd&lt;br /&gt;
-/etc/zabbix/externalscripts&lt;br /&gt;
-[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.php&lt;br /&gt;
-[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.sh&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.导入模板 建立主机：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;将MongoDB_Plugin_template_export.xml导入到zabbix中
-修改"Miscellaneous: Data Collector"监控项的key值，因默认提供的值有错误：
-mikoomi-mongodb-plugin.sh["--", "-h", "{$MONGODB_HOSTNAME}", "-p", "{$MONGODB_PORT}", "-z", "{$MONGODB_ZABBIX_NAME}"]&lt;/p&gt;
-&lt;p&gt;在zabbix里建立主机，定义宏：&lt;br /&gt;
-{$MONGODB_HOSTNAME} = 10.0.199.30   #即ip地址&lt;br /&gt;
-{$MONGODB_PORT} = 27017 #监控mongdb的端口号&lt;br /&gt;
-{$MONGODB_ZABBIX_NAME} =MongDB1 #hostname 就是主机名 不要写显示名 这样会接受不到数据 一定是hostname&lt;br /&gt;
-然后给主机连接上模板即可。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4.测试：&lt;br /&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;[root@localhost externalscripts]# ./mikoomi-mongodb-plugin.sh -D -h10.0.199.30 -p27017 -z MongDB1
-0
-[root@localhost externalscripts]# less /tmp/mikoomi-mongodb-plugin.php_MongoDB1.log&lt;/p&gt;
-&lt;p&gt;mikoomi-mongodb-plugin.php:Successfully connected to mongoDB using connect string root:passworda@MongDB1:27017
-zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
-&lt;p&gt;zabbix_sender [8413]: Warning: [line 68] ‘Key value’ required&lt;/p&gt;
-&lt;p&gt;zabbix_sender [8414]: DEBUG: answer [{&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="s"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;success&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-
-    &lt;span class="s"&gt;&amp;quot;info&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Processed 58 Failed 13 Total 71 Seconds spent 0.001618&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
-&lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Mon, 09 Sep 2013 00:00:00 +0800</pubDate><guid>tag:opslinux.com,2013-09-09:zabbixjian-kong-mongodb.html</guid><category>zabbix</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Sat, 14 Sep 2013 00:00:00 +0800</pubDate><guid>tag:opslinux.com,2013-09-14:shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</guid><category>vagrant</category></item></channel></rss>

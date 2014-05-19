@@ -29,22 +29,23 @@
     </script>
 
 
-        <meta name="description" content="" />
+        <meta name="description" content="Title: Django启动shell脚本 Slug: Django_shell Date: 2014-05-19 15:11:45 Tags: Django,python Category: Django Author: 创e Summary: 最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16#!/bin/bash case $1 in dev) . ~/py2/bin/activate #使用 virtualenv python ...
+" />
 
-<meta name="keywords" content="md5, python, python, " />
+<meta name="keywords" content=", Django, " />
 
-<meta property="og:title" content="python计算文件md5 "/>
+<meta property="og:title" content="Django启动shell脚本 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/python_md5-.html" />
-<meta property="og:description" content="" />
+<meta property="og:url" content="http://opslinux.com/djangoqi-dong-shelljiao-ben.html" />
+<meta property="og:description" content="Title: Django启动shell脚本 Slug: Django_shell Date: 2014-05-19 15:11:45 Tags: Django,python Category: Django Author: 创e Summary: 最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16#!/bin/bash case $1 in dev) . ~/py2/bin/activate #使用 virtualenv python ..." />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-05-04T16:05:23" />
+<meta property="og:article:published_time" content="2014-05-19T15:14:51" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python计算文件md5 ">
-<meta name="twitter:description" content="">
+<meta name="twitter:title" content="Django启动shell脚本 ">
+<meta name="twitter:description" content="Title: Django启动shell脚本 Slug: Django_shell Date: 2014-05-19 15:11:45 Tags: Django,python Category: Django Author: 创e Summary: 最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16#!/bin/bash case $1 in dev) . ~/py2/bin/activate #使用 virtualenv python ...">
 
-        <title>python计算文件md5  · 老运维创e
+        <title>Django启动shell脚本  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -88,7 +89,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/python_md5-.html"> python计算文件md5  </a></h1>
+    <h1><a href="http://opslinux.com/djangoqi-dong-shelljiao-ben.html"> Django启动shell脚本  </a></h1>
     </header>
 </div>
 
@@ -96,7 +97,14 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>Python中，用于加密的md5方法在hashlib模块中，文件的MD5校验码是根据文件的内容生成的信息摘要，方法如下:</p>
+            <p>Title: Django启动shell脚本
+Slug: Django_shell
+Date: 2014-05-19 15:11:45
+Tags: Django,python
+Category: Django
+Author: 创e
+Summary:</p>
+<p>最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -107,17 +115,27 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
-
-<span class="k">def</span> <span class="nf">md5_file</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">md5</span><span class="p">()</span>
-    <span class="n">a_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>    <span class="c">#使用二进制格式读取文件内容</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">a_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-    <span class="n">a_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">m</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="n">__main__</span> <span class="o">==</span> <span class="s">&#39;__init__&#39;</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">md5_file</span><span class="p">(</span><span class="s">&#39;/home/ce/1.txt&#39;</span><span class="p">)</span>
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre>#!/bin/bash
+case $1 in
+    dev)
+        . ~/py2/bin/activate       #使用 virtualenv
+        python manage.py runserver store.dev.service.cmos.net:8080
+        ;;
+    test)
+        . ~/py2/bin/activate
+        python manage.py runserver store.test.service.cmos.net:8080
+        ;;
+    *)
+      echo &quot;Usage: $0 [dev|test]&quot;
+      exit 1
+      ;;
+esac
+exit 0
 </pre></div>
 </td></tr></table>
             
@@ -126,7 +144,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/python_md5-.html#disqus_thread">
+                href="http://opslinux.com/djangoqi-dong-shelljiao-ben.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -136,8 +154,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/python_md5-.html';
-    var disqus_url = 'http://opslinux.com/python_md5-.html';
+        var disqus_identifier = 'http://opslinux.com/djangoqi-dong-shelljiao-ben.html';
+    var disqus_url = 'http://opslinux.com/djangoqi-dong-shelljiao-ben.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -170,23 +188,10 @@ var duoshuoQuery = {short_name:"ops"};
 <!-- Duoshuo Comment END -->
 
             <hr/>
-<section>
-    <h2>Related Posts</h2>
-<ul class="related-posts-list">
-<li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
-<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
-<li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
-<li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
-<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
-</ul>
-<hr />
-</section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/tornado-session-.html" title="Previous: tornado session装饰器">tornado session装饰器</a></li>
-                <li class="next-article"><a href="http://opslinux.com/python_and_highcharts.html" title="Next: python和highcharts制作图表">python和highcharts制作图表</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/install_ipython.html" title="Previous: 安装ipython">安装ipython</a></li>
             </ul>
             </nav>
             </aside>
@@ -194,18 +199,9 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-04T16:05:23">May 4, 2014</time>
+            <time pubdate="pubdate" datetime="2014-05-19T15:14:51">May 19, 2014</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
-            <h4>Tags</h4>
-            <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#md5-ref">md5
-                    <span>1</span>
-</a></li>
-                <li><a href="http://opslinux.com/tags.html#python-ref">python
-                    <span>7</span>
-</a></li>
-            </ul>
+            <a class="category-link" href="http://opslinux.com/categories.html#django-ref">Django</a>
 <h4>Contact</h4>
     <a href="mailto:zbing3@163.com" title="My Email Address" class="sidebar-social-links" target="_blank">
     <i class="fa fa-envelope sidebar-social-links"></i></a>
