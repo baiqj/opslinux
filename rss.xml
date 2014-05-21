@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 22 May 2014 07:14:19 +0800</lastBuildDate><item><title>python视频动员</title><link>http://opslinux.com/python_viode.html</link><description>&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
-&lt;p&gt;&lt;embed src="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"&gt;&lt;/embed&gt;&lt;/p&gt;
-&lt;div class="opslinux_video_html5" href="http://v.youku.com/v_show/id_XNzE1MTc2NjUy.html" poster="" width='640' height='360'&gt;&lt;/div&gt;
-
-&lt;script&gt;window.jQuery || document.write('&lt;script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
-
-&lt;script type=text/javascript  src="http://bungeer.com/static/js/video_html5.js"&gt;&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Thu, 22 May 2014 07:14:19 +0800</pubDate><guid>tag:opslinux.com,2014-05-22:python_viode.html</guid><category>python</category></item><item><title>Django启动shell脚本</title><link>http://opslinux.com/Django_shell.html</link><description>&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
+&lt;p&gt;&lt;embed src="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"&gt;&lt;/embed&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Thu, 22 May 2014 07:14:19 +0800</pubDate><guid>tag:opslinux.com,2014-05-22:python_viode.html</guid><category>python</category></item><item><title>Django启动shell脚本</title><link>http://opslinux.com/Django_shell.html</link><description>&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
