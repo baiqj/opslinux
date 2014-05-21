@@ -2,6 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-22T06:38:51+08:00</updated><entry><title>python视频动员</title><link href="http://opslinux.com/python_viode.html" rel="alternate"></link><updated>2014-05-22T06:38:51+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-22:python_viode.html</id><summary type="html">&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
 &lt;p&gt;&amp;lt;embed src=&amp;quot;&lt;a class="reference external" href="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf"&gt;http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf&lt;/a&gt;&amp;quot; allowFullScreen=&amp;quot;true&amp;quot; quality=&amp;quot;high&amp;quot; width=&amp;quot;480&amp;quot; height=&amp;quot;400&amp;quot; align=&amp;quot;middle&amp;quot; allowScriptAccess=&amp;quot;always&amp;quot; type=&amp;quot;application/x-shockwave-flash&amp;quot;&amp;gt;&amp;lt;/embed&amp;gt;&lt;/p&gt;
 &lt;p&gt;&amp;lt;div class=&amp;quot;bungeer_video_html5&amp;quot; href=&amp;quot;&lt;a class="reference external" href="http://v.youku.com/v_show/id_XNjEyODk1MzM2.html"&gt;http://v.youku.com/v_show/id_XNjEyODk1MzM2.html&lt;/a&gt;&amp;quot; poster=&amp;quot;&lt;a class="reference external" href="http://www.bungeer.com/static/img/web_hi_res_512.png"&gt;http://www.bungeer.com/static/img/web_hi_res_512.png&lt;/a&gt;&amp;quot; width='640' height='360'&amp;gt;&amp;lt;/div&amp;gt;&lt;/p&gt;
+&lt;p&gt;&amp;lt;script&amp;gt;window.jQuery || document.write('&amp;lt;script src=&amp;quot;&lt;a class="reference external" href="http://codeorigin.jquery.com/jquery-1.10.2.min.js"&gt;http://codeorigin.jquery.com/jquery-1.10.2.min.js&lt;/a&gt;&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;')&amp;lt;/script&amp;gt;
+&amp;lt;script type=text/javascript  src=&amp;quot;&lt;a class="reference external" href="http://bungeer.com/static/js/video_html5.js"&gt;http://bungeer.com/static/js/video_html5.js&lt;/a&gt;&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
 </summary><category term="python"></category></entry><entry><title>Django启动shell脚本</title><link href="http://opslinux.com/Django_shell.html" rel="alternate"></link><updated>2014-05-19T15:11:45+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-19:Django_shell.html</id><summary type="html">&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -35,7 +37,37 @@ case $1 in
 esac
 exit 0
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="Django"></category><category term="python"></category></entry><entry><title>安装ipython</title><link href="http://opslinux.com/install_ipython.html" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:install_ipython.html</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="Django"></category><category term="python"></category></entry><entry><title>安装ipython</title><link href="http://opslinux.com/install_ipython.html" rel="alternate"></link><updated>2014-05-18T10:11:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-18:install_ipython.html</id><summary type="html">&lt;img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" /&gt;
 &lt;p&gt;今天看到有朋友在用ipython，我也好久没用了，索性装一下&lt;/p&gt;
 &lt;p&gt;环境为MacOS Python 2.7.5&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install readline ipython
@@ -301,6 +333,36 @@ To squelch this message and adopt the new behavior now, use:
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这里的数据只是个例子，更直观的展示出效果，真正项目中可能需要你在数据库中取出数据，自己折腾成list，我们看下效果：&lt;/p&gt;
 &lt;img alt="出图" class="align-center" src="http://opslinux.qiniudn.com/639887B8-0262-4186-9D9E-68481F846620.png" style="width: 671px; height: 563px;"/&gt;
 &lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="highcharts"></category></entry><entry><title>Django自定义用户系统</title><link href="http://opslinux.com/django.html" rel="alternate"></link><updated>2014-04-20T19:11:43+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-04-20:django.html</id><summary type="html">
 &lt;p&gt;最近换了新公司，公司新项目要用Django，因为现在的领导对Django比较熟悉，对于我这种运维出身，对性能有着要求的人不能用tornado这种牛逼框架，心里是无限的悲伤啊。没办法日子还得过啊，所以进入可繁忙的开发期，这一用不要紧，还用出了感情，发现Django还多内置的app搭建网站速度还真快，接下来就给大家介绍一下他的用户系统
 Django版本：1.6.2&lt;/p&gt;
@@ -1042,6 +1104,36 @@ Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
 &lt;p&gt;好了，日志都放到NOSQL当中了，接下来就是分析的问题，这个就是仁者见仁智者见智的事了，每个公司的需求不一样，有用redis分析的，有用zeromq分析，这就看大家的喜好了，分析完最后还是推荐大家用highcharts出图比较好看，这里推荐使用highcharts的文章：&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/python_and_highcharts-.html"&gt;highcharts使用&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="python"></category><category term="nginx日志分析"></category></entry><entry><title>sqlalchemy查询返回json数据</title><link href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" rel="alternate"></link><updated>2014-02-19T11:17:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-02-19:sqlalchemycha-xun-fan-hui-jsonshu-ju.html</id><summary type="html">
 &lt;p&gt;最近公司开发新项目使用tornado+mysql，传统的SQL开发方式大家都感觉不爽（其实我不太会，哈哈），所以开始使用orm方式，这也是python社区大家所推崇的方式，技术选型就选择了霸道的神器&lt;a class="reference external" href="http://www.sqlalchemy.org/"&gt;sqlalchemy&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="json"&gt;
@@ -1703,6 +1795,36 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
 &lt;p&gt;soft 限制指的是当前系统生效的设置值。 hard 限制值可以被普通用户降低。但是不能增加。 soft 限制不能设置的比 hard 限制更高。 只有 root 用户才能够增加 hard 限制值。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="nginx"></category><category term="高并发"></category><category term="web"></category></entry><entry><title>Python多版本共存之pyenv</title><link href="http://opslinux.com/python-pyenv.html" rel="alternate"></link><updated>2013-10-04T00:27:00+08:00</updated><author><name>SeisMan</name></author><id>tag:opslinux.com,2013-10-04:python-pyenv.html</id><summary type="html">
 &lt;p&gt;需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/yyuu/pyenv"&gt;pyenv&lt;/a&gt;可以很好的实现Python的多版本共存。&lt;/p&gt;
@@ -1791,6 +1913,36 @@ Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyrig
 &lt;li&gt;使用pip安装第三方模块时会安装到~/.pyenv/versions/3.3.2下，不会和系统模块发生冲突。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
 </summary><category term="安装"></category></entry><entry><title>使用Vagrant打造你的虚拟环境</title><link href="http://opslinux.com/shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html" rel="alternate"></link><updated>2013-09-14T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-14:shi-yong-vagrantda-zao-ni-de-xu-ni-huan-jing.html</id><summary type="html">&lt;h1 id="vagrant"&gt;使用Vagrant打造你的虚拟环境&lt;/h1&gt;
 &lt;p&gt;因为要做mongDB的replication+sharding的实验，领导给我推荐Vagrant来模拟虚拟环境做部署实践，稍微了解够大为震惊，因网上文档不是特别容易理解，留下一份以备后用&lt;/p&gt;
 &lt;p&gt;vagrant的强大在于是一个镜像，配置完以后镜像可以放到任何地方去，真正做到了一劳永逸了。&lt;/p&gt;
@@ -1872,7 +2024,37 @@ end
 
 &lt;p&gt;Nginx 配置添加:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sendfile off;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/zabbixjian-kong-mongodb.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:zabbixjian-kong-mongodb.html</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/zabbixjian-kong-mongodb.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:zabbixjian-kong-mongodb.html</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
 &lt;p&gt;推荐文档：&lt;/p&gt;
 &lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
 &lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
@@ -1935,7 +2117,37 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
 
 &lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
 &lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
 &lt;h3 id="virtualenv"&gt;安装virtualenv虚拟环境&lt;/h3&gt;
 &lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
@@ -2044,4 +2256,34 @@ Tag: 标签1, 标签2
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>helloworld</title><link href="http://opslinux.com/helloworld.html" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:helloworld.html</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
+&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>helloworld</title><link href="http://opslinux.com/helloworld.html" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:helloworld.html</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>

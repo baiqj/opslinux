@@ -6,28 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="创e" />
         <meta name="copyright" content="创e" />
-    
-    <script type= "text/javascript">
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.src = 'https:' == document.location.protocol ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js' : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'; 
-        s[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" + 
-            "    config: ['MMLorHTML.js']," + 
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS','output/NativeMML']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," + 
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax .mo, .MathJax .mi': {color: 'black ! important'}} " +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(s);
-    </script>
-
 
         <meta name="description" content="今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了mplayer.py这个神器，来马上试用一下。 Mplayer安装 我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装： 1brew install mplayer 没想到还真提示有包，安装ing。 当然，Ubuntu也不能少： apt-get install mplayer 应该不会发生什么太大问题 mplayer.py 安装 1pip install mplayer.py 还是非常的方便 测试 进入python命令行，我们来测试 ...
 " />
@@ -238,13 +216,13 @@ var duoshuoQuery = {short_name:"ops"};
 <section>
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
+<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
+<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
+<li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
 <li><a href="http://opslinux.com/Django_shell.html" title="Django启动shell脚本">Django启动shell脚本</a></li>
-<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
+<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
 <li><a href="http://opslinux.com/python_viode.html" title="python视频动员">python视频动员</a></li>
-<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
 <li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
 </ul>
 <hr />

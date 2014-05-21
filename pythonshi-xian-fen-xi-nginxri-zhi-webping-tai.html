@@ -6,28 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="创e" />
         <meta name="copyright" content="创e" />
-    
-    <script type= "text/javascript">
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.src = 'https:' == document.location.protocol ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js' : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'; 
-        s[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" + 
-            "    config: ['MMLorHTML.js']," + 
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS','output/NativeMML']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," + 
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax .mo, .MathJax .mi': {color: 'black ! important'}} " +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(s);
-    </script>
-
 
         <meta name="description" content="其实项目写完好久了，一直没时间总结，正好最近离职，也不是特别忙把一些自己认为使用的项目分享一下给大家，希望能帮助到大家，即使帮助不到，我还可以偷偷回来看下，以便温习 Nginx日志 按日期切割log 1 2 3mv /var/log/nginx-server.access.log /var/log/nginx/nginx-server.access_$(date -d "yesterday" +"%Y%m% d").log kill -USR1 `cat /etc/nginx/logs/nginx.pid` 首先要明确自己的Nginx的日志格式，找到配置文件如下： 1 2 3log_format main '$remote_addr - $remote_user ...
 " />
@@ -323,6 +301,36 @@
 <p>好了，日志都放到NOSQL当中了，接下来就是分析的问题，这个就是仁者见仁智者见智的事了，每个公司的需求不一样，有用redis分析的，有用zeromq分析，这就看大家的喜好了，分析完最后还是推荐大家用highcharts出图比较好看，这里推荐使用highcharts的文章：</p>
 <p><a class="reference external" href="http://opslinux.com/python_and_highcharts-.html">highcharts使用</a></p>
 </div>
+<script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
 
             
             <section>
@@ -377,14 +385,14 @@ var duoshuoQuery = {short_name:"ops"};
 <section>
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
-<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
+<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
+<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
 <li><a href="http://opslinux.com/Django_shell.html" title="Django启动shell脚本">Django启动shell脚本</a></li>
-<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
+<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
 <li><a href="http://opslinux.com/python_viode.html" title="python视频动员">python视频动员</a></li>
-<li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
 <li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
-<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
+<li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
 </ul>
 <hr />
 </section>
