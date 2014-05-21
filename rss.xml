@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 22 May 2014 07:14:19 +0800</lastBuildDate><item><title>python视频动员</title><link>http://opslinux.com/python_viode.html</link><description>&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 22 May 2014 07:25:36 +0800</lastBuildDate><item><title>test</title><link>http://opslinux.com/test-.html</link><description>&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/python/test.rst&lt;/tt&gt;, line 15)&lt;/p&gt;
+&lt;p&gt;Content block expected for the &amp;quot;raw&amp;quot; directive; none found.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. raw:: html
+   &amp;lt;embed src=&amp;quot;http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf&amp;quot; allowFullScreen=&amp;quot;true&amp;quot; quality=&amp;quot;high&amp;quot; width=&amp;quot;640&amp;quot; height=&amp;quot;360&amp;quot; align=&amp;quot;middle&amp;quot; allowScriptAccess=&amp;quot;always&amp;quot; type=&amp;quot;application/x-shockwave-flash&amp;quot;&amp;gt;&amp;lt;/embed&amp;gt;
+
+&lt;/pre&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">/Users/ce/workspace/pelican/blog/content/python/test.rst:8: (WARNING/2) Cannot extract empty bibliographic field "author".</dc:creator><pubDate>Thu, 22 May 2014 07:25:36 +0800</pubDate><guid>tag:opslinux.com,2014-05-22:test-.html</guid><category></category></item><item><title>python视频动员</title><link>http://opslinux.com/python_viode.html</link><description>&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
 &lt;p&gt;&lt;embed src="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"&gt;&lt;/embed&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Thu, 22 May 2014 07:14:19 +0800</pubDate><guid>tag:opslinux.com,2014-05-22:python_viode.html</guid><category>python</category></item><item><title>Django启动shell脚本</title><link>http://opslinux.com/Django_shell.html</link><description>&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
@@ -2181,122 +2190,4 @@ fastcgi_cache_valid any 1m;&lt;/p&gt;
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 25 Oct 2013 10:20:00 +0800</pubDate><guid>tag:opslinux.com,2013-10-25:nginxda-zao-3wgao-bing-fa-wang-zhan.html</guid><category>nginx</category><category>高并发</category><category>web</category></item><item><title>Python多版本共存之pyenv</title><link>http://opslinux.com/python-pyenv.html</link><description>
-&lt;p&gt;需要使用新版本Python的相关功能，但是又不想要影响到系统自带的Python，这个时候就需要实现Python的多版本共存。&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/yyuu/pyenv"&gt;pyenv&lt;/a&gt;可以很好的实现Python的多版本共存。&lt;/p&gt;
-&lt;div class="section" id="pyenv"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;安装pyenv&lt;/a&gt;&lt;/h2&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'export PYENV_ROOT="$HOME/.pyenv"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'export PATH="$PYENV_ROOT/bin:$PATH"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'eval "$(pyenv init -)"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;exec&lt;/span&gt; &lt;span class="nv"&gt;$SHELL&lt;/span&gt; -l
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="python"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;安装Python&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id1"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;查看可安装的版本&lt;/a&gt;&lt;/h3&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv install --list
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;安装指定版本&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;使用如下命令即可安装python 3.3.2.&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv install 3.3.2
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;该命令会从github上下载python的源代码，并解压到/tmp目录下，然后在/tmp中执行编译工作。编译过程依赖一些其他的库文件，若库文件不能满足，则编译错误，需要重新下载、编译。。。(为什么每次都要重新下呢？)&lt;/p&gt;
-&lt;p&gt;已知的一些需要预先安装的库包括：&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;readline readline-devel readline-static&lt;/li&gt;
-&lt;li&gt;openssl openssl-devel openssl-static&lt;/li&gt;
-&lt;li&gt;sqlite-devel&lt;/li&gt;
-&lt;li&gt;bzip2-devel bzip2-libs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在所有python依赖库都安装好的情况下，python的安装很顺利。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;更新数据库&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;安装完成之后需要对数据库进行更新：&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv rehash
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;查看当前已安装的python版本&lt;/a&gt;&lt;/h3&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv versions
-* system &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set &lt;/span&gt;by /export/home/seisman/.pyenv/version&lt;span class="o"&gt;)&lt;/span&gt;
-3.3.2
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;其中的星号表示使用的是系统自带的python。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;设置全局的python版本&lt;/a&gt;&lt;/h3&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv global 3.3.2
-&lt;span class="nv"&gt;$ &lt;/span&gt;pyenv versions
-system
-* 3.3.2 &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set &lt;/span&gt;by /export/home/seisman/.pyenv/version&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;当前全局的python版本已经变成了3.3.2。也可以使用&lt;tt class="docutils literal"&gt;pyenv local&lt;/tt&gt;或&lt;tt class="docutils literal"&gt;pyenv shell&lt;/tt&gt;临时改变python版本。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;确认python版本&lt;/a&gt;&lt;/h3&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4
-5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;python
-Python 3.3.2 &lt;span class="o"&gt;(&lt;/span&gt;default, Sep 30 2013, 20:11:44&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;[&lt;/span&gt;GCC 4.4.7 20120313 &lt;span class="o"&gt;(&lt;/span&gt;Red Hat 4.4.7-3&lt;span class="o"&gt;)]&lt;/span&gt; on linux
-Type &lt;span class="s2"&gt;"help"&lt;/span&gt;, &lt;span class="s2"&gt;"copyright"&lt;/span&gt;, &lt;span class="s2"&gt;"credits"&lt;/span&gt; or &lt;span class="s2"&gt;"license"&lt;/span&gt; &lt;span class="k"&gt;for &lt;/span&gt;more information.
-&amp;gt;&amp;gt;&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id7"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;使用python&lt;/a&gt;&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;输入&lt;tt class="docutils literal"&gt;python&lt;/tt&gt;即可使用新版本的python；&lt;/li&gt;
-&lt;li&gt;系统命令会以/usr/bin/python的方式直接调用老版本的python；&lt;/li&gt;
-&lt;li&gt;使用pip安装第三方模块时会安装到~/.pyenv/versions/3.3.2下，不会和系统模块发生冲突。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;script type= "text/javascript"&gt;
-    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-        var mathjaxscript = document.createElement('script');
-        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-        mathjaxscript.type = 'text/javascript';
-        mathjaxscript.src = 'https:' == document.location.protocol
-                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
-                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" +
-            "    config: ['MMLorHTML.js']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    displayAlign: 'center'," +
-            "    displayIndent: '0em'," +
-            "    showMathMenu: true," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true," +
-            "        preview: 'TeX'," +
-            "    }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-    }
-&lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">SeisMan</dc:creator><pubDate>Fri, 04 Oct 2013 00:27:00 +0800</pubDate><guid>tag:opslinux.com,2013-10-04:python-pyenv.html</guid><category>安装</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Fri, 25 Oct 2013 10:20:00 +0800</pubDate><guid>tag:opslinux.com,2013-10-25:nginxda-zao-3wgao-bing-fa-wang-zhan.html</guid><category>nginx</category><category>高并发</category><category>web</category></item></channel></rss>
