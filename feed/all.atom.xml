@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-22T07:14:19+08:00</updated><entry><title>python视频动员</title><link href="http://opslinux.com/python_viode.html" rel="alternate"></link><updated>2014-05-22T07:14:19+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-22:python_viode.html</id><summary type="html">&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
-&lt;p&gt;&lt;embed src="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"&gt;&lt;/embed&gt;&lt;/p&gt;
-&lt;div class="opslinux_video_html5" href="http://v.youku.com/v_show/id_XNzE1MTc2NjUy.html" poster="http://g1.ykimg.com/0100641F46537CBA0380D801B6C00A58ED4FA6-7116-BEFB-FAD1-2E5C454266CE" width='640' height='360'&gt;&lt;/div&gt;
+&lt;p&gt;&lt;embed src="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"&gt;&lt;/embed&gt;&lt;/p&gt;
+&lt;div class="opslinux_video_html5" href="http://v.youku.com/v_show/id_XNzE1MTc2NjUy.html" poster="" width='640' height='360'&gt;&lt;/div&gt;
 
 &lt;script&gt;window.jQuery || document.write('&lt;script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
 
