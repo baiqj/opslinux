@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-22T07:25:36+08:00</updated><entry><title>test</title><link href="http://opslinux.com/test-.html" rel="alternate"></link><updated>2014-05-22T07:25:36+08:00</updated><author><name>/Users/ce/workspace/pelican/blog/content/python/test.rst:8: (WARNING/2) Cannot extract empty bibliographic field "author".</name></author><id>tag:opslinux.com,2014-05-22:test-.html</id><summary type="html">&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/python/test.rst&lt;/tt&gt;, line 15)&lt;/p&gt;
-&lt;p&gt;Content block expected for the &amp;quot;raw&amp;quot; directive; none found.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-.. raw:: html
-   &amp;lt;embed src=&amp;quot;http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf&amp;quot; allowFullScreen=&amp;quot;true&amp;quot; quality=&amp;quot;high&amp;quot; width=&amp;quot;640&amp;quot; height=&amp;quot;360&amp;quot; align=&amp;quot;middle&amp;quot; allowScriptAccess=&amp;quot;always&amp;quot; type=&amp;quot;application/x-shockwave-flash&amp;quot;&amp;gt;&amp;lt;/embed&amp;gt;
-
-&lt;/pre&gt;
-&lt;/div&gt;
-</summary><category term=""></category></entry><entry><title>Django实现发送邮件重置用户密码</title><link href="http://opslinux.com/django_password_reset-.html" rel="alternate"></link><updated>2014-05-13T10:47:19+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-13:django_password_reset-.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-13T10:47:19+08:00</updated><entry><title>Django实现发送邮件重置用户密码</title><link href="http://opslinux.com/django_password_reset-.html" rel="alternate"></link><updated>2014-05-13T10:47:19+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-13:django_password_reset-.html</id><summary type="html">
 &lt;p&gt;Django，是个不错的框架，非常全，内置了用户系统，咱们稍微修改就可以实现发送重置密码邮件。&lt;/p&gt;
 &lt;div class="section" id="url-py"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;url.py&lt;/a&gt;&lt;/h2&gt;
