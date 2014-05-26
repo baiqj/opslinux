@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-22T07:25:36+08:00</updated><entry><title>python视频动员</title><link href="http://opslinux.com/python_viode_0.html" rel="alternate"></link><updated>2014-05-22T07:25:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-22:python_viode_0.html</id><summary type="html">&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
-&lt;embed src="http://player.youku.com/player.php/sid/XNzE1MTc2NjUy/v.swf" allowFullScreen="true" quality="high" width="640" height="360" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"&gt;&lt;/embed&gt;</summary><category term="python"></category></entry><entry><title>Django启动shell脚本</title><link href="http://opslinux.com/Django_shell.html" rel="alternate"></link><updated>2014-05-19T15:11:45+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-19:Django_shell.html</id><summary type="html">&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-26T09:46:24+08:00</updated><entry><title>配置sublime打造python编辑器</title><link href="http://opslinux.com/sublime_python.html" rel="alternate"></link><updated>2014-05-26T09:46:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-26:sublime_python.html</id><summary type="html">&lt;p&gt;昨晚长夜漫漫，无心睡眠，运维开发群里交谈不断，突然一位常用vim的同学想开速的学习下sublime的配置，来开发python，由于本人一直使用sublime开发python web项目，索性把自己的配置过程写下来，方便大家交流。&lt;/p&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;安装配置&lt;/h2&gt;
+&lt;p&gt;首先，安装上sublime这个就不多说了，本人使用的是宿便sublime Text2 虽然出3了，但是有些插件还没有支持索性不用3。&lt;/p&gt;
+&lt;p&gt;进入下面的配置文件：&lt;/p&gt;
+&lt;p&gt;Preferences ——》Settings - Default&lt;/p&gt;
+&lt;p&gt;找到对应的关键字，修改成下面的值，切忌：不是复制下面粘贴进去。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;{
+     &amp;quot;auto_indent&amp;quot;: true,
+     &amp;quot;drag_text&amp;quot;: false,
+     &amp;quot;font_face&amp;quot;: &amp;quot;&amp;quot;,
+     &amp;quot;font_size&amp;quot;: 17.5,
+     &amp;quot;ignored_packages&amp;quot;:
+     [
+          &amp;quot;Vintage&amp;quot;
+     ],
+     &amp;quot;tab_size&amp;quot;: 4,
+     &amp;quot;translate_tabs_to_spaces&amp;quot;: true,
+     &amp;quot;trim_automatic_white_space&amp;quot;: true,
+     &amp;quot;word_wrap&amp;quot;: true
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;插件&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="package-control"&gt;
+&lt;h2&gt;Package Control&lt;/h2&gt;
+&lt;p&gt;包管理器是必备的，新下载的Sublime Text 2第一个装的肯定是这个，有了它，装其他的包就很方便了。
+安装方式有两种，第一种是在线下载安装：在 Sublime Text 2 中按下 &amp;quot;ctrl+`&amp;quot;（就是大键盘数字1左边的那个键），拷贝以下命令到窗口下部的终端中，&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;import urllib2,os; pf=&amp;#39;Package Control.sublime-package&amp;#39;; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),&amp;#39;wb&amp;#39;).write(urllib2.urlopen(&amp;#39;http://sublime.wbond.net/&amp;#39;+pf.replace(&amp;#39; &amp;#39;,&amp;#39;%20&amp;#39;)).read()); print &amp;#39;Please restart Sublime Text to finish installation&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;然后回车确认，安装完毕之后重启sublime，如果发现在Perferences中看到package control这一项，则安装成功。&lt;/p&gt;
+&lt;p&gt;然后就可以通过&amp;quot;command+Shift+P&amp;quot;打开命令面板，输入&amp;quot;install&amp;quot;命令，选择“Package Control: Install Package”，然后输入要安装的包的名称，就可以在线安装了。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sublimecodeintel"&gt;
+&lt;h2&gt;SublimeCodeIntel插件&lt;/h2&gt;
+&lt;p&gt;智能提示插件，这个插件的智能提示功能非常强大，可以自定义提示的内容库&lt;/p&gt;
+&lt;p&gt;Preferences ——》Package Settings ——》SublimeCodeIntel ——》Settings - Default&lt;/p&gt;
+&lt;p&gt;修改里面python的配置，如下：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&amp;quot;codeintel_config&amp;quot;: {
+    &amp;quot;Python&amp;quot;: {
+            &amp;quot;PATH&amp;quot;: &amp;quot;usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH&amp;quot;,
+            &amp;quot;pythonExtraPaths&amp;quot;: [&amp;quot;/usr/local/lib/python2.7/site-packages&amp;quot;],
+            &amp;quot;python&amp;quot;:&amp;quot;/usr/bin/python2.7&amp;quot;,
+            &amp;quot;PYTHONPATH&amp;quot;: &amp;quot;/usr/local/lib/python2.7/site-packages:/System/Library/Frameworks/Python.framework/Versions/2.7/:/Users/ce/workspace:$PYTHONPATH&amp;quot;
+    },
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;安装pep8和pylint 实现代码风格和错误检查&lt;/p&gt;
+&lt;p&gt;sudo pip install pylint&lt;/p&gt;
+&lt;p&gt;sudo pip install pep8&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sublimelinter"&gt;
+&lt;h2&gt;SublimeLinter&lt;/h2&gt;
+&lt;p&gt;这是用来在写代码时做代码检查的。可以在包管理器中安装。写Python程序的话，它还会帮你查代码是否符合PEP8的要求。有问题有代码会出现白框，点击时底下的状态栏会提示出什么问题。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python-pep8-autoformat"&gt;
+&lt;h2&gt;Python PEP8 Autoformat&lt;/h2&gt;
+&lt;p&gt;这是用来按PEP8自动格式化代码的。可以在包管理器中安装。如果以前写程序不留意的话，用SublimeLinter一查，满屏都是白框框，只要装上这个包，按ctrl+shift+r，代码就会按PEP8要求自动格式化了，一屏的白框几乎都消失了&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="gitgutter"&gt;
+&lt;h2&gt;GitGutter&lt;/h2&gt;
+&lt;p&gt;它基于git查看代码行是被增加，修改还是删除，在行数的前面显示如下：&lt;/p&gt;
+&lt;img alt="GitGutter" class="align-center" src="http://opslinux.qiniudn.com/b4d952ccb1_183250-7WIb-865233.png" /&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sidebarenhancements"&gt;
+&lt;h2&gt;SideBarEnhancements&lt;/h2&gt;
+&lt;p&gt;可以大大加强在侧栏目录树中右键的选项&lt;/p&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;快捷键&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;command + p            //快速查找特定文件
+command + shift + f   //多文件搜素
+command + r          //查看文件内块列表（如果是类文件，展示的是函数）
+command + alt + num //多屏查看文件
+command + k + b    //切换左侧目录面板
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="sublime"></category><category term="python"></category></entry><entry><title>python开发实践(一)</title><link href="http://opslinux.com/python_viode_1.html" rel="alternate"></link><updated>2014-05-25T22:17:06+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-25:python_viode_1.html</id><summary type="html">&lt;p&gt;今天更新了python开发实践的第一课，人人都爱列表（一），由于事件匆忙，录制水平没达到理想效果，请大家见谅。第一课还是比较简单的。在这里补充一下大家需要巩固的知识。&lt;/p&gt;
+&lt;p&gt;首先大家要先有个类UNIX的开发环境，用windows的用户建议安装虚拟机，然后安装pyenv来管理python版本也能达到virtualenv不污染系统环境的功能，接着我们平时调试的时候会用到交互环境默认的不是特别好用，这里推荐使用ipython，安装好后，来跟我一起愉快的玩耍吧。&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/python-pyenv.html"&gt;pyenv安装&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/install_ipython.html"&gt;ipython安装&lt;/a&gt;&lt;/p&gt;
+&lt;video class="vjs-tech" autoplay="" preload="auto" data-setup="{}" id="vjs_video_4_html5_api" src="http://media.happycasts.net/assets/episodes/videos/098-login-with-linkedin.mov"&gt;&lt;source src="http://media.happycasts.net/assets/episodes/videos/098-login-with-linkedin.mov" type="video/mp4"&gt;&lt;/video&gt;</summary><category term="python"></category></entry><entry><title>python视频动员</title><link href="http://opslinux.com/python_viode_0.html" rel="alternate"></link><updated>2014-05-22T07:25:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-22:python_viode_0.html</id><summary type="html">&lt;p&gt;python现在变得越来越流行，所以有更多朋友想学习python，有些朋友没有编程基础，买了书看不进去不知道如何下手，报了培训班，讲师良莠不齐，又怕被坑，所以很困惑。许多人来找我交流，所以我就录制一套快速入门的迭代学习方法，让大家快速的学习，把精力用在大家喜爱的项目上。&lt;/p&gt;
+&lt;video class="vjs-tech" autoplay="" preload="auto" data-setup="{}" id="vjs_video_4_html5_api" src="http://media.happycasts.net/assets/episodes/videos/098-login-with-linkedin.mov"&gt;&lt;source src="http://media.happycasts.net/assets/episodes/videos/098-login-with-linkedin.mov" type="video/mp4"&gt;&lt;/video&gt;</summary><category term="python"></category></entry><entry><title>Django启动shell脚本</title><link href="http://opslinux.com/Django_shell.html" rel="alternate"></link><updated>2014-05-19T15:11:45+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-19:Django_shell.html</id><summary type="html">&lt;p&gt;最近服务器在线上做测试，没用supervisord管理，有时候必须需要手动来回切换，dev和test启动的方式也不同，索性用shell写个比较low的脚本搞定事情。&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -2143,143 +2280,4 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="zabbix"></category></entry><entry><title>使用github和pelican搭建本站博客</title><link href="http://opslinux.com/shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html" rel="alternate"></link><updated>2013-07-13T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-13:shi-yong-githubhe-pelicanda-jian-ben-zhan-bo-ke.html</id><summary type="html">&lt;h2 id="githubpelican"&gt;使用github和pelican搭建本站博客&lt;/h2&gt;
-&lt;h3 id="virtualenv"&gt;安装virtualenv虚拟环境&lt;/h3&gt;
-&lt;p&gt;安装虚拟环境是为了防止污染，linux本身的python环境&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;easy_install&lt;/span&gt; &lt;span class="n"&gt;virtualenv&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="virtualenv_1"&gt;使用virtualenv&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;virtualenv pelican   &lt;span class="c"&gt;#创建虚拟环境&lt;/span&gt;
-&lt;span class="nb"&gt;cd &lt;/span&gt;pelican
-&lt;span class="nb"&gt;source &lt;/span&gt;bin/activate   &lt;span class="c"&gt;#激活虚拟环境&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="pelicanmarkdown"&gt;安装pelican和markdown&lt;/h3&gt;
-&lt;p&gt;pelican 就是生成静态博客的程序&lt;br /&gt;
-markdow 是写博客使用的轻量级标记语言,不会使用的同学可以查看&lt;a href="http://wowubuntu.com/markdown/"&gt;帮助&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;Markdown&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="blog"&gt;建立blog目录&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;myblog&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="_1"&gt;开始创建&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;quickstart&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;基本按照提示设置就可以，稍后可以在pelicanconf.py文件中手动修改。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;.
-|-- content &lt;span class="c"&gt;#所有文章放于此目录&lt;/span&gt;
-|-- develop_server.sh  &lt;span class="c"&gt;#用于开启测试服务器&lt;/span&gt;
-|-- Makefile   &lt;span class="c"&gt;#方便管理博客的Makefile&lt;/span&gt;
-|-- output &lt;span class="c"&gt;#静态生成文件&lt;/span&gt;
-|-- pelicanconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-|-- publishconf.py &lt;span class="c"&gt;#配置文件&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="_2"&gt;写一篇文章&lt;/h3&gt;
-&lt;p&gt;在&lt;code&gt;content&lt;/code&gt;目录新建一个&lt;code&gt;test.md&lt;/code&gt;文件, 填入一下内容:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;Title: 文章标题
-Date: 2013-04-18
-Category: 文章类别
-Tag: 标签1, 标签2    
-这里是内容
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后执行:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;用以生成html&lt;/p&gt;
-&lt;p&gt;然后执行&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;develop_server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;开启一个测试服务器, 这会在本地 8000 端口建立一个测试web服务器, 可以使用浏览器打开:&lt;code&gt;http://localhost:8000&lt;/code&gt;来访问这个测试服务器, 然后就可以欣赏到你的博客了&lt;/p&gt;
-&lt;h3 id="github"&gt;Github上的准备&lt;/h3&gt;
-&lt;p&gt;在Github上创建一个新项目，把这个项目clone到myblog文件夹下。然后按照Github的规定建立一个没有父节点的分支gh-pages。&lt;br /&gt;
-注：在是用分支创建github的blog的时候，要先确保自己的github上有例如：zbing3.github.io命名的项目并且在&lt;code&gt;settings&lt;/code&gt;中开启Github Pages
-如图：
-&lt;img alt="Alt Github Pages" src="/static/upload/20130713144403.jpg" /&gt;
-点击&lt;code&gt;Automatic Page Generator&lt;/code&gt;开启Github Pages服务&lt;/p&gt;
-&lt;p&gt;进入output目录中：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git init
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout --orphan gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin gh-pages
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;这样上传完代码等10分钟左右，即可在浏览器中使用&lt;code&gt;http://zbing3.github.io/myblog&lt;/code&gt;就能访问到自己的博客&lt;/p&gt;
-&lt;h3 id="makefilegit"&gt;定制自己的Makefile文件，让git提交更方便一点&lt;/h3&gt;
-&lt;p&gt;使用此方法就不用在output目录中初始git了。编辑Makefile &lt;code&gt;vim Makefile&lt;/code&gt; ，在github下面添加如下格式的文件：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;git:&lt;/span&gt;
-    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;INPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;CONFFILE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PELICANOPTS&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;gh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;ghp-import 是用来Easily import docs to your gh-pages branch，就是方便添加到gh-pages分支的，这个分支github才能解析我们的html嘛。
-接着以后：&lt;code&gt;make git&lt;/code&gt; 就可以直接提交到git的gh-pages分支的&lt;/p&gt;
-&lt;h3 id="pelican"&gt;pelican的备份&lt;/h3&gt;
-&lt;p&gt;因为有时候要换电脑，所以肯定要把你的pelican的博客环境做备份，以便换完电脑后快速的搭建出写博客的环境&lt;/p&gt;
-&lt;p&gt;进入blog目录：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git branch &lt;span class="c"&gt;#查看本地分支，没有master所以要创建 如果有master就跳过创建&lt;/span&gt;
-  gh-pages
-&lt;span class="nv"&gt;$ &lt;/span&gt;git branch master &lt;span class="c"&gt;#创建master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git checkout master &lt;span class="c"&gt;#切换到master分支&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git add .
-&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;&amp;quot;first post&amp;quot;&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git remote add origin git@github.com:zbing3/opslinux.git &lt;span class="c"&gt;#添加过origin就不用添加&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin master  &lt;span class="c"&gt;#有事提交报错，如因原来提交过master分支起冲突，就在后面追加--froce&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id="_3"&gt;未完待续……&lt;/h2&gt;&lt;script type= "text/javascript"&gt;
-    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-        var mathjaxscript = document.createElement('script');
-        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-        mathjaxscript.type = 'text/javascript';
-        mathjaxscript.src = 'https:' == document.location.protocol
-                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
-                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" +
-            "    config: ['MMLorHTML.js']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    displayAlign: 'center'," +
-            "    displayIndent: '0em'," +
-            "    showMathMenu: true," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true," +
-            "        preview: 'TeX'," +
-            "    }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-    }
-&lt;/script&gt;
-</summary><category term="pelican"></category><category term="github"></category></entry><entry><title>helloworld</title><link href="http://opslinux.com/helloworld.html" rel="alternate"></link><updated>2013-07-12T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-07-12:helloworld.html</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>
+</summary><category term="zabbix"></category></entry></feed>
