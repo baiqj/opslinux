@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-26T09:46:24+08:00</updated><entry><title>配置sublime打造python编辑器</title><link href="http://opslinux.com/sublime_python.html" rel="alternate"></link><updated>2014-05-26T09:46:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-26:sublime_python.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all-zh.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-05-28T21:12:18+08:00</updated><entry><title>python开发实践(二)</title><link href="http://opslinux.com/python_viode_2.html" rel="alternate"></link><updated>2014-05-28T21:12:18+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-28:python_viode_2.html</id><summary type="html">&lt;p&gt;人人都爱列表，把之前的坑填完，讲了函数和递归，&lt;/p&gt;
+&lt;p&gt;人人都爱列表课程知识点：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;if&lt;/li&gt;
+&lt;li&gt;for&lt;/li&gt;
+&lt;li&gt;函数&lt;/li&gt;
+&lt;li&gt;递归&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/sublime_python.html"&gt;配置sublime打造python编辑器&lt;/a&gt;&lt;/p&gt;
+&lt;video width="800" height="600" controls="controls"&gt;&lt;source src="movie.ogg" type="video/ogg" /&gt;&lt;source src="http://opslinux.qiniudn.com/2.%E4%BA%BA%E4%BA%BA%E9%83%BD%E7%88%B1%E5%88%97%E8%A1%A8(%E4%BA%8C).mp4" type="video/mp4" /&gt;Your browser does not support the video tag.&lt;/video&gt;</summary><category term="python"></category></entry><entry><title>配置sublime打造python编辑器</title><link href="http://opslinux.com/sublime_python.html" rel="alternate"></link><updated>2014-05-26T09:46:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-26:sublime_python.html</id><summary type="html">
 &lt;p&gt;昨晚长夜漫漫，无心睡眠，运维开发群里交谈不断，突然一位常用vim的同学想开速的学习下sublime的配置，来开发python，由于本人一直使用sublime开发python web项目，索性把自己的配置过程写下来，方便大家交流。&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;安装配置&lt;/a&gt;&lt;/h2&gt;
@@ -2188,97 +2197,4 @@ end
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="vagrant"></category></entry><entry><title>zabbix监控mongoDB</title><link href="http://opslinux.com/zabbixjian-kong-mongodb.html" rel="alternate"></link><updated>2013-09-09T00:00:00+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2013-09-09:zabbixjian-kong-mongodb.html</id><summary type="html">&lt;h1 id="zabbixmongodb"&gt;zabbix监控mongoDB&lt;/h1&gt;
-&lt;p&gt;推荐文档：&lt;/p&gt;
-&lt;p&gt;官方推荐：http://docs.mongodb.org/manual/administration/monitoring/&lt;/p&gt;
-&lt;p&gt;因我使用的是zabbix.所以选择：&lt;/p&gt;
-&lt;p&gt;https://code.google.com/p/mikoomi/wiki/03&lt;/p&gt;
-&lt;p&gt;插件下载地址：&lt;/p&gt;
-&lt;p&gt;http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/&lt;/p&gt;
-&lt;p&gt;学习地址：&lt;/p&gt;
-&lt;p&gt;https://blog.serverdensity.com/mongodb-monitoring-db-serverstatus/&lt;/p&gt;
-&lt;p&gt;http://www.yaukb.com/2012/05/zabbix_mongodb/&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.在Zabbix Server上安装php MongoDB驱动：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;[root@localhost conf.d]# pecl install mongo&lt;br /&gt;
-WARNING: channel “pecl.php.net” has updated its protocols, use “pecl channel-update pecl.php.net” to update
-downloading mongo-1.4.3.tgz …
-Starting to download mongo-1.4.3.tgz (140,481 bytes)
-…………………………done: 140,481 bytes
-84 source files, building
-running: phpize
-Configuring for:
-PHP Api Version:         20100412
-Zend Module Api No:      20100525
-Zend Extension Api No:   220100525&lt;/p&gt;
-&lt;p&gt;……&lt;/p&gt;
-&lt;p&gt;Build process completed successfully
-Installing ‘/usr/lib64/php/modules/mongo.so’
-install ok: channel://pecl.php.net/mongo-1.4.3
-configuration option “php_ini” is not set to php.ini location
-You should add “extension=mongo.so” to php.ini
-You have new mail in /var/spool/mail/root&lt;/p&gt;
-&lt;p&gt;[root@localhost conf.d]# vim /etc/php.ini&lt;br /&gt;
-[root@localhost conf.d]# /etc/init.d/httpd reload&lt;br /&gt; 
-[root@localhost conf.d]# php -m |grep mongo&lt;br /&gt;
-mongo&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2.下载：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;[root@localhost externalscripts]# pwd&lt;br /&gt;
-/etc/zabbix/externalscripts&lt;br /&gt;
-[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.php&lt;br /&gt;
-[root@localhost externalscripts]# wget http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/mikoomi-mongodb-plugin.sh&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.导入模板 建立主机：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;将MongoDB_Plugin_template_export.xml导入到zabbix中
-修改"Miscellaneous: Data Collector"监控项的key值，因默认提供的值有错误：
-mikoomi-mongodb-plugin.sh["--", "-h", "{$MONGODB_HOSTNAME}", "-p", "{$MONGODB_PORT}", "-z", "{$MONGODB_ZABBIX_NAME}"]&lt;/p&gt;
-&lt;p&gt;在zabbix里建立主机，定义宏：&lt;br /&gt;
-{$MONGODB_HOSTNAME} = 10.0.199.30   #即ip地址&lt;br /&gt;
-{$MONGODB_PORT} = 27017 #监控mongdb的端口号&lt;br /&gt;
-{$MONGODB_ZABBIX_NAME} =MongDB1 #hostname 就是主机名 不要写显示名 这样会接受不到数据 一定是hostname&lt;br /&gt;
-然后给主机连接上模板即可。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4.测试：&lt;br /&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;[root@localhost externalscripts]# ./mikoomi-mongodb-plugin.sh -D -h10.0.199.30 -p27017 -z MongDB1
-0
-[root@localhost externalscripts]# less /tmp/mikoomi-mongodb-plugin.php_MongoDB1.log&lt;/p&gt;
-&lt;p&gt;mikoomi-mongodb-plugin.php:Successfully connected to mongoDB using connect string root:passworda@MongDB1:27017
-zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required&lt;/p&gt;
-&lt;p&gt;zabbix_sender [8413]: Warning: [line 68] ‘Key value’ required&lt;/p&gt;
-&lt;p&gt;zabbix_sender [8414]: DEBUG: answer [{&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="s"&gt;&amp;quot;response&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;success&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-
-    &lt;span class="s"&gt;&amp;quot;info&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Processed 58 Failed 13 Total 71 Seconds spent 0.001618&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;sent: 71; skipped: 2; total: 73&lt;/p&gt;
-&lt;p&gt;/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名&lt;/code&gt;&lt;/p&gt;&lt;script type= "text/javascript"&gt;
-    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-        var mathjaxscript = document.createElement('script');
-        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-        mathjaxscript.type = 'text/javascript';
-        mathjaxscript.src = 'https:' == document.location.protocol
-                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
-                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" +
-            "    config: ['MMLorHTML.js']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    displayAlign: 'center'," +
-            "    displayIndent: '0em'," +
-            "    showMathMenu: true," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true," +
-            "        preview: 'TeX'," +
-            "    }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-    }
-&lt;/script&gt;
-</summary><category term="zabbix"></category></entry></feed>
+</summary><category term="vagrant"></category></entry></feed>
