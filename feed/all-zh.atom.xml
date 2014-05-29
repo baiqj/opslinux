@@ -7,6 +7,8 @@
 &lt;li&gt;函数&lt;/li&gt;
 &lt;li&gt;递归&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;课后可看培强同学的笔记，写的非常棒，整理的比我好：&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://peiqiang.net/2014/05/29/learn-python-from-binge.html"&gt;培强的笔记&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://opslinux.com/sublime_python.html"&gt;配置sublime打造python编辑器&lt;/a&gt;&lt;/p&gt;
 &lt;video width="800" height="600" controls="controls"&gt;&lt;source src="movie.ogg" type="video/ogg" /&gt;&lt;source src="http://opslinux.qiniudn.com/2.%E4%BA%BA%E4%BA%BA%E9%83%BD%E7%88%B1%E5%88%97%E8%A1%A8(%E4%BA%8C).mp4" type="video/mp4" /&gt;Your browser does not support the video tag.&lt;/video&gt;</summary><category term="python"></category></entry><entry><title>配置sublime打造python编辑器</title><link href="http://opslinux.com/sublime_python.html" rel="alternate"></link><updated>2014-05-26T09:46:24+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-26:sublime_python.html</id><summary type="html">
 &lt;p&gt;昨晚长夜漫漫，无心睡眠，运维开发群里交谈不断，突然一位常用vim的同学想开速的学习下sublime的配置，来开发python，由于本人一直使用sublime开发python web项目，索性把自己的配置过程写下来，方便大家交流。&lt;/p&gt;
