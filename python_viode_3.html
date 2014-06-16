@@ -7,23 +7,22 @@
         <meta name="author" content="创e" />
         <meta name="copyright" content="创e" />
 
-        <meta name="description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...
-" />
+        <meta name="description" content="" />
 
 <meta name="keywords" content="python, python, " />
 
-<meta property="og:title" content="python中的urlencode与urldecode "/>
+<meta property="og:title" content="python开发实践(三) "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" />
-<meta property="og:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ..." />
+<meta property="og:url" content="http://opslinux.com/python_viode_3.html" />
+<meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2013-11-01T12:51:00" />
+<meta property="og:article:published_time" content="2014-06-16T09:45:03" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python中的urlencode与urldecode ">
-<meta name="twitter:description" content="转载： 地址. 概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。 当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。 一、urlencode urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&b=2这样的字符串，比如: >>> from urllib import urlencode >>> data = { ... 'a': 'test', ... 'name': '魔兽' ... } >>> print urlencode(data) a=test&amp;name=%C4%A7%CA%DE ...">
+<meta name="twitter:title" content="python开发实践(三) ">
+<meta name="twitter:description" content="">
 
-        <title>python中的urlencode与urldecode  · 老运维创e
+        <title>python开发实践(三)  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -67,74 +66,36 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html"> python中的urlencode与urldecode  </a></h1>
+    <h1><a href="http://opslinux.com/python_viode_3.html"> python开发实践(三)  </a></h1>
     </header>
 </div>
 
 <div class="row-fluid">
-    <div class="span2 table-of-content">
-        <nav>
-        <h4>Contents</h4>
-        <div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
+        <div class="span8 offset2 article-content">
+
+            
+            <p>共享你的代码</p>
+<p>人人都爱列表课程知识点：</p>
 <ul class="simple">
-<li><a class="reference internal" href="#urlencode" id="id3">一、urlencode</a></li>
-<li><a class="reference internal" href="#urldecode" id="id4">二、urldecode</a></li>
-<li><a class="reference internal" href="#id2" id="id5">三、讨论</a></li>
+<li>编辑器</li>
+<li>注释</li>
+<li>命名空间</li>
+<li>PyPi</li>
+<li>上传</li>
 </ul>
-</div>
-        </nav>
-    </div>
-    <div class="span8 article-content">
-
-            
-            
-<p>转载： <a class="reference external" href="http://luchanghong.com/python/2012/07/11/python-urlencode-and-urldecode.html">地址</a>.</p>
-<p>概要：python 通过 HTTP 交互处理数据的时候，url 里面的中文以及特殊字符要做处理的，来学习一下 urlencode 与 urldecode 之间相互转换的方法。
-当url地址含有中文，或者参数有中文的时候，这个算是很正常了，但是把这样的url作为参数传递的时候（最常见的callback），需要把一些中文甚至'/'做一下编码转换。</p>
-<div class="section" id="urlencode">
-<h2><a class="toc-backref" href="#id3">一、urlencode</a></h2>
-<p>urllib库里面有个urlencode函数，可以把key-value这样的键值对转换成我们想要的格式，返回的是a=1&amp;b=2这样的字符串，比如:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import urlencode
-&gt;&gt;&gt; data = {
-...     'a': 'test',
-...     'name': '魔兽'
-... }
-&gt;&gt;&gt; print urlencode(data)
-a=test&amp;amp;name=%C4%A7%CA%DE
-</pre>
-<p>如果只想对一个字符串进行urlencode转换，怎么办？urllib提供另外一个函数：quote()</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import quote
-&gt;&gt;&gt; quote('魔兽')
-'%C4%A7%CA%DE'
-</pre>
-</div>
-<div class="section" id="urldecode">
-<h2><a class="toc-backref" href="#id4">二、urldecode</a></h2>
-<p>当urlencode之后的字符串传递过来之后，接受完毕就要解码了——urldecode。urllib提供了unquote()这个函数，可没有urldecode()！:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; from urllib import unquote
-&gt;&gt;&gt; unquote('%C4%A7%CA%DE')
-'\xc4\xa7\xca\xde'
-&gt;&gt;&gt; print unquote('%C4%A7%CA%DE')
-魔兽
-</pre>
-</div>
-<div class="section" id="id2">
-<h2><a class="toc-backref" href="#id5">三、讨论</a></h2>
-<p>在做urldecode的时候，看unquote()这个函数的输出，是对应中文在gbk下的编码，在对比一下quote()的结果不难发现，所谓的urlencode就是把字符串转车gbk编码，然后把\x替换成%。如果你的终端是utf8编码的，那么要把结果再转成utf8输出，否则就乱码。</p>
-<p>可以根据实际情况，自定义或者重写urlencode()、urldecode()等函数。</p>
-</div>
-
+<p>上传PyPi没有成功，因为nester这个模块名已经有了，大家可以更改下名字，再上传测试，这个作为作业。</p>
+<p>测试完成 你就可以使用如下命令安装：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>pip install nester  #nester为你自己的模块名
+</pre></div>
+</td></tr></table><p>关于编辑器 可以看  <a class="reference external" href="http://opslinux.com/sublime_python.html">配置sublime打造python编辑器</a>   先可以有了自己的需求感觉不方便可参考配置。</p>
+<video width="800" height="600" controls="controls"><source src="movie.ogg" type="video/ogg" /><source src="http://opslinux.qiniudn.com/2.%E4%BA%BA%E4%BA%BA%E9%83%BD%E7%88%B1%E5%88%97%E8%A1%A8(%E4%BA%8C).mp4" type="video/mp4" />Your browser does not support the video tag.</video>
             
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html#disqus_thread">
+                href="http://opslinux.com/python_viode_3.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -144,8 +105,8 @@ a=test&amp;amp;name=%C4%A7%CA%DE
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html';
-    var disqus_url = 'http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html';
+        var disqus_identifier = 'http://opslinux.com/python_viode_3.html';
+    var disqus_url = 'http://opslinux.com/python_viode_3.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -183,13 +144,13 @@ var duoshuoQuery = {short_name:"ops"};
 <ul class="related-posts-list">
 <li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
 <li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
-<li><a href="http://opslinux.com/python_viode_3.html" title="python开发实践(三)">python开发实践(三)</a></li>
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
 <li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
 <li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
 <li><a href="http://opslinux.com/Django_Console_logging_to_STDOUT-.html" title="Django错误日志在命令行显示">Django错误日志在命令行显示</a></li>
 <li><a href="http://opslinux.com/Django_shell.html" title="Django启动shell脚本">Django启动shell脚本</a></li>
 <li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
+<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
 <li><a href="http://opslinux.com/sublime_python.html" title="配置sublime打造python编辑器">配置sublime打造python编辑器</a></li>
 </ul>
 <hr />
@@ -197,8 +158,7 @@ var duoshuoQuery = {short_name:"ops"};
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/nginxda-zao-3wgao-bing-fa-wang-zhan.html" title="Previous: Nginx打造3w高并发网站">Nginx打造3w高并发网站</a></li>
-                <li class="next-article"><a href="http://opslinux.com/http-header-xiang-jie.html" title="Next: HTTP Header 详解">HTTP Header 详解</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/python_viode_2.html" title="Previous: python开发实践(二)">python开发实践(二)</a></li>
             </ul>
             </nav>
             </aside>
@@ -206,7 +166,7 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2013-11-01T12:51:00">Nov 1, 2013</time>
+            <time pubdate="pubdate" datetime="2014-06-16T09:45:03">Jun 16, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
