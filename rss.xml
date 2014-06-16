@@ -108,8 +108,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Tue, 27 May 2014 21:04:59 +0800</pubDate><guid>tag:opslinux.com,2014-05-27:Django_Console_logging_to_STDOUT-.html</guid><category>Django</category><category>python</category></item><item><title>配置sublime打造python编辑器</title><link>http://opslinux.com/sublime_python.html</link><description>
 &lt;p&gt;昨晚长夜漫漫，无心睡眠，运维开发群里交谈不断，突然一位常用vim的同学想开速的学习下sublime的配置，来开发python，由于本人一直使用sublime开发python web项目，索性把自己的配置过程写下来，方便大家交流。&lt;/p&gt;
-&lt;div class="section" id="id1"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;安装配置&lt;/a&gt;&lt;/h2&gt;
+&lt;hr class="docutils"/&gt;
 &lt;p&gt;首先，安装上sublime这个就不多说了，本人使用的是宿便sublime Text2 虽然出3了，但是有些插件还没有支持索性不用3。&lt;/p&gt;
 &lt;p&gt;进入下面的配置文件：&lt;/p&gt;
 &lt;p&gt;Preferences ——》Settings - Default&lt;/p&gt;
@@ -142,12 +141,10 @@
      "word_wrap": true
 }
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;插件&lt;/a&gt;&lt;/h3&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;插件&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="package-control"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;Package Control&lt;/a&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Package Control&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;包管理器是必备的，新下载的Sublime Text 2第一个装的肯定是这个，有了它，装其他的包就很方便了。
 安装方式有两种，第一种是在线下载安装：在 Sublime Text 2 中按下 "ctrl+`"（就是大键盘数字1左边的那个键），拷贝以下命令到窗口下部的终端中，&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
@@ -156,7 +153,7 @@
 &lt;p&gt;然后就可以通过"command+Shift+P"打开命令面板，输入"install"命令，选择“Package Control: Install Package”，然后输入要安装的包的名称，就可以在线安装了。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sublimecodeintel"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;SublimeCodeIntel插件&lt;/a&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;SublimeCodeIntel插件&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;智能提示插件，这个插件的智能提示功能非常强大，可以自定义提示的内容库&lt;/p&gt;
 &lt;p&gt;Preferences ——》Package Settings ——》SublimeCodeIntel ——》Settings - Default&lt;/p&gt;
 &lt;p&gt;修改里面python的配置，如下：&lt;/p&gt;
@@ -181,23 +178,25 @@
 &lt;p&gt;sudo pip install pep8&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sublimelinter"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id8"&gt;SublimeLinter&lt;/a&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;SublimeLinter&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这是用来在写代码时做代码检查的。可以在包管理器中安装。写Python程序的话，它还会帮你查代码是否符合PEP8的要求。有问题有代码会出现白框，点击时底下的状态栏会提示出什么问题。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python-pep8-autoformat"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id9"&gt;Python PEP8 Autoformat&lt;/a&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;Python PEP8 Autoformat&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;这是用来按PEP8自动格式化代码的。可以在包管理器中安装。如果以前写程序不留意的话，用SublimeLinter一查，满屏都是白框框，只要装上这个包，按ctrl+shift+r，代码就会按PEP8要求自动格式化了，一屏的白框几乎都消失了&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gitgutter"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;GitGutter&lt;/a&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;GitGutter&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;它基于git查看代码行是被增加，修改还是删除，在行数的前面显示如下：&lt;/p&gt;
 &lt;img alt="GitGutter" class="align-center" src="http://opslinux.qiniudn.com/b4d952ccb1_183250-7WIb-865233.png"/&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sidebarenhancements"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;SideBarEnhancements&lt;/a&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;SideBarEnhancements&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;可以大大加强在侧栏目录树中右键的选项&lt;/p&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;快捷键&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id10"&gt;快捷键&lt;/a&gt;&lt;/h2&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
 3
@@ -209,7 +208,6 @@ command + alt + num //多屏查看文件
 command + k + b    //切换左侧目录面板
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
