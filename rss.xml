@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 26 Aug 2014 20:11:46 +0800</lastBuildDate><item><title>sublime 支持开发 coffeescript compass sass</title><link>http://opslinux.com/sublime_coffeescript_compass_sass_1-.html</link><description>&lt;p&gt;没啥难的看我的节奏：&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 26 Aug 2014 20:11:46 +0800</lastBuildDate><item><title>sublime 支持开发 coffeescript compass sass</title><link>http://opslinux.com/sublime_coffeescript_compass_sass.html</link><description>&lt;p&gt;没啥难的看我的节奏：&lt;/p&gt;
 &lt;p&gt;使用Shift + command + P调出命令面板：&lt;/p&gt;
 &lt;p&gt;输入 install 调出 Package Control: Install Package 选项，按下回车&lt;/p&gt;
 &lt;p&gt;在列表中分别找到 CoffeeScript，compass，sass和sass build按下回车进行安装&lt;/p&gt;
 &lt;p&gt;重启Sublime Text 2使之生效&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Tue, 26 Aug 2014 20:11:46 +0800</pubDate><guid>tag:opslinux.com,2014-08-26:sublime_coffeescript_compass_sass_1-.html</guid><category>sublime offeescript compass sass</category></item><item><title>python开发实践(三)</title><link>http://opslinux.com/python_viode_3.html</link><description>&lt;p&gt;共享你的代码&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">创e</dc:creator><pubDate>Tue, 26 Aug 2014 20:11:46 +0800</pubDate><guid>tag:opslinux.com,2014-08-26:sublime_coffeescript_compass_sass.html</guid><category>sublime offeescript compass sass</category></item><item><title>python开发实践(三)</title><link>http://opslinux.com/python_viode_3.html</link><description>&lt;p&gt;共享你的代码&lt;/p&gt;
 &lt;p&gt;人人都爱列表课程知识点：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;编辑器&lt;/li&gt;
