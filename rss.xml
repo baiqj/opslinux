@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 26 Aug 2014 20:11:46 +0800</lastBuildDate><item><title>sublime_coffeescript_compass_sass</title><link>http://opslinux.com/sublime_coffeescript_compass_sass-.html</link><description>&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/sublime支持开发 coffeescript compass sass.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
-&lt;p&gt;Title underline too short.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-sublime支持开发 coffeescript compass sass
-########################################
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;没啥难的看我的节奏：&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>老运维创e</title><link>http://opslinux.com/</link><description>分享技术</description><atom:link href="http://opslinux.com/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 26 Aug 2014 20:11:46 +0800</lastBuildDate><item><title>sublime_coffeescript_compass_sass</title><link>http://opslinux.com/sublime_coffeescript_compass_sass-.html</link><description>&lt;p&gt;没啥难的看我的节奏：&lt;/p&gt;
 &lt;p&gt;使用Shift + command + P调出命令面板：&lt;/p&gt;
 &lt;p&gt;输入 install 调出 Package Control: Install Package 选项，按下回车&lt;/p&gt;
 &lt;p&gt;在列表中分别找到 CoffeeScript，compass，sass和sass build按下回车进行安装&lt;/p&gt;
