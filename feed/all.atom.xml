@@ -4,7 +4,7 @@
 &lt;p&gt;输入 install 调出 Package Control: Install Package 选项，按下回车&lt;/p&gt;
 &lt;p&gt;在列表中分别找到 CoffeeScript，compass，sass和sass build按下回车进行安装&lt;/p&gt;
 &lt;p&gt;重启Sublime Text 2使之生效&lt;/p&gt;
-</summary><category term="sublime offeescript compass sass"></category></entry><entry><title>python开发实践(三)</title><link href="http://opslinux.com/python_viode_3.html" rel="alternate"></link><updated>2014-06-16T09:45:03+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-06-16:python_viode_3.html</id><summary type="html">&lt;p&gt;共享你的代码&lt;/p&gt;
+</summary><category term="sublime"></category></entry><entry><title>python开发实践(三)</title><link href="http://opslinux.com/python_viode_3.html" rel="alternate"></link><updated>2014-06-16T09:45:03+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-06-16:python_viode_3.html</id><summary type="html">&lt;p&gt;共享你的代码&lt;/p&gt;
 &lt;p&gt;人人都爱列表课程知识点：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;编辑器&lt;/li&gt;
