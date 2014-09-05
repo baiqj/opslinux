@@ -8,7 +8,15 @@
 &lt;p&gt;最后，把目标转化成自己要学的技术，比如我要学的技术就是linux和c，相关的书籍《unix环境编程》《unix网络编程》《unix编程艺术》《c语言程序设计》&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python"&gt;
-&lt;h2&gt;关于python实战视频&lt;/h2&gt;
+&lt;h2&gt;关于python开发实践视频&lt;/h2&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/ce/workspace/pelican/blog/content/谈工作谈技术.rst&lt;/tt&gt;, line 27)&lt;/p&gt;
+&lt;p&gt;Title underline too short.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+关于python开发实践视频
+====================
+&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;1 初识Python:人人都爱列表&lt;/p&gt;
 &lt;p&gt;2 共享你的代码：函数模块&lt;/p&gt;
 &lt;p&gt;3 文件与异常：处理错误&lt;/p&gt;
