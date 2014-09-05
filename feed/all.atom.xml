@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-08-26T20:11:46+08:00</updated><entry><title>sublime 支持开发 coffeescript compass sass</title><link href="http://opslinux.com/sublime_coffeescript_compass_sass.html" rel="alternate"></link><updated>2014-08-26T20:11:46+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-08-26:sublime_coffeescript_compass_sass.html</id><summary type="html">&lt;p&gt;没啥难的看我的节奏：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-09-02T20:10:14+08:00</updated><entry><title>谈工作谈技术谈视频</title><link href="http://opslinux.com/talk_work_technology_video.html" rel="alternate"></link><updated>2014-09-02T20:10:14+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-09-02:talk_work_technology_video.html</id><summary type="html">&lt;p&gt;今天，谈谈工作，谈谈技术，谈谈理想，谈谈人生&lt;/p&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;工作&lt;/h2&gt;
+&lt;p&gt;最近，又换了份工作，其实本来是不想走的，但是由于自己太浮躁，换了部门，导致自己没活干，天天混日子也不是我的性格，所以最终确定还是找个靠谱的python业务开发。离职当天，我就高烧39°，战胜病魔后，我痛定思痛，总结了很多，在这里跟大家分享一下。&lt;/p&gt;
+&lt;p&gt;首先，自己好胜心太强，以至于太急躁，没活干的时候总是胡思乱想，导致了自己换部门，以后在没活干的时候正好是自己积累和学习的过程是个很难得的机会，要好好把握。所以不管干什么要谋定而后动。&lt;/p&gt;
+&lt;p&gt;其次，要找到自己工作的目标，有了目标就不会胡乱去想。&lt;/p&gt;
+&lt;p&gt;最后，把目标转化成自己要学的技术，比如我要学的技术就是linux和c，相关的书籍《unix环境编程》《unix网络编程》《unix编程艺术》《c语言程序设计》&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python"&gt;
+&lt;h2&gt;关于python实战视频&lt;/h2&gt;
+&lt;p&gt;1 初识Python:人人都爱列表
+2 共享你的代码：函数模块
+3 文件与异常：处理错误
+4 持久存储：数据保存到文件
+5 推导数据：处理数据！
+6 定制数据对象：打包代码与数据&lt;/p&gt;
+&lt;p&gt;6课，一共12课时，我答应大家的一定会去录制，最近灿哥正好组织培训分享，我也会加入进去。2个多月没更新视频，一是自己这段时间总是在考虑工作的事，二是在想用什么更好的方式传播分享知识，其实文字是最好的方式，但是文字有时候又不太好表达，自己的文字功底还没练到家。所以我也会尝试的去做一做，基础课程录制完成，稍微的写下gitbook。当做日后实战的教材也好。基础的课程我就不在写太多文字的东西了，因为我是以head first python 为基础录制的，希望大家可以支持他们一下。&lt;/p&gt;
+&lt;p&gt;这几年一直在琢磨培训学习的事，也是业余培训讲师，随着年岁的增长如果自己发现了更好的学习方法和方式，也会再跟大家分享，弄不好会自己写一本编程的基础书籍。&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="随笔"></category></entry><entry><title>sublime 支持开发 coffeescript compass sass</title><link href="http://opslinux.com/sublime_coffeescript_compass_sass.html" rel="alternate"></link><updated>2014-08-26T20:11:46+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-08-26:sublime_coffeescript_compass_sass.html</id><summary type="html">&lt;p&gt;没啥难的看我的节奏：&lt;/p&gt;
 &lt;p&gt;使用Shift + command + P调出命令面板：&lt;/p&gt;
 &lt;p&gt;输入 install 调出 Package Control: Install Package 选项，按下回车&lt;/p&gt;
 &lt;p&gt;在列表中分别找到 CoffeeScript，compass，sass和sass build按下回车进行安装&lt;/p&gt;
@@ -1424,74 +1443,4 @@ Django版本：1.6.2&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="django"></category><category term="python"></category></entry><entry><title>python实现控制Mplayer</title><link href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" rel="alternate"></link><updated>2014-03-26T16:39:05+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-03-26:pythonshi-xian-kong-zhi-mplayer.html</id><summary type="html">
-&lt;p&gt;今天有这么一个需求，让用python来控制MPlayer，实现一个简单的web，功能有：暂停，播放，快进，快退，显示播放list，进度，显示当前播放文件名等等，本着不重复造轮子的理念，在Google一搜，发现了&lt;a class="reference external" href="https://code.google.com/p/python-mplayer/"&gt;mplayer.py&lt;/a&gt;这个神器，来马上试用一下。&lt;/p&gt;
-&lt;div class="section" id="mplayer"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Mplayer安装&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;我都用的是Mac系统（怎么这么不低调呢，这毛病什么时候能改），安装了MplayerX一到命令行输入：mplayer命令发现没命令，我就慌了，职业病的拿起brew进行安装：&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;brew install mplayer
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;没想到还真提示有包，安装ing。&lt;/p&gt;
-&lt;p&gt;当然，Ubuntu也不能少：&lt;/p&gt;
-&lt;p&gt;apt-get install mplayer&lt;/p&gt;
-&lt;p&gt;应该不会发生什么太大问题&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="mplayer-py"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;mplayer.py&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="section" id="id1"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;安装&lt;/a&gt;&lt;/h3&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pip install mplayer.py
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;还是非常的方便&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id2"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;测试&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;进入python命令行，我们来测试：&lt;/p&gt;
-&lt;p&gt;(env)ce@mac:~&amp;gt; python
-Python 2.7.5 (default, Aug 25 2013, 00:04:04)
-[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.&lt;/p&gt;
-&lt;pre class="doctest-block"&gt;
-&amp;gt;&amp;gt;&amp;gt;
-&lt;/pre&gt;
-&lt;pre class="doctest-block"&gt;
-&amp;gt;&amp;gt;&amp;gt; from mplayer import Player, CmdPrefix
-&lt;/pre&gt;
-&lt;p&gt;根据文档，先引入需要的函数&lt;/p&gt;
-&lt;pre class="doctest-block"&gt;
-&amp;gt;&amp;gt;&amp;gt; Player.cmd_prefix = CmdPrefix.PAUSING_KEEP
-&lt;/pre&gt;
-&lt;p&gt;设置默认前缀为所有player的实例&lt;/p&gt;
-&lt;pre class="doctest-block"&gt;
-&amp;gt;&amp;gt;&amp;gt; player = Player()
-&lt;/pre&gt;
-&lt;p&gt;建立实例&lt;/p&gt;
-&lt;pre class="doctest-block"&gt;
-&amp;gt;&amp;gt;&amp;gt; player.loadfile('/path/to/file.mkv')
-&lt;/pre&gt;
-&lt;p&gt;引入文件，引入后文件就被打开了&lt;/p&gt;
-&lt;p&gt;这时候我们可以dir player来看看他都有什么方法让我们使用&lt;/p&gt;
-&lt;pre class="doctest-block"&gt;
-&amp;gt;&amp;gt;&amp;gt; dir(player)
-['__class__', '__del__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_args', '_base_args', '_gen_method_func', '_gen_propdoc', '_generate_methods', '_generate_properties', '_proc', '_process_args', '_propget', '_propset', '_run_command', '_stderr', '_stdout', 'af_add', 'af_clr', 'af_cmdline', 'af_del', 'af_switch', 'alt_src_step', 'angle', 'args', 'aspect', 'ass_use_margins', 'audio_bitrate', 'audio_codec', 'audio_delay', 'audio_format', 'balance', 'border', 'brightness', 'capturing', 'change_rectangle', 'channels', 'chapter', 'chapters', 'cmd_prefix', 'contrast', 'deinterlace', 'demuxer', 'dvdnav', 'edl_loadfile', 'edl_mark', 'exec_path', 'exit', 'file_filter', 'filename', 'forced_subs_only', 'fps', 'frame_drop', 'frame_step', 'framedropping', 'fullscreen', 'gamma', 'gui', 'height', 'help', 'hide', 'hue', 'introspect', 'is_alive', 'key_down_event', 'length', 'loadfile', 'loadlist', 'loop', 'menu', 'metadata', 'mute', 'ontop', 'osd', 'osd_show_progression', 'osd_show_property_text', 'osd_show_text', 'osdlevel', 'overlay_add', 'overlay_remove', 'panscan', 'path', 'pause', 'paused', 'percent_pos', 'pt_step', 'pt_up_step', 'quit', 'rootwin', 'run', 'samplerate', 'saturation', 'screenshot', 'seek', 'seek_chapter', 'set_menu', 'set_mouse_pos', 'spawn', 'speed', 'speed_incr', 'speed_mult', 'speed_set', 'stderr', 'stdout', 'stop', 'stream_end', 'stream_length', 'stream_pos', 'stream_start', 'stream_time_pos', 'sub', 'sub_alignment', 'sub_delay', 'sub_demux', 'sub_file', 'sub_forced_only', 'sub_load', 'sub_log', 'sub_pos', 'sub_remove', 'sub_scale', 'sub_select', 'sub_source', 'sub_step', 'sub_visibility', 'sub_vob', 'switch_angle', 'switch_audio', 'switch_program', 'switch_ratio', 'switch_title', 'switch_video', 'switch_vsync', 'teletext_add_dec', 'teletext_format', 'teletext_go_link', 'teletext_half_page', 'teletext_mode', 'teletext_page', 'teletext_subpage', 'time_pos', 'titles', 'tv_brightness', 'tv_contrast', 'tv_hue', 'tv_last_channel', 'tv_saturation', 'tv_set_brightness', 'tv_set_channel', 'tv_set_contrast', 'tv_set_freq', 'tv_set_hue', 'tv_set_norm', 'tv_set_saturation', 'tv_start_scan', 'tv_step_chanlist', 'tv_step_channel', 'tv_step_freq', 'tv_step_norm', 'use_master', 'version', 'video_bitrate', 'video_codec', 'video_format', 'vo_border', 'vo_fullscreen', 'vo_ontop', 'vo_rootwin', 'vobsub_lang', 'volume', 'vsync', 'width']
-&lt;/pre&gt;
-&lt;p&gt;very well！&lt;/p&gt;
-&lt;p&gt;看来我们的需求是可以搞定了！&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;需要的方法&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;下面罗列下需要使用的方法：&lt;/p&gt;
-&lt;p&gt;player.pause()   #暂停&lt;/p&gt;
-&lt;p&gt;player.filename  #显示文件名&lt;/p&gt;
-&lt;p&gt;player.time_pos += 5  #快进5s&lt;/p&gt;
-&lt;p&gt;player.time_pos -= 5  #快退5s&lt;/p&gt;
-&lt;p&gt;player.stream_length #查看视频长度&lt;/p&gt;
-&lt;p&gt;player.stream_pos   #查看视频现在的位置， 根据上面可以做出进度条&lt;/p&gt;
-&lt;p&gt;player.volume  #显示音量&lt;/p&gt;
-&lt;p&gt;player.volume(+30.0)  #升高音量&lt;/p&gt;
-&lt;p&gt;player.volume(-30.0)  #降低音量&lt;/p&gt;
-&lt;p&gt;player.quit()  #关闭视频&lt;/p&gt;
-&lt;p&gt;好ok，有了以上功能大家是不是就已经可以控制Mplayer拉？现在就只差web界面了。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="mplayer"></category><category term="python"></category></entry></feed>
+</summary><category term="django"></category><category term="python"></category></entry></feed>
