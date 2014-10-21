@@ -6,11 +6,11 @@
 :tags: ipython,python
 :category: python
 :author: 创e
-:lang: 
 :summary: 
 
 .. image:: http://opslinux.qiniudn.com/IPython_logo.png
     :alt: ipython
+    :align: center
 
 
 今天看到有朋友在用ipython，我也好久没用了，索性装一下

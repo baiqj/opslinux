@@ -6,28 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="创e" />
         <meta name="copyright" content="创e" />
-    
-    <script type= "text/javascript">
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.src = 'https:' == document.location.protocol ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js' : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'; 
-        s[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" + 
-            "    config: ['MMLorHTML.js']," + 
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS','output/NativeMML']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," + 
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax .mo, .MathJax .mi': {color: 'black ! important'}} " +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(s);
-    </script>
-
 
         <meta name="description" content="zabbix监控mongoDB 推荐文档： 官方推荐：http://docs.mongodb.org/manual/administration/monitoring/ 因我使用的是zabbix.所以选择： https://code.google.com/p/mikoomi/wiki/03 插件下载地址： http://mikoomi.googlecode.com/svn/plugins/MongoDB%20Plugin/ 学习地址： https://blog.serverdensity.com/mongodb-monitoring-db-serverstatus/ http://www.yaukb.com/2012/05/zabbix_mongodb/ 1.在Zabbix Server上安装php MongoDB驱动： [root@localhost conf.d ...
 " />
@@ -71,8 +49,8 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://opslinux.com">Home</a></li>
-                            <li ><a href="http://opslinux.com/about.html">about</a></li>
-                            <li ><a href="http://opslinux.com/links.html">links</a></li>
+                            <li ><a href="http://opslinux.com/pages/about.html">about</a></li>
+                            <li ><a href="http://opslinux.com/pages/links.html">links</a></li>
                             <li ><a href="http://opslinux.com/categories.html">Categories</a></li>
                             <li ><a href="http://opslinux.com/tags.html">Tags</a></li>
                             <li ><a href="http://opslinux.com/archives.html">Archives</a></li>
@@ -160,10 +138,39 @@ zabbix_sender [8413]: Warning: [line 66] ‘Key value’ required</p>
 
 <p>sent: 71; skipped: 2; total: 73</p>
 <p>/tmp/mikoomi-mongodb-plugin.php_MongDB1.log (END)</p>
-<p><code>若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名</code></p>
+<p><code>若出现  Failed 的数目和 Total数目相等的话 应该是  mikoomi-mongodb-plugin.sh 后面-z参数的 hostname没写对 这个hostname是zabbix主机的hostname即主机名 而不是显示名</code></p><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             
             <section>
-<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
@@ -234,16 +241,14 @@ var duoshuoQuery = {short_name:"ops"};
 </a></li>
             </ul>
 <h4>Contact</h4>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
+    <a href="mailto:zbing3@163.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/zb311" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/zbing3" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://opslinux.com/feed/all.atom.xml" title="My RSS Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-rss sidebar-social-links"></i></a>
         </div>
         </section>
 </div>
@@ -259,7 +264,7 @@ var duoshuoQuery = {short_name:"ops"};
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-subtitle"><span class="site-name">老运维创e</span> - 分享技术</li>
-        <li class="elegant-license">Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> 老运维创e</span></a>. All Rights Reserved.  <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
+        <li class="elegant-license">Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> 老运维创e</span></a>. All Rights Reserved. <a href="http://opslinux.com/rss.xml">网站地图</a> <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
     </ul>
 </div>

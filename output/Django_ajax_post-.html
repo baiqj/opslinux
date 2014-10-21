@@ -6,28 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="创e" />
         <meta name="copyright" content="创e" />
-    
-    <script type= "text/javascript">
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.src = 'https:' == document.location.protocol ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js' : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'; 
-        s[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" + 
-            "    config: ['MMLorHTML.js']," + 
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS','output/NativeMML']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," + 
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax .mo, .MathJax .mi': {color: 'black ! important'}} " +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(s);
-    </script>
-
 
         <meta name="description" content="" />
 
@@ -70,8 +48,8 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://opslinux.com">Home</a></li>
-                            <li ><a href="http://opslinux.com/about.html">about</a></li>
-                            <li ><a href="http://opslinux.com/links.html">links</a></li>
+                            <li ><a href="http://opslinux.com/pages/about.html">about</a></li>
+                            <li ><a href="http://opslinux.com/pages/links.html">links</a></li>
                             <li ><a href="http://opslinux.com/categories.html">Categories</a></li>
                             <li ><a href="http://opslinux.com/tags.html">Tags</a></li>
                             <li ><a href="http://opslinux.com/archives.html">Archives</a></li>
@@ -226,10 +204,39 @@
 </pre></div>
 </td></tr></table><p>nickname函数 当时POST的时候，获取nickname值，然后为了方便显示就直接使用return HttpResponse(nickname) 直接展示出来nickname值</p>
 </div>
+<script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
 
             
             <section>
-<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
@@ -281,8 +288,8 @@ var duoshuoQuery = {short_name:"ops"};
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/python_and_highcharts-.html" title="Previous: python和highcharts制作图表">python和highcharts制作图表</a></li>
-                <li class="next-article"><a href="http://opslinux.com/Time_Complexity-.html" title="Next: 算法的时间复杂度">算法的时间复杂度</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/python_and_highcharts.html" title="Previous: python和highcharts制作图表">python和highcharts制作图表</a></li>
+                <li class="next-article"><a href="http://opslinux.com/Time_Complexity.html" title="Next: 算法的时间复杂度">算法的时间复杂度</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -300,16 +307,14 @@ var duoshuoQuery = {short_name:"ops"};
 </a></li>
             </ul>
 <h4>Contact</h4>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
-    <a href="url" title="My url Profile" class="sidebar-social-links" target="_blank">
-    <i class="fa fa-icon sidebar-social-links"></i></a>
+    <a href="mailto:zbing3@163.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://weibo.com/zb311" title="My Weibo Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-weibo sidebar-social-links"></i></a>
+    <a href="https://github.com/zbing3" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="http://opslinux.com/feed/all.atom.xml" title="My RSS Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-rss sidebar-social-links"></i></a>
         </div>
         </section>
 </div>
@@ -325,7 +330,7 @@ var duoshuoQuery = {short_name:"ops"};
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-subtitle"><span class="site-name">老运维创e</span> - 分享技术</li>
-        <li class="elegant-license">Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> 老运维创e</span></a>. All Rights Reserved.  <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
+        <li class="elegant-license">Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> 老运维创e</span></a>. All Rights Reserved. <a href="http://opslinux.com/rss.xml">网站地图</a> <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a></li>
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
     </ul>
 </div>

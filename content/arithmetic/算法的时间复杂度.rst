@@ -6,7 +6,6 @@
 :tags: 算法,Arithmetic,Time Complexity
 :category: 算法
 :author: 创e
-:lang: 
 :summary: 
 
 

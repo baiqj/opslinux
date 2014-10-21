@@ -6,7 +6,6 @@ python和highcharts制作图表
 :tags: highcharts
 :category: python
 :author: 创e
-:lang: 
 :summary: 
 
 .. contents::

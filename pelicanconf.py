@@ -85,41 +85,64 @@ EXTRA_PATH_METADATA = {
 ###########################################################
 ##                     URL settings                      ##
 ###########################################################
+
 ARTICLE_URL = '{slug}.html'
 ARTICLE_SAVE_AS = '{slug}.html'
 
 # ARTICLE_URL = 'post/{date:%Y}-{date:%m}-{date:%d}-{slug}/'
 # ARTICLE_SAVE_AS = 'post/{date:%Y}-{date:%m}-{date:%d}-{slug}/index.html'
 
-ARTICLE_LANG_URL = '{slug}-{lang}.html'
-ARTICLE_LANG_SAVE_AS = '{slug}-{lang}.html'
+CATEGORY_URL = 'categories.html#{slug}-ref'
+CATEGORY_SAVE_AS = ''
+CATEGORIES_URL = 'categories.html'
+CATEGORIES_SAVE_AS = 'categories.html'
+TAG_URL = 'tags.html#{slug}-ref'
+TAG_SAVE_AS = ''
+TAGS_URL = 'tags.html'
+TAGS_SAVE_AS = 'tags.html'
+AUTHOR_URL = ''
+AUTHOR_SAVE_AS = ''
+AUTHORS_URL = ''
+AUTHORS_SAVE_AS = ''
+ARCHIVES_SAVE_AS = 'archives.html'
+# YEAR_ARCHIVE_SAVE_AS = False
+# MONTH_ARCHIVE_SAVE_AS = False
 
-PAGE_URL = '{slug}.html'
-PAGE_SAVE_AS = '{slug}.html'
-PAGE_LANG_URL = '{slug}-{lang}'
-PAGE_LANG_SAVE_AS = '{slug}-{lang}.html'
+DEFAULT_PAGINATION = False
+# ARTICLE_LANG_URL = '{slug}-{lang}.html'
+# ARTICLE_LANG_SAVE_AS = '{slug}-{lang}.html'
 
-CATEGORY_URL = 'category/{slug}/'
-CATEGORY_SAVE_AS = 'category/{slug}/index.html'
-CATEGORIES_URL = 'categories/'
-CATEGORIES_SAVE_AS = 'categories/index.html'
+# PAGE_URL = '{slug}.html'
+# PAGE_SAVE_AS = '{slug}.html'
+# PAGE_LANG_URL = '{slug}-{lang}'
+# PAGE_LANG_SAVE_AS = '{slug}-{lang}.html'
 
-TAG_URL = 'tag/{slug}/'
-TAG_SAVE_AS = 'tag/{slug}/index.html'
-TAGS_URL = 'tags/'
-TAGS_SAVE_AS = 'tags/index.html'
+# CATEGORY_URL = 'category/{slug}/'
+# # CATEGORY_URL = 'categories.html#{slug}-ref'
+# CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+# CATEGORIES_URL = 'categories/'
+# CATEGORIES_SAVE_AS = 'categories/index.html'
 
-AUTHOR_URL = 'author/{slug}/'
-AUTHOR_SAVE_AS = 'author/{slug}/index.html'
-AUTHORS_URL = 'authors.html'
-AUTHORS_SAVE_AS = 'authors.html'
+# TAG_URL = 'tag/{slug}/'
+# # TAG_URL = 'tags.html#{slug}-ref'
+# TAG_SAVE_AS = 'tag/{slug}/index.html'
+# TAGS_URL = 'tags/'
+# TAGS_SAVE_AS = 'tags/index.html'
 
-ARCHIVES_SAVE_AS = 'archives/index.html'
+# AUTHOR_URL = 'author/{slug}/'
+# AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+# AUTHORS_URL = 'authors.html'
+# AUTHORS_SAVE_AS = 'authors.html'
+
+# ARCHIVES_SAVE_AS = 'archives/index.html'
 YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
 MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%m}/index.html'
 DAY_ARCHIVE_SAVE_AS = False
 
 SLUG_SUBSTITUTIONS = ()
+
+
+
 
 
 
@@ -239,8 +262,8 @@ SITEMAP = {
 
 ## Elegant Theme
 RECENT_ARTICLES_COUNT = 15
-COMMENTS_INTRO = u'So what do you think? Did I miss something? Is any part unclear? Leave your comments below.'
-SITE_LICENSE = u'Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> 老运维创e</span></a>. All Rights Reserved.  <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a>'
+# COMMENTS_INTRO = u'So what do you think? Did I miss something? Is any part unclear? Leave your comments below.'
+SITE_LICENSE = u'Copyright &copy; 2013-2014 <a href="http://opslinux.com"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> 老运维创e</span></a>. All Rights Reserved. <a href="http://opslinux.com/rss.xml">网站地图</a> <a href="http://www.51.la/?16996417" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/16996417.asp" style="border:none" /></a>'
 SITE_DESCRIPTION = u'关注和分享python、linux。'
 SITE_SUBTITLE = u'分享技术'
 USE_SHORTCUT_ICONS = True
@@ -282,7 +305,25 @@ SOCIAL = [
 ]
 
 
+# LINKS = (
+#     ('Bebluesky', 'http://www.bebluesky.com/'),  # 快乐生活，幽它一默
+#     ('Python俱乐部', 'http://www.pythonclub.org/'),  # 以提供Python知识为目标，原创并收集Python编程相关的知识
+#     ('东华博客', 'http://www.truevue.org/'),  # 关注生活，关注科技，关注互联网，了解互联网，了解科技，了解生活！
+#     ('阅微堂', 'http://zhiqiang.org/blog/'), # 数学、金融、计算机
+#     ('Pelican', 'http://getpelican.com/'),
+#     ('Python.org', 'http://python.org/'),
+#     ('Jinja2', 'http://jinja.pocoo.org/'),
+# )
 
+SOCIAL = (
+    ('Email', 'mailto:zbing3@163.com'),
+    ('Weibo', 'http://weibo.com/zb311'),
+    ('Github', 'https://github.com/zbing3'),
+    ('RSS', SITEURL + "/" + FEED_ALL_ATOM),
+
+    # ('Facebook', 'https://www.facebook.com/calfzhou'),
+    # ('Twitter', 'https://twitter.com/calfzhou'),
+)
 
 # Blogroll
 LINKS =  (('Pelican', 'http://getpelican.com/'),

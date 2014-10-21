@@ -6,19 +6,18 @@ python使用mechanize实现登陆
 :tags: mechanize
 :category: python
 :author: 创e
-:lang: 
 :summary: 
 
 
 
 mechanize是非常合适的模拟浏览器的模块，它的特点主要有：
 
--1 http,https协议等。
--2 简单的HTML表单填写。
--3 浏览器历史记录和重载。
--4 Referer的HTTP头的正确添加（可选）。
--5 自动遵守robots.txt的。
--6 自动处理HTTP-EQUIV和刷新。
+- 1 http,https协议等。
+- 2 简单的HTML表单填写。
+- 3 浏览器历史记录和重载。
+- 4 Referer的HTTP头的正确添加（可选）。
+- 5 自动遵守robots.txt的。
+- 6 自动处理HTTP-EQUIV和刷新。
 
 所以你可以用mechanize来完成一些自动化浏览器想要做的事情，比如自动登录表单，自动填写表单等
 

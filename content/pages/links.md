@@ -20,6 +20,7 @@ Date: 2013-07-12
 
 [我友博客](http://54im.com/)
 
+[Reboot运维开发](http://linrc.com/blog)
 
 
 
