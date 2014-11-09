@@ -91,8 +91,9 @@
 &lt;p&gt;适用于 Sublime Text 3：&lt;/p&gt;
 &lt;p&gt;1、通过快捷键 ctrl+` 或者 View &amp;gt; Show Console 菜单打开控制台&lt;/p&gt;
 &lt;p&gt;2、粘贴对应版本的代码后回车安装&lt;/p&gt;
-&lt;p&gt;import  urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('&lt;a class="reference external" href="http://sublime.wbond.net/'+pf"&gt;http://sublime.wbond.net/'+pf&lt;/a&gt;.replace(' ','%20')).read())&lt;/p&gt;
-&lt;p&gt;适用于 Sublime Text 2：
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;import  urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;适用于 Sublime Text 2：
 安装方式有两种，第一种是在线下载安装：在 Sublime Text 2 中按下 "ctrl+`"（就是大键盘数字1左边的那个键），拷贝以下命令到窗口下部的终端中，&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
 &lt;/pre&gt;&lt;/div&gt;
