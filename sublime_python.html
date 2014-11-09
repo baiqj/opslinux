@@ -133,7 +133,12 @@
 <h2><a class="toc-backref" href="#id3">插件</a></h2>
 <div class="section" id="package-control">
 <h3><a class="toc-backref" href="#id4">Package Control</a></h3>
-<p>包管理器是必备的，新下载的Sublime Text 2第一个装的肯定是这个，有了它，装其他的包就很方便了。
+<p>包管理器是必备的，新下载的Sublime Text 2第一个装的肯定是这个，有了它，装其他的包就很方便了。</p>
+<p>适用于 Sublime Text 3：</p>
+<p>1、通过快捷键 ctrl+` 或者 View &gt; Show Console 菜单打开控制台</p>
+<p>2、粘贴对应版本的代码后回车安装</p>
+<p>import  urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('<a class="reference external" href="http://sublime.wbond.net/'+pf">http://sublime.wbond.net/'+pf</a>.replace(' ','%20')).read())</p>
+<p>适用于 Sublime Text 2：
 安装方式有两种，第一种是在线下载安装：在 Sublime Text 2 中按下 "ctrl+`"（就是大键盘数字1左边的那个键），拷贝以下命令到窗口下部的终端中，</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
 </pre></div>
@@ -281,15 +286,15 @@ var duoshuoQuery = {short_name:"ops"};
     <h2>Related Posts</h2>
 <ul class="related-posts-list">
 <li><a href="http://opslinux.com/sublime_coffeescript_compass_sass.html" title="sublime 支持开发 coffeescript compass sass">sublime 支持开发 coffeescript compass sass</a></li>
-<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
-<li><a href="http://opslinux.com/python_viode_3.html" title="python开发实践(三)">python开发实践(三)</a></li>
-<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
+<li><a href="http://opslinux.com/python_viode_2.html" title="python开发实践(二)">python开发实践(二)</a></li>
+<li><a href="http://opslinux.com/python_viode_0.html" title="python视频动员">python视频动员</a></li>
 <li><a href="http://opslinux.com/Django_Console_logging_to_STDOUT-.html" title="Django错误日志在命令行显示">Django错误日志在命令行显示</a></li>
-<li><a href="http://opslinux.com/python_viode_1.html" title="python开发实践(一)">python开发实践(一)</a></li>
 <li><a href="http://opslinux.com/Django_shell.html" title="Django启动shell脚本">Django启动shell脚本</a></li>
+<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
+<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
+<li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
+<li><a href="http://opslinux.com/pythonzhong-de-urlencodeyu-urldecode.html" title="python中的urlencode与urldecode">python中的urlencode与urldecode</a></li>
 </ul>
 <hr />
 </section>
