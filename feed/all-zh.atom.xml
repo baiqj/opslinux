@@ -87,7 +87,7 @@
 &lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;插件&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="package-control"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Package Control&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;包管理器是必备的，新下载的Sublime Text 2第一个装的肯定是这个，有了它，装其他的包就很方便了。&lt;/p&gt;
+&lt;p&gt;包管理器是必备的，新下载的Sublime Text第一个装的肯定是这个，有了它，装其他的包就很方便了。&lt;/p&gt;
 &lt;p&gt;适用于 Sublime Text 3：&lt;/p&gt;
 &lt;p&gt;1、通过快捷键 ctrl+` 或者 View &amp;gt; Show Console 菜单打开控制台&lt;/p&gt;
 &lt;p&gt;2、粘贴对应版本的代码后回车安装&lt;/p&gt;
