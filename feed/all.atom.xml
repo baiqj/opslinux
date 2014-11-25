@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-11-25T19:00:27+08:00</updated><entry><title>Python is的使用</title><link href="http://opslinux.com/python_is.html" rel="alternate"></link><updated>2014-11-25T19:00:27+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-11-25:python_is.html</id><summary type="html">&lt;p&gt;python is是种很特殊的语法，你在其它的语言应该不会见到这样的用法.
 python is主要是判断2个变量是否引用的是同一个对象，如果是的话，则返回True，否则返回False&lt;/p&gt;
-&lt;p&gt;比如:
-a = 'abc'
-b = 'abc'&lt;/p&gt;
-&lt;p&gt;a is b 返回True,因为变量a和b都存储了字符串'abc'对象的地址。&lt;/p&gt;
+&lt;p&gt;比如:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;a is b 返回True,因为变量a和b都存储了字符串'abc'对象的地址。&lt;/p&gt;
 &lt;p&gt;如果是:&lt;/p&gt;
-&lt;p&gt;a = 'abc'
-c = 'abcd'&lt;/p&gt;
-&lt;p&gt;print a is c 返回False,因为变量a和c存储了字符串对象地址不一致。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;abcd&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;print a is c 返回False,因为变量a和c存储了字符串对象地址不一致。&lt;/p&gt;
 </summary><category term="python"></category></entry><entry><title>Django使用两个以上mysql数据库</title><link href="http://opslinux.com/django_multiple_mysql.html" rel="alternate"></link><updated>2014-11-20T17:11:04+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-11-20:django_multiple_mysql.html</id><summary type="html">
 &lt;p&gt;看了Django的官方文档，关于model这有介绍Multiple databases，但是没有介绍超过两个数据库的连接情况，这里我用mysql举例子，连接3个mysql数据库。估计这么用的不多哈哈哈，我们的需求比较复杂两个mysql上的都是公用数据，然后默认的数据库是我项目使用的数据库，保存着自己项目的账户系统和使用的一些信息。&lt;/p&gt;
 &lt;div class="section" id="settings-py"&gt;
