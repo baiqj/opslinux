@@ -74,7 +74,9 @@
     &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;continue&lt;/span&gt;
     &lt;span class="k"&gt;break&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;else在 while和for 正常循环完成之后执行，和直接写在 while和for 之后没有区别，但是如果用break结束循环之后else就不会执行了。这也是个很新奇的做法。&lt;/p&gt;
+&lt;p&gt;才知道原来可以作为跳出多层循环用。不过要是有多次跳出不同层的循环的需求，也没辙了。&lt;/p&gt;
+&lt;/div&gt;
 </summary><category term="python"></category></entry><entry><title>Python is的使用</title><link href="http://opslinux.com/python_is.html" rel="alternate"></link><updated>2014-11-25T19:00:27+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-11-25:python_is.html</id><summary type="html">&lt;p&gt;python is是种很特殊的语法，你在其它的语言应该不会见到这样的用法.
 python is主要是判断2个变量是否引用的是同一个对象，如果是的话，则返回True，否则返回False&lt;/p&gt;
 &lt;p&gt;比如:&lt;/p&gt;
