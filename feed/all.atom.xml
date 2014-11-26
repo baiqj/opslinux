@@ -217,7 +217,7 @@ python is主要是判断2个变量是否引用的是同一个对象，如果是�
 &lt;p&gt;输入 install 调出 Package Control: Install Package 选项，按下回车&lt;/p&gt;
 &lt;p&gt;在列表中分别找到 CoffeeScript，compass，sass和sass build按下回车进行安装&lt;/p&gt;
 &lt;p&gt;重启Sublime Text 2使之生效&lt;/p&gt;
-</summary><category term="sublime"></category></entry><entry><title>python跳出多层循环</title><link href="http://opslinux.com/python_multi_for.html" rel="alternate"></link><updated>2014-06-16T09:45:03+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-06-16:python_multi_for.html</id><summary type="html">&lt;p&gt;今天同事问我一个python面试题，关于python跳出多层循环，原来还真没用过，网上一查还真有点意思，下面记录一下：&lt;/p&gt;
+</summary><category term="sublime"></category></entry><entry><title>python跳出多层循环</title><link href="http://opslinux.com/python_multi_for_break.html" rel="alternate"></link><updated>2014-06-16T09:45:03+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-06-16:python_multi_for_break.html</id><summary type="html">&lt;p&gt;今天同事问我一个python面试题，关于python跳出多层循环，原来还真没用过，网上一查还真有点意思，下面记录一下：&lt;/p&gt;
 &lt;p&gt;Python 本身没有“break n” 和“goto” 的语法，这也造成了Python 难以跳出多层（特定层数）循环。下面是几个跳出多层（特定层数）循环的tip。&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h2&gt;1、自定义异常&lt;/h2&gt;

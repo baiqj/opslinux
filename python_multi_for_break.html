@@ -9,20 +9,20 @@
 
         <meta name="description" content="" />
 
-<meta name="keywords" content="ipython, python, python, " />
+<meta name="keywords" content="python, python, " />
 
-<meta property="og:title" content="安装ipython "/>
+<meta property="og:title" content="python跳出多层循环 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/install_ipython.html" />
+<meta property="og:url" content="http://opslinux.com/python_multi_for_break.html" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-05-18T10:11:24" />
+<meta property="og:article:published_time" content="2014-06-16T09:45:03" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装ipython ">
+<meta name="twitter:title" content="python跳出多层循环 ">
 <meta name="twitter:description" content="">
 
-        <title>安装ipython  · 老运维创e
+        <title>python跳出多层循环  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/install_ipython.html"> 安装ipython  </a></h1>
+    <h1><a href="http://opslinux.com/python_multi_for_break.html"> python跳出多层循环  </a></h1>
     </header>
 </div>
 
@@ -74,13 +74,79 @@
         <div class="span8 offset2 article-content">
 
             
-            <img alt="ipython" class="align-center" src="http://opslinux.qiniudn.com/IPython_logo.png" />
-<p>今天看到有朋友在用ipython，我也好久没用了，索性装一下</p>
-<p>环境为MacOS Python 2.7.5</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre>pip install readline ipython
+            <p>今天同事问我一个python面试题，关于python跳出多层循环，原来还真没用过，网上一查还真有点意思，下面记录一下：</p>
+<p>Python 本身没有“break n” 和“goto” 的语法，这也造成了Python 难以跳出多层（特定层数）循环。下面是几个跳出多层（特定层数）循环的tip。</p>
+<div class="section" id="id1">
+<h2>1、自定义异常</h2>
+<p>class getoutofloop(Exception): pass</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">getoutofloop</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
+<span class="k">except</span> <span class="n">getoutofloop</span><span class="p">:</span>
+    <span class="k">pass</span>
 </pre></div>
-</td></tr></table><p>安装完成，输入ipython进入：</p>
-<img alt="ipython test" src="http://opslinux.qiniudn.com/026DF930-C3C9-4C67-B3E7-9A986AC0D033.png" />
+</td></tr></table></div>
+<div class="section" id="return">
+<h2>2、封装为函数return</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
+<span class="n">test</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="for-else">
+<h2>3、for ... else ... 用法</h2>
+<p>上面的两种都是只能跳出多层而不能跳出特定层数的循环，接下来的这个正是为了跳出特定层数的循环。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
+    <span class="k">break</span>
+</pre></div>
+</td></tr></table></div>
 
             
             <section>
@@ -88,7 +154,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/install_ipython.html#disqus_thread">
+                href="http://opslinux.com/python_multi_for_break.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -98,8 +164,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/install_ipython.html';
-    var disqus_url = 'http://opslinux.com/install_ipython.html';
+        var disqus_identifier = 'http://opslinux.com/python_multi_for_break.html';
+    var disqus_url = 'http://opslinux.com/python_multi_for_break.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -139,20 +205,20 @@ var duoshuoQuery = {short_name:"ops"};
 <li><a href="http://opslinux.com/sqlalchemycha-xun-fan-hui-jsonshu-ju.html" title="sqlalchemy查询返回json数据">sqlalchemy查询返回json数据</a></li>
 <li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
-<li><a href="http://opslinux.com/python_viode_2.html" title="python开发实践(二)">python开发实践(二)</a></li>
-<li><a href="http://opslinux.com/python_viode_1.html" title="python开发实践(一)">python开发实践(一)</a></li>
+<li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
+<li><a href="http://opslinux.com/sublime_python.html" title="配置sublime打造python编辑器">配置sublime打造python编辑器</a></li>
 <li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
 <li><a href="http://opslinux.com/python_viode_0.html" title="python视频动员">python视频动员</a></li>
-<li><a href="http://opslinux.com/sublime_python.html" title="配置sublime打造python编辑器">配置sublime打造python编辑器</a></li>
-<li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
+<li><a href="http://opslinux.com/python_viode_2.html" title="python开发实践(二)">python开发实践(二)</a></li>
+<li><a href="http://opslinux.com/python_viode_1.html" title="python开发实践(一)">python开发实践(一)</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/Git-matching-simple.html" title="Previous: Git push 中的 Matching和Simple">Git push 中的 Matching和Simple</a></li>
-                <li class="next-article"><a href="http://opslinux.com/Django_shell.html" title="Next: Django启动shell脚本">Django启动shell脚本</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/python_viode_3.html" title="Previous: python开发实践(三)">python开发实践(三)</a></li>
+                <li class="next-article"><a href="http://opslinux.com/sublime_coffeescript_compass_sass.html" title="Next: sublime 支持开发 coffeescript compass sass">sublime 支持开发 coffeescript compass sass</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -160,14 +226,11 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-05-18T10:11:24">May 18, 2014</time>
+            <time pubdate="pubdate" datetime="2014-06-16T09:45:03">Jun 16, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://opslinux.com/tags.html#ipython-ref">ipython
-                    <span>1</span>
-</a></li>
                 <li><a href="http://opslinux.com/tags.html#python-ref">python
                     <span>16</span>
 </a></li>
