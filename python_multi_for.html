@@ -11,18 +11,18 @@
 
 <meta name="keywords" content="python, python, " />
 
-<meta property="og:title" content="Python is的使用 "/>
+<meta property="og:title" content="python跳出多层循环 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/python_is.html" />
+<meta property="og:url" content="http://opslinux.com/python_multi_for.html" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-11-25T19:00:27" />
+<meta property="og:article:published_time" content="2014-06-16T09:45:03" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python is的使用 ">
+<meta name="twitter:title" content="python跳出多层循环 ">
 <meta name="twitter:description" content="">
 
-        <title>Python is的使用  · 老运维创e
+        <title>python跳出多层循环  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/python_is.html"> Python is的使用  </a></h1>
+    <h1><a href="http://opslinux.com/python_multi_for.html"> python跳出多层循环  </a></h1>
     </header>
 </div>
 
@@ -74,20 +74,79 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>python is是种很特殊的语法，你在其它的语言应该不会见到这样的用法.
-python is主要是判断2个变量是否引用的是同一个对象，如果是的话，则返回True，否则返回False</p>
-<p>比如:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="s">&#39;abc&#39;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="s">&#39;abc&#39;</span>
+            <p>今天同事问我一个python面试题，关于python跳出多层循环，原来还真没用过，网上一查还真有点意思，下面记录一下：</p>
+<p>Python 本身没有“break n” 和“goto” 的语法，这也造成了Python 难以跳出多层（特定层数）循环。下面是几个跳出多层（特定层数）循环的tip。</p>
+<div class="section" id="id1">
+<h2>1、自定义异常</h2>
+<p>class getoutofloop(Exception): pass</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">getoutofloop</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
+<span class="k">except</span> <span class="n">getoutofloop</span><span class="p">:</span>
+    <span class="k">pass</span>
 </pre></div>
-</td></tr></table><p>a is b 返回True,因为变量a和b都存储了字符串'abc'对象的地址。</p>
-<p>如果是:</p>
+</td></tr></table></div>
+<div class="section" id="return">
+<h2>2、封装为函数return</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="s">&#39;abc&#39;</span>
-<span class="n">c</span> <span class="o">=</span> <span class="s">&#39;abcd&#39;</span>
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
+<span class="n">test</span><span class="p">()</span>
 </pre></div>
-</td></tr></table><p>print a is c 返回False,因为变量a和c存储了字符串对象地址不一致。</p>
+</td></tr></table></div>
+<div class="section" id="for-else">
+<h2>3、for ... else ... 用法</h2>
+<p>上面的两种都是只能跳出多层而不能跳出特定层数的循环，接下来的这个正是为了跳出特定层数的循环。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
+        <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
+    <span class="k">break</span>
+</pre></div>
+</td></tr></table></div>
 
             
             <section>
@@ -95,7 +154,7 @@ python is主要是判断2个变量是否引用的是同一个对象，如果是�
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/python_is.html#disqus_thread">
+                href="http://opslinux.com/python_multi_for.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -105,8 +164,8 @@ python is主要是判断2个变量是否引用的是同一个对象，如果是�
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/python_is.html';
-    var disqus_url = 'http://opslinux.com/python_is.html';
+        var disqus_identifier = 'http://opslinux.com/python_multi_for.html';
+    var disqus_url = 'http://opslinux.com/python_multi_for.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -145,20 +204,21 @@ var duoshuoQuery = {short_name:"ops"};
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
 <li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
 <li><a href="http://opslinux.com/sublime_python.html" title="配置sublime打造python编辑器">配置sublime打造python编辑器</a></li>
-<li><a href="http://opslinux.com/python_multi_for.html" title="python跳出多层循环">python跳出多层循环</a></li>
 <li><a href="http://opslinux.com/python_viode_0.html" title="python视频动员">python视频动员</a></li>
 <li><a href="http://opslinux.com/Django_Console_logging_to_STDOUT-.html" title="Django错误日志在命令行显示">Django错误日志在命令行显示</a></li>
 <li><a href="http://opslinux.com/Django_shell.html" title="Django启动shell脚本">Django启动shell脚本</a></li>
 <li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
 <li><a href="http://opslinux.com/python_viode_1.html" title="python开发实践(一)">python开发实践(一)</a></li>
 <li><a href="http://opslinux.com/python_viode_2.html" title="python开发实践(二)">python开发实践(二)</a></li>
+<li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/django_multiple_mysql.html" title="Previous: Django使用两个以上mysql数据库">Django使用两个以上mysql数据库</a></li>
+                <li class="previous-article">« <a href="http://opslinux.com/python_viode_3.html" title="Previous: python开发实践(三)">python开发实践(三)</a></li>
+                <li class="next-article"><a href="http://opslinux.com/sublime_coffeescript_compass_sass.html" title="Next: sublime 支持开发 coffeescript compass sass">sublime 支持开发 coffeescript compass sass</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -166,7 +226,7 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-11-25T19:00:27">Nov 25, 2014</time>
+            <time pubdate="pubdate" datetime="2014-06-16T09:45:03">Jun 16, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
