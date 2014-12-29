@@ -14,6 +14,8 @@ DATE_FORMATS = {
     'en': ('en_US', '%a, %d %b %Y'),
 }
 
+
+
 #SITEURL = ''
 SITE_SOURCE = u"https://github.com/zbing3/opslinux.git"
 SLUGIFY_ATTRIBUTE = 'filename'
@@ -33,6 +35,7 @@ DEFAULT_CATEGORY = 'Blog'
 
 DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
+MENUITEMS = (('未分类', 'test.html'), )
 
 DEFAULT_METADATA = ()
 FILENAME_METADATA = '(?P<date>\d{4}-\d{2}-\d{2})_(?P<slug>.*)'
@@ -66,6 +69,10 @@ WITH_FUTURE_DATES = False
 INTRASITE_LINK_REGEX = '[{|](?P<what>.*?)[|}]'
 PYGMENTS_RST_OPTIONS = {'linenos': 'table'}
 
+
+
+
+
 STATIC_PATHS = [
     'extra/robots.txt',
     'extra/.htaccess',
@@ -78,6 +85,7 @@ STATIC_PATHS = [
 EXTRA_PATH_METADATA = {
     'extra/robots.txt': {'path': 'robots.txt'},
     'extra/.htaccess': {'path': '.htaccess'},
+    'extra/CNAME': {'path': 'CNAME'},
     # 'extra/search.html': {'path': 'search.html'},
     }
 # Uncomment following line if you want document-relative URLs when developing
