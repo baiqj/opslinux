@@ -11,18 +11,18 @@
 
 <meta name="keywords" content="python, python, " />
 
-<meta property="og:title" content="python跳出多层循环 "/>
+<meta property="og:title" content="Python对象类型转换json的方法 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/python_multi_for_break.html" />
+<meta property="og:url" content="http://opslinux.com/django_memory_out.html" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-11-26T16:34:33" />
+<meta property="og:article:published_time" content="2014-12-14T21:43:36" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python跳出多层循环 ">
+<meta name="twitter:title" content="Python对象类型转换json的方法 ">
 <meta name="twitter:description" content="">
 
-        <title>python跳出多层循环  · 老运维创e
+        <title>Python对象类型转换json的方法  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/python_multi_for_break.html"> python跳出多层循环  </a></h1>
+    <h1><a href="http://opslinux.com/django_memory_out.html"> Python对象类型转换json的方法  </a></h1>
     </header>
 </div>
 
@@ -74,84 +74,15 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>今天同事问我一个python面试题，关于python跳出多层循环，原来还真没用过，网上一查还真有点意思，下面记录一下：</p>
-<p>Python 本身没有“break n” 和“goto” 的语法，这也造成了Python 难以跳出多层（特定层数）循环。下面是几个跳出多层（特定层数）循环的tip。</p>
-<div class="section" id="id1">
-<h2>1、自定义异常</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">getoutofloop</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span> <span class="k">pass</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="n">getoutofloop</span><span class="p">()</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
-<span class="k">except</span> <span class="n">getoutofloop</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-</td></tr></table></div>
-<div class="section" id="return">
-<h2>2、封装为函数return</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                    <span class="k">return</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
-<span class="n">test</span><span class="p">()</span>
-</pre></div>
-</td></tr></table></div>
-<div class="section" id="for-else">
-<h2>3、for ... else ... 用法</h2>
-<p>上面的两种都是只能跳出多层而不能跳出特定层数的循环，接下来的这个正是为了跳出特定层数的循环。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                <span class="k">break</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
-        <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
-        <span class="k">break</span>
-    <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
-    <span class="k">break</span>
-</pre></div>
-</td></tr></table><p>else在 while和for 正常循环完成之后执行，和直接写在 while和for 之后没有区别，但是如果用break结束循环之后else就不会执行了。这也是个很新奇的做法。</p>
-<p>才知道原来可以作为跳出多层循环用。不过要是有多次跳出不同层的循环的需求，也没辙了。</p>
-</div>
+            <p>前两天工作需求，把python脚本从crontab的方式改成守护进程(daemon)，上线后发现，内存飙升，cpu飙高，程序直接死掉，让我伤心欲绝，郁郁寡欢，终日不得眠啊。开始以为是内存溢出用gc调试好久也看不出问题。由于项目使用了Django-ORM，所以开始怀疑是不是因为Django引发的性能问题。</p>
+<p>搜索了一下关于django内存泄露的文章，这片文章 —— <a class="reference external" href="http://www.igigo.net/post/archives/66">Django&quot;内存泄漏&quot;的问题</a>  给我了启示:</p>
+<blockquote>
+<p>文中第一条就提到:Make sure that you set DEBUG to False in settings.py，在DEBUG模式下，所有的SQL查询都会被保存在内存中.我顿时想起，由于我整个项目还在调试阶段，这个DEBUG变量是设置为True的</p>
+<p>DEBUG设置为False后，内存泄漏的问题就不复存在了</p>
+<p>可我整个项目还需要调试，不能就这么简单的关闭DEBUG模式，怎么办? 我一开始想在后台模块import settings后再重新设置DEBUG变量</p>
+</blockquote>
+<p>下面分析一下脚本程序，import了Django的models,并且对数据库的数据做了轮询操作，所以执行大量的sql去读数据库的全部数据，由于线上DEBUG改成了True，所有的SQL查询保存在了内存中，这样导致内存飙高，好吧不得不说为了把脚本弄成守护进程方式，还用了个while True的死循环，虽然改成了while 1，但是心里还是怪怪的。</p>
+<p>找到问题的原因，我就把DEBUG改成False重启一下,果然内存不再飙高，就此搞定。在此记录一下，解决线上问题的一个小思路。</p>
 
             
             <section>
@@ -159,7 +90,7 @@
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/python_multi_for_break.html#disqus_thread">
+                href="http://opslinux.com/django_memory_out.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -169,8 +100,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/python_multi_for_break.html';
-    var disqus_url = 'http://opslinux.com/python_multi_for_break.html';
+        var disqus_identifier = 'http://opslinux.com/django_memory_out.html';
+    var disqus_url = 'http://opslinux.com/django_memory_out.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -222,8 +153,7 @@ var duoshuoQuery = {short_name:"ops"};
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/python_is.html" title="Previous: Python is的使用">Python is的使用</a></li>
-                <li class="next-article"><a href="http://opslinux.com/python_obj_for_json.html" title="Next: Python对象类型转换json的方法">Python对象类型转换json的方法</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/python_obj_for_json.html" title="Previous: Python对象类型转换json的方法">Python对象类型转换json的方法</a></li>
             </ul>
             </nav>
             </aside>
@@ -231,7 +161,7 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-11-26T16:34:33">Nov 26, 2014</time>
+            <time pubdate="pubdate" datetime="2014-12-14T21:43:36">Dec 14, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>

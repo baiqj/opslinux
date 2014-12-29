@@ -11,18 +11,18 @@
 
 <meta name="keywords" content="python, python, " />
 
-<meta property="og:title" content="python跳出多层循环 "/>
+<meta property="og:title" content="Python对象类型转换json的方法 "/>
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://opslinux.com/python_multi_for_break.html" />
+<meta property="og:url" content="http://opslinux.com/python_obj_for_json.html" />
 <meta property="og:description" content="" />
 <meta property="og:site_name" content="老运维创e" />
 <meta property="og:article:author" content="创e" />
-<meta property="og:article:published_time" content="2014-11-26T16:34:33" />
+<meta property="og:article:published_time" content="2014-11-27T14:44:10" />
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python跳出多层循环 ">
+<meta name="twitter:title" content="Python对象类型转换json的方法 ">
 <meta name="twitter:description" content="">
 
-        <title>python跳出多层循环  · 老运维创e
+        <title>Python对象类型转换json的方法  · 老运维创e
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://opslinux.com/python_multi_for_break.html"> python跳出多层循环  </a></h1>
+    <h1><a href="http://opslinux.com/python_obj_for_json.html"> Python对象类型转换json的方法  </a></h1>
     </header>
 </div>
 
@@ -74,92 +74,44 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>今天同事问我一个python面试题，关于python跳出多层循环，原来还真没用过，网上一查还真有点意思，下面记录一下：</p>
-<p>Python 本身没有“break n” 和“goto” 的语法，这也造成了Python 难以跳出多层（特定层数）循环。下面是几个跳出多层（特定层数）循环的tip。</p>
-<div class="section" id="id1">
-<h2>1、自定义异常</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">getoutofloop</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span> <span class="k">pass</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="n">getoutofloop</span><span class="p">()</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
-<span class="k">except</span> <span class="n">getoutofloop</span><span class="p">:</span>
-    <span class="k">pass</span>
+            <p>有时候，在Django的model中,直接查询出来的orm对象，想直接转成json会报错：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="ne">TypeError</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">JSON</span> <span class="n">serializable</span>
 </pre></div>
-</td></tr></table></div>
-<div class="section" id="return">
-<h2>2、封装为函数return</h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</td></tr></table><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
 7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                    <span class="k">return</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
-<span class="n">test</span><span class="p">()</span>
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">convert_to_builtin_type</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="c"># print &#39;default(&#39;, repr(obj), &#39;)&#39;</span>
+    <span class="c"># Convert objects to a dictionary of btheir representation</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;__class__&#39;</span><span class="p">:</span><span class="n">obj</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+          <span class="s">&#39;__module__&#39;</span><span class="p">:</span><span class="n">obj</span><span class="o">.</span><span class="n">__module__</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d</span>
 </pre></div>
-</td></tr></table></div>
-<div class="section" id="for-else">
-<h2>3、for ... else ... 用法</h2>
-<p>上面的两种都是只能跳出多层而不能跳出特定层数的循环，接下来的这个正是为了跳出特定层数的循环。</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">==</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                <span class="k">break</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">&#39;----&#39;</span><span class="p">,</span> <span class="n">k</span>
-        <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
-        <span class="k">break</span>
-    <span class="k">else</span><span class="p">:</span> <span class="k">continue</span>
-    <span class="k">break</span>
+</td></tr></table><p>然后在函数中调用：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">ip</span> <span class="o">=</span> <span class="n">Ip</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ip</span><span class="o">=</span><span class="n">ip</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;ip&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">ip</span><span class="p">)}</span>
+<span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">convert_to_builtin_type</span><span class="p">))</span>
 </pre></div>
-</td></tr></table><p>else在 while和for 正常循环完成之后执行，和直接写在 while和for 之后没有区别，但是如果用break结束循环之后else就不会执行了。这也是个很新奇的做法。</p>
-<p>才知道原来可以作为跳出多层循环用。不过要是有多次跳出不同层的循环的需求，也没辙了。</p>
-</div>
-
+</td></tr></table><p>如上先filter出ip=ip的条目保存在ip变量中，然后格式化下保存在context变量中。调用时放在default中。</p>
+<p>如果喜欢pythonic，可以用下面lambda方式搞定：</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">o</span><span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">__dict__</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
             
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://opslinux.com/python_multi_for_break.html#disqus_thread">
+                href="http://opslinux.com/python_obj_for_json.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -169,8 +121,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'opslinux';
-        var disqus_identifier = 'http://opslinux.com/python_multi_for_break.html';
-    var disqus_url = 'http://opslinux.com/python_multi_for_break.html';
+        var disqus_identifier = 'http://opslinux.com/python_obj_for_json.html';
+    var disqus_url = 'http://opslinux.com/python_obj_for_json.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -209,21 +161,21 @@ var duoshuoQuery = {short_name:"ops"};
 <li><a href="http://opslinux.com/pythonshi-xian-kong-zhi-mplayer.html" title="python实现控制Mplayer">python实现控制Mplayer</a></li>
 <li><a href="http://opslinux.com/Django_shell.html" title="Django启动shell脚本">Django启动shell脚本</a></li>
 <li><a href="http://opslinux.com/python_is.html" title="Python is的使用">Python is的使用</a></li>
-<li><a href="http://opslinux.com/python_obj_for_json.html" title="Python对象类型转换json的方法">Python对象类型转换json的方法</a></li>
 <li><a href="http://opslinux.com/pythonshi-xian-fen-xi-nginxri-zhi-webping-tai.html" title="python实现分析Nginx日志web平台">python实现分析Nginx日志web平台</a></li>
 <li><a href="http://opslinux.com/python_viode_3.html" title="python开发实践(三)">python开发实践(三)</a></li>
 <li><a href="http://opslinux.com/Django_Console_logging_to_STDOUT-.html" title="Django错误日志在命令行显示">Django错误日志在命令行显示</a></li>
 <li><a href="http://opslinux.com/python_viode_2.html" title="python开发实践(二)">python开发实践(二)</a></li>
 <li><a href="http://opslinux.com/django.html" title="Django自定义用户系统">Django自定义用户系统</a></li>
 <li><a href="http://opslinux.com/install_ipython.html" title="安装ipython">安装ipython</a></li>
+<li><a href="http://opslinux.com/python_md5-.html" title="python计算文件md5">python计算文件md5</a></li>
 </ul>
 <hr />
 </section>
             <aside>
             <nav>
             <ul class="articles-timeline">
-                <li class="previous-article">« <a href="http://opslinux.com/python_is.html" title="Previous: Python is的使用">Python is的使用</a></li>
-                <li class="next-article"><a href="http://opslinux.com/python_obj_for_json.html" title="Next: Python对象类型转换json的方法">Python对象类型转换json的方法</a> »</li>
+                <li class="previous-article">« <a href="http://opslinux.com/python_multi_for_break.html" title="Previous: python跳出多层循环">python跳出多层循环</a></li>
+                <li class="next-article"><a href="http://opslinux.com/django_memory_out.html" title="Next: Python对象类型转换json的方法">Python对象类型转换json的方法</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -231,7 +183,7 @@ var duoshuoQuery = {short_name:"ops"};
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2014-11-26T16:34:33">Nov 26, 2014</time>
+            <time pubdate="pubdate" datetime="2014-11-27T14:44:10">Nov 27, 2014</time>
             <h4>Category</h4>
             <a class="category-link" href="http://opslinux.com/categories.html#python-ref">python</a>
             <h4>Tags</h4>
