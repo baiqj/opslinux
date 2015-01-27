@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2014-12-14T21:43:36+08:00</updated><entry><title>Django内存溢出</title><link href="http://opslinux.com/django_memory_out.html" rel="alternate"></link><updated>2014-12-14T21:43:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-12-14:django_memory_out.html</id><summary type="html">&lt;p&gt;前两天工作需求，把python脚本从crontab的方式改成守护进程(daemon)，上线后发现，内存飙升，cpu飙高，程序直接死掉，让我伤心欲绝，郁郁寡欢，终日不得眠啊。开始以为是内存溢出用gc调试好久也看不出问题。由于项目使用了Django-ORM，所以开始怀疑是不是因为Django引发的性能问题。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>老运维创e</title><link href="http://opslinux.com/" rel="alternate"></link><link href="http://opslinux.com/feed/all.atom.xml" rel="self"></link><id>http://opslinux.com/</id><updated>2015-01-27T17:59:13+08:00</updated><entry><title>python开发实践(四)</title><link href="http://opslinux.com/python_viode_4.html" rel="alternate"></link><updated>2015-01-27T17:59:13+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2015-01-27:python_viode_4.html</id><summary type="html">&lt;p&gt;在大家看到这门课程的时候，这个视频已经让我传到51cto的学院上了，之前一直用七牛云存储做视频存放，结果超过免费标准，收费了然后给我账号封了，我很无奈所以想找个新的放视频的地方，最好是优酷，结果优酷审核总是很慢，所以我就选择了51cto。但是想观看51cto的这个课程需要花费5金币来购买，5金币也就是5元人民币，这也是我经过深思熟虑的事，一是这样会让我录制视频更有动力，二是大家看起来也会更珍惜。所以还是希望大家多少支持吧。毕竟大家看到我这幻灯片做的都对得起这个价格，哈哈哈……&lt;/p&gt;
+&lt;p&gt;共享你的代码（二）课程知识点：&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;新需求&lt;/li&gt;
+&lt;li&gt;改变API后，兼容老用户&lt;/li&gt;
+&lt;li&gt;增加参数，满足新老用户&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;视频地址：请点击 &lt;a class="reference external" href="http://edu.51cto.com/lesson/id-49837.html"&gt;51cto学院&lt;/a&gt;&lt;/p&gt;
+</summary><category term="python"></category></entry><entry><title>Django内存溢出</title><link href="http://opslinux.com/django_memory_out.html" rel="alternate"></link><updated>2014-12-14T21:43:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-12-14:django_memory_out.html</id><summary type="html">&lt;p&gt;前两天工作需求，把python脚本从crontab的方式改成守护进程(daemon)，上线后发现，内存飙升，cpu飙高，程序直接死掉，让我伤心欲绝，郁郁寡欢，终日不得眠啊。开始以为是内存溢出用gc调试好久也看不出问题。由于项目使用了Django-ORM，所以开始怀疑是不是因为Django引发的性能问题。&lt;/p&gt;
 &lt;p&gt;搜索了一下关于django内存泄露的文章，这片文章 —— &lt;a class="reference external" href="http://www.igigo.net/post/archives/66"&gt;Django&amp;quot;内存泄漏&amp;quot;的问题&lt;/a&gt;  给我了启示:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;文中第一条就提到:Make sure that you set DEBUG to False in settings.py，在DEBUG模式下，所有的SQL查询都会被保存在内存中.我顿时想起，由于我整个项目还在调试阶段，这个DEBUG变量是设置为True的&lt;/p&gt;
@@ -335,7 +343,7 @@ python is主要是判断2个变量是否引用的是同一个对象，如果是�
 &lt;p&gt;在列表中分别找到 CoffeeScript，compass，sass和sass build按下回车进行安装&lt;/p&gt;
 &lt;p&gt;重启Sublime Text 2使之生效&lt;/p&gt;
 </summary><category term="sublime"></category></entry><entry><title>python开发实践(三)</title><link href="http://opslinux.com/python_viode_3.html" rel="alternate"></link><updated>2014-06-16T09:45:03+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-06-16:python_viode_3.html</id><summary type="html">&lt;p&gt;共享你的代码&lt;/p&gt;
-&lt;p&gt;人人都爱列表课程知识点：&lt;/p&gt;
+&lt;p&gt;共享你的代码课程知识点：&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;编辑器&lt;/li&gt;
 &lt;li&gt;注释&lt;/li&gt;
@@ -924,35 +932,4 @@ password_reset_form.html&lt;/p&gt;
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="django"></category><category term="密码重置"></category><category term="邮件重置密码"></category></entry><entry><title>算法的时间复杂度</title><link href="http://opslinux.com/Time_Complexity.html" rel="alternate"></link><updated>2014-05-12T20:09:36+08:00</updated><author><name>创e</name></author><id>tag:opslinux.com,2014-05-12:Time_Complexity.html</id><summary type="html">&lt;div class="section" id="id2"&gt;
-&lt;h2&gt;算法实际那复杂度定义&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div class="section" id="o"&gt;
-&lt;h2&gt;推导大O阶&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;1.用常数1取代运行时间中的所有加法常数。&lt;/li&gt;
-&lt;li&gt;2.在修改后得运行次数函数中，只保留最高阶项 。&lt;/li&gt;
-&lt;li&gt;3.如果最高阶项存在且不是1，则去除与这个项相乘的常数。&lt;/li&gt;
-&lt;li&gt;得到的结果就是大O阶&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id3"&gt;
-&lt;h2&gt;常数阶&lt;/h2&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
-&lt;span class="n"&gt;sum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;      &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
-&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="cm"&gt;/* 执行一次 */&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;这个算法运行次数函数是f(n)=3.根据我们推到大O阶的方法，第一步就是把常数项3改为1。在保留最高阶项时发现，它根本没有最高阶项，所以这个算法的时间复杂度为O(1)。&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id4"&gt;
-&lt;h2&gt;线性阶&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h2&gt;对数阶&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h2&gt;平方阶&lt;/h2&gt;
-&lt;/div&gt;
-</summary><category term="算法"></category><category term="Arithmetic"></category><category term="Time Complexity"></category></entry></feed>
+</summary><category term="django"></category><category term="密码重置"></category><category term="邮件重置密码"></category></entry></feed>
